@@ -1,0 +1,190 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.intro,
+.helpLink,
+#cancel,
+#ChangePhoneNumber,
+.extension_userId_li,
+.divider h2 {
+    display: none;
+}
+
+label {
+    color: #616161;
+    display: inline-block;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+.logo {
+    margin-left: 24px;
+    width: 140px;
+}
+
+.textInput {
+    margin-bottom: 32px;
+}
+
+.space-filler {
+    display: none;
+}
+
+.main-content {
+    background-color: #fff;
+    min-height: 100vh;
+    padding: 40px;
+}
+
+.main-heading {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 21px;
+}
+
+.main-content-wrapper {
+    margin: auto;
+    width: 60%;
+}
+
+.header-image,
+.footer-image {
+    width: 100%;
+}
+
+.textInput,
+#email,
+#password {
+    border-color: #b8b8b8;
+    border-radius: 8px;
+    border-width: 1px;
+    padding: 16px 12px;
+    width: 100%;
+}
+
+#email,
+#password {
+    margin-bottom: 30px
+}
+
+#forgotPassword {
+    color: #2765C1;
+    font-size: 12px;
+    margin-left: 4px;
+    text-decoration: none;
+}
+
+.create p {
+    color: #616161;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+#createAccount {
+    color: #2765C1;
+    margin-left: 4px;
+    text-decoration: none;
+}
+
+.sendCode,
+.sendNewCode,
+.verifyCode {
+    background-color: #6499CF;
+    margin-bottom: 30px;
+    width: 45%;
+}
+
+.verifyCode {
+    margin-right: 10%;
+}
+
+#continue {
+    background-color: #2765c1;
+    width: 100%;
+}
+
+.sendCode,
+.sendNewCode,
+.verifyCode,
+#continue {
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 16px 0;
+}
+
+.lower-content {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 129px;
+}
+
+.lower-content a {
+    color: #2765c1;
+    text-decoration: none;
+}
+
+.sendCode,
+#continue,
+#next {
+    background-color: #2765c1;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 16px 0;
+    width: 100%;
+}
+
+button {
+    cursor: pointer;
+}
+
+@media screen and (min-width: 1000px) {
+    body {
+        background-color: #6599d0
+    }
+
+    .wrapper {
+        display: flex;
+    }
+
+    .main-content {
+        border-radius: 0 8px 8px 0;
+        box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+        display: inline-block;
+        height: 100vh;
+        overflow-y: scroll;
+        width: 50vw;
+    }
+
+    .space-filler {
+        display: flex;
+        justify-content: center;
+        min-height: 100vh;
+        width: 50vw;
+    }
+
+    .space-filler-image {
+        display: block;
+        margin: auto;
+        max-width: 65%;
+    }
+}
+

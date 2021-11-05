@@ -81,6 +81,7 @@ ul {
 #forgotPassword {
     color: #2765C1;
     font-size: 12px;
+    font-weight: 500;
     margin-left: 4px;
     text-decoration: none;
 }
@@ -93,6 +94,7 @@ ul {
 
 #createAccount {
     color: #2765C1;
+    font-weight: 500;
     margin-left: 4px;
     text-decoration: none;
 }

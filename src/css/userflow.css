@@ -1,9 +1,11 @@
+/* stylelint-disable selector-class-pattern, selector-id-pattern -- most classes/IDs are dictated by Azure B2C */
+
 * {
     box-sizing: border-box;
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: Roboto, sans-serif;
     margin: 0;
     padding: 0;
 }
@@ -49,7 +51,7 @@ ul {
 }
 
 .main-heading {
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: "Source Sans Pro", sans-serif;
     font-size: 21px;
 }
 
@@ -75,11 +77,11 @@ ul {
 
 #email,
 #password {
-    margin-bottom: 30px
+    margin-bottom: 30px;
 }
 
 #forgotPassword {
-    color: #2765C1;
+    color: #2765c1;
     font-size: 12px;
     font-weight: 500;
     margin-left: 4px;
@@ -93,7 +95,7 @@ ul {
 }
 
 #createAccount {
-    color: #2765C1;
+    color: #2765c1;
     font-weight: 500;
     margin-left: 4px;
     text-decoration: none;
@@ -102,7 +104,7 @@ ul {
 .sendCode,
 .sendNewCode,
 .verifyCode {
-    background-color: #6499CF;
+    background-color: #6499cf;
     margin-bottom: 30px;
     width: 45%;
 }
@@ -123,7 +125,7 @@ ul {
     border: none;
     border-radius: 8px;
     color: #fff;
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: "Source Sans Pro", sans-serif;
     font-size: 16px;
     font-weight: bold;
     padding: 16px 0;
@@ -147,7 +149,7 @@ ul {
     border: none;
     border-radius: 8px;
     color: #fff;
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: "Source Sans Pro", sans-serif;
     font-size: 16px;
     font-weight: bold;
     padding: 16px 0;
@@ -160,7 +162,7 @@ button {
 
 @media screen and (min-width: 1000px) {
     body {
-        background-color: #6599d0
+        background-color: #6599d0;
     }
 
     .wrapper {
@@ -169,7 +171,7 @@ button {
 
     .main-content {
         border-radius: 0 8px 8px 0;
-        box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+        box-shadow: 0 4px 4px 0 rgb(0 0 0 / "25%");
         display: inline-block;
         height: 100vh;
         overflow-y: scroll;
@@ -189,4 +191,3 @@ button {
         max-width: 65%;
     }
 }
-

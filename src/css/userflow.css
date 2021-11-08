@@ -15,7 +15,8 @@ body {
 #cancel,
 #ChangePhoneNumber,
 .extension_userId_li,
-.divider h2 {
+.divider h2,
+.verificationSuccessText {
     display: none;
 }
 
@@ -29,6 +30,12 @@ label {
 ul {
     list-style: none;
     padding: 0;
+}
+
+.error {
+    color: #d3302f;
+    font-weight: 500;
+    margin-bottom: 16px;
 }
 
 .logo {
@@ -60,8 +67,7 @@ ul {
     width: 60%;
 }
 
-.header-image,
-.footer-image {
+.header-image {
     width: 100%;
 }
 
@@ -101,23 +107,30 @@ ul {
     text-decoration: none;
 }
 
+.changeClaims,
 .sendCode,
 .sendNewCode,
 .verifyCode {
-    background-color: #6499cf;
+    background-color: #2765c1;
     margin-bottom: 30px;
-    width: 45%;
+    padding: 10px 12px;
+}
+
+.changeClaims {
+    margin-top: 16px;
 }
 
 .verifyCode {
-    margin-right: 10%;
+    margin-right: 14px;
 }
 
 #continue {
     background-color: #2765c1;
+    padding: 16px 0;
     width: 100%;
 }
 
+.changeClaims,
 .sendCode,
 .sendNewCode,
 .verifyCode,
@@ -128,7 +141,6 @@ ul {
     font-family: "Source Sans Pro", sans-serif;
     font-size: 16px;
     font-weight: bold;
-    padding: 16px 0;
 }
 
 .lower-content {
@@ -142,7 +154,6 @@ ul {
     text-decoration: none;
 }
 
-.sendCode,
 #continue,
 #next {
     background-color: #2765c1;

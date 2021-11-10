@@ -1,0 +1,32 @@
+{
+    "LocalizedStrings": [
+        {
+            "ElementType": "ClaimType",
+            "ElementId": "extension_HasAcceptedPrivacyPolicy",
+            "StringId": "DisplayName",
+            "Override": true,
+            "Value": "Privacy Policy"
+        },
+        {
+            "ElementType": "ClaimType",
+            "ElementId": "extension_HasAcceptedPrivacyPolicy",
+            "StringId": "UserHelpText",
+            "Override": true,
+            "Value": "Please agree to the KidsLoop Privacy policy to create an account"
+        }
+    ],
+    "LocalizedCollections": [
+        {
+            "ElementType": "ClaimType",
+            "ElementId": "extension_HasAcceptedPrivacyPolicy",
+            "TargetCollection": "Restriction",
+            "Override": true,
+            "Items": [
+                {
+                    "Name": "I agree to the KidsLoop {{Privacy policy}}",
+                    "Value": "true"
+                }
+            ]
+        }
+    ]
+}

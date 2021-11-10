@@ -1,0 +1,32 @@
+{
+    "LocalizedStrings": [
+        {
+            "ElementType": "UxElement",
+            "ElementId": null,
+            "StringId": "button_signin",
+            "Override": true,
+            "Value": "Log in"
+        },
+        {
+            "ElementType": "UxElement",
+            "ElementId": null,
+            "StringId": "heading",
+            "Override": true,
+            "Value": "Log in"
+        },
+        {
+            "ElementType": "UxElement",
+            "ElementId": null,
+            "StringId": "local_intro_generic",
+            "Override": true,
+            "Value": "Log in with your {0}"
+        },
+        {
+            "ElementType": "UxElement",
+            "ElementId": null,
+            "StringId": "social_intro",
+            "Override": true,
+            "Value": "Log in with your social account"
+        }
+    ]
+}

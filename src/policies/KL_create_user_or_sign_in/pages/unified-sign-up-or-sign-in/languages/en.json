@@ -27,6 +27,20 @@
             "StringId": "social_intro",
             "Override": true,
             "Value": "Log in with your social account"
+        },
+        {
+            "ElementType": "UxElement",
+            "ElementId": null,
+            "StringId": "requiredField_generic",
+            "Override": true,
+            "Value": "Cannot be empty"
+        },
+        {
+            "ElementType": "UxElement",
+            "ElementId": null,
+            "StringId": "requiredField_password",
+            "Override": true,
+            "Value": "Cannot be empty"
         }
     ]
 }

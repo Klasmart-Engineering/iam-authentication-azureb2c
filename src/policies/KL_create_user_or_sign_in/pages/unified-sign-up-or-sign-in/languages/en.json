@@ -41,6 +41,20 @@
             "StringId": "requiredField_password",
             "Override": true,
             "Value": "Cannot be empty"
+        },
+        {
+            "ElementType": "ErrorMessage",
+            "ElementId": null,
+            "StringId": "UserMessageIfClaimsPrincipalDoesNotExist",
+            "Override": true,
+            "Value": "Sorry, we don’t recognise your login details! Please check that you’ve entered them correctly and try again."
+        },
+        {
+            "ElementType": "ErrorMessage",
+            "ElementId": null,
+            "StringId": "UserMessageIfInvalidPassword",
+            "Override": true,
+            "Value": "Sorry, we don’t recognise your login details! Please check that you’ve entered them correctly and try again."
         }
     ]
 }

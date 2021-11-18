@@ -3,6 +3,7 @@
 
 const path = require("path")
 const glob = require("fast-glob")
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin")
 
 /**
  * Create separate entrypoint per `index.ts` file in `src` folder, and preserve the folder structure
@@ -90,5 +91,8 @@ module.exports = {
                 ],
             },
         ],
+    },
+    optimization: {
+        minimizer: ["...", new CssMinimizerPlugin()],
     },
 }

@@ -39,6 +39,14 @@ Each page folder should contain:
 Any common JS/CSS for a particular policy should go in a `common` folder underneath the policy root
 e.g. global styling.
 
+### CSS
+
+Any _global_ styling (such as `button` or `input` styling i.e. any generic components) should go in a `global.css` file in the "common/css" subfolder of a policy.
+
+Any styling specific to a certain design, which is reused across multiple policy pages, should go in the same subfolder (with a sensible name).
+
+Any styling specific to a page should go in an `index.css` file at the same level as the `index.html` file.
+
 ### HTML
 
 HTML templates should use relative links to assets e.g. `./index.css` or `../assets/logo.svg`.

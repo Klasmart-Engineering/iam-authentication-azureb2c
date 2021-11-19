@@ -1,31 +1,31 @@
 /* stylelint-disable selector-class-pattern, selector-id-pattern -- most classes/IDs are dictated by Azure B2C */
 
 html {
+    background-attachment: fixed;
     background-image: url("../../../../assets/fairground.svg");
+
     /* Make sure the green line is always at the bottom of the screen */
     background-position: center bottom;
-    background-attachment: fixed;
     background-repeat: no-repeat;
-    height: 100%;
-    /* https://www.aleksandrhovhannisyan.com/blog/respecting-font-size-preferences-rems-62-5-percent/#scaling-font-sizes-with-rem */
+
+    /* https://www.aleksandrhovhannisyan.com/blog/respecting-font-size-preferences-rems-62-5-percent */
+
     /* 62.5% of 16px base font size is 10px */
     font-size: 62.5%;
+    height: 100%;
 }
 
 body {
-    height: 100%;
     /* reset 10*1.6 = 16px */
     font-size: 1.6rem;
+    height: 100%;
 }
 
 main {
-    text-align: center;
-    padding-left: 2rem;
-    padding-right: 2rem;
-    padding-top: max(10vh, 5rem);
-    padding-bottom: 5rem;
-    max-width: 40rem;
     margin: auto;
+    max-width: 40rem;
+    padding: max(10vh, 5rem) 2rem 5rem 2rem;
+    text-align: center;
 }
 
 button {
@@ -36,18 +36,19 @@ button {
 /* Kidsloop UI elements */
 
 .header {
-    display: flex;
     align-items: center;
-    justify-content: space-between;
-    height: 4.8rem;
-    padding: 0 1.6rem;
-    width: 100%;
-    margin: 0;
-    position: sticky;
-    top: 0;
+
     /* Required for content to "disappear" behind it on scroll */
     background: white;
     border-bottom: 1px solid #e4e4e4;
+    display: flex;
+    height: 4.8rem;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0 1.6rem;
+    position: sticky;
+    top: 0;
+    width: 100%;
 }
 
 .header__logo-container {
@@ -55,15 +56,15 @@ button {
 }
 
 .header__logo {
-    width: 113px;
     margin-left: 3%;
+    width: 113px;
 }
 
 .header__title {
-    font-weight: 500;
+    color: rgb(0 0 0 / 50%);
     font-size: 1.9rem;
+    font-weight: 500;
     line-height: 3.2rem;
-    color: rgba(0, 0, 0, 0.5);
 }
 
 .header__language-select {
@@ -71,10 +72,10 @@ button {
 }
 
 .main__title {
-    font-weight: bold;
-    font-size: clamp(2.4rem, 4.5vw, 4rem);
-    line-height: clamp(3.2rem, 5.5vw, 5.2rem);
     color: #666;
+    font-size: clamp(2.4rem, 4.5vw, 4rem);
+    font-weight: bold;
+    line-height: clamp(3.2rem, 5.5vw, 5.2rem);
     margin-bottom: 3.6rem;
     text-align: left;
 }
@@ -89,16 +90,16 @@ button {
 }
 
 .buttons {
-    display: flex;
     align-content: center;
-    justify-content: center;
+    display: flex;
     gap: 3.2rem;
+    justify-content: center;
 }
 
 .verificationSuccessText {
+    color: #666;
     font-size: 2rem;
     line-height: 2.8rem;
-    color: #666;
 }
 
 #attributeList label {
@@ -129,16 +130,18 @@ button {
     background: transparent;
     border: none;
     color: #666;
+
     /* Show on the left side of continue, rather than the default right */
     order: -1;
 }
 
 @media screen and (max-width: 1000px), screen and (max-height: 800px) {
     html {
+        background-attachment: fixed;
         background-image: url("../../../../assets/clouds.svg");
+
         /* Keep the clouds at the top of the screen */
         background-position: top 3.2rem center;
-        background-attachment: fixed;
         background-repeat: no-repeat;
     }
 }

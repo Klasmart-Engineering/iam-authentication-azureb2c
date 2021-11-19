@@ -58,8 +58,8 @@
 .create p {
     color: #616161;
     font-size: 14px;
-    margin-top: 1rem;
     font-weight: normal;
+    margin-top: 1rem;
 }
 
 #createAccount {
@@ -87,8 +87,8 @@
 .lower-content {
     color: #666;
     font-size: 14px;
-    margin-top: 1rem;
     margin-bottom: 129px;
+    margin-top: 1rem;
 }
 
 .lower-content a {

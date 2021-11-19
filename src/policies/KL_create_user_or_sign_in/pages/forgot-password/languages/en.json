@@ -19,14 +19,14 @@
             "ElementId": null,
             "StringId": "ver_info_msg",
             "Override": true,
-            "Value": "A reset code has been sent to your email. Please copy it into the input box below."
+            "Value": "A reset code has been sent to your email. Please copy it into the input box below and verify reset code."
         },
         {
             "ElementType": "DisplayControl",
             "ElementId": "emailVerificationControl",
             "StringId": "success_send_code_msg",
             "Override": true,
-            "Value": "A reset code has been sent to your email. Please copy it into the input box below."
+            "Value": "A reset code has been sent to your email. Please copy it into the input box below and verify reset code."
         },
         {
             "ElementType": "DisplayControl",

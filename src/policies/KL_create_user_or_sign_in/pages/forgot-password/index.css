@@ -8,3 +8,19 @@
 .changeClaims {
     display: none !important;
 }
+
+/* Secondary button */
+#continue,
+.sendNewCode {
+    background: #fff;
+    border: 1px solid #b8b8b8;
+    box-sizing: border-box;
+    color: #666;
+}
+
+.attrEntry ul {
+    /* Space between inputs. We can't use padding/margin on li because B2C inserts `display: inline` */
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}

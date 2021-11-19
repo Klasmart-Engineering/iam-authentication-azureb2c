@@ -59,7 +59,7 @@ p {
 .error {
     color: #d3302f;
     font-weight: 500;
-    margin-bottom: 8px;
+    margin: 8px 0;
 }
 
 .helpLink {

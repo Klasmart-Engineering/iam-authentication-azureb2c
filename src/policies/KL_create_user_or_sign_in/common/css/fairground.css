@@ -20,10 +20,17 @@ body {
 
 main {
     text-align: center;
-    padding: 5rem 2rem;
-    max-width: 65rem;
-    margin-left: auto;
-    margin-right: auto;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-top: max(10vh, 5rem);
+    padding-bottom: 5rem;
+    max-width: 40rem;
+    margin: auto;
+}
+
+button {
+    /* Scale button height with viewport */
+    padding: clamp(8px, 2vh, 16px) 16px;
 }
 
 /* Kidsloop UI elements */
@@ -69,6 +76,7 @@ main {
     line-height: clamp(3.2rem, 5.5vw, 5.2rem);
     color: #666;
     margin-bottom: 3.6rem;
+    text-align: left;
 }
 
 /* Azure B2C */
@@ -77,6 +85,7 @@ main {
     color: #666;
     font-size: 2rem;
     line-height: 2.8rem;
+    margin-bottom: 0.8rem;
 }
 
 .buttons {
@@ -101,11 +110,6 @@ main {
     text-align: left;
 }
 
-#attributeList li + li {
-    /* Space between inputs */
-    margin-top: 1.8rem;
-}
-
 #attributeList {
     /* Space between form input section and buttons */
     margin-bottom: 3.2rem;
@@ -116,13 +120,14 @@ main {
 }
 
 #requiredFieldMissing {
-    display: none;
+    /* B2C adds `display: block` styling inline */
+    display: none !important;
 }
 
+/* Tertiary button */
 #cancel {
-    background: #fff;
-    border: 1px solid #b8b8b8;
-    box-sizing: border-box;
+    background: transparent;
+    border: none;
     color: #666;
     /* Show on the left side of continue, rather than the default right */
     order: -1;

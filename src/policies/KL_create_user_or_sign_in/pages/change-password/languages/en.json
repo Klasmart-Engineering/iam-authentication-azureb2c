@@ -5,7 +5,7 @@
             "ElementId": null,
             "StringId": "button_continue",
             "Override": true,
-            "Value": "Change Password"
+            "Value": "Reset Password"
         },
         {
             "ElementType": "UxElement",

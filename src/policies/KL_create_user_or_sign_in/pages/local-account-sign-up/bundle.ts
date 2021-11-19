@@ -2,7 +2,7 @@ import DOMPurify from "dompurify"
 
 const PRIVACY_POLICY_ID = "extension_HasAcceptedPrivacyPolicy_true"
 const PRIVACY_POLICY_URL =
-    "https://klukb2cstorage.blob.core.windows.net/b2ccosmosdb/privacy-policy/index.html"
+    "https://klukb2cstorage.blob.core.windows.net/b2ccosmosdb/external/privacy-policy/index.html"
 const DEFAULT_PRIVACY_POLICY_TEXT = "I agree to the KidsLoop {{Privacy policy}}"
 const PLACEHOLDER_REGEX = /{{(.+)}}/
 

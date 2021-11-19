@@ -1,0 +1,18 @@
+{
+    "LocalizedStrings": [
+        {
+            "ElementType": "UxElement",
+            "ElementId": null,
+            "StringId": "button_continue",
+            "Override": true,
+            "Value": "Reset Password"
+        },
+        {
+            "ElementType": "UxElement",
+            "ElementId": null,
+            "StringId": "initial_intro",
+            "Override": true,
+            "Value": "Almost there! Enter your new password below."
+        }
+    ]
+}

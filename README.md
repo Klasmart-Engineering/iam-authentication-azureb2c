@@ -1,17 +1,85 @@
-# README #
+# README
 
-### What is this repository for? ###
+## FAQ
+
+### What is this repository for?
 
 This repository contains the UI for our user policies in Azure B2C.
 
-### How do I get set up? ###
+### How do I get set up?
 
 TBC
 
-### Contribution guidelines ###
+### Contribution guidelines
 
-TBC
+See (guidelines)[#guidelines].
 
-### Who do I talk to? ###
+### Who do I talk to?
 
 The IAM team
+
+## Guidelines
+
+### Folder structure
+
+All images should go in `assets`
+
+Each B2C policy should have a separate folder in the `src/policies` directory, where the folder name should be the policy name with the `B2C_1_` prefix removed
+e.g. "B2C_1_KL_create_user_or_sign_in" becomes "KL_create_user_or_sign_in".
+
+Underneath each policy, each page should have a separate folder, which matches the name in B2C (replacing spaces with `-`).
+
+Each page folder should contain:
+
+-   `index.html`
+-   (OPTIONAL) `index.css`
+-   (OPTIONAL) `bundle.ts`
+-   (OPTIONAL) "languages" folder, with a separate `json` file per language _only_ containing overridden strings
+
+Any common JS/CSS for a particular policy should go in a `common` folder underneath the policy root
+e.g. global styling.
+
+### CSS
+
+Any _global_ styling (such as `button` or `input` styling i.e. any generic components) should go in a `global.css` file in the "common/css" subfolder of a policy.
+
+Any styling specific to a certain design, which is reused across multiple policy pages, should go in the same subfolder (with a sensible name).
+
+Any styling specific to a page should go in an `index.css` file at the same level as the `index.html` file.
+
+### HTML
+
+HTML templates should use relative links to assets e.g. `./index.css` or `../assets/logo.svg`.
+
+_Note:_ any links to JS should be full path links to Azure storage. See (TODO section)[#js-script-injection-into-html-templates] on why this is necessary.
+
+## Build
+
+HTML/JS/CSS/Assets are built with Webpack to the `dist` folder.
+
+The contents of `dist` should be uploaded to the `klukb2cstorage` Azure storage account, in the `b2ccosmosdb` Blob container.
+
+### Details
+
+#### HTML
+
+`extract-loader` allows using a HTML file as an entrypoint.
+
+`html-loader` creates an index.js file from each index.html file, and prefixes all relative links with the `publicPath` in the Webpack config (which is set to the root of our Azure storage account).
+Additionally, it removes comments and minifies the HTML.
+
+`extract-loader` then converts that JS file back into a HTML file.
+
+To remove the temporary `index.js` files built from the source HTML, the Linux `find` utility is used to remove these files after the Webpack build completes.
+
+As `extract-loader` is a slightly older package, it doesn't work with (Asset Modules)[https://webpack.js.org/guides/asset-modules/], so for CSS/images we need to use the older `file-loader` instead.
+
+## TODO
+
+### JS script injection into HTML templates
+
+At the moment, JS links in HTML templates must be full path links to Azure storage.
+
+This is because it doesn't appear possible to use `HTMLWebpackPlugin` and `html-loader`/`extract-loader` sequentially on the same file.
+
+The ideal solution would allow easy local development (injecting a compiled version of the TypeScript bundle into the template with a Webpack dev server), but inject the CDN path in production.

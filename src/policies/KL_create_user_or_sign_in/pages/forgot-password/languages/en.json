@@ -1,0 +1,88 @@
+{
+    "LocalizedStrings": [
+        {
+            "ElementType": "DisplayControl",
+            "ElementId": "emailVerificationControl",
+            "StringId": "intro_msg",
+            "Override": true,
+            "Value": "Enter your email address below to receive a reset code."
+        },
+        {
+            "ElementType": "UxElement",
+            "ElementId": null,
+            "StringId": "ver_intro_msg",
+            "Override": true,
+            "Value": "Enter your email address below to receive a reset code."
+        },
+        {
+            "ElementType": "UxElement",
+            "ElementId": null,
+            "StringId": "ver_info_msg",
+            "Override": true,
+            "Value": "A reset code has been sent to your email. Please copy it into the input box below and verify reset code."
+        },
+        {
+            "ElementType": "DisplayControl",
+            "ElementId": "emailVerificationControl",
+            "StringId": "success_send_code_msg",
+            "Override": true,
+            "Value": "A reset code has been sent to your email. Please copy it into the input box below and verify reset code."
+        },
+        {
+            "ElementType": "DisplayControl",
+            "ElementId": "emailVerificationControl",
+            "StringId": "but_send_new_code",
+            "Override": true,
+            "Value": "Send new reset code"
+        },
+        {
+            "ElementType": "UxElement",
+            "ElementId": null,
+            "StringId": "ver_but_resend",
+            "Override": true,
+            "Value": "Send new reset code"
+        },
+        {
+            "ElementType": "DisplayControl",
+            "ElementId": "emailVerificationControl",
+            "StringId": "but_send_code",
+            "Override": true,
+            "Value": "Send reset code"
+        },
+        {
+            "ElementType": "UxElement",
+            "ElementId": null,
+            "StringId": "ver_but_send",
+            "Override": true,
+            "Value": "Send reset code"
+        },
+        {
+            "ElementType": "DisplayControl",
+            "ElementId": "emailVerificationControl",
+            "StringId": "but_verify_code",
+            "Override": true,
+            "Value": "Verify reset code"
+        },
+        {
+            "ElementType": "UxElement",
+            "ElementId": null,
+            "StringId": "ver_but_verify",
+            "Override": true,
+            "Value": "Verify reset code"
+        },
+        {
+            "ElementType": "UxElement",
+            "ElementId": null,
+            "StringId": "ver_fail_retry",
+            "Override": true,
+            "Value": "The verification has failed, please try again"
+        },
+        {
+            "ElementType": "ErrorMessage",
+            "ElementId": null,
+            "StringId": "UserMessageIfVerificationFailedRetryAllowed",
+            "Override": true,
+            "Value": "The verification has failed, please try again"
+        }
+    ]
+}

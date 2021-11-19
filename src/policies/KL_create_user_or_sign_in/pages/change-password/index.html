@@ -11,6 +11,7 @@
         <link
             href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&family=Source+Sans+Pro&display=swap"
             rel="stylesheet"
+            data-preload="true"
         />
         <link
             href="../../common/css/global.css"
@@ -18,34 +19,26 @@
             data-preload="true"
         />
         <link
-            href="../../common/css/teacher.css"
+            href="../../common/css/fairground.css"
             rel="stylesheet"
             data-preload="true"
         />
+        <link href="./index.css" rel="stylesheet" data-preload="true" />
+        <title>Reset Password</title>
     </head>
-
     <body>
-        <div class="wrapper">
-            <div class="main-content">
-                <div>
-                    <img class="logo" src="../../../../assets/logo.svg" />
-                </div>
-                <div class="main-content-wrapper">
-                    <img
-                        class="header-image"
-                        src="../../../../assets/cat_clouds_image.svg"
-                    />
-
-                    <h1 class="main-heading">Login</h1>
-                    <div id="api"></div>
-                </div>
+        <div class="header">
+            <div class="header__logo-container">
+                <img class="header__logo" src="../../../../assets/logo.svg" />
             </div>
-            <div class="space-filler">
-                <img
-                    class="space-filler-image"
-                    src="../../../../assets/bada-teaching.svg"
-                />
-            </div>
+            <div class="header__title">Reset Password</div>
+            <div class="header__language-select"></div>
         </div>
+        <main>
+            <div>
+                <div class="main__title">Let’s reset your password.</div>
+                <div id="api"></div>
+            </div>
+        </main>
     </body>
 </html>

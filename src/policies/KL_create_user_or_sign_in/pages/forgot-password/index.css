@@ -1,0 +1,28 @@
+/* stylelint-disable selector-class-pattern, selector-id-pattern -- most classes/IDs are dictated by Azure B2C */
+
+/* Azure B2C */
+
+.intro {
+    display: none;
+}
+
+/* Prevent changing email after verifying. Button has inline "display: inline" so must use !important */
+.changeClaims {
+    display: none !important;
+}
+
+/* Secondary button */
+#continue,
+.sendNewCode {
+    background: #fff;
+    border: 1px solid #b8b8b8;
+    box-sizing: border-box;
+    color: #666;
+}
+
+.attrEntry ul {
+    /* Space between inputs. We can't use padding/margin on li because B2C inserts `display: inline` */
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}

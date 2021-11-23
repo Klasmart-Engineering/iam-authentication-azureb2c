@@ -10,10 +10,6 @@ class BlobController {
     SharedAccessSignature=sv=2015-04-05&sr=b&si=tutorial-policy-635959936145100803&sig=9aCzs76n0E7y5BpEi2GvsSv433BZa22leDOZXX%2BXXIU%3D`;
 
     private CONTAINER_NAME = 'b2ccosmosdb';
-    constructor(router) {
-        router.post('/file', this.upload.bind(this));
-    }
-
 
     async upload(req, res) {
         const distFolderRoot = './dist/';

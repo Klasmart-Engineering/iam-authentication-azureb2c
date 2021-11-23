@@ -6,8 +6,8 @@ class BlobController {
 
     //private AZURE_STORAGE_CONNECTION_STRING = process.env.CONSTRINGBlob;
     
-    private AZURE_STORAGE_CONNECTION_STRING = `BlobEndpoint=https://klukb2cstorage.blob.core.windows.net/b2ccosmosdb?sp=r&st=2021-11-23T05:23:39Z&se=2021-11-23T13:23:39Z&spr=https&sv=2020-08-04&sr=c&sig=VG9ZNCSYrAZkEBwmqMco3u8KWUO6fPWSuDpd99O4szw%3D;'
-    SharedAccessSignature=sv=2015-04-05&sr=b&si=tutorial-policy-635959936145100803&sig=9aCzs76n0E7y5BpEi2GvsSv433BZa22leDOZXX%2BXXIU%3D`;
+    private AZURE_STORAGE_CONNECTION_STRING = `BlobEndpoint=https://klukb2cstorage.blob.core.windows.net/b2ccosmosdb?sp=racwdli&st=2021-11-23T05:23:39Z&se=2021-11-23T13:23:39Z&spr=https&sv=2020-08-04&sr=c&sig=iMY5S3S2ITrWZo9c9netBYNxuv74zs8Gg7bYyiu8fQo%3D;'
+    SharedAccessSignature=sp=racwdli&st=2021-11-23T05:23:39Z&se=2021-11-23T13:23:39Z&spr=https&sv=2020-08-04&sr=c&sig=iMY5S3S2ITrWZo9c9netBYNxuv74zs8Gg7bYyiu8fQo%3D`;
 
     private CONTAINER_NAME = 'b2ccosmosdb';
 

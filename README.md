@@ -20,30 +20,30 @@ The IAM team
 
 ## Guidelines
 
-### Folder structure
+### Directory structure
 
 All images should go in `assets`
 
-Each B2C policy should have a separate folder in the `src/policies` directory, where the folder name should be the policy name with the `B2C_1_` prefix removed
+Each B2C policy should have a separate directory in the `src/policies` directory, where the directory name should be the policy name with the `B2C_1_` prefix removed
 e.g. "B2C_1_KL_create_user_or_sign_in" becomes "KL_create_user_or_sign_in".
 
-Underneath each policy, each page should have a separate folder, which matches the name in B2C (replacing spaces with `-`).
+Underneath each policy, each page should have a separate directory, which matches the name in B2C (replacing spaces with `-`).
 
-Each page folder should contain:
+Each page directory should contain:
 
 -   `index.html`
 -   (OPTIONAL) `index.css`
 -   (OPTIONAL) `bundle.ts`
--   (OPTIONAL) "languages" folder, with a separate `json` file per language _only_ containing overridden strings
+-   (OPTIONAL) "languages" directory, with a separate `json` file per language _only_ containing overridden strings
 
-Any common JS/CSS for a particular policy should go in a `common` folder underneath the policy root
+Any common JS/CSS for a particular policy should go in a `common` directory underneath the policy root
 e.g. global styling.
 
 ### CSS
 
-Any _global_ styling (such as `button` or `input` styling i.e. any generic components) should go in a `global.css` file in the "common/css" subfolder of a policy.
+Any _global_ styling (such as `button` or `input` styling i.e. any generic components) should go in a `global.css` file in the "common/css" subdirectory of a policy.
 
-Any styling specific to a certain design, which is reused across multiple policy pages, should go in the same subfolder (with a sensible name).
+Any styling specific to a certain design, which is reused across multiple policy pages, should go in the same subdirectory (with a sensible name).
 
 Any styling specific to a page should go in an `index.css` file at the same level as the `index.html` file.
 
@@ -55,7 +55,7 @@ _Note:_ any links to JS should be full path links to Azure storage. See (TODO se
 
 ## Build
 
-HTML/JS/CSS/Assets are built with Webpack to the `dist` folder.
+HTML/JS/CSS/Assets are built with Webpack to the `dist` directory.
 
 The contents of `dist` should be uploaded to the `klukb2cstorage` Azure storage account, in the `b2ccosmosdb` Blob container.
 

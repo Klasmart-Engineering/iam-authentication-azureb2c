@@ -4,6 +4,10 @@ import { BlobServiceClient } from '@azure/storage-blob';
 import { resolve } from 'path';
 const { readdir } = fs.promises;
 
+const UploadStatus = {
+  Error: 0,
+  Success: 1
+};
 
 const upload = async () => {
   try {
@@ -26,10 +30,10 @@ const upload = async () => {
     while (!result.done) {
       result = await uploadIterator.next();
     }
-    return 1;
+    return UploadStatus.Success;
 
   } catch (error) {
-    return 0;
+    return UploadStatus.error;
   }
 }
 
@@ -43,7 +47,7 @@ async function* uploadFiles(dir, containerClient) {
     } else {
       const blockBlobClient = containerClient.getBlockBlobClient(dirent.name);
       const direntPath = resolvedPath.substr(resolvedPath.indexOf('dist\\'), resolvedPath.length - 1);
-      
+
       // Upload files to the blob
       await blockBlobClient.uploadFile(direntPath);
       yield resolvedPath;

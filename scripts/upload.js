@@ -16,16 +16,15 @@ const upload = async () => {
 
     // Create a unique name for the container
     const containerNameObj = blobServiceClient.getContainerClient(containerName);
-    console.log('t', containerNameObj.containerName);
 
     // Get a reference to a container
     const containerClient = await blobServiceClient.getContainerClient(containerNameObj.containerName);
 
-    const iterator = await uploadFiles(distFolderRoot, containerClient);
-    let result = await iterator.next();
+    const uploadIterator = await uploadFiles(distFolderRoot, containerClient);
+    let result = await uploadIterator.next();
 
     while (!result.done) {
-      result = await iterator.next();
+      result = await uploadIterator.next();
     }
     return 1;
 
@@ -43,9 +42,8 @@ async function* uploadFiles(dir, containerClient) {
       yield* uploadFiles(resolvedPath, containerClient);
     } else {
       const blockBlobClient = containerClient.getBlockBlobClient(dirent.name);
-      console.log('nUploading to Azure storage as blob:nt', dirent.name);
-
       const direntPath = resolvedPath.substr(resolvedPath.indexOf('dist\\'), resolvedPath.length - 1);
+      
       // Upload files to the blob
       await blockBlobClient.uploadFile(direntPath);
       yield resolvedPath;

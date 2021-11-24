@@ -33,7 +33,7 @@ const upload = async () => {
     return UploadStatus.Success;
 
   } catch (error) {
-    return UploadStatus.error;
+    return UploadStatus.Error;
   }
 }
 

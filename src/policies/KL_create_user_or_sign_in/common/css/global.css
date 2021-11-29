@@ -47,13 +47,22 @@ p {
 
 /* .textInput class is not used for all inputs e.g. email and password */
 .textInput,
+.verifyInput,
 #email,
-#password {
+#password,
+#signInName,
+#verificationCode {
     border-color: #b8b8b8;
     border-radius: 8px;
     border-width: 1px;
     padding: 16px 12px;
     width: 100%;
+}
+
+.entry-item,
+.verifyInput,
+#email_ver_but_send {
+    margin-bottom: 32px;
 }
 
 .error {
@@ -64,4 +73,52 @@ p {
 
 .helpLink {
     display: none;
+}
+
+.sendButton,
+.verifyButton,
+#sendCode,
+#verifyCode,
+#verifyPhone,
+#continuePhone {
+    padding: 8px 16px;
+}
+
+.verifyButton,
+#sendCode {
+    margin-right: 16px;
+}
+
+#sendCode {
+    margin-top: 32px;
+}
+
+#codeVerification {
+    margin: 32px 0;
+}
+
+.retryCode {
+    cursor: pointer;
+    font-size: 14px;
+}
+
+#verifyCode {
+    margin-top: 32px;
+}
+
+.buttons.verify {
+    color: #0000ee;
+    margin-bottom: 32px;
+    text-transform: lowercase;
+}
+
+#email_ver_input_label,
+#phone_ver_input_label,
+#email_label {
+    display: block !important; /* Set to display: inline in the markup itself :'( */
+    margin-bottom: 14px;
+}
+
+.verificationInfoText {
+     display: none !important; /* Set to display: inline in the markup itself :'( */
 }

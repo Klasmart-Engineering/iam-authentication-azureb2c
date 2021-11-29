@@ -1,0 +1,29 @@
+<TrustFrameworkPolicy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06" DeploymentMode="Development" UserJourneyRecorderEndpoint="urn:journeyrecorder:applicationinsights" PolicySchemaVersion="0.3.0.0" TenantId="kidsloopb2c.onmicrosoft.com" PolicyId="B2C_1A_RELYING_PARTY_SIGN_UP_LOG_IN" PublicPolicyUri="http://kidsloopb2c.onmicrosoft.com/B2C_1A_signup_signin" TenantObjectId="8dc632b7-4df1-4904-a155-7c4663e345bb">
+  <BasePolicy>
+    <TenantId>kidsloopb2c.onmicrosoft.com</TenantId>
+    <PolicyId>B2C_1A__TrustFrameworkLocalization</PolicyId>
+  </BasePolicy>
+  <RelyingParty>
+    <DefaultUserJourney ReferenceId="SUSI-PhoneOrEmail" />
+    <UserJourneyBehaviors>
+      <JourneyInsights TelemetryEngine="ApplicationInsights" InstrumentationKey="4cc32ad1-fe79-411e-b457-6a9b0b764be7" DeveloperMode="true" ClientEnabled="true" ServerEnabled="true" TelemetryVersion="1.0.0" />
+    </UserJourneyBehaviors>
+    <TechnicalProfile Id="PolicyProfile">
+      <DisplayName>PolicyProfile</DisplayName>
+      <Protocol Name="OpenIdConnect" />
+      <OutputClaims>
+        <OutputClaim ClaimTypeReferenceId="signInNames.userName" PartnerClaimType="user_name" DefaultValue="" />
+        <OutputClaim ClaimTypeReferenceId="signInNames.emailAddress" PartnerClaimType="email" />
+        <OutputClaim ClaimTypeReferenceId="signInNames.phoneNumber" PartnerClaimType="phone" />
+        <OutputClaim ClaimTypeReferenceId="isUserNameBoolean" PartnerClaimType="has_user_name" DefaultValue="false" />
+        <OutputClaim ClaimTypeReferenceId="isPhoneBoolean" PartnerClaimType="has_phone" DefaultValue="false" />
+        <OutputClaim ClaimTypeReferenceId="isEmailBoolean" PartnerClaimType="has_email" DefaultValue="false" />
+        <OutputClaim ClaimTypeReferenceId="signInName" PartnerClaimType="log_in_name" />
+        <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub" />
+        <!-- <OutputClaim ClaimTypeReferenceId="identityProvider" /> -->
+        <OutputClaim ClaimTypeReferenceId="tenantId" AlwaysUseDefaultValue="true" DefaultValue="{Policy:TenantObjectId}" />
+      </OutputClaims>
+      <SubjectNamingInfo ClaimType="sub" />
+    </TechnicalProfile>
+  </RelyingParty>
+</TrustFrameworkPolicy>

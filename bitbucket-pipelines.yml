@@ -8,7 +8,6 @@ pipelines:
           - node
         script:
           - npm install
-          - npm test
           - npm run build
         artifacts:
           - dist/**

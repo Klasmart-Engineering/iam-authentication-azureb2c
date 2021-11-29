@@ -12,7 +12,7 @@
       <DisplayName>PolicyProfile</DisplayName>
       <Protocol Name="OpenIdConnect" />
       <OutputClaims>
-        <OutputClaim ClaimTypeReferenceId="signInNames.userName" PartnerClaimType="user_name" DefaultValue="" />
+        <OutputClaim ClaimTypeReferenceId="signInNames.userName" PartnerClaimType="user_name" />
         <OutputClaim ClaimTypeReferenceId="signInNames.emailAddress" PartnerClaimType="email" />
         <OutputClaim ClaimTypeReferenceId="signInNames.phoneNumber" PartnerClaimType="phone" />
         <OutputClaim ClaimTypeReferenceId="isUserNameBoolean" PartnerClaimType="has_user_name" DefaultValue="false" />

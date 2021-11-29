@@ -1,0 +1,32 @@
+image: node:16
+
+pipelines:
+  default:
+    - step:
+        name: Build and Test
+        caches:
+          - node
+        script:
+          - npm install
+          - npm test
+          - npm run build
+        artifacts:
+          - dist/**
+    - step:
+        name: Code linting
+        script:
+          - npm install eslint
+          - npx eslint .
+        caches:
+          - node
+    - step:
+        name: Deploy-2
+        script:
+           - pipe: microsoft/azure-cli-run:1.1.0
+             variables:
+                AZURE_APP_ID: eaadb176-1c2f-47ea-87f1-e1d7792ce094
+                AZURE_PASSWORD: jBxSzJPhoiOyVJATEg5gq7yRIUS-I~xJpk
+                AZURE_TENANT_ID: 8dc632b7-4df1-4904-a155-7c4663e345bb
+                CLI_COMMAND: 'azcopy copy "dist\*" "https://klukb2cstorage.blob.core.windows.net/b2ccosmosdb/mihai-test" --recursive=true'
+        deployment: production
+        # trigger: manual  # Uncomment to make this a manual deployment.

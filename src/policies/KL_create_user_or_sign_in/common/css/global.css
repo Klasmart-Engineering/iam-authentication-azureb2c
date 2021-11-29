@@ -107,7 +107,7 @@ p {
 }
 
 .buttons.verify {
-    color: #0000ee;
+    color: #00e;
     margin-bottom: 32px;
     text-transform: lowercase;
 }
@@ -120,5 +120,5 @@ p {
 }
 
 .verificationInfoText {
-     display: none !important; /* Set to display: inline in the markup itself :'( */
+    display: none !important; /* Set to display: inline in the markup itself :'( */
 }

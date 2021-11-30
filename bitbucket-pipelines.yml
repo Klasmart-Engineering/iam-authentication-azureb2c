@@ -27,8 +27,9 @@ pipelines:
             script:
                - npm install
                - npm run build
-               - node --experimental-repl-await
-               - await require('./dist/scripts/upload').default()
+               - cd dist/scripts
+               - ls
+               - node -e "require('./upload.js').default()"
             artifacts:
               - dist/*
             deployment: production

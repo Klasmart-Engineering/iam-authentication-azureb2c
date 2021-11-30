@@ -27,7 +27,7 @@ pipelines:
             script:
                - npm install
                - npm run build
-               - node -e "require('/dist/scripts/upload.js').default()"
+               - node -e "require('./dist/scripts/upload').default()"
             artifacts:
               - dist/**
             deployment: production

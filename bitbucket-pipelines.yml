@@ -26,7 +26,7 @@ pipelines:
         - step:
             name: Deploy To AzureB2C
             script:
-               - pipe: microsoft/azure-cli-run:1.1.0
+               - pipe: microsoft/azure-cli-run:2.25.0
                  variables:
                     AZURE_APP_ID: eaadb176-1c2f-47ea-87f1-e1d7792ce094
                     AZURE_PASSWORD: jBxSzJPhoiOyVJATEg5gq7yRIUS-I~xJpk

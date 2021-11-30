@@ -30,8 +30,8 @@ pipelines:
                - ls
                - cd dist/scripts
                - ls
-               - node -e "require('./upload.js').default()"
+               - node -e "require('./scripts/upload.js').default()"
             artifacts:
-              - dist/**
+              - dist/*
             deployment: production
             # trigger: manual  # Uncomment to make this a manual deployment.

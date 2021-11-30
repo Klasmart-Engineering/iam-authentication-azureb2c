@@ -25,6 +25,7 @@ pipelines:
         - step:
             name: Deploy To AzureB2C
             script:
+               - npm install
                - npx ts-node ./scripts/upload
             deployment: production
             # trigger: manual  # Uncomment to make this a manual deployment.

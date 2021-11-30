@@ -42,14 +42,13 @@ async function* uploadFiles(directory: string, containerClient: ContainerClient)
 
   for (const dirent of dirents) {
     const resolvedPath = resolve(directory, dirent.name);
+    const outputLength = OUTPUT_FOLDER_ROOT.length + 1;
+    const direntPath = resolvedPath.substr(resolvedPath.indexOf(`${OUTPUT_FOLDER_ROOT}\\`) + outputLength, resolvedPath.length - 1);
+    const direntOriginalPath = resolvedPath.substr(resolvedPath.indexOf(`${OUTPUT_FOLDER_ROOT}\\`), resolvedPath.length - 1);
     if (dirent.isDirectory()) {
-      const direntPath = resolvedPath.substr(resolvedPath.indexOf(`${OUTPUT_FOLDER_ROOT}\\`) +5, resolvedPath.length - 1);
-      const direntOriginalPath = resolvedPath.substr(resolvedPath.indexOf(`${OUTPUT_FOLDER_ROOT}\\`), resolvedPath.length - 1);
       new BlockBlobClient(AZURE_CONNECTION_STRING, CONTAINER_NAME, direntPath);
       yield* uploadFiles(direntOriginalPath, containerClient);
     } else {
-      const direntPath = resolvedPath.substr(resolvedPath.indexOf(`${OUTPUT_FOLDER_ROOT}\\`)+ 5, resolvedPath.length - 1);
-      const direntOriginalPath = resolvedPath.substr(resolvedPath.indexOf(`${OUTPUT_FOLDER_ROOT}\\`), resolvedPath.length - 1);
       const blockBlobClient = new BlockBlobClient(AZURE_CONNECTION_STRING, CONTAINER_NAME, direntPath);
       await blockBlobClient.uploadFile(direntOriginalPath);
       yield resolvedPath;

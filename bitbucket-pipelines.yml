@@ -26,6 +26,6 @@ pipelines:
             name: Deploy To AzureB2C
             script:
                - npm install
-               - npx ts-node ./scripts/upload
+               - node -e "require('./dist/scripts/upload.js').default()"
             deployment: production
             # trigger: manual  # Uncomment to make this a manual deployment.

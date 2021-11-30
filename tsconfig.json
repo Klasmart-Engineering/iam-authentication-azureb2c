@@ -4,6 +4,7 @@
         "module": "CommonJS",
         "outDir": "dist",
         "strict": true,
+        "sourceMap": true,
         "esModuleInterop": true,
         "allowSyntheticDefaultImports": true
     },

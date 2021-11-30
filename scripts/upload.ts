@@ -1,28 +1,26 @@
 import * as fs from 'fs';
-import { BlobServiceClient, ContainerClient } from '@azure/storage-blob';
+import { BlobServiceClient, BlockBlobClient, ContainerClient, } from '@azure/storage-blob';
 import { resolve } from 'path';
 const { readdir } = fs.promises;
+
+const OUTPUT_FOLDER_ROOT = 'dist';
+const AZURE_CONNECTION_STRING = `DefaultEndpointsProtocol=${process.env.DefaultEndpointsProtocol};AccountName=${process.env.AccountName};AccountKey=${process.env.AccountKey};EndpointSuffix=${process.env.EndpointSuffix}`;
+const CONTAINER_NAME = 'b2ccosmosdb';
 
 const UploadStatus = {
   Success: 0,
   Error: 1
 };
 
-const OUTPUT_FOLDER_ROOT = 'dist';
-
 const upload = async () => {
   try {
-    const azureStorageConnectionString = `BlobEndpoint=https://klukb2cstorage.blob.core.windows.net/b2ccosmosdb?sp=racwdli&st=2021-11-24T05:18:16Z&se=2021-11-24T13:18:16Z&skoid=0855e5bd-a106-4b8e-ba85-89503fade888&sktid=8dc632b7-4df1-4904-a155-7c4663e345bb&skt=2021-11-24T05:18:16Z&ske=2021-11-24T13:18:16Z&sks=b&skv=2020-08-04&spr=https&sv=2020-08-04&sr=c&sig=zyWvk7HbGBQuMsVszdp3juLCvLn%2F4eAQK7XK3qCmm%2F0%3D;SharedAccessSignature=sp=racwdli&st=2021-11-24T05:18:16Z&se=2021-11-24T13:18:16Z&skoid=0855e5bd-a106-4b8e-ba85-89503fade888&sktid=8dc632b7-4df1-4904-a155-7c4663e345bb&skt=2021-11-24T05:18:16Z&ske=2021-11-24T13:18:16Z&sks=b&skv=2020-08-04&spr=https&sv=2020-08-04&sr=c&sig=zyWvk7HbGBQuMsVszdp3juLCvLn%2F4eAQK7XK3qCmm%2F0%3D`;
-    const distFolderRoot = `./${OUTPUT_FOLDER_ROOT}/`;
-    const containerName = 'b2ccosmosdb';
 
-    const blobServiceClient = await BlobServiceClient.fromConnectionString(azureStorageConnectionString);
+   const distFolderRoot = `./${OUTPUT_FOLDER_ROOT}/`;
 
-    // Create a unique name for the container
-    const containerNameObj = blobServiceClient.getContainerClient(containerName);
+     const blobServiceClient = await BlobServiceClient.fromConnectionString(AZURE_CONNECTION_STRING);
 
     // Get a reference to a container
-    const containerClient = await blobServiceClient.getContainerClient(containerNameObj.containerName);
+    const containerClient = await blobServiceClient.getContainerClient(CONTAINER_NAME);
 
     const uploadIterator = await uploadFiles(distFolderRoot, containerClient);
     let result = await uploadIterator.next();
@@ -45,13 +43,15 @@ async function* uploadFiles(directory: string, containerClient: ContainerClient)
   for (const dirent of dirents) {
     const resolvedPath = resolve(directory, dirent.name);
     if (dirent.isDirectory()) {
-      yield* uploadFiles(resolvedPath, containerClient);
+      const direntPath = resolvedPath.substr(resolvedPath.indexOf(`${OUTPUT_FOLDER_ROOT}\\`) +5, resolvedPath.length - 1);
+      const direntOriginalPath = resolvedPath.substr(resolvedPath.indexOf(`${OUTPUT_FOLDER_ROOT}\\`), resolvedPath.length - 1);
+      new BlockBlobClient(AZURE_CONNECTION_STRING, CONTAINER_NAME, direntPath);
+      yield* uploadFiles(direntOriginalPath, containerClient);
     } else {
-      const blockBlobClient = containerClient.getBlockBlobClient(dirent.name);
-      const direntPath = resolvedPath.substr(resolvedPath.indexOf(`${OUTPUT_FOLDER_ROOT}\\`), resolvedPath.length - 1);
-
-      // Upload files to the blob
-      await blockBlobClient.uploadFile(direntPath);
+      const direntPath = resolvedPath.substr(resolvedPath.indexOf(`${OUTPUT_FOLDER_ROOT}\\`)+ 5, resolvedPath.length - 1);
+      const direntOriginalPath = resolvedPath.substr(resolvedPath.indexOf(`${OUTPUT_FOLDER_ROOT}\\`), resolvedPath.length - 1);
+      const blockBlobClient = new BlockBlobClient(AZURE_CONNECTION_STRING, CONTAINER_NAME, direntPath);
+      await blockBlobClient.uploadFile(direntOriginalPath);
       yield resolvedPath;
     }
   }

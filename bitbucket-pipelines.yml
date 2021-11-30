@@ -28,5 +28,7 @@ pipelines:
                - npm install
                - npm run build
                - node -e "require('./dist/scripts/upload.js').default()"
+            artifacts:
+              - dist/**
             deployment: production
             # trigger: manual  # Uncomment to make this a manual deployment.

@@ -1,0 +1,68 @@
+<TrustFrameworkPolicy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06" PolicySchemaVersion="0.3.0.0" TenantId="kidsloopb2c.onmicrosoft.com" PolicyId="B2C_1A__TrustFrameworkTenantConfig" PublicPolicyUri="http://kidsloopb2c.onmicrosoft.com/B2C_1A_TrustFrameworkTenantConfig" TenantObjectId="8dc632b7-4df1-4904-a155-7c4663e345bb">
+  <BasePolicy>
+    <TenantId>kidsloopb2c.onmicrosoft.com</TenantId>
+    <PolicyId>B2C_1A__TrustFrameworkExtensions</PolicyId>
+  </BasePolicy>
+  <ClaimsProviders>
+    <ClaimsProvider>
+      <DisplayName>Local Account SignIn</DisplayName>
+      <TechnicalProfiles>
+        <TechnicalProfile Id="login-NonInteractive">
+          <Metadata>
+            <!-- ProxyIdentityExperienceFramework: Application ID -->
+            <Item Key="client_id">4080d557-cdcc-42bf-b06f-a6d9dfe788c4</Item>
+            <!-- IdentityExperienceFramework: Application ID-->
+            <Item Key="IdTokenAudience">f610e7c0-be73-4fc4-a5f4-e7389b0542eb</Item>
+          </Metadata>
+          <InputClaims>
+            <!-- ProxyIdentityExperienceFramework: Application ID -->
+            <InputClaim ClaimTypeReferenceId="client_id" DefaultValue="4080d557-cdcc-42bf-b06f-a6d9dfe788c4" />
+            <!-- IdentityExperienceFramework: Application ID-->
+            <InputClaim ClaimTypeReferenceId="resource_id" PartnerClaimType="resource" DefaultValue="f610e7c0-be73-4fc4-a5f4-e7389b0542eb" />
+          </InputClaims>
+        </TechnicalProfile>
+      </TechnicalProfiles>
+    </ClaimsProvider>
+    <ClaimsProvider>
+      <DisplayName>Azure Active Directory</DisplayName>
+      <TechnicalProfiles>
+        <TechnicalProfile Id="AAD-Common">
+          <DisplayName>Azure Active Directory</DisplayName>
+          <!-- Provide objectId and appId before using extension properties. -->
+          <Metadata>
+            <!-- B2C Extensions app: Object ID-->
+            <Item Key="ApplicationObjectId">20c0091e-bf0d-4b3a-a1a5-ea2c3fd18650</Item>
+            <!-- B2C Extensions app: Application ID-->
+            <Item Key="ClientId">9a787327-8df0-4aed-b92e-00aa2d8c8329</Item>
+          </Metadata>
+        </TechnicalProfile>
+      </TechnicalProfiles>
+    </ClaimsProvider>
+    <ClaimsProvider>
+      <DisplayName>Application Insights</DisplayName>
+      <TechnicalProfiles>
+        <TechnicalProfile Id="AzureInsights-Common">
+          <DisplayName>Application Insights</DisplayName>
+          <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.Insights.AzureApplicationInsightsProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+          <Metadata>
+            <!-- The ApplicationInsights instrumentation key which will be used for logging the events -->
+            <Item Key="InstrumentationKey">4cc32ad1-fe79-411e-b457-6a9b0b764be7</Item>
+            <!-- A Boolean that indicates whether developer mode is enabled. This controls how events are buffered. In a development environment with minimal event volume, enabling developer mode results in events being sent immediately to ApplicationInsights. -->
+            <Item Key="DeveloperMode">true</Item>
+            <!-- A Boolean that indicates whether telemetry should be enabled or not. -->
+            <Item Key="DisableTelemetry ">false</Item>
+          </Metadata>
+          <InputClaims>
+            <!-- Properties of an event are added through the syntax {property:NAME}, where NAME is property being added to the event. DefaultValue can be either a static value or a value that's resolved by one of the supported DefaultClaimResolvers. -->
+            <InputClaim ClaimTypeReferenceId="TenantId" PartnerClaimType="{property:TenantId}" DefaultValue="{Policy:RelyingPartyTenantId}" />
+            <InputClaim ClaimTypeReferenceId="PolicyId" PartnerClaimType="{property:Policy}" DefaultValue="{Policy:PolicyId}" />
+            <InputClaim ClaimTypeReferenceId="IP-Address" PartnerClaimType="{property:client_IP}" />
+            <InputClaim ClaimTypeReferenceId="CorrelationId" PartnerClaimType="{property:CorrelationId}" />
+            <InputClaim ClaimTypeReferenceId="Culture" PartnerClaimType="{property:Culture}" DefaultValue="{Culture:RFC5646}" />
+            <InputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="{property:ObjectId}" DefaultValue="Not available" />
+          </InputClaims>
+        </TechnicalProfile>
+      </TechnicalProfiles>
+    </ClaimsProvider>
+  </ClaimsProviders>
+</TrustFrameworkPolicy>

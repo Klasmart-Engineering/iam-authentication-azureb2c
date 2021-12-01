@@ -25,6 +25,21 @@ pipelines:
   branches:
     master:
         - step:
+            name: Build
+            caches:
+              - node
+            script:
+              - npm install
+              - npm run build
+            artifacts:
+              - dist/**
+        - step:
+            name: Code linting
+            script:
+              - npx eslint .
+            caches:
+              - node
+        - step:
             name: Deploy To AzureB2C
             script:
             - npm install

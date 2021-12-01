@@ -25,10 +25,9 @@ pipelines:
         - step:
             name: Deploy To AzureB2C
             script:
-               - npm install
-               - npm run build
-               - node dist/scripts/uploadCaller
-            artifacts:
-              - dist/*
-            deployment: production
-            # trigger: manual  # Uncomment to make this a manual deployment.
+             - pipe: atlassian/azure-storage-deploy:1.0.2
+               variables:
+                SOURCE: 'dist/*'
+                DESTINATION: 'https://klukb2cstorage.blob.core.windows.net/b2ccosmosdb'
+                DESTINATION_SAS_TOKEN: $AZURE_STORAGE_SAS_TOKEN
+                # trigger: manual  # Uncomment to make this a manual deployment.

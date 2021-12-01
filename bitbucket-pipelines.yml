@@ -32,4 +32,5 @@ pipelines:
                 SOURCE: 'dist/*'
                 DESTINATION: 'https://klukb2cstorage.blob.core.windows.net/b2ccosmosdb?'
                 DESTINATION_SAS_TOKEN: $AZURE_STORAGE_SAS_TOKEN
+                EXTRA_ARGS: '--recursive'
                 # trigger: manual  # Uncomment to make this a manual deployment.

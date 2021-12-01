@@ -22,6 +22,8 @@ pipelines:
               - npx eslint .
             caches:
               - node
+  branches:
+    master:
         - step:
             name: Deploy To AzureB2C
             script:

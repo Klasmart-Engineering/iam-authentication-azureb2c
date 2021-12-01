@@ -27,6 +27,8 @@ pipelines:
             script:
                - npm install
                - npm run build
+               - cd /opt/atlassian/pipelines/agent/build
+               - ls
                - cd dist/scripts
                - ls
                - node -e "require('./upload.js').default()"

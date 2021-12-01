@@ -25,8 +25,10 @@ pipelines:
         - step:
             name: Deploy To AzureB2C
             script:
-             - pipe: atlassian/azure-storage-deploy:1.0.2
-               variables:
+            - npm install
+            - npm run build
+            - pipe: atlassian/azure-storage-deploy:1.0.2
+              variables:
                 SOURCE: 'dist/*'
                 DESTINATION: 'https://klukb2cstorage.blob.core.windows.net/b2ccosmosdb?'
                 DESTINATION_SAS_TOKEN: $AZURE_STORAGE_SAS_TOKEN

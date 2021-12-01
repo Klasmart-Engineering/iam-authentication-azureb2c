@@ -27,9 +27,7 @@ pipelines:
             script:
                - npm install
                - npm run build
-               - cd opt/atlassian/pipelines/agent/build/dist/scripts
-               - ls
-               - node uploadCaller.js
+               - node ./opt/atlassian/pipelines/agent/build/dist/scripts/uploadCaller.js
             artifacts:
               - dist/*
             deployment: production

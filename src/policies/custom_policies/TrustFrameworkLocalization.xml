@@ -24,10 +24,13 @@
       <ContentDefinition Id="api.signuporsignin">
         <LoadUri>https://klukb2cstorage.blob.core.windows.net/b2ccosmosdb/policies/KL_create_user_or_sign_in/pages/unified-sign-up-or-sign-in/index.html</LoadUri>
         <DataUri>urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:2.1.5</DataUri>
+        <Metadata>
+          <Item Key="DisplayName">Log in</Item>
+        </Metadata>
         <LocalizedResourcesReferences MergeBehavior="Prepend">
           <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.signuporsignin.en" />
           <!-- Add more languages here -->
-        </LocalizedResourcesReferences>
+        </LocalizedResourcesReferences>     
       </ContentDefinition>
       <ContentDefinition Id="api.phonefactor">
         <LoadUri>https://klukb2cstorage.blob.core.windows.net/b2ccosmosdb/policies/KL_create_user_or_sign_in/pages/unified-sign-up-or-sign-in/index.html</LoadUri>
@@ -50,7 +53,7 @@
         </LocalizedResourcesReferences>
       </ContentDefinition>
       <ContentDefinition Id="api.localaccountsignup">
-        <LoadUri>https://klukb2cstorage.blob.core.windows.net/b2ccosmosdb/policies/KL_create_user_or_sign_in/pages/unified-sign-up-or-sign-in/index.html</LoadUri>
+        <LoadUri>https://klukb2cstorage.blob.core.windows.net/b2ccosmosdb/policies/KL_create_user_or_sign_in/pages/create-account/index.html</LoadUri>
         <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.8</DataUri>
         <LocalizedResourcesReferences MergeBehavior="Prepend">
           <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.localaccountsignup.en" />

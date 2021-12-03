@@ -363,6 +363,12 @@
           <Enumeration Text="Zimbabwe(+263)" Value="ZW" />
         </Restriction>
       </ClaimType>
+      <ClaimType Id="verificationCode">
+        <DisplayName>Verification Code</DisplayName>
+        <DataType>string</DataType>
+        <UserHelpText>Enter your SMS verification code</UserHelpText>
+        <UserInputType>TextBox</UserInputType>
+      </ClaimType>
     </ClaimsSchema>
     <Predicates>
       <Predicate Id="email" Method="MatchesRegex">
@@ -591,6 +597,33 @@
         </Metadata>
       </ContentDefinition>
     </ContentDefinitions>
+    <DisplayControls>
+      <DisplayControl Id="phoneVerificationControl" UserInterfaceControlType="VerificationControl">
+        <InputClaims>
+          <InputClaim ClaimTypeReferenceId="nationalNumber" />
+          <InputClaim ClaimTypeReferenceId="countryCode" />
+        </InputClaims>
+        <DisplayClaims>
+          <DisplayClaim ClaimTypeReferenceId="countryCode" ControlClaimType="CountryCode" Required="true" />
+          <DisplayClaim ClaimTypeReferenceId="nationalNumber" ControlClaimType="Phone" Required="true" />
+          <DisplayClaim ClaimTypeReferenceId="verificationCode" ControlClaimType="VerificationCode" Required="true" />
+        </DisplayClaims>
+        <Actions>
+          <Action Id="SendCode">
+            <ValidationClaimsExchange>
+              <ValidationClaimsExchangeTechnicalProfile TechnicalProfileReferenceId="CombineCountryCodeAndNationalNumber" />
+              <ValidationClaimsExchangeTechnicalProfile TechnicalProfileReferenceId="AzureMfa-SendSms" />
+            </ValidationClaimsExchange>
+          </Action>
+          <Action Id="VerifyCode">
+            <ValidationClaimsExchange>
+              <ValidationClaimsExchangeTechnicalProfile TechnicalProfileReferenceId="CombineCountryCodeAndNationalNumber" />
+              <ValidationClaimsExchangeTechnicalProfile TechnicalProfileReferenceId="AzureMfa-VerifySms" />
+            </ValidationClaimsExchange>
+          </Action>
+        </Actions>
+      </DisplayControl>
+    </DisplayControls>
   </BuildingBlocks>
   <ClaimsProviders>
     <ClaimsProvider>
@@ -665,27 +698,12 @@
     <ClaimsProvider>
       <DisplayName>Local Account Sign Up</DisplayName>
       <TechnicalProfiles>
-        <TechnicalProfile Id="SelfAsserted-LocalAccountSignUp-SignInNameCollection">
+        <TechnicalProfile Id="LocalAccountSignUp-EntryPoint">
           <DisplayName>Local Account Sign Up</DisplayName>
-          <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-          <Metadata>
-            <Item Key="ContentDefinitionReferenceId">api.selfasserted</Item>
-          </Metadata>
-          <IncludeInSso>false</IncludeInSso>
-          <InputClaims>
-            <InputClaim ClaimTypeReferenceId="signInName" />
-          </InputClaims>
+          <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.ClaimsTransformationProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
           <OutputClaims>
-            <OutputClaim ClaimTypeReferenceId="signInName" Required="true" />
             <OutputClaim ClaimTypeReferenceId="isLocalAccountSignUp" DefaultValue="true" AlwaysUseDefaultValue="true" />
-            <OutputClaim ClaimTypeReferenceId="isEmailBoolean" />
-            <OutputClaim ClaimTypeReferenceId="isPhoneBoolean" />
-            <OutputClaim ClaimTypeReferenceId="isUserNameBoolean" />
           </OutputClaims>
-          <ValidationTechnicalProfiles>
-            <ValidationTechnicalProfile ReferenceId="regexAnalysisUsername" />
-          </ValidationTechnicalProfiles>
-          <UseTechnicalProfileForSessionManagement ReferenceId="SM-AAD" />
         </TechnicalProfile>
         <TechnicalProfile Id="SelfAsserted-LocalAccountLookup-Combined-PwdReset">
           <OutputClaims>
@@ -699,7 +717,7 @@
             <ValidationTechnicalProfile ReferenceId="AAD-UserReadUsingIdentifier" />
             <ValidationTechnicalProfile ReferenceId="regexAnalysisUsername" />
           </ValidationTechnicalProfiles>
-          <IncludeTechnicalProfile ReferenceId="SelfAsserted-LocalAccountSignUp-SignInNameCollection" />
+          <IncludeTechnicalProfile ReferenceId="LocalAccountSignUp-EntryPoint" />
           <UseTechnicalProfileForSessionManagement ReferenceId="SM-AAD" />
         </TechnicalProfile>
         <TechnicalProfile Id="AAD-UserReadUsingIdentifier">
@@ -743,6 +761,12 @@
           </ValidationTechnicalProfiles>
           <UseTechnicalProfileForSessionManagement ReferenceId="SM-AAD" />
         </TechnicalProfile>
+        <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
+          <Metadata>
+            <Item Key="SignUpTarget">LocalAccountSignUpPhoneNumber</Item>
+            <Item Key="setting.forgotPasswordLinkLocation">none</Item>
+          </Metadata>
+        </TechnicalProfile>
         <TechnicalProfile Id="LocalAccountSignUpWithLogonPhone">
           <DisplayName>Phone signup</DisplayName>
           <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -762,6 +786,37 @@
             <OutputClaim ClaimTypeReferenceId="newUser" />
           </OutputClaims>
           <ValidationTechnicalProfiles>
+            <ValidationTechnicalProfile ReferenceId="AAD-UserWriteUsingPhoneNumber" />
+          </ValidationTechnicalProfiles>
+          <UseTechnicalProfileForSessionManagement ReferenceId="SM-AAD" />
+        </TechnicalProfile>
+        <TechnicalProfile Id="LocalAccountSignUpWithLogonPhoneNumber-WithDisplayControls">
+          <DisplayName>Phone</DisplayName>
+          <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+          <Metadata>
+            <Item Key="ContentDefinitionReferenceId">phoneSignUp</Item>
+            <Item Key="ClaimsProviderSelectionDisplayType">TextLink</Item>
+            <Item Key="UserMessageIfClaimsTransformationInvalidPhoneNumber">Please enter a valid phone number and country code.</Item>
+          </Metadata>
+          <CryptographicKeys>
+            <Key Id="issuer_secret" StorageReferenceId="B2C_1A_TokenSigningKeyContainer" />
+          </CryptographicKeys>
+          <InputClaimsTransformations>
+            <InputClaimsTransformation ReferenceId="CreateRandomUPNUserName" />
+            <InputClaimsTransformation ReferenceId="CreateUserPrincipalName" />
+          </InputClaimsTransformations>
+          <DisplayClaims>
+            <DisplayClaim DisplayControlReferenceId="phoneVerificationControl" />
+            <DisplayClaim ClaimTypeReferenceId="newPassword" Required="true" />
+          </DisplayClaims>
+          <OutputClaims>
+            <OutputClaim ClaimTypeReferenceId="newPassword" Required="true" />
+            <OutputClaim ClaimTypeReferenceId="objectId" />
+            <OutputClaim ClaimTypeReferenceId="userPrincipalName" />
+            <OutputClaim ClaimTypeReferenceId="signInNames.phoneNumber" />
+          </OutputClaims>
+          <ValidationTechnicalProfiles>
+            <ValidationTechnicalProfile ReferenceId="CombineCountryCodeAndNationalNumber" />
             <ValidationTechnicalProfile ReferenceId="AAD-UserWriteUsingPhoneNumber" />
           </ValidationTechnicalProfiles>
           <UseTechnicalProfileForSessionManagement ReferenceId="SM-AAD" />
@@ -975,6 +1030,17 @@
           </OutputClaims>
           <UseTechnicalProfileForSessionManagement ReferenceId="SM-MFA" />
         </TechnicalProfile>
+        <TechnicalProfile Id="CombineCountryCodeAndNationalNumber">
+          <DisplayName>Combine country code and national number</DisplayName>
+          <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.ClaimsTransformationProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+          <InputClaimsTransformations>
+            <InputClaimsTransformation ReferenceId="ConvertStringToPhoneNumber" />
+          </InputClaimsTransformations>
+          <OutputClaims>
+            <OutputClaim ClaimTypeReferenceId="signInNames.phoneNumber" />
+          </OutputClaims>
+          <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
+        </TechnicalProfile>
       </TechnicalProfiles>
     </ClaimsProvider>
     <ClaimsProvider>
@@ -1120,6 +1186,33 @@
         </TechnicalProfile>
       </TechnicalProfiles>
     </ClaimsProvider>
+    <ClaimsProvider>
+      <DisplayName>Azure MFA</DisplayName>
+      <TechnicalProfiles>
+        <TechnicalProfile Id="AzureMfa-SendSms">
+          <DisplayName>Send Sms</DisplayName>
+          <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.AzureMfaProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+          <Metadata>
+            <Item Key="Operation">OneWaySMS</Item>
+          </Metadata>
+          <InputClaims>
+            <InputClaim ClaimTypeReferenceId="userPrincipalName" />
+            <InputClaim ClaimTypeReferenceId="signInNames.phoneNumber" PartnerClaimType="phoneNumber" />
+          </InputClaims>
+        </TechnicalProfile>
+        <TechnicalProfile Id="AzureMfa-VerifySms">
+          <DisplayName>Verify Sms</DisplayName>
+          <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.AzureMfaProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+          <Metadata>
+            <Item Key="Operation">Verify</Item>
+          </Metadata>
+          <InputClaims>
+            <InputClaim ClaimTypeReferenceId="verificationCode" />
+            <InputClaim ClaimTypeReferenceId="signInNames.phoneNumber" PartnerClaimType="phoneNumber" />
+          </InputClaims>
+        </TechnicalProfile>
+      </TechnicalProfiles>
+    </ClaimsProvider>
   </ClaimsProviders>
   <UserJourneys>
     <UserJourney Id="SUSI-PhoneOrEmail">
@@ -1146,7 +1239,7 @@
             </Precondition>
           </Preconditions>
           <ClaimsExchanges>
-            <ClaimsExchange Id="LocalAccountSignUp" TechnicalProfileReferenceId="SelfAsserted-LocalAccountSignUp-SignInNameCollection" />
+            <ClaimsExchange Id="LocalAccountSignUp" TechnicalProfileReferenceId="LocalAccountSignUp-EntryPoint" />
           </ClaimsExchanges>
         </OrchestrationStep>
         <OrchestrationStep Order="4" Type="InvokeSubJourney">
@@ -1162,7 +1255,7 @@
             </Precondition>
           </Preconditions>
           <JourneyList>
-            <Candidate SubJourneyReferenceId="SignUpPhoneOrEmail" />
+            <Candidate SubJourneyReferenceId="HandleEmailOrTelephoneSignUp" />
           </JourneyList>
         </OrchestrationStep>
         <OrchestrationStep Order="5" Type="ClaimsExchange">
@@ -1319,6 +1412,30 @@
           </Preconditions>
           <ClaimsExchanges>
             <ClaimsExchange Id="AADUserWriteUser" TechnicalProfileReferenceId="LocalAccountSignUpWithLogonEmail" />
+          </ClaimsExchanges>
+        </OrchestrationStep>
+      </OrchestrationSteps>
+    </SubJourney>
+    <SubJourney Id="HandleEmailOrTelephoneSignUp" Type="Call" >
+      <OrchestrationSteps>
+        <OrchestrationStep Order="1" Type="CombinedSignInAndSignUp" ContentDefinitionReferenceId="api.signuporsignin">
+          <ClaimsProviderSelections>
+            <ClaimsProviderSelection ValidationClaimsExchangeId="LocalAccountSignUpWithEmail" />
+          </ClaimsProviderSelections>
+          <ClaimsExchanges>
+            <ClaimsExchange Id="LocalAccountSignUpWithEmail" TechnicalProfileReferenceId="LocalAccountSignUpWithLogonEmail" />
+          </ClaimsExchanges>
+        </OrchestrationStep>
+        <!-- A new end-user has selected to sign up with a phone number -->
+        <OrchestrationStep Order="2" Type="ClaimsExchange">
+          <Preconditions>
+            <Precondition Type="ClaimsExist" ExecuteActionsIf="true">
+              <Value>objectId</Value>
+              <Action>SkipThisOrchestrationStep</Action>
+            </Precondition>
+          </Preconditions>
+          <ClaimsExchanges>
+            <ClaimsExchange Id="LocalAccountSignUpPhoneNumber" TechnicalProfileReferenceId="LocalAccountSignUpWithLogonPhoneNumber-WithDisplayControls" />
           </ClaimsExchanges>
         </OrchestrationStep>
       </OrchestrationSteps>

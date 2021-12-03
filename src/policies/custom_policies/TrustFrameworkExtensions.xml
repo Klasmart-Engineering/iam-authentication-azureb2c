@@ -1,4 +1,6 @@
-<TrustFrameworkPolicy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06" PolicySchemaVersion="0.3.0.0" TenantId="kidsloopb2c.onmicrosoft.com" PolicyId="B2C_1A__TrustFrameworkExtensions" PublicPolicyUri="http://kidsloopb2c.onmicrosoft.com/B2C_1A_TrustFrameworkExtensions" TenantObjectId="8dc632b7-4df1-4904-a155-7c4663e345bb">
+<TrustFrameworkPolicy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06" PolicySchemaVersion="0.3.0.0" TenantId="kidsloopb2c.onmicrosoft.com" PolicyId="B2C_1A__TrustFrameworkExtensions" PublicPolicyUri="http://kidsloopb2c.onmicrosoft.com/B2C_1A_TrustFrameworkExtensions" TenantObjectId="8dc632b7-4df1-4904-a155-7c4663e345bb">
   <BasePolicy>
     <TenantId>kidsloopb2c.onmicrosoft.com</TenantId>
     <PolicyId>B2C_1A__TrustFrameworkBase</PolicyId>
@@ -677,9 +679,8 @@
           </OutputClaimsTransformations>
           <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
         </TechnicalProfile>
-        
         <TechnicalProfile Id="AAD-UserReadUsingObjectId">
-          <OutputClaims >
+          <OutputClaims>
             <OutputClaim ClaimTypeReferenceId="signInNames.phoneNumber" />
           </OutputClaims>
         </TechnicalProfile>
@@ -761,11 +762,32 @@
           </ValidationTechnicalProfiles>
           <UseTechnicalProfileForSessionManagement ReferenceId="SM-AAD" />
         </TechnicalProfile>
-        <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
+
+        <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail-custom">
+          <DisplayName>Email signup</DisplayName>
+          <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
           <Metadata>
+            <Item Key="IpAddressClaimReferenceId">IpAddress</Item>
+            <Item Key="ContentDefinitionReferenceId">api.localaccountsignup</Item>
             <Item Key="SignUpTarget">LocalAccountSignUpPhoneNumber</Item>
             <Item Key="setting.forgotPasswordLinkLocation">none</Item>
           </Metadata>
+          <CryptographicKeys>
+            <Key Id="issuer_secret" StorageReferenceId="B2C_1A_TokenSigningKeyContainer" />
+          </CryptographicKeys>
+          <OutputClaims>
+            <OutputClaim ClaimTypeReferenceId="objectId" />
+            <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="Verified.Email" Required="true" />
+            <OutputClaim ClaimTypeReferenceId="newPassword" Required="true" />
+            <OutputClaim ClaimTypeReferenceId="executed-SelfAsserted-Input" DefaultValue="true" />
+            <OutputClaim ClaimTypeReferenceId="authenticationSource" />
+            <OutputClaim ClaimTypeReferenceId="newUser" />
+            <!-- Optional claims, to be collected from the user -->
+          </OutputClaims>
+          <ValidationTechnicalProfiles>
+            <ValidationTechnicalProfile ReferenceId="AAD-UserWriteUsingLogonEmail" />
+          </ValidationTechnicalProfiles>
+          <UseTechnicalProfileForSessionManagement ReferenceId="SM-AAD" />
         </TechnicalProfile>
         <TechnicalProfile Id="LocalAccountSignUpWithLogonPhone">
           <DisplayName>Phone signup</DisplayName>
@@ -794,7 +816,7 @@
           <DisplayName>Phone</DisplayName>
           <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
           <Metadata>
-            <Item Key="ContentDefinitionReferenceId">phoneSignUp</Item>
+            <Item Key="ContentDefinitionReferenceId">api.localaccountsignup</Item>
             <Item Key="ClaimsProviderSelectionDisplayType">TextLink</Item>
             <Item Key="UserMessageIfClaimsTransformationInvalidPhoneNumber">Please enter a valid phone number and country code.</Item>
           </Metadata>
@@ -1416,14 +1438,14 @@
         </OrchestrationStep>
       </OrchestrationSteps>
     </SubJourney>
-    <SubJourney Id="HandleEmailOrTelephoneSignUp" Type="Call" >
+    <SubJourney Id="HandleEmailOrTelephoneSignUp" Type="Call">
       <OrchestrationSteps>
         <OrchestrationStep Order="1" Type="CombinedSignInAndSignUp" ContentDefinitionReferenceId="api.signuporsignin">
           <ClaimsProviderSelections>
             <ClaimsProviderSelection ValidationClaimsExchangeId="LocalAccountSignUpWithEmail" />
           </ClaimsProviderSelections>
           <ClaimsExchanges>
-            <ClaimsExchange Id="LocalAccountSignUpWithEmail" TechnicalProfileReferenceId="LocalAccountSignUpWithLogonEmail" />
+            <ClaimsExchange Id="LocalAccountSignUpWithEmail" TechnicalProfileReferenceId="LocalAccountSignUpWithLogonEmail-custom" />
           </ClaimsExchanges>
         </OrchestrationStep>
         <!-- A new end-user has selected to sign up with a phone number -->

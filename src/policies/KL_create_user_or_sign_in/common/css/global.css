@@ -51,7 +51,8 @@ p {
 #email,
 #password,
 #signInName,
-#verificationCode {
+#verificationCode,
+#countryCode {
     border-color: #b8b8b8;
     border-radius: 8px;
     border-width: 1px;
@@ -121,4 +122,9 @@ p {
 
 .verificationInfoText {
     display: none !important; /* Set to display: inline in the markup itself :'( */
+}
+
+
+.dropdown_single {
+    margin-bottom: 12px;
 }

@@ -128,3 +128,7 @@ p {
 .dropdown_single {
     margin-bottom: 12px;
 }
+
+#SiginInWithKidsLoopCredentials {
+    display: none;
+}

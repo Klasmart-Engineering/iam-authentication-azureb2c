@@ -64,5 +64,20 @@
         </TechnicalProfile>
       </TechnicalProfiles>
     </ClaimsProvider>
+    <ClaimsProvider>
+      <Domain>kidsloop.live</Domain>
+      <DisplayName>Login using Kidsloop</DisplayName>
+      <TechnicalProfiles>
+        <TechnicalProfile Id="AADKidsloop-OpenIdConnect">
+          <Metadata>
+            <Item Key="METADATA">https://login.microsoftonline.com/14a875d0-5038-4b90-8851-adf5acbeb8ea/v2.0/.well-known/openid-configuration</Item>
+            <Item Key="client_id">0317151a-fbf6-4dd2-9354-97b73c1c9af8</Item>
+          </Metadata>
+          <CryptographicKeys>
+            <Key Id="client_secret" StorageReferenceId="B2C_1A_KidsloopAppSecret"/>
+          </CryptographicKeys>
+        </TechnicalProfile>
+      </TechnicalProfiles>
+    </ClaimsProvider>
   </ClaimsProviders>
 </TrustFrameworkPolicy>

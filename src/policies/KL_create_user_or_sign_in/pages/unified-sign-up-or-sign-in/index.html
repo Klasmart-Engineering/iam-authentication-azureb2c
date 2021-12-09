@@ -34,6 +34,8 @@
     <script>
         const signInNameField = document.getElementById('signInName')
         const redirectToSSOButton = document.getElementById('SiginInWithKidsLoopCredentials')
+        const passwordLabel = document.querySelector('.password-label')
+        const passwordInput = document.getElementById('password')
 
         function redirectToSSO() {
             const signInNameParts = signInNameField.value.split('@')
@@ -43,6 +45,8 @@
                 && signInNameParts[1].toLowerCase() === 'kidsloop.live'
             ) {
                 redirectToSSOButton.click()
+                passwordLabel.remove()
+                passwordInput.remove()
             }
         }
 

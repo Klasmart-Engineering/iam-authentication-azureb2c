@@ -621,16 +621,6 @@
         </OutputClaims>
       </ClaimsTransformation>
     </ClaimsTransformations>
-    <ContentDefinitions>
-      <ContentDefinition Id="api.localaccountpasswordchange1.1">
-        <LoadUri>~/tenant/default/selfAsserted.cshtml</LoadUri>
-        <RecoveryUri>~/common/default_page_error.html</RecoveryUri>
-        <DataUri>urn:com:microsoft:aad:b2c:elements:selfasserted:1.1.0</DataUri>
-        <Metadata>
-          <Item Key="DisplayName">Local account change password page</Item>
-        </Metadata>
-      </ContentDefinition>
-    </ContentDefinitions>
     <DisplayControls>
       <DisplayControl Id="phoneVerificationControl" UserInterfaceControlType="VerificationControl">
         <InputClaims>
@@ -975,7 +965,7 @@
           <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
           <Metadata>
             <Item Key="IpAddressClaimReferenceId">IpAddress</Item>
-            <Item Key="ContentDefinitionReferenceId">api.localaccountpasswordchange1.1</Item>
+            <Item Key="ContentDefinitionReferenceId">api.selfasserted</Item>
             <Item Key="AllowGenerationOfClaimsWithNullValues">true</Item>
             <Item Key="UserMessageIfClaimsTransformationStringsAreNotEqual">An account could not be found for the provided User ID and email combination.</Item>
             <Item Key="UserMessageIfClaimsTransformationBooleanValueIsNotEqual">Your account has been locked. Contact your support person to unlock it, then try again.</Item>

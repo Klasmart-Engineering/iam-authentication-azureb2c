@@ -30,23 +30,24 @@
             <img class="space-filler-image" src="../../../../assets/bada-teaching.svg" />
         </div>
     </div>
-</body>
-<script>
-    const signInNameField = document.getElementById('signInName')
-    const redirectToSSOButton = document.getElementById('SiginInWithKidsLoopCredentials')
 
-    function redirectToSSO() {
-        const signInNameParts = signInNameField.value.split('@')
+    <script>
+        const signInNameField = document.getElementById('signInName')
+        const redirectToSSOButton = document.getElementById('SiginInWithKidsLoopCredentials')
 
-        if (
-            signInNameParts.length === 2
-            && signInNameParts[1].toLowerCase() === 'kidsloop.live'
-        ) {
-            redirectToSSOButton.click()
+        function redirectToSSO() {
+            const signInNameParts = signInNameField.value.split('@')
+
+            if (
+                signInNameParts.length === 2
+                && signInNameParts[1].toLowerCase() === 'kidsloop.live'
+            ) {
+                redirectToSSOButton.click()
+            }
         }
-    }
 
-    signInNameField.addEventListener('blur', redirectToSSO)
-</script>
+        signInNameField.addEventListener('blur', redirectToSSO)
+    </script>
+</body>
 
 </html>

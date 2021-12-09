@@ -5,6 +5,20 @@
   </BasePolicy>
   <BuildingBlocks>
     <ClaimsSchema>
+      <!-- Dynamic identity provider selection claims -->
+      <ClaimType Id="identityProviders">
+        <DisplayName>IdentityProviders</DisplayName>
+        <DataType>stringCollection</DataType>
+        <UserHelpText>User identity providers</UserHelpText>
+      </ClaimType>
+
+      <ClaimType Id="idps">
+        <DisplayName>IDP comma delimiter string</DisplayName>
+        <DataType>string</DataType>
+        <UserHelpText>identity providers in a comma separated string</UserHelpText>
+      </ClaimType>
+      <!-- End of Dynamic identity provider selection claims -->
+
       <!-- Custom claims for federation -->
       <ClaimType Id="idpObjectId">
         <DisplayName>Issuer Object ID</DisplayName>
@@ -618,6 +632,17 @@
         </InputClaims>
         <OutputClaims>
           <OutputClaim ClaimTypeReferenceId="signInNames.phoneNumber" TransformationClaimType="outputClaim" />
+        </OutputClaims>
+      </ClaimsTransformation>
+      <ClaimsTransformation Id="ConvertIDPsToStringCollection" TransformationMethod="StringSplit">
+        <InputClaims>
+          <InputClaim ClaimTypeReferenceId="idps" TransformationClaimType="inputClaim" />
+        </InputClaims>
+        <InputParameters>
+        <InputParameter DataType="string" Id="delimiter" Value="," />
+          </InputParameters>
+        <OutputClaims>
+          <OutputClaim ClaimTypeReferenceId="identityProviders" TransformationClaimType="outputClaim" />
         </OutputClaims>
       </ClaimsTransformation>
     </ClaimsTransformations>
@@ -1327,6 +1352,8 @@
             <Item Key="UsePolicyInRedirectUri">false</Item>
             <Item Key="response_types">code</Item>
             <Item Key="scope">openid profile email</Item>
+            <Item Key="claimTypeOnWhichToEnable">IdentityProviders</Item>
+            <Item Key="claimValueOnWhichToEnable">MCB</Item>
           </Metadata>
           <CryptographicKeys>
             <Key Id="client_secret" StorageReferenceId="B2C_1A_MCBAuth0IdpSecret" />
@@ -1352,6 +1379,30 @@
             <OutputClaimsTransformation ReferenceId="CreateAlternativeSecurityId" />
             <OutputClaimsTransformation ReferenceId="CreateSubjectClaimFromAlternativeSecurityId" />
           </OutputClaimsTransformations>
+          <UseTechnicalProfileForSessionManagement ReferenceId="SM-sociallogin" />
+          <EnabledForUserJourneys>OnItemExistenceInStringCollectionClaim</EnabledForUserJourneys>
+        </TechnicalProfile>
+      </TechnicalProfiles>
+    </ClaimsProvider>
+    <ClaimsProvider>
+      <DisplayName>Claims Transformation</DisplayName>
+      <TechnicalProfiles>
+        <TechnicalProfile Id="Get-IdentityProvidersList">
+          <DisplayName>Get identity provider list</DisplayName>
+          <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.ClaimsTransformationProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+          <Metadata>
+            <Item Key="IncludeClaimResolvingInClaimsHandling">true</Item>
+          </Metadata>
+          <InputClaims>
+            <InputClaim ClaimTypeReferenceId="idps" DefaultValue="{OAUTH-KV:idps}" AlwaysUseDefaultValue="true" />
+          </InputClaims>
+          <OutputClaims>
+            <OutputClaim ClaimTypeReferenceId="identityProviders" />
+          </OutputClaims>
+          <OutputClaimsTransformations>
+            <OutputClaimsTransformation ReferenceId="ConvertIDPsToStringCollection" />
+          </OutputClaimsTransformations>
+          <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
         </TechnicalProfile>
       </TechnicalProfiles>
     </ClaimsProvider>
@@ -1364,7 +1415,12 @@
             <ClaimsExchange Id="ClaimsExchange-CheckSession" TechnicalProfileReferenceId="CheckSession" />
           </ClaimsExchanges>
         </OrchestrationStep>
-        <OrchestrationStep Order="2" Type="CombinedSignInAndSignUp" ContentDefinitionReferenceId="api.signuporsignin">
+        <OrchestrationStep Order="2" Type="ClaimsExchange">
+          <ClaimsExchanges>
+            <ClaimsExchange Id="Get-IdentityProvidersList" TechnicalProfileReferenceId="Get-IdentityProvidersList" />
+          </ClaimsExchanges>
+        </OrchestrationStep>
+        <OrchestrationStep Order="3" Type="CombinedSignInAndSignUp" ContentDefinitionReferenceId="api.signuporsignin">
           <ClaimsProviderSelections>
             <ClaimsProviderSelection ValidationClaimsExchangeId="LocalAccountSigninPhoneOrEmailExchange" />
             <ClaimsProviderSelection TargetClaimsExchangeId="SiginInWithMCBCredentials" />
@@ -1375,7 +1431,7 @@
           </ClaimsExchanges>
         </OrchestrationStep>
         <!-- A new end-user has selected to sign up with a phone number -->
-        <OrchestrationStep Order="3" Type="ClaimsExchange">
+        <OrchestrationStep Order="4" Type="ClaimsExchange">
           <Preconditions>
             <Precondition Type="ClaimsExist" ExecuteActionsIf="true">
               <Value>objectId</Value>
@@ -1388,7 +1444,7 @@
             <ClaimsExchange Id="SiginInWithKidsLoopCredentials" TechnicalProfileReferenceId="Log-in-with-Kids-Loop" />
           </ClaimsExchanges>
         </OrchestrationStep>
-        <OrchestrationStep Order="4" Type="InvokeSubJourney">
+        <OrchestrationStep Order="5" Type="InvokeSubJourney">
           <Preconditions>
             <Precondition Type="ClaimsExist" ExecuteActionsIf="false">
               <Value>authenticationSource</Value>
@@ -1404,7 +1460,7 @@
             <Candidate SubJourneyReferenceId="HandleFederatedUser" />
           </JourneyList>
         </OrchestrationStep>
-        <OrchestrationStep Order="5" Type="InvokeSubJourney">
+        <OrchestrationStep Order="6" Type="InvokeSubJourney">
           <Preconditions>
             <Precondition Type="ClaimsExist" ExecuteActionsIf="false">
               <Value>isLocalAccountSignUp</Value>
@@ -1420,12 +1476,12 @@
             <Candidate SubJourneyReferenceId="HandleEmailOrTelephoneSignUp" />
           </JourneyList>
         </OrchestrationStep>
-        <OrchestrationStep Order="6" Type="ClaimsExchange">
+        <OrchestrationStep Order="7" Type="ClaimsExchange">
           <ClaimsExchanges>
             <ClaimsExchange Id="AADUserReadWithObjectId" TechnicalProfileReferenceId="AAD-UserReadUsingObjectId" />
           </ClaimsExchanges>
         </OrchestrationStep>
-        <OrchestrationStep Order="7" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="JwtIssuer" />
+        <OrchestrationStep Order="8" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="JwtIssuer" />
       </OrchestrationSteps>
       <ClientDefinition ReferenceId="DefaultWeb" />
     </UserJourney>

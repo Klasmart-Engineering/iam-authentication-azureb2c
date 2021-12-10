@@ -110,6 +110,7 @@ The ideal solution would allow easy local development (injecting a compiled vers
 * In `src/policies/custom_policies/Environments/SSO-<Initials>` a copy of policies in `src/policies/custom_policies` is created with your initials.
 * experiment with the policies here, upload them in the following order
 ** Base policy -> extensions -> tenant_confir -> localisation -> sign_up_log_in
+** your policies will be uploaded with your initials in the policy name to differentiate with others
 * Once you have verified your changes, merge your changes in policies in `src/policies/custom_policies`
 * create a PR
-* once the PR is merged then it is auto deployed to SSO using the bitbucket pipeline
+* once the PR is merged then it is auto deployed to SSO using the bitbucket pipeline (TBA)

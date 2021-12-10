@@ -7,6 +7,7 @@
     <DefaultUserJourney ReferenceId="SUSI-PhoneOrEmail" />
     <UserJourneyBehaviors>
       <JourneyInsights TelemetryEngine="ApplicationInsights" InstrumentationKey="4cc32ad1-fe79-411e-b457-6a9b0b764be7" DeveloperMode="true" ClientEnabled="true" ServerEnabled="true" TelemetryVersion="1.0.0" />
+      <ScriptExecution>Allow</ScriptExecution>
     </UserJourneyBehaviors>
     <TechnicalProfile Id="PolicyProfile">
       <DisplayName>PolicyProfile</DisplayName>
@@ -15,11 +16,13 @@
         <OutputClaim ClaimTypeReferenceId="signInNames.userName" PartnerClaimType="user_name" />
         <OutputClaim ClaimTypeReferenceId="signInNames.emailAddress" PartnerClaimType="email" />
         <OutputClaim ClaimTypeReferenceId="signInNames.phoneNumber" PartnerClaimType="phone" />
-        <OutputClaim ClaimTypeReferenceId="isUserNameBoolean" PartnerClaimType="has_user_name" DefaultValue="false" />
+        <!-- disabling below for now as we dont need them. Will revisit in future!!! -->
+        <!-- <OutputClaim ClaimTypeReferenceId="isUserNameBoolean" PartnerClaimType="has_user_name" DefaultValue="false" />
         <OutputClaim ClaimTypeReferenceId="isPhoneBoolean" PartnerClaimType="has_phone" DefaultValue="false" />
         <OutputClaim ClaimTypeReferenceId="isEmailBoolean" PartnerClaimType="has_email" DefaultValue="false" />
-        <OutputClaim ClaimTypeReferenceId="signInName" PartnerClaimType="log_in_name" />
+        <OutputClaim ClaimTypeReferenceId="signInName" PartnerClaimType="log_in_name" /> -->
         <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub" />
+        <OutputClaim ClaimTypeReferenceId="email" />
         <!-- <OutputClaim ClaimTypeReferenceId="identityProvider" /> -->
         <OutputClaim ClaimTypeReferenceId="tenantId" AlwaysUseDefaultValue="true" DefaultValue="{Policy:TenantObjectId}" />
       </OutputClaims>

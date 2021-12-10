@@ -14,6 +14,8 @@ TBC
 
 See (guidelines)[#guidelines].
 
+Contribute to Custom policies [#ContributeCustomPolicies]
+
 ### Who do I talk to?
 
 The IAM team
@@ -83,3 +85,31 @@ At the moment, JS links in HTML templates must be full path links to Azure stora
 This is because it doesn't appear possible to use `HTMLWebpackPlugin` and `html-loader`/`extract-loader` sequentially on the same file.
 
 The ideal solution would allow easy local development (injecting a compiled version of the TypeScript bundle into the template with a Webpack dev server), but inject the CDN path in production.
+
+
+
+#ContributeCustomPolicies
+
+* To ensure you dont override policies which are deployed on SSO or other environments, work on your localy copy, once happy then commit and merge
+* Download Azure AD B2c plugin for VsCode
+* open `src/policies/custom_policies/appsettings.json`
+** Under `Environments` add below snippet and replace `<Initials>` with yours
+```
+{
+    "Name": "SSO-<Initials>",
+    "Production": false,
+    "Tenant": "kidsloopb2c.onmicrosoft.com",
+    "PolicySettings" : {
+        "IdentityExperienceFrameworkAppId": "Your dev environment AD app Id",
+        "ProxyIdentityExperienceFrameworkAppId": "Your dev environment AD Proxy app Id",
+        "PolicyNamePrefix": "<Initials>_"
+    }
+}
+```
+* `cmd + shift + P` and enter `B2C Build policy` to build the policy
+* In `src/policies/custom_policies/Environments/SSO-<Initials>` a copy of policies in `src/policies/custom_policies` is created with your initials.
+* experiment with the policies here, upload them in the following order
+** Base policy -> extensions -> tenant_confir -> localisation -> sign_up_log_in
+* Once you have verified your changes, merge your changes in policies in `src/policies/custom_policies`
+* create a PR
+* once the PR is merged then it is auto deployed to SSO using the bitbucket pipeline

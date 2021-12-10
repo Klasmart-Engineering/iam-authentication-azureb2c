@@ -16,11 +16,6 @@
         <OutputClaim ClaimTypeReferenceId="signInNames.userName" PartnerClaimType="user_name" />
         <OutputClaim ClaimTypeReferenceId="signInNames.emailAddress" PartnerClaimType="email" />
         <OutputClaim ClaimTypeReferenceId="signInNames.phoneNumber" PartnerClaimType="phone" />
-        <!-- disabling below for now as we dont need them. Will revisit in future!!! -->
-        <!-- <OutputClaim ClaimTypeReferenceId="isUserNameBoolean" PartnerClaimType="has_user_name" DefaultValue="false" />
-        <OutputClaim ClaimTypeReferenceId="isPhoneBoolean" PartnerClaimType="has_phone" DefaultValue="false" />
-        <OutputClaim ClaimTypeReferenceId="isEmailBoolean" PartnerClaimType="has_email" DefaultValue="false" />
-        <OutputClaim ClaimTypeReferenceId="signInName" PartnerClaimType="log_in_name" /> -->
         <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub" />
         <OutputClaim ClaimTypeReferenceId="email" />
         <!-- <OutputClaim ClaimTypeReferenceId="identityProvider" /> -->

@@ -106,6 +106,7 @@ The ideal solution would allow easy local development (injecting a compiled vers
     }
 }
 ```
+* Launch vscode new window and open folder `src/policies/custom_policies`
 * `cmd + shift + P` and enter `B2C Build policy` to build the policy
 * In `src/policies/custom_policies/Environments/SSO-<Initials>` a copy of policies in `src/policies/custom_policies` is created with your initials.
 * experiment with the policies here, upload them in the following order

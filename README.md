@@ -14,7 +14,7 @@ TBC
 
 See (guidelines)[#guidelines].
 
-Contribute to Custom policies [#ContributeCustomPolicies]
+Contribute to [Custom policies] (##ContributeCustomPolicies)
 
 ### Who do I talk to?
 
@@ -88,12 +88,12 @@ The ideal solution would allow easy local development (injecting a compiled vers
 
 
 
-#ContributeCustomPolicies
+##ContributeCustomPolicies
 
 * To ensure you dont override policies which are deployed on SSO or other environments, work on your localy copy, once happy then commit and merge
 * Download Azure AD B2c plugin for VsCode
 * open `src/policies/custom_policies/appsettings.json`
-** Under `Environments` add below snippet and replace `<Initials>` with yours
+* Under `Environments` add below snippet and replace `<Initials>` with yours
 ```
 {
     "Name": "SSO-<Initials>",
@@ -106,12 +106,12 @@ The ideal solution would allow easy local development (injecting a compiled vers
     }
 }
 ```
-* Launch vscode new window and open folder `src/policies/custom_policies`
+* Launch vscode in a new window and open folder `src/policies/custom_policies`
 * `cmd + shift + P` and enter `B2C Build policy` to build the policy
-* In `src/policies/custom_policies/Environments/SSO-<Initials>` a copy of policies in `src/policies/custom_policies` is created with your initials.
+* In `src/policies/custom_policies/Environments/SSO-<Initials>` a copy of policies in `src/policies/custom_policies` 
 * experiment with the policies here, upload them in the following order
-** Base policy -> extensions -> tenant_confir -> localisation -> sign_up_log_in
-** your policies will be uploaded with your initials in the policy name to differentiate with others
+* Base policy -> extensions -> tenant_confir -> localisation -> sign_up_log_in
+* your policies will be uploaded with your initials in the policy name to differentiate with others
 * Once you have verified your changes, merge your changes in policies in `src/policies/custom_policies`
 * create a PR
 * once the PR is merged then it is auto deployed to SSO using the bitbucket pipeline (TBA)

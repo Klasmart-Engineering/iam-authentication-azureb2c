@@ -12,9 +12,9 @@ TBC
 
 ### Contribution guidelines
 
-See (guidelines)[#guidelines].
+See [guidelines](#guidelines).
 
-Contribute to [Custom policies] (##ContributeCustomPolicies)
+Contribute to [Custom policies](#contribute-to-custom-policies)
 
 ### Who do I talk to?
 
@@ -87,8 +87,7 @@ This is because it doesn't appear possible to use `HTMLWebpackPlugin` and `html-
 The ideal solution would allow easy local development (injecting a compiled version of the TypeScript bundle into the template with a Webpack dev server), but inject the CDN path in production.
 
 
-
-##ContributeCustomPolicies
+## Contribute to custom policies
 
 * To ensure you dont override policies which are deployed on SSO or other environments, work on your localy copy, once happy then commit and merge
 * Download Azure AD B2c plugin for VsCode

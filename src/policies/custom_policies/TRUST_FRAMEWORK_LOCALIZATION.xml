@@ -30,7 +30,7 @@
         <LocalizedResourcesReferences MergeBehavior="Prepend">
           <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.signuporsignin.en" />
           <!-- Add more languages here -->
-        </LocalizedResourcesReferences>     
+        </LocalizedResourcesReferences>
       </ContentDefinition>
       <ContentDefinition Id="api.phonefactor">
         <LoadUri>https://klukb2cstorage.blob.core.windows.net/b2ccosmosdb/policies/KL_create_user_or_sign_in/pages/unified-sign-up-or-sign-in/index.html</LoadUri>
@@ -92,28 +92,28 @@
       <LocalizedResources Id="api.signuporsignin.en">
         <LocalizedStrings>
           <LocalizedString ElementType="ClaimType" ElementId="signInName" StringId="DisplayName">Email Address or Phone Number</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="heading">Sign in</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="social_intro">Sign in with your social account</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="local_intro_generic">Sign in with your {0}</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="heading">Log in</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="social_intro">Log in with your social account</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="local_intro_generic">Log in with your {0}</LocalizedString>
           <LocalizedString ElementType="ClaimType" ElementId="password" StringId="DisplayName">Password</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="requiredField_password">Please enter your password</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="requiredField_generic">Please enter your {0}</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="requiredField_password">Cannot be empty</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="requiredField_generic">Cannot be empty</LocalizedString>
           <LocalizedString ElementType="UxElement" StringId="invalid_generic">Please enter a valid {0}</LocalizedString>
           <LocalizedString ElementType="UxElement" StringId="createaccount_one_link">Sign up now</LocalizedString>
           <LocalizedString ElementType="UxElement" StringId="createaccount_two_links">Sign up with {0} or {1}</LocalizedString>
           <LocalizedString ElementType="UxElement" StringId="createaccount_three_links">Sign up with {0}, {1}, or {2}</LocalizedString>
           <LocalizedString ElementType="UxElement" StringId="forgotpassword_link">Forgot your password?</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="button_signin">Sign in</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="button_signin">Log in</LocalizedString>
           <LocalizedString ElementType="UxElement" StringId="divider_title">OR</LocalizedString>
           <LocalizedString ElementType="UxElement" StringId="createaccount_intro">Don't have an account?</LocalizedString>
           <LocalizedString ElementType="UxElement" StringId="unknown_error">We are having trouble signing you in. Please try again later.</LocalizedString>
-          <!-- Uncomment the remember_me only if the keep me signed in is activated. 
+          <!-- Uncomment the remember_me only if the keep me signed in is activated.
           <LocalizedString ElementType="UxElement" StringId="remember_me">Keep me signed in</LocalizedString> -->
           <LocalizedString ElementType="ClaimsProvider" StringId="FacebookExchange">Facebook</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="ResourceOwnerFlowInvalidCredentials">Your password is incorrect.</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidPassword">Your password is incorrect.</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidPassword">Sorry, we don’t recognise your login details! Please check that you’ve entered them correctly and try again.</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfPasswordExpired">Your password has expired.</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalDoesNotExist">We can't seem to find your account.</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalDoesNotExist">Sorry, we don’t recognise your login details! Please check that you’ve entered them correctly and try again.</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfOldPasswordUsed">Looks like you used an old password.</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="DefaultMessage">Invalid username or password.</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfUserAccountDisabled">Your account has been locked. Contact your support person to unlock it, then try again.</LocalizedString>

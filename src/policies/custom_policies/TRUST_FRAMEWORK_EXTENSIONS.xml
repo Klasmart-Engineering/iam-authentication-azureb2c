@@ -1418,7 +1418,7 @@
             <OutputClaim ClaimTypeReferenceId="email" />
             <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" AlwaysUseDefaultValue="true" />
             <OutputClaim ClaimTypeReferenceId="identityProvider" PartnerClaimType="iss" />
-            <!-- Need to set SignInName booleans better -->
+            <!-- Need to clean up obsolete claims https://calmisland.atlassian.net/browse/IAM-646 -->
             <OutputClaim ClaimTypeReferenceId="isUserNameBoolean" DefaultValue="true" AlwaysUseDefaultValue="true" />
           </OutputClaims>
           <OutputClaimsTransformations>

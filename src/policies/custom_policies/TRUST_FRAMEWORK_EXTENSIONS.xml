@@ -1,10 +1,24 @@
-<TrustFrameworkPolicy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06" PolicySchemaVersion="0.3.0.0" TenantId="kidsloopb2c.onmicrosoft.com" PolicyId="B2C_1A__TrustFrameworkExtensions" PublicPolicyUri="http://kidsloopb2c.onmicrosoft.com/B2C_1A_TrustFrameworkExtensions" TenantObjectId="8dc632b7-4df1-4904-a155-7c4663e345bb">
+<TrustFrameworkPolicy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06" PolicySchemaVersion="0.3.0.0" TenantId="kidsloopb2c.onmicrosoft.com" PolicyId="B2C_1A__{settings:PolicyNamePrefix}TrustFrameworkExtensions" PublicPolicyUri="http://kidsloopb2c.onmicrosoft.com/B2C_1A_TrustFrameworkExtensions" TenantObjectId="8dc632b7-4df1-4904-a155-7c4663e345bb">
   <BasePolicy>
     <TenantId>kidsloopb2c.onmicrosoft.com</TenantId>
-    <PolicyId>B2C_1A__TrustFrameworkBase</PolicyId>
+    <PolicyId>B2C_1A__{settings:PolicyNamePrefix}TrustFrameworkBase</PolicyId>
   </BasePolicy>
   <BuildingBlocks>
     <ClaimsSchema>
+      <!-- Dynamic identity provider selection claims -->
+      <ClaimType Id="identityProviders">
+        <DisplayName>IdentityProviders</DisplayName>
+        <DataType>stringCollection</DataType>
+        <UserHelpText>User identity providers</UserHelpText>
+      </ClaimType>
+
+      <ClaimType Id="idps">
+        <DisplayName>IDP comma delimiter string</DisplayName>
+        <DataType>string</DataType>
+        <UserHelpText>identity providers in a comma separated string</UserHelpText>
+      </ClaimType>
+      <!-- End of Dynamic identity provider selection claims -->
+
       <!-- Custom claims for federation -->
       <ClaimType Id="idpObjectId">
         <DisplayName>Issuer Object ID</DisplayName>
@@ -620,8 +634,48 @@
           <OutputClaim ClaimTypeReferenceId="signInNames.phoneNumber" TransformationClaimType="outputClaim" />
         </OutputClaims>
       </ClaimsTransformation>
+      <ClaimsTransformation Id="ConvertIDPsToStringCollection" TransformationMethod="StringSplit">
+        <InputClaims>
+          <InputClaim ClaimTypeReferenceId="idps" TransformationClaimType="inputClaim" />
+        </InputClaims>
+        <InputParameters>
+          <InputParameter DataType="string" Id="delimiter" Value="," />
+        </InputParameters>
+        <OutputClaims>
+          <OutputClaim ClaimTypeReferenceId="identityProviders" TransformationClaimType="outputClaim" />
+        </OutputClaims>
+      </ClaimsTransformation>
     </ClaimsTransformations>
+    <ContentDefinitions>
+      <ContentDefinition Id="api.signup.email">
+        <LoadUri>~/tenant/templates/AzureBlue/unified.cshtml</LoadUri>
+        <RecoveryUri>~/common/default_page_error.html</RecoveryUri>
+        <DataUri>urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:2.1.5</DataUri>
+        <Metadata>
+          <Item Key="DisplayName">Signup</Item>
+        </Metadata>
+      </ContentDefinition>
+    </ContentDefinitions>
     <DisplayControls>
+      <DisplayControl Id="emailControl" UserInterfaceControlType="VerificationControl">
+        <DisplayClaims>
+          <DisplayClaim ClaimTypeReferenceId="email" Required="true" />
+          <DisplayClaim ClaimTypeReferenceId="verificationCode" ControlClaimType="VerificationCode" Required="true" />
+        </DisplayClaims>
+        <OutputClaims></OutputClaims>
+        <Actions>
+          <Action Id="SendCode">
+            <ValidationClaimsExchange>
+              <ValidationClaimsExchangeTechnicalProfile TechnicalProfileReferenceId="AadSspr-SendCode" />
+            </ValidationClaimsExchange>
+          </Action>
+          <Action Id="VerifyCode">
+            <ValidationClaimsExchange>
+              <ValidationClaimsExchangeTechnicalProfile TechnicalProfileReferenceId="AadSspr-VerifyCode" />
+            </ValidationClaimsExchange>
+          </Action>
+        </Actions>
+      </DisplayControl>
       <DisplayControl Id="phoneVerificationControl" UserInterfaceControlType="VerificationControl">
         <InputClaims>
           <InputClaim ClaimTypeReferenceId="nationalNumber" />
@@ -786,20 +840,23 @@
         </TechnicalProfile>
 
         <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail-custom">
-          <DisplayName>Email signup</DisplayName>
+          <DisplayName>Email</DisplayName>
           <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
           <Metadata>
             <Item Key="IpAddressClaimReferenceId">IpAddress</Item>
             <Item Key="ContentDefinitionReferenceId">api.localaccountsignup</Item>
-            <Item Key="SignUpTarget">LocalAccountSignUpPhoneNumber</Item>
-            <Item Key="setting.forgotPasswordLinkLocation">none</Item>
+            <Item Key="ClaimsProviderSelectionDisplayType">TextLink</Item>
           </Metadata>
           <CryptographicKeys>
             <Key Id="issuer_secret" StorageReferenceId="B2C_1A_TokenSigningKeyContainer" />
           </CryptographicKeys>
+          <DisplayClaims>
+            <DisplayClaim DisplayControlReferenceId="EmailControl" />
+            <DisplayClaim ClaimTypeReferenceId="newPassword" Required="true" />
+          </DisplayClaims>
           <OutputClaims>
             <OutputClaim ClaimTypeReferenceId="objectId" />
-            <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="Verified.Email" Required="true" />
+            <OutputClaim ClaimTypeReferenceId="email" Required="true" />
             <OutputClaim ClaimTypeReferenceId="newPassword" Required="true" />
             <OutputClaim ClaimTypeReferenceId="executed-SelfAsserted-Input" DefaultValue="true" />
             <OutputClaim ClaimTypeReferenceId="authenticationSource" />
@@ -1260,6 +1317,32 @@
       </TechnicalProfiles>
     </ClaimsProvider>
     <ClaimsProvider>
+      <DisplayName>AAD SSPR</DisplayName>
+      <TechnicalProfiles>
+        <TechnicalProfile Id="AadSspr-SendCode">
+          <DisplayName>Send Code</DisplayName>
+          <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.AadSsprProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+          <Metadata>
+            <Item Key="Operation">SendCode</Item>
+          </Metadata>
+          <InputClaims>
+            <InputClaim ClaimTypeReferenceId="email" PartnerClaimType="emailAddress" />
+          </InputClaims>
+        </TechnicalProfile>
+        <TechnicalProfile Id="AadSspr-VerifyCode">
+          <DisplayName>Verify Code</DisplayName>
+          <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.AadSsprProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+          <Metadata>
+            <Item Key="Operation">VerifyCode</Item>
+          </Metadata>
+          <InputClaims>
+            <InputClaim ClaimTypeReferenceId="verificationCode" />
+            <InputClaim ClaimTypeReferenceId="email" PartnerClaimType="emailAddress" />
+          </InputClaims>
+        </TechnicalProfile>
+      </TechnicalProfiles>
+    </ClaimsProvider>
+    <ClaimsProvider>
       <Domain>kidsloop.live</Domain>
       <DisplayName>Log in using Kidsloop</DisplayName>
       <TechnicalProfiles>
@@ -1312,6 +1395,13 @@
             <Item Key="client_id">gw0McvVIBcYJkGNwzuhNigPyr52eDGXc</Item>
             <Item Key="METADATA">https://dev-om9uecyh.us.auth0.com/.well-known/openid-configuration</Item>
             <Item Key="ValidTokenIssuerPrefixes">https://dev-om9uecyh.us.auth0.com/</Item>
+            <Item Key="response_mode">form_post</Item>
+            <Item Key="HttpBinding">POST</Item>
+            <Item Key="UsePolicyInRedirectUri">false</Item>
+            <Item Key="response_types">code</Item>
+            <Item Key="scope">openid profile email</Item>
+            <Item Key="claimTypeOnWhichToEnable">IdentityProviders</Item>
+            <Item Key="claimValueOnWhichToEnable">MCB</Item>
           </Metadata>
           <CryptographicKeys>
             <Key Id="client_secret" StorageReferenceId="B2C_1A_MCBAuth0IdpSecret" />
@@ -1320,14 +1410,16 @@
             <InputClaim ClaimTypeReferenceId="loginHint" PartnerClaimType="login_hint" DefaultValue="{OIDC:LoginHint}" />
           </InputClaims>
           <OutputClaims>
-            <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="oid" />
+            <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="sub" />
             <OutputClaim ClaimTypeReferenceId="tenantId" PartnerClaimType="tid" />
             <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="given_name" />
             <OutputClaim ClaimTypeReferenceId="surName" PartnerClaimType="family_name" />
-            <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="name" />
+            <OutputClaim ClaimTypeReferenceId="signInNames.userName" PartnerClaimType="name" />
             <OutputClaim ClaimTypeReferenceId="email" />
             <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" AlwaysUseDefaultValue="true" />
             <OutputClaim ClaimTypeReferenceId="identityProvider" PartnerClaimType="iss" />
+            <!-- Need to clean up obsolete claims https://calmisland.atlassian.net/browse/IAM-646 -->
+            <OutputClaim ClaimTypeReferenceId="isUserNameBoolean" DefaultValue="true" AlwaysUseDefaultValue="true" />
           </OutputClaims>
           <OutputClaimsTransformations>
             <OutputClaimsTransformation ReferenceId="CreateRandomUPNUserName" />
@@ -1335,9 +1427,34 @@
             <OutputClaimsTransformation ReferenceId="CreateAlternativeSecurityId" />
             <OutputClaimsTransformation ReferenceId="CreateSubjectClaimFromAlternativeSecurityId" />
           </OutputClaimsTransformations>
+          <UseTechnicalProfileForSessionManagement ReferenceId="SM-sociallogin" />
+          <EnabledForUserJourneys>OnItemExistenceInStringCollectionClaim</EnabledForUserJourneys>
         </TechnicalProfile>
       </TechnicalProfiles>
     </ClaimsProvider>
+    <ClaimsProvider>
+      <DisplayName>Claims Transformation</DisplayName>
+      <TechnicalProfiles>
+        <TechnicalProfile Id="Get-IdentityProvidersList">
+          <DisplayName>Get identity provider list</DisplayName>
+          <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.ClaimsTransformationProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+          <Metadata>
+            <Item Key="IncludeClaimResolvingInClaimsHandling">true</Item>
+          </Metadata>
+          <InputClaims>
+            <InputClaim ClaimTypeReferenceId="idps" DefaultValue="{OAUTH-KV:idps}" AlwaysUseDefaultValue="true" />
+          </InputClaims>
+          <OutputClaims>
+            <OutputClaim ClaimTypeReferenceId="identityProviders" />
+          </OutputClaims>
+          <OutputClaimsTransformations>
+            <OutputClaimsTransformation ReferenceId="ConvertIDPsToStringCollection" />
+          </OutputClaimsTransformations>
+          <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
+        </TechnicalProfile>
+      </TechnicalProfiles>
+    </ClaimsProvider>
+
   </ClaimsProviders>
   <UserJourneys>
     <UserJourney Id="SUSI-PhoneOrEmail">
@@ -1347,18 +1464,25 @@
             <ClaimsExchange Id="ClaimsExchange-CheckSession" TechnicalProfileReferenceId="CheckSession" />
           </ClaimsExchanges>
         </OrchestrationStep>
-        <OrchestrationStep Order="2" Type="CombinedSignInAndSignUp" ContentDefinitionReferenceId="api.signuporsignin">
+        <OrchestrationStep Order="2" Type="ClaimsExchange">
+          <ClaimsExchanges>
+            <ClaimsExchange Id="Get-IdentityProvidersList" TechnicalProfileReferenceId="Get-IdentityProvidersList" />
+          </ClaimsExchanges>
+        </OrchestrationStep>
+        <OrchestrationStep Order="3" Type="CombinedSignInAndSignUp" ContentDefinitionReferenceId="api.signuporsignin">
           <ClaimsProviderSelections>
             <ClaimsProviderSelection ValidationClaimsExchangeId="LocalAccountSigninPhoneOrEmailExchange" />
             <ClaimsProviderSelection TargetClaimsExchangeId="SiginInWithMCBCredentials" />
             <ClaimsProviderSelection TargetClaimsExchangeId="SiginInWithKidsLoopCredentials" />
+            <ClaimsProviderSelection TargetClaimsExchangeId="SignupWithEmail" />
+            <ClaimsProviderSelection TargetClaimsExchangeId="SignupWithPhone" />
           </ClaimsProviderSelections>
           <ClaimsExchanges>
             <ClaimsExchange Id="LocalAccountSigninPhoneOrEmailExchange" TechnicalProfileReferenceId="SelfAsserted-LocalAccountSignin-Username" />
           </ClaimsExchanges>
         </OrchestrationStep>
         <!-- A new end-user has selected to sign up with a phone number -->
-        <OrchestrationStep Order="3" Type="ClaimsExchange">
+        <OrchestrationStep Order="4" Type="ClaimsExchange">
           <Preconditions>
             <Precondition Type="ClaimsExist" ExecuteActionsIf="true">
               <Value>objectId</Value>
@@ -1369,9 +1493,11 @@
             <ClaimsExchange Id="LocalAccountSignUp" TechnicalProfileReferenceId="LocalAccountSignUp-EntryPoint" />
             <ClaimsExchange Id="SiginInWithMCBCredentials" TechnicalProfileReferenceId="Log-in-with-MCB" />
             <ClaimsExchange Id="SiginInWithKidsLoopCredentials" TechnicalProfileReferenceId="Log-in-with-Kids-Loop" />
+            <ClaimsExchange Id="SignupWithEmail" TechnicalProfileReferenceId="LocalAccountSignUpWithLogonEmail-custom" />
+            <ClaimsExchange Id="SignupWithPhone" TechnicalProfileReferenceId="LocalAccountSignUpWithLogonPhoneNumber-WithDisplayControls" />
           </ClaimsExchanges>
         </OrchestrationStep>
-        <OrchestrationStep Order="4" Type="InvokeSubJourney">
+        <OrchestrationStep Order="5" Type="InvokeSubJourney">
           <Preconditions>
             <Precondition Type="ClaimsExist" ExecuteActionsIf="false">
               <Value>authenticationSource</Value>
@@ -1387,7 +1513,7 @@
             <Candidate SubJourneyReferenceId="HandleFederatedUser" />
           </JourneyList>
         </OrchestrationStep>
-        <OrchestrationStep Order="5" Type="InvokeSubJourney">
+        <OrchestrationStep Order="6" Type="InvokeSubJourney">
           <Preconditions>
             <Precondition Type="ClaimsExist" ExecuteActionsIf="false">
               <Value>isLocalAccountSignUp</Value>
@@ -1403,12 +1529,12 @@
             <Candidate SubJourneyReferenceId="HandleEmailOrTelephoneSignUp" />
           </JourneyList>
         </OrchestrationStep>
-        <OrchestrationStep Order="6" Type="ClaimsExchange">
+        <OrchestrationStep Order="7" Type="ClaimsExchange">
           <ClaimsExchanges>
             <ClaimsExchange Id="AADUserReadWithObjectId" TechnicalProfileReferenceId="AAD-UserReadUsingObjectId" />
           </ClaimsExchanges>
         </OrchestrationStep>
-        <OrchestrationStep Order="7" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="JwtIssuer" />
+        <OrchestrationStep Order="8" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="JwtIssuer" />
       </OrchestrationSteps>
       <ClientDefinition ReferenceId="DefaultWeb" />
     </UserJourney>
@@ -1563,7 +1689,7 @@
     </SubJourney>
     <SubJourney Id="HandleEmailOrTelephoneSignUp" Type="Call">
       <OrchestrationSteps>
-        <OrchestrationStep Order="1" Type="CombinedSignInAndSignUp" ContentDefinitionReferenceId="api.signuporsignin">
+        <OrchestrationStep Order="1" Type="CombinedSignInAndSignUp" ContentDefinitionReferenceId="api.signup.email">
           <ClaimsProviderSelections>
             <ClaimsProviderSelection ValidationClaimsExchangeId="LocalAccountSignUpWithEmail" />
           </ClaimsProviderSelections>

@@ -639,8 +639,8 @@
           <InputClaim ClaimTypeReferenceId="idps" TransformationClaimType="inputClaim" />
         </InputClaims>
         <InputParameters>
-        <InputParameter DataType="string" Id="delimiter" Value="," />
-          </InputParameters>
+          <InputParameter DataType="string" Id="delimiter" Value="," />
+        </InputParameters>
         <OutputClaims>
           <OutputClaim ClaimTypeReferenceId="identityProviders" TransformationClaimType="outputClaim" />
         </OutputClaims>
@@ -851,7 +851,7 @@
             <Key Id="issuer_secret" StorageReferenceId="B2C_1A_TokenSigningKeyContainer" />
           </CryptographicKeys>
           <DisplayClaims>
-            <DisplayClaim DisplayControlReferenceId="EmailControl"/>
+            <DisplayClaim DisplayControlReferenceId="EmailControl" />
             <DisplayClaim ClaimTypeReferenceId="newPassword" Required="true" />
           </DisplayClaims>
           <OutputClaims>
@@ -1419,7 +1419,7 @@
             <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" AlwaysUseDefaultValue="true" />
             <OutputClaim ClaimTypeReferenceId="identityProvider" PartnerClaimType="iss" />
             <!-- Need to set SignInName booleans better -->
-            <OutputClaim ClaimTypeReferenceId="isUserNameBoolean" DefaultValue="true" AlwaysUseDefaultValue="true"/>
+            <OutputClaim ClaimTypeReferenceId="isUserNameBoolean" DefaultValue="true" AlwaysUseDefaultValue="true" />
           </OutputClaims>
           <OutputClaimsTransformations>
             <OutputClaimsTransformation ReferenceId="CreateRandomUPNUserName" />
@@ -1454,7 +1454,7 @@
         </TechnicalProfile>
       </TechnicalProfiles>
     </ClaimsProvider>
-  
+
   </ClaimsProviders>
   <UserJourneys>
     <UserJourney Id="SUSI-PhoneOrEmail">

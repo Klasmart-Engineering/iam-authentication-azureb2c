@@ -105,12 +105,12 @@ The ideal solution would allow easy local development (injecting a compiled vers
     }
 }
 ```
-* Launch vscode in a new window and open folder `src/policies/custom_policies`
-* `cmd + shift + P` and enter `B2C Build policy` to build the policy
-* In `src/policies/custom_policies/Environments/SSO-<Initials>` a copy of policies in `src/policies/custom_policies` 
+* Launch VSCode in a new window and open folder `src/policies/custom_policies`
+* `cmd + shift + P` and enter `B2C Policy Build` to build the policy
+* In `src/policies/custom_policies/Environments/SSO-<Initials>` you'll find a copy of the policies from `src/policies/custom_policies`
 * experiment with the policies here, upload them in the following order
-* Base policy -> extensions -> tenant_confir -> localisation -> sign_up_log_in
-* your policies will be uploaded with your initials in the policy name to differentiate with others
+* Base policy -> extensions -> tenant_config -> localization -> sign_up_log_in
+* your policies will be uploaded with your initials in the policy name to differentiate from others
 * Once you have verified your changes, merge your changes in policies in `src/policies/custom_policies`
 * create a PR
 * once the PR is merged then it is auto deployed to SSO using the bitbucket pipeline (TBA)

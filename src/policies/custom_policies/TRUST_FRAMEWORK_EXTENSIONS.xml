@@ -1,4 +1,4 @@
-<TrustFrameworkPolicy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06" PolicySchemaVersion="0.3.0.0" TenantId="kidsloopb2c.onmicrosoft.com" PolicyId="B2C_1A__{settings:PolicyNamePrefix}TrustFrameworkExtensions" PublicPolicyUri="http://kidsloopb2c.onmicrosoft.com/B2C_1A_TrustFrameworkExtensions" TenantObjectId="8dc632b7-4df1-4904-a155-7c4663e345bb">
+<TrustFrameworkPolicy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06" PolicySchemaVersion="0.3.0.0" TenantId="kidsloopb2c.onmicrosoft.com" PolicyId="B2C_1A__{settings:PolicyNamePrefix}TrustFrameworkExtensions" PublicPolicyUri="http://kidsloopb2c.onmicrosoft.com/B2C_1A__{settings:PolicyNamePrefix}TrustFrameworkExtensions" TenantObjectId="8dc632b7-4df1-4904-a155-7c4663e345bb">
   <BasePolicy>
     <TenantId>kidsloopb2c.onmicrosoft.com</TenantId>
     <PolicyId>B2C_1A__{settings:PolicyNamePrefix}TrustFrameworkBase</PolicyId>
@@ -108,6 +108,14 @@
         <UserHelpText />
       </ClaimType>
       <!--End of Additional claims used for passing claims to Application Insights Provider -->
+      <ClaimType Id="hasAcceptedPrivacyPolicy">
+        <DisplayName>Privacy Policy</DisplayName>
+        <DataType>boolean</DataType>
+        <UserInputType>CheckboxMultiSelect</UserInputType>
+        <Restriction>
+          <Enumeration Text="I agree to the KidsLoop {{Privacy policy}}" Value="true" SelectByDefault="false" />
+        </Restriction>
+      </ClaimType>
       <ClaimType Id="isLocalAccountSignUp">
         <DisplayName>isLocalAccountSignUp</DisplayName>
         <DataType>boolean</DataType>
@@ -822,34 +830,6 @@
           </OutputClaims>
           <IncludeTechnicalProfile ReferenceId="AAD-Common" />
         </TechnicalProfile>
-        <TechnicalProfile Id="SelfAsserted-LocalAccountEmailSignUp">
-          <DisplayName>EmailVerifyOnSignUp</DisplayName>
-          <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-          <Metadata>
-            <Item Key="ContentDefinitionReferenceId">api.selfasserted</Item>
-          </Metadata>
-          <InputClaimsTransformations>
-            <InputClaimsTransformation ReferenceId="CopySignInNameToReadOnly" />
-          </InputClaimsTransformations>
-          <InputClaims>
-            <InputClaim ClaimTypeReferenceId="readOnlyEmail" />
-          </InputClaims>
-          <OutputClaims>
-            <OutputClaim ClaimTypeReferenceId="objectId" />
-            <OutputClaim ClaimTypeReferenceId="readOnlyEmail" PartnerClaimType="Verified.Email" Required="true" />
-            <OutputClaim ClaimTypeReferenceId="newPassword" Required="true" />
-            <OutputClaim ClaimTypeReferenceId="reenterPassword" Required="true" />
-            <OutputClaim ClaimTypeReferenceId="executed-SelfAsserted-Input" DefaultValue="true" />
-            <OutputClaim ClaimTypeReferenceId="authenticationSource" />
-            <OutputClaim ClaimTypeReferenceId="newUser" />
-            <!-- Optional claims, to be collected from the user -->
-          </OutputClaims>
-          <ValidationTechnicalProfiles>
-            <ValidationTechnicalProfile ReferenceId="AAD-UserWriteUsingVerifiedLogonEmail" />
-          </ValidationTechnicalProfiles>
-          <UseTechnicalProfileForSessionManagement ReferenceId="SM-AAD" />
-        </TechnicalProfile>
-
         <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail-custom">
           <DisplayName>Email</DisplayName>
           <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -861,9 +841,13 @@
           <CryptographicKeys>
             <Key Id="issuer_secret" StorageReferenceId="B2C_1A_TokenSigningKeyContainer" />
           </CryptographicKeys>
+          <InputClaims>
+            <InputClaim ClaimTypeReferenceId="hasAcceptedPrivacyPolicy" />
+          </InputClaims>
           <DisplayClaims>
             <DisplayClaim DisplayControlReferenceId="EmailControl" />
             <DisplayClaim ClaimTypeReferenceId="newPassword" Required="true" />
+            <DisplayClaim ClaimTypeReferenceId="hasAcceptedPrivacyPolicy" Required="true" />
           </DisplayClaims>
           <OutputClaims>
             <OutputClaim ClaimTypeReferenceId="objectId" />
@@ -917,10 +901,14 @@
             <InputClaimsTransformation ReferenceId="CreateRandomUPNUserName" />
             <InputClaimsTransformation ReferenceId="CreateUserPrincipalName" />
           </InputClaimsTransformations>
+          <InputClaims>
+            <InputClaim ClaimTypeReferenceId="hasAcceptedPrivacyPolicy" />
+          </InputClaims>
           <DisplayClaims>
             <DisplayClaim DisplayControlReferenceId="phoneVerificationControl" />
             <DisplayClaim ClaimTypeReferenceId="newPassword" Required="true" />
             <DisplayClaim ClaimTypeReferenceId="reenterPassword" Required="true" />
+            <DisplayClaim ClaimTypeReferenceId="hasAcceptedPrivacyPolicy" Required="true" />
           </DisplayClaims>
           <OutputClaims>
             <OutputClaim ClaimTypeReferenceId="newPassword" Required="true" />
@@ -980,7 +968,11 @@
           </CryptographicKeys>
           <InputClaims>
             <InputClaim ClaimTypeReferenceId="signInName" />
+            <InputClaim ClaimTypeReferenceId="hasAcceptedPrivacyPolicy" />
           </InputClaims>
+          <DisplayClaims>
+            <DisplayClaim ClaimTypeReferenceId="hasAcceptedPrivacyPolicy" Required="true" />
+          </DisplayClaims>
           <OutputClaims>
             <OutputClaim ClaimTypeReferenceId="objectId" Required="true" />
             <OutputClaim ClaimTypeReferenceId="signInName" Required="true" />

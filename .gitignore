@@ -1,5 +1,6 @@
 node_modules
 dist
-.vscode
+.vscode/*
+!/.vscode/extensions.json
 src/policies/custom_policies/Environments
 **/*.DS_Store**

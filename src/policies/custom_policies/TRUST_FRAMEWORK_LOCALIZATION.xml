@@ -1,4 +1,4 @@
-<TrustFrameworkPolicy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06" PolicySchemaVersion="0.3.0.0" TenantId="kidsloopb2c.onmicrosoft.com" PolicyId="B2C_1A__{settings:PolicyNamePrefix}TrustFrameworkLocalization" PublicPolicyUri="http://kidsloopb2c.onmicrosoft.com/B2C_1A_TrustFrameworkLocalization" TenantObjectId="8dc632b7-4df1-4904-a155-7c4663e345bb">
+<TrustFrameworkPolicy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06" PolicySchemaVersion="0.3.0.0" TenantId="kidsloopb2c.onmicrosoft.com" PolicyId="B2C_1A__{settings:PolicyNamePrefix}TrustFrameworkLocalization" PublicPolicyUri="http://kidsloopb2c.onmicrosoft.com/B2C_1A__{settings:PolicyNamePrefix}TrustFrameworkLocalization" TenantObjectId="8dc632b7-4df1-4904-a155-7c4663e345bb">
   <BasePolicy>
     <TenantId>kidsloopb2c.onmicrosoft.com</TenantId>
     <PolicyId>B2C_1A__{settings:PolicyNamePrefix}TrustFrameworkTenantConfig</PolicyId>
@@ -53,7 +53,7 @@
         </LocalizedResourcesReferences>
       </ContentDefinition>
       <ContentDefinition Id="api.localaccountsignup">
-        <LoadUri>https://klukb2cstorage.blob.core.windows.net/b2ccosmosdb/policies/KL_create_user_or_sign_in/pages/create-account/index.html</LoadUri>
+        <LoadUri>https://klukb2cstorage.blob.core.windows.net/b2ccosmosdb/policies/KL_create_user_or_sign_in/pages/local-account-sign-up/index.html</LoadUri>
         <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.8</DataUri>
         <LocalizedResourcesReferences MergeBehavior="Prepend">
           <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.localaccountsignup.en" />
@@ -123,7 +123,14 @@
       </LocalizedResources>
       <!--Local account sign-up page English-->
       <LocalizedResources Id="api.localaccountsignup.en">
+        <LocalizedCollections>
+          <LocalizedCollection ElementType="ClaimType" ElementId="hasAcceptedPrivacyPolicy" TargetCollection="Restriction">
+            <Item Text="I agree to the KidsLoop {{Privacy policy}}" Value="true" />
+          </LocalizedCollection>
+        </LocalizedCollections>
         <LocalizedStrings>
+          <LocalizedString ElementType="ClaimType" ElementId="hasAcceptedPrivacyPolicy" StringId="DisplayName">Privacy Policy</LocalizedString>
+          <LocalizedString ElementType="ClaimType" ElementId="hasAcceptedPrivacyPolicy" StringId="UserHelpText">Please agree to the KidsLoop Privacy policy to create an account</LocalizedString>
           <LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">Email Address</LocalizedString>
           <LocalizedString ElementType="ClaimType" ElementId="email" StringId="UserHelpText">Email address that can be used to contact you.</LocalizedString>
           <LocalizedString ElementType="ClaimType" ElementId="email" StringId="PatternHelpText">Please enter a valid email address.</LocalizedString>

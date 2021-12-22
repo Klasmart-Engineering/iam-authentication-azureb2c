@@ -8,7 +8,8 @@ This repository contains the UI for our user policies in Azure B2C.
 
 ### How do I get set up?
 
-TBC
+-   Install _Azure AD B2C_ VSCode extension
+-   Follow [instructions](https://github.com/azure-ad-b2c/vscode-extension/blob/master/src/help/policy-upload.md#configure-your-vs-code-extension) to setup the extension to enable Custom Policy uploads, using the `vscode-extension` application ID
 
 ### Contribution guidelines
 
@@ -90,7 +91,7 @@ The ideal solution would allow easy local development (injecting a compiled vers
 
 -   To ensure you dont override policies which are deployed on SSO or other environments, work on your localy copy, once happy then commit and merge
 -   Download Azure AD B2c plugin for VsCode
--   open `src/policies/custom_policies/appsettings.json`
+-   Open [appsettings.json](./src/policies/custom_policies/appsettings.json)
 -   Under `Environments` add below snippet and replace `<Initials>` with yours
 
 ```
@@ -99,8 +100,6 @@ The ideal solution would allow easy local development (injecting a compiled vers
     "Production": false,
     "Tenant": "kidsloopb2c.onmicrosoft.com",
     "PolicySettings" : {
-        "IdentityExperienceFrameworkAppId": "Your dev environment AD app Id",
-        "ProxyIdentityExperienceFrameworkAppId": "Your dev environment AD Proxy app Id",
         "PolicyNamePrefix": "<Initials>_"
     }
 }
@@ -108,10 +107,18 @@ The ideal solution would allow easy local development (injecting a compiled vers
 
 -   Launch VSCode in a new window and open folder `src/policies/custom_policies`
 -   `cmd + shift + P` and enter `B2C Policy Build` to build the policy
--   In `src/policies/custom_policies/Environments/SSO-<Initials>` you'll find a copy of the policies from `src/policies/custom_policies`
--   experiment with the policies here, upload them in the following order
--   Base policy -> extensions -> tenant_config -> localization -> sign_up_log_in
--   your policies will be uploaded with your initials in the policy name to differentiate from others
+-   Upload your changed policy:
+    -   Automated approach
+        -   `cmd + shift + P` and enter `B2C Upload all policies`, or `B2C Upload current policy` after opening the relevant (built) policy file e.g. `src/policies/custom_policies/Environments/SSO-INITIALS/TRUST_FRAMEWORK_LOCALIZATION.xml`
+        -   Press the "Login" button on the popup message in the bottom corner of your screen
+        -   Paste the contents of your clipboard into the browser window and press the "Next" button
+        -   Authenticate if required with your Kidsloop account credentials
+    -   Manual approach
+        -   In `src/policies/custom_policies/Environments/SSO-<Initials>` you'll find a copy of the policies from `src/policies/custom_policies`
+        -   If first time uploading, ensure to upload them in the order of inheritance i.e. Base policy -> extensions -> tenant_config -> localization -> relying_party. Otherwise, simply upload the policy files you've changed
+-   Navigate to the `Identity Experience Framework` section on the Azure AD portal
+-   Select the `B2C_1A_<INITIALS>_RELYING_PARTY_SIGN_UP_LOG_IN` policy, then press the "Run now" button
+    -   If you need to check the JWT payload, then select the `jwt-ms-test` application and `https://jwt.ms` reply url, which will show you the JWT contents on completion of the user flow
 -   Once you have verified your changes, merge your changes in policies in `src/policies/custom_policies`
--   create a PR
--   once the PR is merged then it is auto deployed to SSO using the bitbucket pipeline (TBA)
+-   Create a PR
+-   Once the PR is merged then it is auto deployed to SSO using the bitbucket pipeline (TBA)

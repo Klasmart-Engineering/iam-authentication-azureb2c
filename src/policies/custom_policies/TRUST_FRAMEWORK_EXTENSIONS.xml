@@ -108,6 +108,14 @@
         <UserHelpText />
       </ClaimType>
       <!--End of Additional claims used for passing claims to Application Insights Provider -->
+      <ClaimType Id="hasAcceptedPrivacyPolicy">
+        <DisplayName>Privacy Policy</DisplayName>
+        <DataType>boolean</DataType>
+        <UserInputType>CheckboxMultiSelect</UserInputType>
+        <Restriction>
+          <Enumeration Text="I agree to the KidsLoop {{Privacy policy}}" Value="true" SelectByDefault="false" />
+        </Restriction>
+      </ClaimType>
       <ClaimType Id="isLocalAccountSignUp">
         <DisplayName>isLocalAccountSignUp</DisplayName>
         <DataType>boolean</DataType>
@@ -833,9 +841,13 @@
           <CryptographicKeys>
             <Key Id="issuer_secret" StorageReferenceId="B2C_1A_TokenSigningKeyContainer" />
           </CryptographicKeys>
+          <InputClaims>
+            <InputClaim ClaimTypeReferenceId="hasAcceptedPrivacyPolicy" />
+          </InputClaims>
           <DisplayClaims>
             <DisplayClaim DisplayControlReferenceId="EmailControl" />
             <DisplayClaim ClaimTypeReferenceId="newPassword" Required="true" />
+            <DisplayClaim ClaimTypeReferenceId="hasAcceptedPrivacyPolicy" Required="true" />
           </DisplayClaims>
           <OutputClaims>
             <OutputClaim ClaimTypeReferenceId="objectId" />
@@ -889,10 +901,14 @@
             <InputClaimsTransformation ReferenceId="CreateRandomUPNUserName" />
             <InputClaimsTransformation ReferenceId="CreateUserPrincipalName" />
           </InputClaimsTransformations>
+          <InputClaims>
+            <InputClaim ClaimTypeReferenceId="hasAcceptedPrivacyPolicy" />
+          </InputClaims>
           <DisplayClaims>
             <DisplayClaim DisplayControlReferenceId="phoneVerificationControl" />
             <DisplayClaim ClaimTypeReferenceId="newPassword" Required="true" />
             <DisplayClaim ClaimTypeReferenceId="reenterPassword" Required="true" />
+            <DisplayClaim ClaimTypeReferenceId="hasAcceptedPrivacyPolicy" Required="true" />
           </DisplayClaims>
           <OutputClaims>
             <OutputClaim ClaimTypeReferenceId="newPassword" Required="true" />
@@ -952,7 +968,11 @@
           </CryptographicKeys>
           <InputClaims>
             <InputClaim ClaimTypeReferenceId="signInName" />
+            <InputClaim ClaimTypeReferenceId="hasAcceptedPrivacyPolicy" />
           </InputClaims>
+          <DisplayClaims>
+            <DisplayClaim ClaimTypeReferenceId="hasAcceptedPrivacyPolicy" Required="true" />
+          </DisplayClaims>
           <OutputClaims>
             <OutputClaim ClaimTypeReferenceId="objectId" Required="true" />
             <OutputClaim ClaimTypeReferenceId="signInName" Required="true" />

@@ -123,7 +123,14 @@
       </LocalizedResources>
       <!--Local account sign-up page English-->
       <LocalizedResources Id="api.localaccountsignup.en">
+        <LocalizedCollections>
+          <LocalizedCollection ElementType="ClaimType" ElementId="hasAcceptedPrivacyPolicy" TargetCollection="Restriction">
+            <Item Text="I agree to the KidsLoop {{Privacy policy}}" Value="true" />
+          </LocalizedCollection>
+        </LocalizedCollections>
         <LocalizedStrings>
+          <LocalizedString ElementType="ClaimType" ElementId="hasAcceptedPrivacyPolicy" StringId="DisplayName">Privacy Policy</LocalizedString>
+          <LocalizedString ElementType="ClaimType" ElementId="hasAcceptedPrivacyPolicy" StringId="UserHelpText">Please agree to the KidsLoop Privacy policy to create an account</LocalizedString>
           <LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">Email Address</LocalizedString>
           <LocalizedString ElementType="ClaimType" ElementId="email" StringId="UserHelpText">Email address that can be used to contact you.</LocalizedString>
           <LocalizedString ElementType="ClaimType" ElementId="email" StringId="PatternHelpText">Please enter a valid email address.</LocalizedString>

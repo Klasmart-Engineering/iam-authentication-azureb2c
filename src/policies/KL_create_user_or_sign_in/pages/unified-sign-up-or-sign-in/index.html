@@ -1,77 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&family=Source+Sans+Pro&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            href="../../common/css/global.css"
+            rel="stylesheet"
+            data-preload="true"
+            type="text/css"
+        />
+        <link
+            href="../../common/css/teacher.css"
+            rel="stylesheet"
+            data-preload="true"
+            type="text/css"
+        />
+        <title>KidsLoop | Login</title>
+    </head>
 
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&family=Source+Sans+Pro&display=swap"
-        rel="stylesheet" />
-    <link href="../../common/css/global.css" rel="stylesheet" data-preload="true" type="text/css" />
-    <link href="../../common/css/teacher.css" rel="stylesheet" data-preload="true" type="text/css" />
-    <title>KidsLoop | Login</title>
-</head>
+    <body>
+        <div class="wrapper">
+            <div class="main-content">
+                <div>
+                    <img class="logo" src="../../../../assets/logo.svg" />
+                </div>
+                <div class="main-content-wrapper">
+                    <img
+                        class="header-image"
+                        src="../../../../assets/cat_clouds_image.svg"
+                    />
 
-<body>
-    <div class="wrapper">
-        <div class="main-content">
-            <div>
-                <img class="logo" src="../../../../assets/logo.svg" />
-            </div>
-            <div class="main-content-wrapper">
-                <img class="header-image" src="../../../../assets/cat_clouds_image.svg" />
+                    <h1 class="main-heading">Login</h1>
+                    <div id="api"></div>
 
-                <h1 class="main-heading">Login</h1>
-                <div id="api"></div>
-
-                <div id="throbber" class="hidden centered">
-                    <div class="lds-roller">
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
+                    <div id="throbber" class="hidden centered">
+                        <div class="lds-roller">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
                     </div>
                 </div>
             </div>
+            <div class="space-filler">
+                <img
+                    class="space-filler-image"
+                    src="../../../../assets/bada-teaching.svg"
+                />
+            </div>
         </div>
-        <div class="space-filler">
-            <img class="space-filler-image" src="../../../../assets/bada-teaching.svg" />
-        </div>
-    </div>
 
-    <script>
-        const signInNameField = document.getElementById('signInName')
-        const redirectToSSOButton = document.getElementById('SiginInWithKidsLoopCredentials')
-        const passwordLabel = document.querySelector('.password-label')
-        const passwordInput = document.getElementById('password')
-        const signInButton = document.getElementById('next')
-        const createAccountLink = document.querySelector('.create')
-        const elementsToRemoveForSSOAccounts = [passwordLabel, passwordInput, signInButton, createAccountLink]
-        const throbberContainer = document.getElementById('throbber')
+        <script>
+            const signInNameField = document.getElementById("signInName")
+            const redirectToSSOButton = document.getElementById(
+                "SiginInWithKidsLoopCredentials"
+            )
+            const passwordLabel = document.querySelector(".password-label")
+            const passwordInput = document.getElementById("password")
+            const signInButton = document.getElementById("next")
+            const createAccountLink = document.querySelector(".create")
+            const elementsToRemoveForSSOAccounts = [
+                passwordLabel,
+                passwordInput,
+                signInButton,
+                createAccountLink,
+            ]
+            const throbberContainer = document.getElementById("throbber")
 
-        function redirectToSSO() {
-            const signInNameParts = signInNameField.value.split('@')
+            function redirectToSSO() {
+                const signInNameParts = signInNameField.value.split("@")
 
-            if (
-                signInNameParts.length === 2
-                && signInNameParts[1].toLowerCase() === 'kidsloop.live'
-            ) {
-                throbberContainer.classList.remove('hidden')
-                redirectToSSOButton.click()
-                elementsToRemoveForSSOAccounts.forEach(function (element) {
-                    element.remove()
-                })
-
+                if (
+                    signInNameParts.length === 2 &&
+                    signInNameParts[1].toLowerCase() === "kidsloop.live"
+                ) {
+                    throbberContainer.classList.remove("hidden")
+                    redirectToSSOButton.click()
+                    elementsToRemoveForSSOAccounts.forEach(function (element) {
+                        element.remove()
+                    })
+                }
             }
-        }
 
-        signInNameField.addEventListener('blur', redirectToSSO)
-    </script>
-</body>
-
+            signInNameField.addEventListener("blur", redirectToSSO)
+        </script>
+    </body>
 </html>

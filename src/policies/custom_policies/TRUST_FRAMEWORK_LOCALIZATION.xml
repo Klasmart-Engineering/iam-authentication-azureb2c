@@ -91,7 +91,7 @@
       </SupportedLanguages>
       <LocalizedResources Id="api.signuporsignin.en">
         <LocalizedStrings>
-          <LocalizedString ElementType="ClaimType" ElementId="signInName" StringId="DisplayName">Email Address or Phone Numberrrrr</LocalizedString>
+          <LocalizedString ElementType="ClaimType" ElementId="signInName" StringId="DisplayName">Email Address or Phone Number</LocalizedString>
           <LocalizedString ElementType="UxElement" StringId="heading">Log in</LocalizedString>
           <LocalizedString ElementType="UxElement" StringId="social_intro">Log in with your social account</LocalizedString>
           <LocalizedString ElementType="UxElement" StringId="local_intro_generic">Log in with your {0}</LocalizedString>

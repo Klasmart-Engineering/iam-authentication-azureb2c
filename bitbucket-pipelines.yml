@@ -7,41 +7,45 @@ image: node:16
 
 pipelines:
   default:
-        - step:
-            name: Build
-            caches:
-              - node
-            script:
-              - npm install
-              - npm run build
-            artifacts:
-              - dist/**
-        - step:
-            name: Code linting
-            script:
-              - npx eslint .
-            caches:
-              - node
-  branches:
-    master:
-        - step:
-            name: Build
-            caches:
-              - node
-            script:
-              - npm install
-              - npm run build
-            artifacts:
-              - dist/**
-        - step:
-            name: Code linting
-            script:
-              - npx eslint .
-            caches:
-              - node
-        - step:
-            name: Deploy To AzureB2C
-            script:
+    - step:
+        name: Build
+        caches:
+          - node
+        script:
+          - npm install
+          - npm run build
+        artifacts:
+          - dist/**
+    - step:
+        name: Code linting
+        script:
+          - npx eslint .
+        caches:
+          - node
+  deploy:
+    sso:
+      - step:
+          name: Build
+          caches:
+            - node
+          script:
+            - npm install
+            - npm run build
+          artifacts:
+            - dist/**
+      - step:
+          name: Code linting
+          script:
+            - npx eslint .
+          caches:
+            - node
+      - step:
+          name: Build IEF
+          script:
+            - 
+      - step:
+          name: Upload Html templates to B2C storage
+          script:
             - npm install
             - npm run build
             - pipe: atlassian/azure-storage-deploy:1.0.2
@@ -50,6 +54,7 @@ pipelines:
                 DESTINATION: 'https://$AccountName.blob.core.windows.net/$ContainerName?'
                 DESTINATION_SAS_TOKEN: $AzureStorageSasToken
                 EXTRA_ARGS: '--recursive --overwrite=true'
-            artifacts:
-              - dist/*
-                # trigger: manual  # Uncomment to make this a manual deployment.
+          artifacts:
+            - dist/*
+      
+

@@ -56,6 +56,7 @@ pipelines:
             - step:
                 name: Upload IEF policies to SSO
                 script:
+                    - echo "tenant_SSO" $Tenant_SSO
                     - npx ieftool deploy -t $Tenant_SSO -c $Client_Id_SSO -s $Client_Secret_SSO -p src/policies/custom_policies/Environments/SSO-MH
             # - step:
             #     name: Deploy To B2c Storage

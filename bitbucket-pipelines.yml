@@ -31,6 +31,15 @@ pipelines:
             name: Upload IEF policies to SSO
             script:
               - npx ieftool deploy -t $Tenant_SSO -c $Client_Id_SSO -s $Client_Secret_SSO -p src/policies/custom_policies/Environments/SSO-MH
+        - step:
+            name: Deploy To B2c Storage
+            - pipe: atlassian/azure-storage-deploy:1.0.2
+              variables:
+                SOURCE: 'dist/**'
+                DESTINATION: 'https://kluksouth.blob.core.windows.net/sso?'
+                DESTINATION_SAS_TOKEN: $AzureStorageSasToken_SSO
+                EXTRA_ARGS: '--recursive --overwrite=true'
+                DEBUG: true
     branches:
         master:
             - step:
@@ -58,14 +67,13 @@ pipelines:
                 script:
                     - echo "tenant_SSO" $Tenant_SSO
                     - npx ieftool deploy -t $Tenant_SSO -c $Client_Id_SSO -s $Client_Secret_SSO -p src/policies/custom_policies/Environments/SSO-MH
-            # - step:
-            #     name: Deploy To B2c Storage
-            #     - pipe: atlassian/azure-storage-deploy:1.0.2
-            #       variables:
-            #         SOURCE: 'dist/**'
-            #         DESTINATION: 'https://$AccountName.blob.core.windows.net/$ContainerName?'
-            #         DESTINATION_SAS_TOKEN: $AzureStorageSasToken
-            #         EXTRA_ARGS: '--recursive --overwrite=true'
-            #     artifacts:
-            #       - dist/*
-            # trigger: manual  # Uncomment to make this a manual deployment.
+            - step:
+                name: Deploy To B2c Storage
+                - pipe: atlassian/azure-storage-deploy:1.0.2
+                  variables:
+                    SOURCE: 'dist/**'
+                    DESTINATION: 'https://$AccountName.blob.core.windows.net/$ContainerName?'
+                    DESTINATION_SAS_TOKEN: $AzureStorageSasToken
+                    EXTRA_ARGS: '--recursive --overwrite=true'
+                artifacts:
+                  - dist/*

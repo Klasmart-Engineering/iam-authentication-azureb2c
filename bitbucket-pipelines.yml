@@ -8,55 +8,55 @@ image: node:16
 pipelines:
     default:
         - step:
-          name: Build & lint
-          caches:
-            - node
-          script:
-            - npm install
-            - npm run lint
-            # - npm run check
-            - npm run build
-          artifacts:
-            - dist/**
-            - scripts/**
-            - src/policies/custom_policies/**
+            name: Build & lint
+            caches:
+              - node
+            script:
+              - npm install
+              - npm run lint
+              # - npm run check
+              - npm run build
+            artifacts:
+              - dist/**
+              - scripts/**
+              - src/policies/custom_policies/**
         - step:
-          name: Build IEF policies
-          image: mcr.microsoft.com/powershell
-          script:
-            - pwsh -Command "scripts/Build-CustomPolicies.ps1 -FilePath src/policies/custom_policies"
-          artifacts:
-            - src/policies/custom_policies/**
+            name: Build IEF policies
+            image: mcr.microsoft.com/powershell
+            script:
+              - pwsh -Command "scripts/Build-CustomPolicies.ps1 -FilePath src/policies/custom_policies"
+            artifacts:
+              - src/policies/custom_policies/**
         - step:
-          name: Upload IEF policies to SSO
-          script:
-            - npx ieftool deploy -t $Tenant_SSO -c $Client_Id_SSO -s $Client_Secret_SSO -p src/policies/custom_policies/Environments/SSO-MH
+            name: Upload IEF policies to SSO
+            script:
+              - npx ieftool deploy -t $Tenant_SSO -c $Client_Id_SSO -s $Client_Secret_SSO -p src/policies/custom_policies/Environments/SSO-MH
     branches:
         master:
             - step:
-              name: Build & lint
-              caches:
-                  - node
-              script:
-                  - npm install
-                  - npm run lint
-                  # - npm run check
-                  - npm run build
-              artifacts:
-                  - dist/**
-                  - scripts/**
-                  - src/policies/custom_policies/**
+                name: Build & lint
+                caches:
+                    - node
+                script:
+                    - npm install
+                    - npm run lint
+                    # - npm run check
+                    - npm run build
+                artifacts:
+                    - dist/**
+                    - scripts/**
+                    - src/policies/custom_policies/**
             - step:
-              name: Build IEF policies
-              image: mcr.microsoft.com/powershell
-              script:
-                  - pwsh -Command "scripts/Build-CustomPolicies.ps1 -FilePath src/policies/custom_policies"
-              artifacts:
-                  - src/policies/custom_policies/**
+                name: Build IEF policies
+                image: mcr.microsoft.com/powershell
+                script:
+                    - pwsh -Command "scripts/Build-CustomPolicies.ps1 -FilePath src/policies/custom_policies"
+                artifacts:
+                    - src/policies/custom_policies/**
             - step:
-              name: Upload IEF policies to SSO
-              script:
-                  - npx ieftool deploy -t $Tenant_SSO -c $Client_Id_SSO -s $Client_Secret_SSO -p src/policies/custom_policies/Environments/SSO-MH
+                name: Upload IEF policies to SSO
+                script:
+                    - npx ieftool deploy -t $Tenant_SSO -c $Client_Id_SSO -s $Client_Secret_SSO -p src/policies/custom_policies/Environments/SSO-MH
             # - step:
             #     name: Deploy To B2c Storage
             #     - pipe: atlassian/azure-storage-deploy:1.0.2

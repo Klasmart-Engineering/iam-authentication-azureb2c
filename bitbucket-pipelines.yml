@@ -8,18 +8,28 @@ image: node:16
 pipelines:
     default:
         - step:
-            name: Build & lint
+            name: Lint & Build
             caches:
               - node
             script:
               - npm install
               - npm run lint
               # - npm run check
-              - npm run build
+              - npm run build -- --env=environment=SSO
             artifacts:
               - dist/**
               - scripts/**
               - src/policies/custom_policies/**
+        - step:
+            name: Deploy build to SSO storage
+            script:
+              - pipe: atlassian/azure-storage-deploy:1.0.2
+                variables:
+                  SOURCE: 'dist/**'
+                  DESTINATION: 'https://$AccountStorage_SSO.blob.core.windows.net/$AccountStorageContainer_SSO?'
+                  DESTINATION_SAS_TOKEN: $AzureStorageSasToken_SSO
+                  EXTRA_ARGS: '--recursive --overwrite=true'
+                  DEBUG: 'true'
         - step:
             name: Build IEF policies
             image: mcr.microsoft.com/powershell
@@ -30,17 +40,8 @@ pipelines:
         - step:
             name: Upload IEF policies to SSO
             script:
-              - npx ieftool deploy -t $Tenant_SSO -c $Client_Id_SSO -s $Client_Secret_SSO -p src/policies/custom_policies/Environments/SSO-MH
-        - step:
-            name: Deploy To B2c Storage
-            script:
-              - pipe: atlassian/azure-storage-deploy:1.0.2
-                variables:
-                  SOURCE: 'dist/**'
-                  DESTINATION: 'https://kluksouth.blob.core.windows.net/sso?'
-                  DESTINATION_SAS_TOKEN: $AzureStorageSasToken_SSO
-                  EXTRA_ARGS: '--recursive --overwrite=true'
-                  DEBUG: 'true'
+              - npx ieftool deploy -t $Tenant_SSO -c $Client_Id_SSO -s $Client_Secret_SSO -p src/policies/custom_policies/Environments/SSO-HM
+        
     branches:
         master:
             - step:

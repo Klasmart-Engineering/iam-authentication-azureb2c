@@ -31,6 +31,12 @@
         <UserHelpText />
       </ClaimType>
 
+      <ClaimType Id="locale">
+        <DisplayName>Locale</DisplayName>
+        <DataType>string</DataType>
+        <UserHelpText />
+      </ClaimType>
+
       <ClaimType Id="roles">
         <DisplayName>Consolidated roles collection</DisplayName>
         <DataType>stringCollection</DataType>

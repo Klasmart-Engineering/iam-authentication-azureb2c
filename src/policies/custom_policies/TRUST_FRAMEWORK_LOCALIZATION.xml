@@ -88,6 +88,13 @@
     <Localization Enabled="true">
       <SupportedLanguages DefaultLanguage="en" MergeBehavior="Append">
         <SupportedLanguage>en</SupportedLanguage>
+        <SupportedLanguage>es</SupportedLanguage>
+        <SupportedLanguage>ko</SupportedLanguage>
+        <SupportedLanguage>th</SupportedLanguage>
+        <SupportedLanguage>zh-hans</SupportedLanguage>
+        <!-- for custom languages(vietnamese and indonesian) we need to add the translations manually -->
+        <SupportedLanguage>vi</SupportedLanguage>
+        <SupportedLanguage>id</SupportedLanguage>
       </SupportedLanguages>
       <LocalizedResources Id="api.signuporsignin.en">
         <LocalizedStrings>

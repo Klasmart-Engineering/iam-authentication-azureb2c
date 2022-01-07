@@ -686,52 +686,6 @@
         </Metadata>
       </ContentDefinition>
     </ContentDefinitions>
-    <DisplayControls>
-      <DisplayControl Id="emailControl" UserInterfaceControlType="VerificationControl">
-        <DisplayClaims>
-          <DisplayClaim ClaimTypeReferenceId="email" Required="true" />
-          <DisplayClaim ClaimTypeReferenceId="verificationCode" ControlClaimType="VerificationCode" Required="true" />
-        </DisplayClaims>
-        <OutputClaims></OutputClaims>
-        <Actions>
-          <Action Id="SendCode">
-            <ValidationClaimsExchange>
-              <ValidationClaimsExchangeTechnicalProfile TechnicalProfileReferenceId="AadSspr-SendCode" />
-            </ValidationClaimsExchange>
-          </Action>
-          <Action Id="VerifyCode">
-            <ValidationClaimsExchange>
-              <ValidationClaimsExchangeTechnicalProfile TechnicalProfileReferenceId="AadSspr-VerifyCode" />
-            </ValidationClaimsExchange>
-          </Action>
-        </Actions>
-      </DisplayControl>
-      <DisplayControl Id="phoneVerificationControl" UserInterfaceControlType="VerificationControl">
-        <InputClaims>
-          <InputClaim ClaimTypeReferenceId="nationalNumber" />
-          <InputClaim ClaimTypeReferenceId="countryCode" />
-        </InputClaims>
-        <DisplayClaims>
-          <DisplayClaim ClaimTypeReferenceId="countryCode" ControlClaimType="CountryCode" Required="true" />
-          <DisplayClaim ClaimTypeReferenceId="nationalNumber" ControlClaimType="Phone" Required="true" />
-          <DisplayClaim ClaimTypeReferenceId="verificationCode" ControlClaimType="VerificationCode" Required="true" />
-        </DisplayClaims>
-        <Actions>
-          <Action Id="SendCode">
-            <ValidationClaimsExchange>
-              <ValidationClaimsExchangeTechnicalProfile TechnicalProfileReferenceId="CombineCountryCodeAndNationalNumber" />
-              <ValidationClaimsExchangeTechnicalProfile TechnicalProfileReferenceId="AzureMfa-SendSms" />
-            </ValidationClaimsExchange>
-          </Action>
-          <Action Id="VerifyCode">
-            <ValidationClaimsExchange>
-              <ValidationClaimsExchangeTechnicalProfile TechnicalProfileReferenceId="CombineCountryCodeAndNationalNumber" />
-              <ValidationClaimsExchangeTechnicalProfile TechnicalProfileReferenceId="AzureMfa-VerifySms" />
-            </ValidationClaimsExchange>
-          </Action>
-        </Actions>
-      </DisplayControl>
-    </DisplayControls>
   </BuildingBlocks>
   <ClaimsProviders>
     <ClaimsProvider>
@@ -864,7 +818,7 @@
             <InputClaim ClaimTypeReferenceId="hasAcceptedPrivacyPolicy" />
           </InputClaims>
           <DisplayClaims>
-            <DisplayClaim DisplayControlReferenceId="EmailControl" />
+            <DisplayClaim DisplayControlReferenceId="emailVerificationControl" />
             <DisplayClaim ClaimTypeReferenceId="newPassword" Required="true" />
             <DisplayClaim ClaimTypeReferenceId="hasAcceptedPrivacyPolicy" Required="true" />
           </DisplayClaims>

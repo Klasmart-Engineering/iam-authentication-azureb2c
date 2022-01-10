@@ -10,15 +10,15 @@
         <TechnicalProfile Id="login-NonInteractive">
           <Metadata>
             <!-- ProxyIdentityExperienceFramework: Application ID -->
-            <Item Key="client_id">4080d557-cdcc-42bf-b06f-a6d9dfe788c4</Item>
+            <Item Key="client_id">{settings:ProxyIdentityExperienceFrameworkAppId}</Item>
             <!-- IdentityExperienceFramework: Application ID-->
-            <Item Key="IdTokenAudience">f610e7c0-be73-4fc4-a5f4-e7389b0542eb</Item>
+            <Item Key="IdTokenAudience">{settings:IdentityExperienceFrameworkAppId}</Item>
           </Metadata>
           <InputClaims>
             <!-- ProxyIdentityExperienceFramework: Application ID -->
-            <InputClaim ClaimTypeReferenceId="client_id" DefaultValue="4080d557-cdcc-42bf-b06f-a6d9dfe788c4" />
+            <InputClaim ClaimTypeReferenceId="client_id" DefaultValue="{settings:ProxyIdentityExperienceFrameworkAppId}" />
             <!-- IdentityExperienceFramework: Application ID-->
-            <InputClaim ClaimTypeReferenceId="resource_id" PartnerClaimType="resource" DefaultValue="f610e7c0-be73-4fc4-a5f4-e7389b0542eb" />
+            <InputClaim ClaimTypeReferenceId="resource_id" PartnerClaimType="resource" DefaultValue="{settings:IdentityExperienceFrameworkAppId}" />
           </InputClaims>
         </TechnicalProfile>
       </TechnicalProfiles>

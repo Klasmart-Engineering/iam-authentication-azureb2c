@@ -140,6 +140,33 @@ p {
     display: none;
 }
 
+.header__language-select {
+    display: flex;
+    justify-content: end;
+    color: #6599d1;
+}
+
+.language-select {
+    background: none;
+    border: none;
+    color: #6599d1;
+    font-family: Roboto;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 30px;
+    margin-right: 3%;
+    padding: 12px;
+    border-radius: 2px;
+}
+
+.language-select:hover {
+    background: #dde9f5;
+}
+
+.language-select__icon {
+    color: #6599d1;
+}
+
 /* Throbber CSS start */
 .lds-roller {
     display: inline-block;

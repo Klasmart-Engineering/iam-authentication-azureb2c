@@ -24,14 +24,39 @@
             data-preload="true"
             type="text/css"
         />
+        <script
+            src="https://klukb2cstorage.blob.core.windows.net/b2ccosmosdb/policies/KL_create_user_or_sign_in/common/js/bundle.js"
+            async
+        ></script>
         <title>KidsLoop | Login</title>
     </head>
 
     <body>
         <div class="wrapper">
             <div class="main-content">
-                <div>
+                <div class="header">
                     <img class="logo" src="../../../../assets/logo.svg" />
+                    <!-- Made visible after initial locale is set (to avoid seeing it flicker) -->
+                    <div class="header__language-select" hidden>
+                        <img
+                            src="../../../../assets/language-select-icon.svg"
+                            alt="Language Select Icon"
+                            class="language-select__icon"
+                        />
+                        <select
+                            id="language-select"
+                            class="language-select"
+                            title="Change Language"
+                        >
+                            <option value="en">English</option>
+                            <option value="es">Español</option>
+                            <option value="ko">한국어</option>
+                            <option value="zh-hans">汉语 (简体)</option>
+                            <option value="vi">Tiếng Việt</option>
+                            <option value="id">bahasa Indonesia</option>
+                            <option value="th">ภาษาไทย</option>
+                        </select>
+                    </div>
                 </div>
                 <div class="main-content-wrapper">
                     <img

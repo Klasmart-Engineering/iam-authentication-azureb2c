@@ -752,6 +752,12 @@
             <OutputClaim ClaimTypeReferenceId="isForgotPassword" DefaultValue="true" AlwaysUseDefaultValue="true" />
           </OutputClaims>
         </TechnicalProfile>
+        <TechnicalProfile Id="LocalAccountWritePasswordUsingObjectId">
+          <Metadata>
+            <!-- Defaults to api.localaccountpasswordreset, which isn't what we want as we have different text/CSS for the "change password" step-->
+            <Item Key="ContentDefinitionReferenceId">api.selfasserted.localaccountpasswordchange</Item>
+          </Metadata>
+        </TechnicalProfile>
       </TechnicalProfiles>
     </ClaimsProvider>
     <ClaimsProvider>

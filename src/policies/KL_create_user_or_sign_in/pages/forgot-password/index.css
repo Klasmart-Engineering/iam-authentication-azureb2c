@@ -26,3 +26,9 @@
     flex-direction: column;
     gap: 2rem;
 }
+
+#emailVerificationControl_success_message {
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+    font-weight: 600;
+}

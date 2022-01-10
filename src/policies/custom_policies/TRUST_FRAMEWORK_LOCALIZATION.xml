@@ -46,6 +46,14 @@
           <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.localaccountsignup.en" />
         </LocalizedResourcesReferences>
       </ContentDefinition>
+      <ContentDefinition Id="api.selfasserted.localaccountpasswordchange">
+        <LoadUri>https://klukb2cstorage.blob.core.windows.net/b2ccosmosdb/policies/KL_create_user_or_sign_in/pages/change-password/index.html</LoadUri>
+        <RecoveryUri>~/common/default_page_error.html</RecoveryUri>
+        <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.8</DataUri>
+        <LocalizedResourcesReferences MergeBehavior="Prepend">
+          <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.selfasserted.localaccountpasswordchange.en" />
+        </LocalizedResourcesReferences>
+      </ContentDefinition>
       <ContentDefinition Id="api.localaccountpasswordreset">
         <LoadUri>https://klukb2cstorage.blob.core.windows.net/b2ccosmosdb/policies/KL_create_user_or_sign_in/pages/forgot-password/index.html</LoadUri>
         <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.8</DataUri>
@@ -117,12 +125,21 @@
           <LocalizedString ElementType="UxElement" StringId="ver_but_send">Send reset code</LocalizedString>
           <LocalizedString ElementType="UxElement" StringId="ver_but_verify">Verify reset code</LocalizedString>
           <LocalizedString ElementType="UxElement" StringId="ver_fail_retry">The verification has failed, please try again</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="success_verify_code_msg">Email address verified. You can continue now</LocalizedString>
           <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="intro_msg">Enter your email address below to receive a reset code.</LocalizedString>
           <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="success_send_code_msg">A reset code has been sent to your email. Please copy it into the input box below and verify reset code.</LocalizedString>
           <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_send_new_code">Send new reset code</LocalizedString>
           <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_send_code">Send reset code</LocalizedString>
           <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_verify_code">Verify reset code</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedRetryAllowed">The verification has failed, please try again</LocalizedString>
+        </LocalizedStrings>
+      </LocalizedResources>
+      <LocalizedResources Id="api.selfasserted.localaccountpasswordchange.en">
+        <LocalizedStrings>
+          <LocalizedString ElementType="UXElement" StringId="button_continue">Reset Password</LocalizedString>
+          <LocalizedString ElementType="UXElement" StringId="initial_intro">Almost there! Enter your new password below.</LocalizedString>
+          <LocalizedString ElementType="ClaimType" ElementId="newPassword" StringId="DisplayName">New password</LocalizedString>
+          <LocalizedString ElementType="ClaimType" ElementId="reenterPassword" StringId="DisplayName">Confirm new password</LocalizedString>
         </LocalizedStrings>
       </LocalizedResources>
     </Localization>

@@ -67,7 +67,8 @@ button {
     line-height: 3.2rem;
 }
 
-.header__language-select {
+.header__language-select,
+.header__right-placeholder {
     flex: 1;
 }
 

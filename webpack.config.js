@@ -34,7 +34,7 @@ function buildEntrypoints() {
 }
 
 module.exports = ({ environment }) => {
-    const { B2CStorage, B2CStroageContainer } =
+    const { B2CStorage, B2CStorageContainer } =
         (
             AppSettings["Environments"].find(
                 ({ Name }) => Name === environment
@@ -43,8 +43,8 @@ module.exports = ({ environment }) => {
     const DEFAULT_PUBLIC_PATH =
         "https://klukb2cstorage.blob.core.windows.net/b2ccosmosdb/"
     const PUBLIC_PATH =
-        B2CStorage && B2CStroageContainer
-            ? `https://${B2CStorage}.blob.core.windows.net/${B2CStroageContainer}/`
+        B2CStorage && B2CStorageContainer
+            ? `https://${B2CStorage}.blob.core.windows.net/${B2CStorageContainer}/`
             : DEFAULT_PUBLIC_PATH
     return {
         mode: "production",

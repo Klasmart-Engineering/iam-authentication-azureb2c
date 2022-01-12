@@ -3,10 +3,10 @@
 
 const path = require("path")
 const glob = require("fast-glob")
-const webpack = require("webpack");
+const webpack = require("webpack")
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin")
 
-const AppSettings = require('./src/policies/custom_policies/appsettings.json');
+const AppSettings = require("./src/policies/custom_policies/appsettings.json")
 
 /**
  * Create separate entrypoint per `index.ts` file in `src` folder, and preserve the folder structure
@@ -34,11 +34,21 @@ function buildEntrypoints() {
 }
 
 module.exports = ({ environment }) => {
+<<<<<<< HEAD
     const { B2CStorage, B2CStroageContainer } = (AppSettings['Environments'].find(({ Name }) => Name === environment) || {})?.PolicySettings || {}
     const DEFAULT_PUBLIC_PATH = "https://klukb2cstorage.blob.core.windows.net/b2ccosmosdb/"
     const PUBLIC_PATH = (B2CStorage && B2CStroageContainer)
                             ? `https://${B2CStorage}.blob.core.windows.net/${B2CStroageContainer}/`
                             : DEFAULT_PUBLIC_PATH
+=======
+    const { B2CStorage, B2CStorageContainer } =
+        (
+            AppSettings["Environments"].find(
+                ({ Name }) => Name === environment
+            ) || {}
+        )?.PolicySettings || {}
+
+>>>>>>> 8fd7826d63b885864daa4569db362f4cbfecc824
     return {
         mode: "production",
         entry: buildEntrypoints(),
@@ -46,7 +56,11 @@ module.exports = ({ environment }) => {
         output: {
             path: path.resolve(__dirname, "dist"),
             filename: "[name].js",
+<<<<<<< HEAD
             publicPath: PUBLIC_PATH,
+=======
+            publicPath: `https://${B2CStorage}.blob.core.windows.net/${B2CStorageContainer}/`,
+>>>>>>> 8fd7826d63b885864daa4569db362f4cbfecc824
             assetModuleFilename: "[name][ext]",
         },
         module: {
@@ -113,34 +127,57 @@ module.exports = ({ environment }) => {
         optimization: {
             minimizer: ["...", new CssMinimizerPlugin()],
         },
-        plugins: [{
-            apply: compiler => {
-                compiler.hooks.beforeRun.tap('BeforeRunPlugin', () => {
-                    const argument = process.argv.pop();
+        plugins: [
+            {
+                apply: (compiler) => {
+                    compiler.hooks.beforeRun.tap("BeforeRunPlugin", () => {
+                        const argument = process.argv.pop()
 
-                    if (argument.includes('--env=environment=')) {
-                        const choosenEnvironment = argument.split('=').pop();
-                        const availableEnvironments = AppSettings['Environments'].map(({ Name }) => Name);
+                        if (argument.includes("--env=environment=")) {
+                            const choosenEnvironment = argument.split("=").pop()
+                            const availableEnvironments = AppSettings[
+                                "Environments"
+                            ].map(({ Name }) => Name)
 
-                        if (availableEnvironments.includes(choosenEnvironment)) {
-                            const environment = AppSettings['Environments'].find(({ Name }) => Name === choosenEnvironment)
+                            if (
+                                availableEnvironments.includes(
+                                    choosenEnvironment
+                                )
+                            ) {
+                                const environment = AppSettings[
+                                    "Environments"
+                                ].find(
+                                    ({ Name }) => Name === choosenEnvironment
+                                )
 
-                            if (!environment?.PolicySettings?.B2CStorage || !environment?.PolicySettings?.B2CStroageContainer) {
-                                throw new Error('Storage and container properties do not exists on the choosen environment.');
+                                if (
+                                    !environment?.PolicySettings?.B2CStorage ||
+                                    !environment?.PolicySettings
+                                        ?.B2CStorageContainer
+                                ) {
+                                    throw new Error(
+                                        "Storage and container properties do not exists on the choosen environment."
+                                    )
+                                }
+                            } else {
+                                throw new Error(
+                                    "Choosen environment does not exists."
+                                )
                             }
                         } else {
-                            throw new Error('Choosen environment does not exists.');
+                            throw new Error(
+                                "Environment argument its not set. Use --env=environment="
+                            )
                         }
-                    } else {
-                        throw new Error('Environment argument its not set. Use --env=environment=');
-                    }
-                })
-            }
-        }, new webpack.DefinePlugin({
-            'process.env': {
-                B2CStorage,
-                B2CStroageContainer,
-            }
-        })]
+                    })
+                },
+            },
+            new webpack.DefinePlugin({
+                "process.env": {
+                    B2CStorage,
+                    B2CStorageContainer,
+                },
+            }),
+        ],
     }
 }

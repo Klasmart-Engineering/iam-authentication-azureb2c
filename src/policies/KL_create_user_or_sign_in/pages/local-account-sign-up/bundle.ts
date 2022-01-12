@@ -1,7 +1,7 @@
 import DOMPurify from "dompurify"
 
 const PRIVACY_POLICY_ID = "hasAcceptedPrivacyPolicy_true"
-const PRIVACY_POLICY_URL = `https://${process.env.B2CStorage}.blob.core.windows.net/${process.env.B2CStroageContainer}/external/privacy-policy/index.html`
+const PRIVACY_POLICY_URL = `https://${process.env.B2CStorage}.blob.core.windows.net/${process.env.B2CStorageContainer}/external/privacy-policy/index.html`
 const DEFAULT_PRIVACY_POLICY_TEXT = "I agree to the KidsLoop {{Privacy policy}}"
 const PLACEHOLDER_REGEX = /{{(.+)}}/
 

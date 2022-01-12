@@ -47,7 +47,7 @@ export interface LocalizedCollection {
 
     TargetCollection: string
 
-    Item: Item
+    Item: Item | Item[]
 }
 
 export interface Item {

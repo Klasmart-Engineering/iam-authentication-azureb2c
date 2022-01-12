@@ -1,82 +1,16 @@
 // Convert `<LocalizedResources>` XML elements in `TRUST_FRAMEWORK_LOCALIZATION.xml` into a structured JSON format
 // which can be uploaded to Lokalize
 import { readFile } from "fs/promises"
-import path from "path"
 import parser from "xml2json"
-
-const LOCALIZATION_XML_PATH = path.resolve(
-    "./src/policies/custom_policies/TRUST_FRAMEWORK_LOCALIZATION.xml"
-)
-
-interface ClaimTypeSection {
-    [elementId: string]: GenericElementSection
-}
-
-interface GenericElementSection {
-    [stringId: string]: string
-}
-
-interface ResourceSection {
-    [type: string]: ClaimTypeSection | GenericElementSection
-}
-
-interface LocalizedCollectionSection {
-    [elementId: string]: {
-        [value: string]: string
-    }
-}
-
-interface Output {
-    [resource: string]: ResourceSection
-}
-
-interface Data {
-    TrustFrameworkPolicy: TrustFrameworkPolicy
-}
-
-interface TrustFrameworkPolicy {
-    BuildingBlocks: BuildingBlocks
-}
-
-interface BuildingBlocks {
-    Localization: Localization
-}
-
-interface Localization {
-    LocalizedResources: LocalizedResource[]
-}
-
-interface LocalizedResource {
-    Id: string
-    LocalizedStrings: LocalizedStrings
-    LocalizedCollections?: LocalizedCollections
-}
-
-interface LocalizedCollections {
-    LocalizedCollection: LocalizedCollection | LocalizedCollection[]
-}
-
-interface LocalizedStrings {
-    LocalizedString: LocalizedString[]
-}
-
-interface LocalizedString {
-    ElementType: string
-    ElementId?: string | null
-    StringId: string
-    $t: string
-}
-
-interface LocalizedCollection {
-    ElementType: string
-    ElementId: string
-    TargetCollection: string
-    Item: Item
-}
-interface Item {
-    Text: string
-    Value: string
-}
+import {
+    ClaimTypeSection,
+    Data,
+    GenericElementSection,
+    LocalizedCollectionSection,
+    Output,
+    ResourceSection,
+} from "../src/types/translationsTypes"
+import { LOCALIZATION_XML_PATH } from "./common"
 
 async function main() {
     const buffer = await readFile(LOCALIZATION_XML_PATH)
@@ -105,9 +39,10 @@ async function main() {
             const typeSection = resourceSection[type]
 
             if (elementId) {
-                ;(typeSection as ClaimTypeSection)[elementId] = {
-                    [id]: value,
+                if (!(elementId in typeSection)) {
+                    typeSection[elementId] = {}
                 }
+                ;(typeSection as ClaimTypeSection)[elementId][id] = value
             } else {
                 ;(typeSection as GenericElementSection)[id] = value
             }
@@ -121,16 +56,21 @@ async function main() {
             // for multiple collections
             ;(Array.isArray(collections) ? collections : [collections]).forEach(
                 (collection) => {
-                    const {
-                        ElementId: elementId,
-                        Item: { Text: text, Value: value },
-                    } = collection
+                    const { ElementId: elementId, Item: itemOrItems } =
+                        collection
 
                     if (!(elementId in localizedCollectionSection)) {
                         localizedCollectionSection[elementId] = {}
                     }
 
-                    localizedCollectionSection[elementId][value] = text
+                    const items = Array.isArray(itemOrItems)
+                        ? itemOrItems
+                        : [itemOrItems]
+
+                    items.forEach((item) => {
+                        localizedCollectionSection[elementId][item.Value] =
+                            item.Text
+                    })
                 }
             )
 

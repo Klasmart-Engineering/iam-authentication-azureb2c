@@ -5,9 +5,7 @@
                 "signInName": {
                     "DisplayName": "Email Address or Phone Number"
                 },
-                "password": {
-                    "DisplayName": "Password"
-                }
+                "password": { "DisplayName": "Password" }
             },
             "UxElement": {
                 "heading": "Log in",
@@ -31,14 +29,11 @@
         "localaccountsignup": {
             "ClaimType": {
                 "hasAcceptedPrivacyPolicy": {
+                    "DisplayName": "Privacy Policy",
                     "UserHelpText": "Please agree to the KidsLoop Privacy policy to create an account"
                 },
-                "email": {
-                    "DisplayName": "Email Address"
-                },
-                "newPassword": {
-                    "DisplayName": "Password"
-                }
+                "email": { "DisplayName": "Email Address" },
+                "newPassword": { "DisplayName": "Password" }
             },
             "UxElement": {
                 "ver_but_edit": "Change e-mail",
@@ -63,6 +58,10 @@
             },
             "DisplayControl": {
                 "emailVerificationControl": {
+                    "intro_msg": "Enter your email address below to receive a reset code.",
+                    "success_send_code_msg": "A reset code has been sent to your email. Please copy it into the input box below and verify reset code.",
+                    "but_send_new_code": "Send new reset code",
+                    "but_send_code": "Send reset code",
                     "but_verify_code": "Verify reset code"
                 }
             },

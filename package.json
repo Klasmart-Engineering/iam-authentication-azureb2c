@@ -15,7 +15,8 @@
         "format:css": "stylelint \"**/*.css\" --fix",
         "format": "npm run format:js && npm run format:css",
         "clean": "rm -rf dist",
-        "build": "webpack"
+        "build": "webpack",
+        "update-translations": "ts-node ./scripts/updateLocalizationXmlWithNewTranslations"
     },
     "repository": {
         "type": "git",

@@ -16,7 +16,7 @@ import { LOCALIZATION_XML_PATH } from "./common"
 
 const LOCALE_TRANSLATIONS_PATH = path.resolve("./src/locale")
 
-const UpdateLocalizationWithNewTranslations = async () => {
+const updateLocalizationWithNewTranslations = async () => {
     const buffer = await readFile(LOCALIZATION_XML_PATH)
     const json = parser.toJson(buffer, { reversible: true })
     const xmlToJsonObject = JSON.parse(json)
@@ -158,4 +158,4 @@ const getNewLocalizedCollection = (
     return localizedCollection
 }
 
-export default UpdateLocalizationWithNewTranslations
+export default updateLocalizationWithNewTranslations

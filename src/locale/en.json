@@ -68,6 +68,20 @@
             "ErrorMessage": {
                 "UserMessageIfVerificationFailedRetryAllowed": "The verification has failed, please try again"
             }
+        },
+        "selfasserted.localaccountpasswordchange": {
+            "UXElement": {
+                "button_continue": "Reset Password",
+                "initial_intro": "Almost there! Enter your new password below."
+            },
+            "ClaimType": {
+                "newPassword": {
+                    "DisplayName": "New password"
+                },
+                "reenterPassword": {
+                    "DisplayName": "Confirm new password"
+                }
+            }
         }
     }
 }

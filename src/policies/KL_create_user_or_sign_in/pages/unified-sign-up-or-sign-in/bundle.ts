@@ -1,7 +1,7 @@
 const LANGUAGE_DROPDOWN_SELECTOR = "#language-select"
 const LANGUAGE_PARAM = "ui_locales"
 
-function getLanguageDropdown(): HTMLInputElement | null {
+const getLanguageDropdown = (): HTMLInputElement | null => {
     const languageDropdown = document.querySelector(LANGUAGE_DROPDOWN_SELECTOR)
     if (!languageDropdown) {
         console.error(
@@ -12,7 +12,7 @@ function getLanguageDropdown(): HTMLInputElement | null {
     return languageDropdown as HTMLInputElement
 }
 
-function onChangeLanguage(e: Event) {
+const onChangeLanguage = (e: Event) => {
     const url = new URL(location.href)
 
     const currentLocale = url.searchParams.get(LANGUAGE_PARAM)
@@ -25,7 +25,7 @@ function onChangeLanguage(e: Event) {
     window.location.replace(url)
 }
 
-function setupLanguangeSelect() {
+const setupLanguangeSelect = () => {
     const languageDropdown = getLanguageDropdown()
     if (languageDropdown === null) return
 
@@ -36,7 +36,7 @@ function setupLanguangeSelect() {
     languageDropdown.addEventListener("change", onChangeLanguage)
 }
 
-function setInitialLanguage(languageDropdown: HTMLInputElement) {
+const setInitialLanguage = (languageDropdown: HTMLInputElement) => {
     const currentLocale =
         // B2C should set this on the <html> root node
         document.documentElement.lang ||

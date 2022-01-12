@@ -19,7 +19,7 @@ const LOCALE_TRANSLATIONS_PATH = path.resolve("./src/locale")
 const UpdateLocalizationWithNewTranslations = async () => {
     const buffer = await readFile(LOCALIZATION_XML_PATH)
     const json = parser.toJson(buffer, { reversible: true })
-    let xmlToJsonObject = JSON.parse(json)
+    const xmlToJsonObject = JSON.parse(json)
     fs.readdirSync(LOCALE_TRANSLATIONS_PATH).forEach((file) => {
         const language =
             file === "zh_CN.json"

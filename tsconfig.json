@@ -6,8 +6,7 @@
         "strict": true,
         "sourceMap": true,
         "esModuleInterop": true,
-        "allowSyntheticDefaultImports": true,
-        "jsx": "react"
+        "allowSyntheticDefaultImports": true
     },
-    "include": ["src", "scripts", "src/**/*.ts"]
+    "include": ["src", "scripts"]
 }

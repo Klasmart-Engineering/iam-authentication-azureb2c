@@ -1,3 +1,25 @@
+export interface ClaimTypeSection {
+    [elementId: string]: GenericElementSection
+}
+
+export interface GenericElementSection {
+    [stringId: string]: string
+}
+
+export interface ResourceSection {
+    [type: string]: ClaimTypeSection | GenericElementSection
+}
+
+export interface LocalizedCollectionSection {
+    [elementId: string]: {
+        [value: string]: string
+    }
+}
+
+export interface Output {
+    [resource: string]: ResourceSection
+}
+
 export interface Data {
     TrustFrameworkPolicy: TrustFrameworkPolicy
 }
@@ -41,7 +63,6 @@ export interface LocalizedCollection {
     TargetCollection: string
     Item: Item | Item[]
 }
-
 export interface Item {
     Text: string
     Value: string

@@ -158,4 +158,4 @@ const getNewLocalizedCollection = (
     return localizedCollection
 }
 
-export default updateLocalizationXmlWithNewTranslations
+updateLocalizationXmlWithNewTranslations()

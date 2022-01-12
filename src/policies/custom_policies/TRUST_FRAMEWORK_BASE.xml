@@ -470,9 +470,6 @@
             <!-- The Facebook required HTTP GET method, but the access token response is in JSON format from 3/27/2017 -->
             <Item Key="AccessTokenResponseFormat">json</Item>
           </Metadata>
-          <!-- <CryptographicKeys>
-            <Key Id="client_secret" StorageReferenceId="B2C_1A_FacebookSecret" />
-          </CryptographicKeys> -->
           <InputClaims />
           <OutputClaims>
             <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="id" />

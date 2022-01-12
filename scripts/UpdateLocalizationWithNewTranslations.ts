@@ -2,7 +2,8 @@
 //into a structured xml format that is saved to TRUST_FRAMEWORK_LOCALIZATION.xml
 import fs from 'fs';
 import parser from "xml2json"
-import { Item, LOCALIZATION_XML_PATH, LocalizedCollection, LocalizedCollections, LocalizedResource, LocalizedString, LocalizedStrings } from '../src/types/translationsTypes';
+import { Item, LocalizedCollection, LocalizedCollections, LocalizedResource, LocalizedString, LocalizedStrings } from '../src/types/translationsTypes';
+import { LOCALIZATION_XML_PATH } from './common';
 
 const UpdateLocalizationWithNewTranslations = (language: any) => {
     let xmlToJsonObject;

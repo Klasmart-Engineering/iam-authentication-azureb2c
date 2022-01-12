@@ -44,8 +44,8 @@ function addPrivacyPolicyLink() {
     label.innerHTML = cleanHTML
 }
 
-if (document.readyState !== "loading") {
+if (document.readyState === "complete") {
     addPrivacyPolicyLink()
 } else {
-    document.addEventListener("DOMContentLoaded", addPrivacyPolicyLink)
+    document.addEventListener("DOMContentLoaded", addPrivacyPolicyLink, false)
 }

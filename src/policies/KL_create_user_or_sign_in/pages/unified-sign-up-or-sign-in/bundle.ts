@@ -45,8 +45,8 @@ function setInitialLanguage(languageDropdown: HTMLInputElement) {
     if (currentLocale) languageDropdown.value = currentLocale
 }
 
-if (document.readyState !== "loading") {
+if (document.readyState === "complete") {
     setupLanguangeSelect()
 } else {
-    document.addEventListener("DOMContentLoaded", setupLanguangeSelect)
+    document.addEventListener("DOMContentLoaded", setupLanguangeSelect, false)
 }

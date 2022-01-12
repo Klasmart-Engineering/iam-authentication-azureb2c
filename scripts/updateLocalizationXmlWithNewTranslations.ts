@@ -16,6 +16,10 @@ import { LOCALIZATION_XML_PATH } from "./common"
 
 const LOCALE_TRANSLATIONS_PATH = path.resolve("./src/locale")
 
+interface ElementIdObj {
+    [key: string]: string;
+ }
+
 const updateLocalizationXmlWithNewTranslations = async () => {
     const buffer = await readFile(LOCALIZATION_XML_PATH)
     const json = parser.toJson(buffer, { reversible: true })
@@ -116,7 +120,7 @@ const updateLocalizationXmlWithNewTranslations = async () => {
 const getNewLocalizedString = (
     elementType: string,
     elementId: string,
-    elementIdObj: any
+    elementIdObj: ElementIdObj | string
 ): LocalizedString => {
     const localizedString = {} as LocalizedString
     localizedString.ElementType = elementType
@@ -135,7 +139,7 @@ const getNewLocalizedString = (
 const getNewLocalizedCollection = (
     elementType: string,
     elementId: string,
-    newTranslationObj: any
+    newTranslationObj: ElementIdObj
 ): LocalizedCollection => {
     const localizedCollection = {} as LocalizedCollection
     localizedCollection.ElementType = elementType

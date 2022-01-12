@@ -16,9 +16,7 @@ export interface Localization {
 
 export interface LocalizedResource {
     Id: string
-
     LocalizedStrings: LocalizedStrings
-
     LocalizedCollections?: LocalizedCollections
 }
 
@@ -32,26 +30,19 @@ export interface LocalizedStrings {
 
 export interface LocalizedString {
     ElementType: string
-
     ElementId?: string | null
-
     StringId: string
-
     $t: string
 }
 
 export interface LocalizedCollection {
     ElementType: string
-
     ElementId: string
-
     TargetCollection: string
-
     Item: Item | Item[]
 }
 
 export interface Item {
     Text: string
-
     Value: string
 }

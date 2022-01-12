@@ -1,3 +1,146 @@
 {
-    "hello": "world"
+    "custom_policy": {
+
+    "signuporsignin": {
+
+        "ClaimType": {
+
+            "signInName": {
+
+                "DisplayName": "sdd"
+
+            },
+
+            "password": {
+
+                "DisplayName": "Passwoaard"
+
+            }
+
+        },
+
+        "UxElement": {
+
+            "heading": "Log in",
+
+            "social_intro": "Log in with your social account",
+
+            "local_intro_generic": "Log in with your {0}",
+
+            "requiredField_password": "Cannot be empty",
+
+            "requiredField_generic": "Cannot be empty",
+
+            "invalid_generic": "Please enter a valid {0}",
+
+            "button_signin": "Log in"
+
+        },
+
+        "ClaimsProvider": {
+
+            "SignupWithEmail": "Email",
+
+            "SignupWithPhone": "Phone"
+
+        },
+
+        "ErrorMessage": {
+
+            "UserMessageIfInvalidPassword": "Sorry, we don’t recognise your login details! Please check that you’ve entered them correctly and try again.",
+
+            "UserMessageIfClaimsPrincipalDoesNotExist": "Sorry, we don’t recognise your login details! Please check that you’ve entered them correctly and try again.",
+
+            "UserMessageIfOldPasswordUsed": "Sorry, we don’t recognise your login details! Please check that you’ve entered them correctly and try again."
+
+        }
+
+    },
+
+    "localaccountsignup": {
+
+        "ClaimType": {
+
+            "hasAcceptedPrivacyPolicy": {
+
+                "UserHelpText": "Please agree to the KidsLoop Privacy policy to create an account"
+
+            },
+
+            "email": {
+
+                "DisplayName": "Email Address"
+
+            },
+
+            "newPassword": {
+
+                "DisplayName": "Password"
+
+            }
+
+        },
+
+        "UxElement": {
+
+            "ver_but_edit": "Change e-mail",
+
+            "ver_but_resend": "Send new code",
+
+            "ver_but_send": "Send verification code",
+
+            "ver_but_verify": "Verify code"
+
+        },
+
+        "LocalizedCollection": {
+
+            "hasAcceptedPrivacyPolicy": {
+
+                "true": "I agree to the KidsLoop {{Privacy policy}}"
+
+            }
+
+        }
+
+    },
+
+    "localaccountpasswordreset": {
+
+        "UxElement": {
+
+            "ver_intro_msg": "Enter your email address below to receive a reset code.",
+
+            "ver_info_msg": "A reset code has been sent to your email. Please copy it into the input box below and verify reset code.",
+
+            "ver_but_resend": "Send new reset code",
+
+            "ver_but_send": "Send reset code",
+
+            "ver_but_verify": "Verify reset code",
+
+            "ver_fail_retry": "The verification has failed, please try again"
+
+        },
+
+        "DisplayControl": {
+
+            "emailVerificationControl": {
+
+                "but_verify_code": "Verify reset code"
+
+            }
+
+        },
+
+        "ErrorMessage": {
+
+            "UserMessageIfVerificationFailedRetryAllowed": "The verification has failed, please try again"
+
+        }
+
+    }
+
+}
+
 }

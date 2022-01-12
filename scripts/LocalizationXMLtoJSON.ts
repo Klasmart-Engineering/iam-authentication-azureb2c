@@ -1,9 +1,15 @@
 // Convert `<LocalizedResources>` XML elements in `TRUST_FRAMEWORK_LOCALIZATION.xml` into a structured JSON format
 // which can be uploaded to Lokalize
 import { readFile } from "fs/promises"
-import path from "path"
 import parser from "xml2json"
-import { ClaimTypeSection, Data, GenericElementSection, LocalizedCollectionSection, Output, ResourceSection } from "../src/types/translationsTypes"
+import {
+    ClaimTypeSection,
+    Data,
+    GenericElementSection,
+    LocalizedCollectionSection,
+    Output,
+    ResourceSection,
+} from "../src/types/translationsTypes"
 import { LOCALIZATION_XML_PATH } from "./common"
 
 async function main() {
@@ -33,9 +39,10 @@ async function main() {
             const typeSection = resourceSection[type]
 
             if (elementId) {
-                ;(typeSection as ClaimTypeSection)[elementId] = {
-                    [id]: value,
+                if (!(elementId in typeSection)) {
+                    typeSection[elementId] = {}
                 }
+                ;(typeSection as ClaimTypeSection)[elementId][id] = value
             } else {
                 ;(typeSection as GenericElementSection)[id] = value
             }
@@ -49,18 +56,21 @@ async function main() {
             // for multiple collections
             ;(Array.isArray(collections) ? collections : [collections]).forEach(
                 (collection) => {
-                    const {
-                        ElementId: elementId,
-                        Item: { Text: text, Value: value },
-                    } = collection
-
-                    ;(Array.isArray(collections) ? collections : [collections]).forEach(
+                    const { ElementId: elementId, Item: itemOrItems } =
+                        collection
 
                     if (!(elementId in localizedCollectionSection)) {
                         localizedCollectionSection[elementId] = {}
                     }
 
-                    localizedCollectionSection[elementId][value] = text
+                    const items = Array.isArray(itemOrItems)
+                        ? itemOrItems
+                        : [itemOrItems]
+
+                    items.forEach((item) => {
+                        localizedCollectionSection[elementId][item.Value] =
+                            item.Text
+                    })
                 }
             )
 

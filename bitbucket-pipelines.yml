@@ -8,64 +8,64 @@ image: node:16
 pipelines:
     default:
         - step:
-            name: Lint & Build
-            caches:
-              - node
-            script:
-              - npm install
-              - npm run lint
-              # - npm run check
-              - npm run build -- --env=environment=SSO
-            artifacts:
-              - dist/**
-              - scripts/**
-              - src/policies/custom_policies/**
+              name: Lint & Build
+              caches:
+                  - node
+              script:
+                  - npm install
+                  - npm run lint
+                  # - npm run check
+                  - npm run build -- --env=environment=SSO
+              artifacts:
+                  - dist/**
+                  - scripts/**
+                  - src/policies/custom_policies/**
         - step:
-            name: Deploy build to SSO storage
-            script:
-              - pipe: atlassian/azure-storage-deploy:1.0.2
-                variables:
-                  SOURCE: 'dist/**'
-                  DESTINATION: 'https://$KL_POC_AccountStorage.blob.core.windows.net/$KL_POC_AccountStorageContainer?'
-                  DESTINATION_SAS_TOKEN: $KL_POC_AzureStorageSasToken
-                  EXTRA_ARGS: '--recursive --overwrite=true'
-                  DEBUG: 'true'
+              name: Deploy build to SSO storage
+              script:
+                  - pipe: atlassian/azure-storage-deploy:1.0.2
+                    variables:
+                        SOURCE: "dist/**"
+                        DESTINATION: "https://$KL_POC_AccountStorage.blob.core.windows.net/$KL_POC_AccountStorageContainer?"
+                        DESTINATION_SAS_TOKEN: $KL_POC_AzureStorageSasToken
+                        EXTRA_ARGS: "--recursive --overwrite=true"
+                        DEBUG: "true"
         - step:
-            name: Build IEF policies
-            image: mcr.microsoft.com/powershell
-            script:
-              - pwsh -Command "scripts/Build-CustomPolicies.ps1 -FilePath src/policies/custom_policies"
-            artifacts:
-              - src/policies/custom_policies/**
+              name: Build IEF policies
+              image: mcr.microsoft.com/powershell
+              script:
+                  - pwsh -Command "scripts/Build-CustomPolicies.ps1 -FilePath src/policies/custom_policies"
+              artifacts:
+                  - src/policies/custom_policies/**
         - step:
-            name: Upload IEF policies to SSO
-            script:
-              - npx ieftool deploy -t $KL_POC_TenantId -c $KL_POC_ClientId -s $KL_POC_Secret -p src/policies/custom_policies/Environments/SSO-HM
-        
+              name: Upload IEF policies to SSO
+              script:
+                  - npx ieftool deploy -t $KL_POC_TenantId -c $KL_POC_ClientId -s $KL_POC_Secret -p src/policies/custom_policies/Environments/SSO-HM
+
     branches:
         master:
             - step:
-                name: Build & lint
-                caches:
-                    - node
-                script:
-                    - npm install
-                    - npm run lint
-                    # - npm run check
-                    - npm run build
-                artifacts:
-                    - dist/**
-                    - scripts/**
-                    - src/policies/custom_policies/**
+                  name: Build & lint
+                  caches:
+                      - node
+                  script:
+                      - npm install
+                      - npm run lint
+                      # - npm run check
+                      - npm run build
+                  artifacts:
+                      - dist/**
+                      - scripts/**
+                      - src/policies/custom_policies/**
             - step:
-                name: Build IEF policies
-                image: mcr.microsoft.com/powershell
-                script:
-                    - pwsh -Command "scripts/Build-CustomPolicies.ps1 -FilePath src/policies/custom_policies"
-                artifacts:
-                    - src/policies/custom_policies/**
+                  name: Build IEF policies
+                  image: mcr.microsoft.com/powershell
+                  script:
+                      - pwsh -Command "scripts/Build-CustomPolicies.ps1 -FilePath src/policies/custom_policies"
+                  artifacts:
+                      - src/policies/custom_policies/**
             - step:
-                name: Upload IEF policies to SSO
-                script:
-                    - echo "tenant_SSO" $Tenant_SSO
-                    - npx ieftool deploy -t $Tenant_SSO -c $Client_Id_SSO -s $Client_Secret_SSO -p src/policies/custom_policies/Environments/SSO-MH
+                  name: Upload IEF policies to SSO
+                  script:
+                      - echo "tenant_SSO" $Tenant_SSO
+                      - npx ieftool deploy -t $Tenant_SSO -c $Client_Id_SSO -s $Client_Secret_SSO -p src/policies/custom_policies/Environments/SSO-MH

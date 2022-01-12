@@ -34,21 +34,18 @@ function buildEntrypoints() {
 }
 
 module.exports = ({ environment }) => {
-<<<<<<< HEAD
-    const { B2CStorage, B2CStroageContainer } = (AppSettings['Environments'].find(({ Name }) => Name === environment) || {})?.PolicySettings || {}
-    const DEFAULT_PUBLIC_PATH = "https://klukb2cstorage.blob.core.windows.net/b2ccosmosdb/"
-    const PUBLIC_PATH = (B2CStorage && B2CStroageContainer)
-                            ? `https://${B2CStorage}.blob.core.windows.net/${B2CStroageContainer}/`
-                            : DEFAULT_PUBLIC_PATH
-=======
-    const { B2CStorage, B2CStorageContainer } =
+    const { B2CStorage, B2CStroageContainer } =
         (
             AppSettings["Environments"].find(
                 ({ Name }) => Name === environment
             ) || {}
         )?.PolicySettings || {}
-
->>>>>>> 8fd7826d63b885864daa4569db362f4cbfecc824
+    const DEFAULT_PUBLIC_PATH =
+        "https://klukb2cstorage.blob.core.windows.net/b2ccosmosdb/"
+    const PUBLIC_PATH =
+        B2CStorage && B2CStroageContainer
+            ? `https://${B2CStorage}.blob.core.windows.net/${B2CStroageContainer}/`
+            : DEFAULT_PUBLIC_PATH
     return {
         mode: "production",
         entry: buildEntrypoints(),
@@ -56,11 +53,7 @@ module.exports = ({ environment }) => {
         output: {
             path: path.resolve(__dirname, "dist"),
             filename: "[name].js",
-<<<<<<< HEAD
             publicPath: PUBLIC_PATH,
-=======
-            publicPath: `https://${B2CStorage}.blob.core.windows.net/${B2CStorageContainer}/`,
->>>>>>> 8fd7826d63b885864daa4569db362f4cbfecc824
             assetModuleFilename: "[name][ext]",
         },
         module: {
@@ -110,16 +103,18 @@ module.exports = ({ environment }) => {
                     test: /\.html$/i,
                     use: [
                         "extract-loader",
-                        { loader: "html-loader", options: {
-                            esModule: false,
-                            preprocessor: (content) => {
-                                return content.replaceAll(
-                                    DEFAULT_PUBLIC_PATH,
-                                    PUBLIC_PATH
-                                )
+                        {
+                            loader: "html-loader",
+                            options: {
+                                esModule: false,
+                                preprocessor: (content) => {
+                                    return content.replaceAll(
+                                        DEFAULT_PUBLIC_PATH,
+                                        PUBLIC_PATH
+                                    )
+                                },
                             },
                         },
-                    },
                     ],
                 },
             ],

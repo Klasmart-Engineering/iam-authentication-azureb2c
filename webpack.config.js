@@ -35,7 +35,10 @@ function buildEntrypoints() {
 
 module.exports = ({ environment }) => {
     const { B2CStorage, B2CStroageContainer } = (AppSettings['Environments'].find(({ Name }) => Name === environment) || {})?.PolicySettings || {}
-
+    const DEFAULT_PUBLIC_PATH = "https://klukb2cstorage.blob.core.windows.net/b2ccosmosdb/"
+    const PUBLIC_PATH = (B2CStorage && B2CStroageContainer)
+                            ? `https://${B2CStorage}.blob.core.windows.net/${B2CStroageContainer}/`
+                            : DEFAULT_PUBLIC_PATH
     return {
         mode: "production",
         entry: buildEntrypoints(),
@@ -43,7 +46,7 @@ module.exports = ({ environment }) => {
         output: {
             path: path.resolve(__dirname, "dist"),
             filename: "[name].js",
-            publicPath: `https://${B2CStorage}.blob.core.windows.net/${B2CStroageContainer}/`,
+            publicPath: PUBLIC_PATH,
             assetModuleFilename: "[name][ext]",
         },
         module: {
@@ -93,7 +96,16 @@ module.exports = ({ environment }) => {
                     test: /\.html$/i,
                     use: [
                         "extract-loader",
-                        { loader: "html-loader", options: { esModule: false } },
+                        { loader: "html-loader", options: {
+                            esModule: false,
+                            preprocessor: (content) => {
+                                return content.replaceAll(
+                                    DEFAULT_PUBLIC_PATH,
+                                    PUBLIC_PATH
+                                )
+                            },
+                        },
+                    },
                     ],
                 },
             ],

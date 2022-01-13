@@ -23,6 +23,104 @@ The IAM team
 
 ## Guidelines
 
+### Translations
+
+#### B2C
+
+The Lokalise project is called [iam-authentication-azureb2c](https://app.lokalise.com/project/3182637961d6c45679cc44.06370405/)
+
+Any new `<LocalizedString>` or `<LocalizedCollection>` should ideally be created in Lokalise, then downloaded, then run our [updateLocalizationXmlWithNewTranslations](./scripts/updateLocalizationXmlWithNewTranslations.ts) script to convert the JSON file into the B2C XML format.
+
+Note, Lokalise converts nested JSON into a flat key, where each level is separated by `::`.
+
+The JSON structure mimics the `TRUST_FRAMEWORK_LOCALIZATION.xml` hierarchy, which enables us to convert our JSON back into the XML format.
+
+If you want to add new strings to the XML directly, you can add the new entries, then use the [LocalizationXMLtoJSON](./scripts/LocalizationXMLtoJSON.ts) script to convert from XML to JSON, but remember to upload to Lokalise afterwards or your new strings won't get translated!
+
+#### HTML
+
+The Lokalise project is called [iam-authentication-azureb2c (HTML)](https://app.lokalise.com/project/7931918561df16e85482d1.17678014/)
+
+Any changes to the HTML pages should be done on the `en` version of the template.
+
+e.g. for `unified-sign-up-or-sign-in`, modify `unified-sign-up-or-sign-in/en/index.html`
+
+Once your changes are complete, perform the following steps:
+
+##### Repo -> Lokalise
+
+Copy the HTML file to another location, and rename to the name of the page
+
+e.g. rename `index.html` from `pages/forgot-password/en` to `forgot-password.html`
+
+Open the "iam-authentication-azureb2c (HTML)" project, and press the Upload tab
+
+![Upload](./docs/lokalise/upload.png)
+
+NB: on unified-sign-up-or-sign-in, the auto-detected language is not English, so you'll need to manually select that. Additionally, click the filename and remove the _%LANG_ISO%_ placeholder Lokalise tries to insert
+
+![Edit Filename](./docs/lokalise/edit_filename.png)
+
+This will:
+
+1. Add any new strings to Lokalise to be translated
+2. Update the HTML on Lokalise for each page
+
+NB: Even if you have made **no changes** to text content of the page, you will still need to do this (OR make the same changes to every language manually)
+
+##### Lokalise -> Repo
+
+First, download the HTML templates from Lokalise with the options below.
+
+![Download](./docs/lokalise/download.png)
+
+Download creates a ZIP file with the following folder structure:
+
+```text
+root
+├── en
+│   ├── change-password.html
+│   ├── forgot-password.html
+│   ├── local-account-sign-up.html
+│   └── unified-sign-up-or-sign-in.html
+├── es
+│   ├── change-password.html
+│   ├── forgot-password.html
+│   ├── local-account-sign-up.html
+│   └── unified-sign-up-or-sign-in.html
+├── ...[other languages]
+```
+
+This needs to be converted to the following directory structure:
+
+```text
+pages
+├── change-password
+│   ├── en
+│   │   └── index.html
+│   ├── es
+│   │   └── index.html
+│   ├── ...[other languages]
+│   ├── index.css
+├── forgot-password
+│   ├── en
+│   ...
+├── ...[other pages]
+```
+
+First, unzip the folder.
+
+Then, use the [MoveTranslatedHTML](./scripts/MoveTranslatedHTML.ts) script to correct the format, with the folder path (relative or absolute) of the unzipped Lokalise download as the first argument.
+e.g. if folder found at "~/Downloads/lokalise", run
+
+```sh
+npx ts-node scripts/MoveTranslatedHTML.ts ~/Downloads/lokalise
+```
+
+NB: Make sure to run the `sed` command logged to the console once the script finishes
+
+##### Repo -> Lokalise
+
 ### Directory structure
 
 All images should go in `assets`

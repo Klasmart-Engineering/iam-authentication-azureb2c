@@ -57,7 +57,7 @@
                 "ver_fail_retry": "The verification has failed, please try again"
             },
             "DisplayControl": {
-                "emailVerificationControl": {
+                "emailControl": {
                     "intro_msg": "Enter your email address below to receive a reset code.",
                     "success_send_code_msg": "A reset code has been sent to your email. Please copy it into the input box below and verify reset code.",
                     "but_send_new_code": "Send new reset code",

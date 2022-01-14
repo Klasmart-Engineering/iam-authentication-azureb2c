@@ -445,7 +445,7 @@
       </ContentDefinition>
     </ContentDefinitions>
     <DisplayControls>
-      <DisplayControl Id="emailVerificationControl" UserInterfaceControlType="VerificationControl">
+      <DisplayControl Id="emailControl" UserInterfaceControlType="VerificationControl">
         <DisplayClaims>
           <DisplayClaim ClaimTypeReferenceId="email" Required="true" />
           <DisplayClaim ClaimTypeReferenceId="verificationCode" ControlClaimType="VerificationCode" Required="true" />
@@ -950,7 +950,7 @@
           </CryptographicKeys>
           <IncludeInSso>false</IncludeInSso>
           <DisplayClaims>
-            <DisplayClaim DisplayControlReferenceId="emailVerificationControl" />
+            <DisplayClaim DisplayControlReferenceId="emailControl" />
           </DisplayClaims>
           <OutputClaims>
             <OutputClaim ClaimTypeReferenceId="email" />

@@ -125,12 +125,12 @@
           <LocalizedString ElementType="UxElement" StringId="ver_but_send">Send reset code</LocalizedString>
           <LocalizedString ElementType="UxElement" StringId="ver_but_verify">Verify reset code</LocalizedString>
           <LocalizedString ElementType="UxElement" StringId="ver_fail_retry">The verification has failed, please try again</LocalizedString>
-          <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="success_verify_code_msg">Email address verified. You can continue now</LocalizedString>
-          <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="intro_msg">Enter your email address below to receive a reset code.</LocalizedString>
-          <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="success_send_code_msg">A reset code has been sent to your email. Please copy it into the input box below and verify reset code.</LocalizedString>
-          <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_send_new_code">Send new reset code</LocalizedString>
-          <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_send_code">Send reset code</LocalizedString>
-          <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_verify_code">Verify reset code</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="success_verify_code_msg">Email address verified. You can continue now</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="intro_msg">Enter your email address below to receive a reset code.</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="success_send_code_msg">A reset code has been sent to your email. Please copy it into the input box below and verify reset code.</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="but_send_new_code">Send new reset code</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="but_send_code">Send reset code</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="but_verify_code">Verify reset code</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedRetryAllowed">The verification has failed, please try again</LocalizedString>
         </LocalizedStrings>
       </LocalizedResources>

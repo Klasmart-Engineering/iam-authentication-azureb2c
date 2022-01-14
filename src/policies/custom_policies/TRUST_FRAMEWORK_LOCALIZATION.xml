@@ -24,7 +24,9 @@
           <Item Key="DisplayName">Log in</Item>
         </Metadata>
         <LocalizedResourcesReferences MergeBehavior="Prepend">
-          <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.signuporsignin.en" />
+          <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.signuporsignin.en"></LocalizedResourcesReference>
+          <LocalizedResourcesReference Language="es" LocalizedResourcesReferenceId="api.signuporsignin.es"></LocalizedResourcesReference>
+          <LocalizedResourcesReference Language="zh-hans" LocalizedResourcesReferenceId="api.signuporsignin.zh-hans"></LocalizedResourcesReference>
         </LocalizedResourcesReferences>
       </ContentDefinition>
       <ContentDefinition Id="api.phonefactor">
@@ -43,7 +45,9 @@
         <LoadUri>https://klukb2cstorage.blob.core.windows.net/b2ccosmosdb/policies/KL_create_user_or_sign_in/pages/local-account-sign-up/index.html</LoadUri>
         <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.8</DataUri>
         <LocalizedResourcesReferences MergeBehavior="Prepend">
-          <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.localaccountsignup.en" />
+          <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.localaccountsignup.en"></LocalizedResourcesReference>
+          <LocalizedResourcesReference Language="es" LocalizedResourcesReferenceId="api.localaccountsignup.es"></LocalizedResourcesReference>
+          <LocalizedResourcesReference Language="zh-hans" LocalizedResourcesReferenceId="api.localaccountsignup.zh-hans"></LocalizedResourcesReference>
         </LocalizedResourcesReferences>
       </ContentDefinition>
       <ContentDefinition Id="api.selfasserted.localaccountpasswordchange">
@@ -51,14 +55,18 @@
         <RecoveryUri>~/common/default_page_error.html</RecoveryUri>
         <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.8</DataUri>
         <LocalizedResourcesReferences MergeBehavior="Prepend">
-          <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.selfasserted.localaccountpasswordchange.en" />
+          <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.selfasserted.localaccountpasswordchange.en"></LocalizedResourcesReference>
+          <LocalizedResourcesReference Language="es" LocalizedResourcesReferenceId="api.selfasserted.localaccountpasswordchange.es"></LocalizedResourcesReference>
+          <LocalizedResourcesReference Language="zh-hans" LocalizedResourcesReferenceId="api.selfasserted.localaccountpasswordchange.zh-hans"></LocalizedResourcesReference>
         </LocalizedResourcesReferences>
       </ContentDefinition>
       <ContentDefinition Id="api.localaccountpasswordreset">
         <LoadUri>https://klukb2cstorage.blob.core.windows.net/b2ccosmosdb/policies/KL_create_user_or_sign_in/pages/forgot-password/index.html</LoadUri>
         <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.8</DataUri>
         <LocalizedResourcesReferences MergeBehavior="Prepend">
-          <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.localaccountpasswordreset.en" />
+          <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.localaccountpasswordreset.en"></LocalizedResourcesReference>
+          <LocalizedResourcesReference Language="es" LocalizedResourcesReferenceId="api.localaccountpasswordreset.es"></LocalizedResourcesReference>
+          <LocalizedResourcesReference Language="zh-hans" LocalizedResourcesReferenceId="api.localaccountpasswordreset.zh-hans"></LocalizedResourcesReference>
         </LocalizedResourcesReferences>
       </ContentDefinition>
       <ContentDefinition Id="api.socialccountsignup">
@@ -80,70 +88,188 @@
         <SupportedLanguage>vi</SupportedLanguage>
         <SupportedLanguage>id</SupportedLanguage>
       </SupportedLanguages>
-      <LocalizedResources Id="api.signuporsignin.en">
+      <LocalizedResources Id="api.localaccountpasswordreset.en">
         <LocalizedStrings>
-          <LocalizedString ElementType="ClaimType" ElementId="signInName" StringId="DisplayName">Email Address or Phone Number</LocalizedString>
-          <LocalizedString ElementType="ClaimType" ElementId="password" StringId="DisplayName">Password</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="heading">Log in</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="social_intro">Log in with your social account</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="local_intro_generic">Log in with your {0}</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="requiredField_password">Cannot be empty</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="requiredField_generic">Cannot be empty</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="invalid_generic">Please enter a valid {0}</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="button_signin">Log in</LocalizedString>
-          <LocalizedString ElementType="ClaimsProvider" StringId="SignupWithEmail">Email</LocalizedString>
-          <LocalizedString ElementType="ClaimsProvider" StringId="SignupWithPhone">Phone</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidPassword">Sorry, we don’t recognise your login details! Please check that you’ve entered them correctly and try again.</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalDoesNotExist">Sorry, we don’t recognise your login details! Please check that you’ve entered them correctly and try again.</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfOldPasswordUsed">Sorry, we don’t recognise your login details! Please check that you’ve entered them correctly and try again.</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="but_send_code">Send reset code</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="but_send_new_code">Send new reset code</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="but_verify_code">Verify reset code</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="intro_msg">Enter your email address below to receive a reset code.</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="success_send_code_msg">A reset code has been sent to your email. Please copy it into the input box below and verify reset code.</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="success_verify_code_msg">Email address verified. You can continue now</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedRetryAllowed">The verification has failed, please try again</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="ver_but_resend">Send new reset code</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="ver_but_send">Send reset code</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="ver_but_verify">Verify reset code</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="ver_fail_retry">The verification has failed, please try again</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="ver_info_msg">A reset code has been sent to your email. Please copy it into the input box below and verify reset code.</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="ver_intro_msg">Enter your email address below to receive a reset code.</LocalizedString>
         </LocalizedStrings>
       </LocalizedResources>
-      <!--Local account sign-up page English-->
       <LocalizedResources Id="api.localaccountsignup.en">
         <LocalizedCollections>
           <LocalizedCollection ElementType="ClaimType" ElementId="hasAcceptedPrivacyPolicy" TargetCollection="Restriction">
-            <Item Text="I agree to the KidsLoop {{Privacy policy}}" Value="true" />
+            <Item Value="true" Text="I agree to the KidsLoop {{Privacy policy}}"></Item>
           </LocalizedCollection>
         </LocalizedCollections>
         <LocalizedStrings>
+          <LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">Email Address</LocalizedString>
           <LocalizedString ElementType="ClaimType" ElementId="hasAcceptedPrivacyPolicy" StringId="DisplayName">Privacy Policy</LocalizedString>
           <LocalizedString ElementType="ClaimType" ElementId="hasAcceptedPrivacyPolicy" StringId="UserHelpText">Please agree to the KidsLoop Privacy policy to create an account</LocalizedString>
-          <LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">Email Address</LocalizedString>
           <LocalizedString ElementType="ClaimType" ElementId="newPassword" StringId="DisplayName">Password</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalAlreadyExists">An account with this email address or number already exists.</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedNoRetry">You've made too many incorrect attempts. Please try again later.</LocalizedString>
           <LocalizedString ElementType="UXElement" StringId="button_continue">Create account</LocalizedString>
           <LocalizedString ElementType="UxElement" StringId="ver_but_edit">Change e-mail</LocalizedString>
           <LocalizedString ElementType="UxElement" StringId="ver_but_resend">Send new code</LocalizedString>
           <LocalizedString ElementType="UxElement" StringId="ver_but_send">Send verification code</LocalizedString>
           <LocalizedString ElementType="UxElement" StringId="ver_but_verify">Verify code</LocalizedString>
           <LocalizedString ElementType="UxElement" StringId="ver_fail_no_retry">You've made too many incorrect attempts. Please try again later.</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalAlreadyExists">An account with this email address or number already exists.</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedNoRetry">You've made too many incorrect attempts. Please try again later.</LocalizedString>
-        </LocalizedStrings>
-      </LocalizedResources>
-      <!-- Password reset page English-->
-      <LocalizedResources Id="api.localaccountpasswordreset.en">
-        <LocalizedStrings>
-          <LocalizedString ElementType="UxElement" StringId="ver_intro_msg">Enter your email address below to receive a reset code.</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="ver_info_msg">A reset code has been sent to your email. Please copy it into the input box below and verify reset code.</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="ver_but_resend">Send new reset code</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="ver_but_send">Send reset code</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="ver_but_verify">Verify reset code</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="ver_fail_retry">The verification has failed, please try again</LocalizedString>
-          <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="success_verify_code_msg">Email address verified. You can continue now</LocalizedString>
-          <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="intro_msg">Enter your email address below to receive a reset code.</LocalizedString>
-          <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="success_send_code_msg">A reset code has been sent to your email. Please copy it into the input box below and verify reset code.</LocalizedString>
-          <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="but_send_new_code">Send new reset code</LocalizedString>
-          <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="but_send_code">Send reset code</LocalizedString>
-          <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="but_verify_code">Verify reset code</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedRetryAllowed">The verification has failed, please try again</LocalizedString>
         </LocalizedStrings>
       </LocalizedResources>
       <LocalizedResources Id="api.selfasserted.localaccountpasswordchange.en">
         <LocalizedStrings>
-          <LocalizedString ElementType="UXElement" StringId="button_continue">Reset Password</LocalizedString>
-          <LocalizedString ElementType="UXElement" StringId="initial_intro">Almost there! Enter your new password below.</LocalizedString>
           <LocalizedString ElementType="ClaimType" ElementId="newPassword" StringId="DisplayName">New password</LocalizedString>
           <LocalizedString ElementType="ClaimType" ElementId="reenterPassword" StringId="DisplayName">Confirm new password</LocalizedString>
+          <LocalizedString ElementType="UXElement" StringId="button_continue">Reset Password</LocalizedString>
+          <LocalizedString ElementType="UXElement" StringId="initial_intro">Almost there! Enter your new password below.</LocalizedString>
+        </LocalizedStrings>
+      </LocalizedResources>
+      <LocalizedResources Id="api.signuporsignin.en">
+        <LocalizedStrings>
+          <LocalizedString ElementType="ClaimType" ElementId="password" StringId="DisplayName">Password</LocalizedString>
+          <LocalizedString ElementType="ClaimType" ElementId="signInName" StringId="DisplayName">Email Address or Phone Number</LocalizedString>
+          <LocalizedString ElementType="ClaimsProvider" StringId="SignupWithEmail">Email</LocalizedString>
+          <LocalizedString ElementType="ClaimsProvider" StringId="SignupWithPhone">Phone</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalDoesNotExist">Sorry, we don’t recognise your login details! Please check that you’ve entered them correctly and try again.</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidPassword">Sorry, we don’t recognise your login details! Please check that you’ve entered them correctly and try again.</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfOldPasswordUsed">Sorry, we don’t recognise your login details! Please check that you’ve entered them correctly and try again.</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="button_signin">Log in</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="heading">Log in</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="invalid_generic">Please enter a valid {0}</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="local_intro_generic">Log in with your {0}</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="requiredField_generic">Cannot be empty</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="requiredField_password">Cannot be empty</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="social_intro">Log in with your social account</LocalizedString>
+        </LocalizedStrings>
+      </LocalizedResources>
+      <LocalizedResources Id="api.localaccountpasswordreset.es">
+        <LocalizedStrings>
+          <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="but_send_code">Enviar código de seguridad</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="but_send_new_code">Enviar nuevo código de seguridad</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="but_verify_code">Verificar código de seguridad</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="intro_msg">Ingrese su dirección de correo electrónico para recibir un código de seguridad.</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="success_send_code_msg">Se ha enviado un código de seguridad a su correo electrónico. Por favor, cópielo en la casilla que aparece a continuación para ser verificado.</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="success_verify_code_msg">Correo electrónico verificado. Puede continuar.</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedRetryAllowed">La verificación ha fallado, por favor inténtelo de nuevo</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="ver_but_resend">Enviar nuevo código de seguridad</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="ver_but_send">Enviar código de seguridad</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="ver_but_verify">Verificar código de seguridad</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="ver_fail_retry">La verificación ha fallado, por favor inténtelo de nuevo</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="ver_info_msg">Se ha enviado un código de seguridad a su correo electrónico. Por favor, cópielo en la casilla que aparece a continuación para ser verificado.</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="ver_intro_msg">Ingrese su dirección de correo electrónico para recibir el código de seguridad.</LocalizedString>
+        </LocalizedStrings>
+      </LocalizedResources>
+      <LocalizedResources Id="api.localaccountsignup.es">
+        <LocalizedCollections>
+          <LocalizedCollection ElementType="ClaimType" ElementId="hasAcceptedPrivacyPolicy" TargetCollection="Restriction">
+            <Item Value="true" Text="Acepto la {{Privacy policy}} de KidsLoop"></Item>
+          </LocalizedCollection>
+        </LocalizedCollections>
+        <LocalizedStrings>
+          <LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">Correo electrónico</LocalizedString>
+          <LocalizedString ElementType="ClaimType" ElementId="hasAcceptedPrivacyPolicy" StringId="DisplayName">Política de privacidad</LocalizedString>
+          <LocalizedString ElementType="ClaimType" ElementId="hasAcceptedPrivacyPolicy" StringId="UserHelpText">Por favor, acepte la política de privacidad de KidsLoop para crear una cuenta</LocalizedString>
+          <LocalizedString ElementType="ClaimType" ElementId="newPassword" StringId="DisplayName">Contraseña</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalAlreadyExists">Ya existe una cuenta con esta dirección de correo electrónico o número telefónico.</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedNoRetry">Ha realizado demasiados intentos fallidos. Por favor, vuelva más tarde.</LocalizedString>
+          <LocalizedString ElementType="UXElement" StringId="button_continue">Crear cuenta</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="ver_but_edit">Cambiar correo electrónico</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="ver_but_resend">Enviar un nuevo código</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="ver_but_send">Enviar código de verificación</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="ver_but_verify">Verificar código</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="ver_fail_no_retry">Ha realizado demasiados intentos fallidos. Por favor, vuelva más tarde.</LocalizedString>
+        </LocalizedStrings>
+      </LocalizedResources>
+      <LocalizedResources Id="api.selfasserted.localaccountpasswordchange.es">
+        <LocalizedStrings>
+          <LocalizedString ElementType="ClaimType" ElementId="newPassword" StringId="DisplayName">Contraseña nueva</LocalizedString>
+          <LocalizedString ElementType="ClaimType" ElementId="reenterPassword" StringId="DisplayName">Confirme la nueva contraseña</LocalizedString>
+          <LocalizedString ElementType="UXElement" StringId="button_continue">Restablecer la contraseña</LocalizedString>
+          <LocalizedString ElementType="UXElement" StringId="initial_intro">¡Ya casi estamos listos! Introduzca su nueva contraseña a continuación.</LocalizedString>
+        </LocalizedStrings>
+      </LocalizedResources>
+      <LocalizedResources Id="api.signuporsignin.es">
+        <LocalizedStrings>
+          <LocalizedString ElementType="ClaimType" ElementId="password" StringId="DisplayName">Contraseña</LocalizedString>
+          <LocalizedString ElementType="ClaimType" ElementId="signInName" StringId="DisplayName">Correo electrónico o teléfono</LocalizedString>
+          <LocalizedString ElementType="ClaimsProvider" StringId="SignupWithEmail">Correo electrónico</LocalizedString>
+          <LocalizedString ElementType="ClaimsProvider" StringId="SignupWithPhone">Teléfono</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalDoesNotExist">Lo sentimos, no reconocemos sus datos de acceso. Por favor, compruebe que hayan sido introducidos correctamente e inténtelo de nuevo.</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidPassword">Lo sentimos, no reconocemos sus datos de acceso. Por favor, compruebe que hayan sido introducidos correctamente e inténtelo de nuevo.</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfOldPasswordUsed">Lo sentimos, no reconocemos sus datos de acceso. Por favor, compruebe que hayan sido introducidos correctamente e inténtelo de nuevo.</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="button_signin">Iniciar sesión</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="heading">Iniciar sesión</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="requiredField_generic">No puede estar vacío</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="requiredField_password">No puede estar vacío</LocalizedString>
+        </LocalizedStrings>
+      </LocalizedResources>
+      <LocalizedResources Id="api.localaccountpasswordreset.zh-hans">
+        <LocalizedStrings>
+          <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="but_send_code">发送重置代码</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="but_send_new_code">发送新的重置代码</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="but_verify_code">验证重置代码</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="intro_msg">在下方输入您的电子邮件地址以接收重置代码。</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="success_send_code_msg">重置代码已发送到您的电子邮件。请将其复制到下面的输入框中并验证重置代码。</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedRetryAllowed">验证失败，请重试</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="ver_but_resend">发送新的重置代码</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="ver_but_send">发送重置代码</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="ver_but_verify">验证重置代码</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="ver_fail_retry">验证失败，请重试</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="ver_info_msg">重置代码已发送到您的电子邮件。请将其复制到下面的输入框中并验证重置代码。</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="ver_intro_msg">在下方输入您的电子邮件地址以接收重置代码。</LocalizedString>
+        </LocalizedStrings>
+      </LocalizedResources>
+      <LocalizedResources Id="api.localaccountsignup.zh-hans">
+        <LocalizedCollections>
+          <LocalizedCollection ElementType="ClaimType" ElementId="hasAcceptedPrivacyPolicy" TargetCollection="Restriction">
+            <Item Value="true" Text="我同意 KidsLoop {{隐私政策}}"></Item>
+          </LocalizedCollection>
+        </LocalizedCollections>
+        <LocalizedStrings>
+          <LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">电子邮箱</LocalizedString>
+          <LocalizedString ElementType="ClaimType" ElementId="hasAcceptedPrivacyPolicy" StringId="DisplayName">隐私政策</LocalizedString>
+          <LocalizedString ElementType="ClaimType" ElementId="hasAcceptedPrivacyPolicy" StringId="UserHelpText">请同意 KidsLoop 隐私政策以创建账户</LocalizedString>
+          <LocalizedString ElementType="ClaimType" ElementId="newPassword" StringId="DisplayName">密码</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="ver_but_edit">更改电子邮件</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="ver_but_resend">发送新代码</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="ver_but_send">发送验证码</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="ver_but_verify">验证码</LocalizedString>
+        </LocalizedStrings>
+      </LocalizedResources>
+      <LocalizedResources Id="api.selfasserted.localaccountpasswordchange.zh-hans">
+        <LocalizedStrings>
+          <LocalizedString ElementType="ClaimType" ElementId="newPassword" StringId="DisplayName">新密码</LocalizedString>
+          <LocalizedString ElementType="ClaimType" ElementId="reenterPassword" StringId="DisplayName">确认新密码</LocalizedString>
+          <LocalizedString ElementType="UXElement" StringId="button_continue">重置密码</LocalizedString>
+          <LocalizedString ElementType="UXElement" StringId="initial_intro">快好了！在下方输入您的新密码。</LocalizedString>
+        </LocalizedStrings>
+      </LocalizedResources>
+      <LocalizedResources Id="api.signuporsignin.zh-hans">
+        <LocalizedStrings>
+          <LocalizedString ElementType="ClaimType" ElementId="password" StringId="DisplayName">密码</LocalizedString>
+          <LocalizedString ElementType="ClaimType" ElementId="signInName" StringId="DisplayName">电子邮件地址或电话号码</LocalizedString>
+          <LocalizedString ElementType="ClaimsProvider" StringId="SignupWithEmail">邮箱</LocalizedString>
+          <LocalizedString ElementType="ClaimsProvider" StringId="SignupWithPhone">手机号</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalDoesNotExist">抱歉，我们无法识别您的登录信息！请检查您是否输入正确，然后重试。</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidPassword">抱歉，我们无法识别您的登录信息！请检查您是否输入正确，然后重试。</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfOldPasswordUsed">抱歉，我们无法识别您的登录信息！请检查您是否输入正确，然后重试。</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="button_signin">登录</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="heading">登录</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="invalid_generic">请输入有效的{0}</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="local_intro_generic">用你的{0}登录</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="requiredField_generic">不能为空</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="requiredField_password">不能为空</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="social_intro">使用您的社交账户登录</LocalizedString>
         </LocalizedStrings>
       </LocalizedResources>
     </Localization>

@@ -1,0 +1,99 @@
+{
+    "custom_policy": {
+        "localaccountpasswordreset": {
+            "DisplayControl": {
+                "emailControl": {
+                    "but_send_code": "Enviar código de seguridad",
+                    "but_send_new_code": "Enviar nuevo código de seguridad",
+                    "but_verify_code": "Verificar código de seguridad",
+                    "intro_msg": "Ingrese su dirección de correo electrónico para recibir un código de seguridad.",
+                    "success_send_code_msg": "Se ha enviado un código de seguridad a su correo electrónico. Por favor, cópielo en la casilla que aparece a continuación para ser verificado.",
+                    "success_verify_code_msg": "Correo electrónico verificado. Puede continuar."
+                }
+            },
+            "ErrorMessage": {
+                "UserMessageIfVerificationFailedRetryAllowed": "La verificación ha fallado, por favor inténtelo de nuevo"
+            },
+            "UxElement": {
+                "ver_but_resend": "Enviar nuevo código de seguridad",
+                "ver_but_send": "Enviar código de seguridad",
+                "ver_but_verify": "Verificar código de seguridad",
+                "ver_fail_retry": "La verificación ha fallado, por favor inténtelo de nuevo",
+                "ver_info_msg": "Se ha enviado un código de seguridad a su correo electrónico. Por favor, cópielo en la casilla que aparece a continuación para ser verificado.",
+                "ver_intro_msg": "Ingrese su dirección de correo electrónico para recibir el código de seguridad."
+            }
+        },
+        "localaccountsignup": {
+            "ClaimType": {
+                "email": {
+                    "DisplayName": "Correo electrónico"
+                },
+                "hasAcceptedPrivacyPolicy": {
+                    "DisplayName": "Política de privacidad",
+                    "UserHelpText": "Por favor, acepte la política de privacidad de KidsLoop para crear una cuenta"
+                },
+                "newPassword": {
+                    "DisplayName": "Contraseña"
+                }
+            },
+            "ErrorMessage": {
+                "UserMessageIfClaimsPrincipalAlreadyExists": "Ya existe una cuenta con esta dirección de correo electrónico o número telefónico.",
+                "UserMessageIfVerificationFailedNoRetry": "Ha realizado demasiados intentos fallidos. Por favor, vuelva más tarde."
+            },
+            "LocalizedCollection": {
+                "hasAcceptedPrivacyPolicy": {
+                    "true": "Acepto la {{Privacy policy}} de KidsLoop"
+                }
+            },
+            "UXElement": {
+                "button_continue": "Crear cuenta"
+            },
+            "UxElement": {
+                "ver_but_edit": "Cambiar correo electrónico",
+                "ver_but_resend": "Enviar un nuevo código",
+                "ver_but_send": "Enviar código de verificación",
+                "ver_but_verify": "Verificar código",
+                "ver_fail_no_retry": "Ha realizado demasiados intentos fallidos. Por favor, vuelva más tarde."
+            }
+        },
+        "selfasserted.localaccountpasswordchange": {
+            "ClaimType": {
+                "newPassword": {
+                    "DisplayName": "Contraseña nueva"
+                },
+                "reenterPassword": {
+                    "DisplayName": "Confirme la nueva contraseña"
+                }
+            },
+            "UXElement": {
+                "button_continue": "Restablecer la contraseña",
+                "initial_intro": "¡Ya casi estamos listos! Introduzca su nueva contraseña a continuación."
+            }
+        },
+        "signuporsignin": {
+            "ClaimType": {
+                "password": {
+                    "DisplayName": "Contraseña"
+                },
+                "signInName": {
+                    "DisplayName": "Correo electrónico o teléfono"
+                }
+            },
+            "ClaimsProvider": {
+                "SignupWithEmail": "Correo electrónico",
+                "SignupWithPhone": "Teléfono"
+            },
+            "ErrorMessage": {
+                "UserMessageIfClaimsPrincipalDoesNotExist": "Lo sentimos, no reconocemos sus datos de acceso. Por favor, compruebe que hayan sido introducidos correctamente e inténtelo de nuevo.",
+                "UserMessageIfInvalidPassword": "Lo sentimos, no reconocemos sus datos de acceso. Por favor, compruebe que hayan sido introducidos correctamente e inténtelo de nuevo.",
+                "UserMessageIfOldPasswordUsed": "Lo sentimos, no reconocemos sus datos de acceso. Por favor, compruebe que hayan sido introducidos correctamente e inténtelo de nuevo."
+            },
+            "UxElement": {
+                "button_signin": "Iniciar sesión",
+                "heading": "Iniciar sesión",
+                "requiredField_generic": "No puede estar vacío",
+                "requiredField_password": "No puede estar vacío"
+            }
+        }
+    }
+}

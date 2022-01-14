@@ -1,47 +1,40 @@
 {
     "custom_policy": {
-        "signuporsignin": {
-            "ClaimType": {
-                "signInName": {
-                    "DisplayName": "Email Address or Phone Number"
-                },
-                "password": { "DisplayName": "Password" }
-            },
-            "UxElement": {
-                "heading": "Log in",
-                "social_intro": "Log in with your social account",
-                "local_intro_generic": "Log in with your {0}",
-                "requiredField_password": "Cannot be empty",
-                "requiredField_generic": "Cannot be empty",
-                "invalid_generic": "Please enter a valid {0}",
-                "button_signin": "Log in"
-            },
-            "ClaimsProvider": {
-                "SignupWithEmail": "Email",
-                "SignupWithPhone": "Phone"
+        "localaccountpasswordreset": {
+            "DisplayControl": {
+                "emailControl": {
+                    "but_send_code": "Send reset code",
+                    "but_send_new_code": "Send new reset code",
+                    "but_verify_code": "Verify reset code",
+                    "intro_msg": "Enter your email address below to receive a reset code.",
+                    "success_send_code_msg": "A reset code has been sent to your email. Please copy it into the input box below and verify reset code.",
+                    "success_verify_code_msg": "Email address verified. You can continue now"
+                }
             },
             "ErrorMessage": {
-                "UserMessageIfInvalidPassword": "Sorry, we don’t recognise your login details! Please check that you’ve entered them correctly and try again.",
-                "UserMessageIfClaimsPrincipalDoesNotExist": "Sorry, we don’t recognise your login details! Please check that you’ve entered them correctly and try again.",
-                "UserMessageIfOldPasswordUsed": "Sorry, we don’t recognise your login details! Please check that you’ve entered them correctly and try again."
+                "UserMessageIfVerificationFailedRetryAllowed": "The verification has failed, please try again"
+            },
+            "UxElement": {
+                "ver_but_resend": "Send new reset code",
+                "ver_but_send": "Send reset code",
+                "ver_but_verify": "Verify reset code",
+                "ver_fail_retry": "The verification has failed, please try again",
+                "ver_info_msg": "A reset code has been sent to your email. Please copy it into the input box below and verify reset code.",
+                "ver_intro_msg": "Enter your email address below to receive a reset code."
             }
         },
         "localaccountsignup": {
             "ClaimType": {
+                "email": {
+                    "DisplayName": "Email Address"
+                },
                 "hasAcceptedPrivacyPolicy": {
                     "DisplayName": "Privacy Policy",
                     "UserHelpText": "Please agree to the KidsLoop Privacy policy to create an account"
                 },
-                "email": { "DisplayName": "Email Address" },
-                "newPassword": { "DisplayName": "Password" }
-            },
-            "UXElement": { "button_continue": "Create account" },
-            "UxElement": {
-                "ver_but_edit": "Change e-mail",
-                "ver_but_resend": "Send new code",
-                "ver_but_send": "Send verification code",
-                "ver_but_verify": "Verify code",
-                "ver_fail_no_retry": "You've made too many incorrect attempts. Please try again later."
+                "newPassword": {
+                    "DisplayName": "Password"
+                }
             },
             "ErrorMessage": {
                 "UserMessageIfClaimsPrincipalAlreadyExists": "An account with this email address or number already exists.",
@@ -51,36 +44,19 @@
                 "hasAcceptedPrivacyPolicy": {
                     "true": "I agree to the KidsLoop {{Privacy policy}}"
                 }
-            }
-        },
-        "localaccountpasswordreset": {
+            },
+            "UXElement": {
+                "button_continue": "Create account"
+            },
             "UxElement": {
-                "ver_intro_msg": "Enter your email address below to receive a reset code.",
-                "ver_info_msg": "A reset code has been sent to your email. Please copy it into the input box below and verify reset code.",
-                "ver_but_resend": "Send new reset code",
-                "ver_but_send": "Send reset code",
-                "ver_but_verify": "Verify reset code",
-                "ver_fail_retry": "The verification has failed, please try again"
-            },
-            "DisplayControl": {
-                "emailControl": {
-                    "success_verify_code_msg": "Email address verified. You can continue now",
-                    "intro_msg": "Enter your email address below to receive a reset code.",
-                    "success_send_code_msg": "A reset code has been sent to your email. Please copy it into the input box below and verify reset code.",
-                    "but_send_new_code": "Send new reset code",
-                    "but_send_code": "Send reset code",
-                    "but_verify_code": "Verify reset code"
-                }
-            },
-            "ErrorMessage": {
-                "UserMessageIfVerificationFailedRetryAllowed": "The verification has failed, please try again"
+                "ver_but_edit": "Change e-mail",
+                "ver_but_resend": "Send new code",
+                "ver_but_send": "Send verification code",
+                "ver_but_verify": "Verify code",
+                "ver_fail_no_retry": "You've made too many incorrect attempts. Please try again later."
             }
         },
         "selfasserted.localaccountpasswordchange": {
-            "UXElement": {
-                "button_continue": "Reset Password",
-                "initial_intro": "Almost there! Enter your new password below."
-            },
             "ClaimType": {
                 "newPassword": {
                     "DisplayName": "New password"
@@ -88,6 +64,38 @@
                 "reenterPassword": {
                     "DisplayName": "Confirm new password"
                 }
+            },
+            "UXElement": {
+                "button_continue": "Reset Password",
+                "initial_intro": "Almost there! Enter your new password below."
+            }
+        },
+        "signuporsignin": {
+            "ClaimType": {
+                "password": {
+                    "DisplayName": "Password"
+                },
+                "signInName": {
+                    "DisplayName": "Email Address or Phone Number"
+                }
+            },
+            "ClaimsProvider": {
+                "SignupWithEmail": "Email",
+                "SignupWithPhone": "Phone"
+            },
+            "ErrorMessage": {
+                "UserMessageIfClaimsPrincipalDoesNotExist": "Sorry, we don’t recognise your login details! Please check that you’ve entered them correctly and try again.",
+                "UserMessageIfInvalidPassword": "Sorry, we don’t recognise your login details! Please check that you’ve entered them correctly and try again.",
+                "UserMessageIfOldPasswordUsed": "Sorry, we don’t recognise your login details! Please check that you’ve entered them correctly and try again."
+            },
+            "UxElement": {
+                "button_signin": "Log in",
+                "heading": "Log in",
+                "invalid_generic": "Please enter a valid {0}",
+                "local_intro_generic": "Log in with your {0}",
+                "requiredField_generic": "Cannot be empty",
+                "requiredField_password": "Cannot be empty",
+                "social_intro": "Log in with your social account"
             }
         }
     }

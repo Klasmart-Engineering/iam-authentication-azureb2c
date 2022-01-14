@@ -1,0 +1,93 @@
+{
+    "custom_policy": {
+        "localaccountpasswordreset": {
+            "DisplayControl": {
+                "emailControl": {
+                    "but_send_code": "发送重置代码",
+                    "but_send_new_code": "发送新的重置代码",
+                    "but_verify_code": "验证重置代码",
+                    "intro_msg": "在下方输入您的电子邮件地址以接收重置代码。",
+                    "success_send_code_msg": "重置代码已发送到您的电子邮件。请将其复制到下面的输入框中并验证重置代码。"
+                }
+            },
+            "ErrorMessage": {
+                "UserMessageIfVerificationFailedRetryAllowed": "验证失败，请重试"
+            },
+            "UxElement": {
+                "ver_but_resend": "发送新的重置代码",
+                "ver_but_send": "发送重置代码",
+                "ver_but_verify": "验证重置代码",
+                "ver_fail_retry": "验证失败，请重试",
+                "ver_info_msg": "重置代码已发送到您的电子邮件。请将其复制到下面的输入框中并验证重置代码。",
+                "ver_intro_msg": "在下方输入您的电子邮件地址以接收重置代码。"
+            }
+        },
+        "localaccountsignup": {
+            "ClaimType": {
+                "email": {
+                    "DisplayName": "电子邮箱"
+                },
+                "hasAcceptedPrivacyPolicy": {
+                    "DisplayName": "隐私政策",
+                    "UserHelpText": "请同意 KidsLoop 隐私政策以创建账户"
+                },
+                "newPassword": {
+                    "DisplayName": "密码"
+                }
+            },
+            "LocalizedCollection": {
+                "hasAcceptedPrivacyPolicy": {
+                    "true": "我同意 KidsLoop {{隐私政策}}"
+                }
+            },
+            "UxElement": {
+                "ver_but_edit": "更改电子邮件",
+                "ver_but_resend": "发送新代码",
+                "ver_but_send": "发送验证码",
+                "ver_but_verify": "验证码"
+            }
+        },
+        "selfasserted.localaccountpasswordchange": {
+            "ClaimType": {
+                "newPassword": {
+                    "DisplayName": "新密码"
+                },
+                "reenterPassword": {
+                    "DisplayName": "确认新密码"
+                }
+            },
+            "UXElement": {
+                "button_continue": "重置密码",
+                "initial_intro": "快好了！在下方输入您的新密码。"
+            }
+        },
+        "signuporsignin": {
+            "ClaimType": {
+                "password": {
+                    "DisplayName": "密码"
+                },
+                "signInName": {
+                    "DisplayName": "电子邮件地址或电话号码"
+                }
+            },
+            "ClaimsProvider": {
+                "SignupWithEmail": "邮箱",
+                "SignupWithPhone": "手机号"
+            },
+            "ErrorMessage": {
+                "UserMessageIfClaimsPrincipalDoesNotExist": "抱歉，我们无法识别您的登录信息！请检查您是否输入正确，然后重试。",
+                "UserMessageIfInvalidPassword": "抱歉，我们无法识别您的登录信息！请检查您是否输入正确，然后重试。",
+                "UserMessageIfOldPasswordUsed": "抱歉，我们无法识别您的登录信息！请检查您是否输入正确，然后重试。"
+            },
+            "UxElement": {
+                "button_signin": "登录",
+                "heading": "登录",
+                "invalid_generic": "请输入有效的{0}",
+                "local_intro_generic": "用你的{0}登录",
+                "requiredField_generic": "不能为空",
+                "requiredField_password": "不能为空",
+                "social_intro": "使用您的社交账户登录"
+            }
+        }
+    }
+}

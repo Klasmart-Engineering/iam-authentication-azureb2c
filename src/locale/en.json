@@ -35,6 +35,7 @@
                 "email": { "DisplayName": "Email Address" },
                 "newPassword": { "DisplayName": "Password" }
             },
+            "UXElement": { "button_continue": "Create account" },
             "UxElement": {
                 "ver_but_edit": "Change e-mail",
                 "ver_but_resend": "Send new code",

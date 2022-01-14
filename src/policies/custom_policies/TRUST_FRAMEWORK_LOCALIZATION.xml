@@ -110,6 +110,7 @@
           <LocalizedString ElementType="ClaimType" ElementId="hasAcceptedPrivacyPolicy" StringId="UserHelpText">Please agree to the KidsLoop Privacy policy to create an account</LocalizedString>
           <LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">Email Address</LocalizedString>
           <LocalizedString ElementType="ClaimType" ElementId="newPassword" StringId="DisplayName">Password</LocalizedString>
+          <LocalizedString ElementType="UXElement" StringId="button_continue">Create account</LocalizedString>
           <LocalizedString ElementType="UxElement" StringId="ver_but_edit">Change e-mail</LocalizedString>
           <LocalizedString ElementType="UxElement" StringId="ver_but_resend">Send new code</LocalizedString>
           <LocalizedString ElementType="UxElement" StringId="ver_but_send">Send verification code</LocalizedString>

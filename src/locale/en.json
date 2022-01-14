@@ -40,7 +40,12 @@
                 "ver_but_edit": "Change e-mail",
                 "ver_but_resend": "Send new code",
                 "ver_but_send": "Send verification code",
-                "ver_but_verify": "Verify code"
+                "ver_but_verify": "Verify code",
+                "ver_fail_no_retry": "You've made too many incorrect attempts. Please try again later."
+            },
+            "ErrorMessage": {
+                "UserMessageIfClaimsPrincipalAlreadyExists": "An account with this email address or number already exists.",
+                "UserMessageIfVerificationFailedNoRetry": "You've made too many incorrect attempts. Please try again later."
             },
             "LocalizedCollection": {
                 "hasAcceptedPrivacyPolicy": {
@@ -59,6 +64,7 @@
             },
             "DisplayControl": {
                 "emailControl": {
+                    "success_verify_code_msg": "Email address verified. You can continue now",
                     "intro_msg": "Enter your email address below to receive a reset code.",
                     "success_send_code_msg": "A reset code has been sent to your email. Please copy it into the input box below and verify reset code.",
                     "but_send_new_code": "Send new reset code",

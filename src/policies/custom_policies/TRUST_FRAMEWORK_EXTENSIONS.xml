@@ -439,7 +439,7 @@
     </ClaimsSchema>
     <Predicates>
       <Predicate Id="email" Method="MatchesRegex">
-        <UserHelpText></UserHelpText>
+        <UserHelpText>A valid email address.</UserHelpText>
         <Parameters>
           <!--
             This regex is constructed mostly from RFC 5322 for email, with intentional omissions based on discovery of characters that don't work for other services we use
@@ -472,7 +472,7 @@
         </Parameters>
       </Predicate>
       <Predicate Id="internationalPhoneNumber" Method="MatchesRegex">
-        <UserHelpText></UserHelpText>
+        <UserHelpText>A valid phone number.</UserHelpText>
         <Parameters>
           <!--
               This regex will match a string with a required leading "+", 4 to 16 digits, and any number of dashes, parentheses, and spaces, in any order.
@@ -504,7 +504,7 @@
       <PredicateValidation Id="phoneOrEmailSignInName">
         <PredicateGroups>
           <PredicateGroup Id="phoneOrEmailSignInName">
-            <UserHelpText>Please enter a valid email address or phone number.</UserHelpText>
+            <UserHelpText>Please enter at least one of the following:</UserHelpText>
             <PredicateReferences MatchAtLeast="1">
               <PredicateReference Id="email" />
               <PredicateReference Id="internationalPhoneNumber" />

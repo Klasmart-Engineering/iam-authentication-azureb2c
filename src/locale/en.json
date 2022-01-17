@@ -1,6 +1,14 @@
 {
     "custom_policy": {
         "localaccountpasswordreset": {
+            "ClaimType": {
+                "email": {
+                    "DisplayName": "Email address"
+                },
+                "verificationCode": {
+                    "DisplayName": "Reset code"
+                }
+            },
             "DisplayControl": {
                 "emailControl": {
                     "but_send_code": "Send reset code",
@@ -12,6 +20,7 @@
                 }
             },
             "ErrorMessage": {
+                "UserMessageIfVerificationFailedNoRetry": "You've made too many incorrect attempts. Please try again later.",
                 "UserMessageIfVerificationFailedRetryAllowed": "The verification has failed, please try again"
             },
             "UxElement": {
@@ -25,6 +34,9 @@
         },
         "localaccountsignup": {
             "ClaimType": {
+                "countryCode": {
+                    "DisplayName": "Country"
+                },
                 "email": {
                     "DisplayName": "Email Address"
                 },
@@ -32,13 +44,40 @@
                     "DisplayName": "Privacy Policy",
                     "UserHelpText": "Please agree to the KidsLoop Privacy policy to create an account"
                 },
+                "nationalNumber": {
+                    "DisplayName": "Phone Number"
+                },
                 "newPassword": {
-                    "DisplayName": "Password"
+                    "DisplayName": "Create Password",
+                    "PatternHelpText": "8-16 characters, containing 3 out of 4 of the following: Lowercase characters, uppercase characters, digits (0-9), and one or more of the following symbols: @ # $ % ^ & * - _ + = [ ] { } | \\ : ' , ? / ` ~ \" ( ) ; ."
+                },
+                "reenterPassword": {
+                    "DisplayName": "Confirm Password"
+                },
+                "verificationCode": {
+                    "DisplayName": "Verification Code"
+                }
+            },
+            "DisplayControl": {
+                "emailControl": {
+                    "but_change_claims": "Change email",
+                    "but_send_code": "Send verification code",
+                    "but_send_new_code": "Send new code",
+                    "but_verify_code": "Verify code"
+                },
+                "phoneVerificationControl": {
+                    "but_change_claims": "Change email",
+                    "but_send_code": "Send verification code",
+                    "but_send_new_code": "Send new code",
+                    "but_verify_code": "Verify code"
                 }
             },
             "ErrorMessage": {
                 "UserMessageIfClaimsPrincipalAlreadyExists": "An account with this email address or number already exists.",
-                "UserMessageIfVerificationFailedNoRetry": "You've made too many incorrect attempts. Please try again later."
+                "UserMessageIfMaxAllowedCodeRetryReached": "You've made too many incorrect attempts. Please try again later.",
+                "UserMessageIfVerificationFailedNoRetry": "You've made too many incorrect attempts. Please try again later.",
+                "UserMessageIfVerificationFailedRetryAllowed": "The code is incorrect. Please try again",
+                "UserMessageIfWrongCodeEntered": "The code is incorrect, please try again"
             },
             "LocalizedCollection": {
                 "hasAcceptedPrivacyPolicy": {
@@ -59,7 +98,8 @@
         "selfasserted.localaccountpasswordchange": {
             "ClaimType": {
                 "newPassword": {
-                    "DisplayName": "New password"
+                    "DisplayName": "New password",
+                    "PatternHelpText": "8-16 characters, containing 3 out of 4 of the following: Lowercase characters, uppercase characters, digits (0-9), and one or more of the following symbols: @ # $ % ^ & * - _ + = [ ] { } | \\ : ' , ? / ` ~ \" ( ) ; ."
                 },
                 "reenterPassword": {
                     "DisplayName": "Confirm new password"
@@ -87,6 +127,19 @@
                 "UserMessageIfClaimsPrincipalDoesNotExist": "Sorry, we don’t recognise your login details! Please check that you’ve entered them correctly and try again.",
                 "UserMessageIfInvalidPassword": "Sorry, we don’t recognise your login details! Please check that you’ve entered them correctly and try again.",
                 "UserMessageIfOldPasswordUsed": "Sorry, we don’t recognise your login details! Please check that you’ve entered them correctly and try again."
+            },
+            "InputValidation": {
+                "phoneOrEmailSignInName": {
+                    "phoneOrEmailSignInName": "Please enter at least one of the following:"
+                }
+            },
+            "Predicate": {
+                "email": {
+                    "HelpText": "A valid email address"
+                },
+                "internationalPhoneNumber": {
+                    "HelpText": "A valid phone number"
+                }
             },
             "UxElement": {
                 "button_signin": "Log in",

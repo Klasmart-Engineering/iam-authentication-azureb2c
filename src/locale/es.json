@@ -42,7 +42,7 @@
             },
             "LocalizedCollection": {
                 "hasAcceptedPrivacyPolicy": {
-                    "true": "Acepto la {{Privacy policy}} de KidsLoop"
+                    "true": "Acepto la {{Política de privacidad}} de KidsLoop"
                 }
             },
             "UXElement": {

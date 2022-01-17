@@ -824,7 +824,7 @@
             <InputClaim ClaimTypeReferenceId="hasAcceptedPrivacyPolicy" />
           </InputClaims>
           <DisplayClaims>
-            <DisplayClaim DisplayControlReferenceId="emailVerificationControl" />
+            <DisplayClaim DisplayControlReferenceId="emailControl" />
             <DisplayClaim ClaimTypeReferenceId="newPassword" Required="true" />
             <DisplayClaim ClaimTypeReferenceId="hasAcceptedPrivacyPolicy" Required="true" />
           </DisplayClaims>

@@ -1,86 +1,154 @@
 {
     "custom_policy": {
-        "signuporsignin": {
+        "localaccountpasswordreset": {
             "ClaimType": {
-                "signInName": {
-                    "DisplayName": "Email Address or Phone Number"
+                "email": {
+                    "DisplayName": "Email address"
                 },
-                "password": { "DisplayName": "Password" }
+                "verificationCode": {
+                    "DisplayName": "Reset code"
+                }
+            },
+            "DisplayControl": {
+                "emailControl": {
+                    "but_send_code": "Send reset code",
+                    "but_send_new_code": "Send new reset code",
+                    "but_verify_code": "Verify reset code",
+                    "intro_msg": "Enter your email address below to receive a reset code.",
+                    "success_send_code_msg": "A reset code has been sent to your email. Please copy it into the input box below and verify reset code.",
+                    "success_verify_code_msg": "Email address verified. You can continue now"
+                }
+            },
+            "ErrorMessage": {
+                "UserMessageIfVerificationFailedNoRetry": "You've made too many incorrect attempts. Please try again later.",
+                "UserMessageIfVerificationFailedRetryAllowed": "The verification has failed, please try again"
             },
             "UxElement": {
-                "heading": "Log in",
-                "social_intro": "Log in with your social account",
-                "local_intro_generic": "Log in with your {0}",
-                "requiredField_password": "Cannot be empty",
-                "requiredField_generic": "Cannot be empty",
-                "invalid_generic": "Please enter a valid {0}",
-                "button_signin": "Log in"
+                "ver_but_resend": "Send new reset code",
+                "ver_but_send": "Send reset code",
+                "ver_but_verify": "Verify reset code",
+                "ver_fail_retry": "The verification has failed, please try again",
+                "ver_info_msg": "A reset code has been sent to your email. Please copy it into the input box below and verify reset code.",
+                "ver_intro_msg": "Enter your email address below to receive a reset code."
+            }
+        },
+        "localaccountsignup": {
+            "ClaimType": {
+                "countryCode": {
+                    "DisplayName": "Country"
+                },
+                "email": {
+                    "DisplayName": "Email Address"
+                },
+                "hasAcceptedPrivacyPolicy": {
+                    "DisplayName": "Privacy Policy",
+                    "UserHelpText": "Please agree to the KidsLoop Privacy policy to create an account"
+                },
+                "nationalNumber": {
+                    "DisplayName": "Phone Number"
+                },
+                "newPassword": {
+                    "DisplayName": "Create Password",
+                    "PatternHelpText": "8-16 characters, containing 3 out of 4 of the following: Lowercase characters, uppercase characters, digits (0-9), and one or more of the following symbols: @ # $ % ^ &amp; * - _ + = [ ] { } | \\ : ' , ? \/ ` ~ \" ( ) ; ."
+                },
+                "reenterPassword": {
+                    "DisplayName": "Confirm Password"
+                },
+                "verificationCode": {
+                    "DisplayName": "Verification Code"
+                }
+            },
+            "DisplayControl": {
+                "emailControl": {
+                    "but_change_claims": "Change email",
+                    "but_send_code": "Send verification code",
+                    "but_send_new_code": "Send new code",
+                    "but_verify_code": "Verify code"
+                },
+                "phoneVerificationControl": {
+                    "but_change_claims": "Change email",
+                    "but_send_code": "Send verification code",
+                    "but_send_new_code": "Send new code",
+                    "but_verify_code": "Verify code"
+                }
+            },
+            "ErrorMessage": {
+                "UserMessageIfClaimsPrincipalAlreadyExists": "An account with this email address or number already exists.",
+                "UserMessageIfMaxAllowedCodeRetryReached": "You've made too many incorrect attempts. Please try again later.",
+                "UserMessageIfVerificationFailedNoRetry": "You've made too many incorrect attempts. Please try again later.",
+                "UserMessageIfVerificationFailedRetryAllowed": "The code is incorrect. Please try again",
+                "UserMessageIfWrongCodeEntered": "The code is incorrect, please try again"
+            },
+            "LocalizedCollection": {
+                "hasAcceptedPrivacyPolicy": {
+                    "true": "I agree to the KidsLoop {{Privacy policy}}"
+                }
+            },
+            "UXElement": {
+                "button_continue": "Create account"
+            },
+            "UxElement": {
+                "ver_but_edit": "Change e-mail",
+                "ver_but_resend": "Send new code",
+                "ver_but_send": "Send verification code",
+                "ver_but_verify": "Verify code",
+                "ver_fail_no_retry": "You've made too many incorrect attempts. Please try again later."
+            }
+        },
+        "selfasserted.localaccountpasswordchange": {
+            "ClaimType": {
+                "newPassword": {
+                    "DisplayName": "New password",
+                    "PatternHelpText": "8-16 characters, containing 3 out of 4 of the following: Lowercase characters, uppercase characters, digits (0-9), and one or more of the following symbols: @ # $ % ^ &amp; * - _ + = [ ] { } | \\ : ' , ? \/ ` ~ \" ( ) ; ."
+                },
+                "reenterPassword": {
+                    "DisplayName": "Confirm new password"
+                }
+            },
+            "UXElement": {
+                "button_continue": "Reset Password",
+                "initial_intro": "Almost there! Enter your new password below."
+            }
+        },
+        "signuporsignin": {
+            "ClaimType": {
+                "password": {
+                    "DisplayName": "Password"
+                },
+                "signInName": {
+                    "DisplayName": "Email Address or Phone Number"
+                }
             },
             "ClaimsProvider": {
                 "SignupWithEmail": "Email",
                 "SignupWithPhone": "Phone"
             },
             "ErrorMessage": {
-                "UserMessageIfInvalidPassword": "Sorry, we don’t recognise your login details! Please check that you’ve entered them correctly and try again.",
                 "UserMessageIfClaimsPrincipalDoesNotExist": "Sorry, we don’t recognise your login details! Please check that you’ve entered them correctly and try again.",
+                "UserMessageIfInvalidPassword": "Sorry, we don’t recognise your login details! Please check that you’ve entered them correctly and try again.",
                 "UserMessageIfOldPasswordUsed": "Sorry, we don’t recognise your login details! Please check that you’ve entered them correctly and try again."
-            }
-        },
-        "localaccountsignup": {
-            "ClaimType": {
-                "hasAcceptedPrivacyPolicy": {
-                    "DisplayName": "Privacy Policy",
-                    "UserHelpText": "Please agree to the KidsLoop Privacy policy to create an account"
+            },
+            "InputValidation": {
+                "phoneOrEmailSignInName": {
+                    "phoneOrEmailSignInName": "Please enter at least one of the following:"
+                }
+            },
+            "Predicate": {
+                "email": {
+                    "HelpText": "A valid email address"
                 },
-                "email": { "DisplayName": "Email Address" },
-                "newPassword": { "DisplayName": "Password" }
+                "internationalPhoneNumber": {
+                    "HelpText": "A valid phone number"
+                }
             },
             "UxElement": {
-                "ver_but_edit": "Change e-mail",
-                "ver_but_resend": "Send new code",
-                "ver_but_send": "Send verification code",
-                "ver_but_verify": "Verify code"
-            },
-            "LocalizedCollection": {
-                "hasAcceptedPrivacyPolicy": {
-                    "true": "I agree to the KidsLoop {{Privacy policy}}"
-                }
-            }
-        },
-        "localaccountpasswordreset": {
-            "UxElement": {
-                "ver_intro_msg": "Enter your email address below to receive a reset code.",
-                "ver_info_msg": "A reset code has been sent to your email. Please copy it into the input box below and verify reset code.",
-                "ver_but_resend": "Send new reset code",
-                "ver_but_send": "Send reset code",
-                "ver_but_verify": "Verify reset code",
-                "ver_fail_retry": "The verification has failed, please try again"
-            },
-            "DisplayControl": {
-                "emailVerificationControl": {
-                    "intro_msg": "Enter your email address below to receive a reset code.",
-                    "success_send_code_msg": "A reset code has been sent to your email. Please copy it into the input box below and verify reset code.",
-                    "but_send_new_code": "Send new reset code",
-                    "but_send_code": "Send reset code",
-                    "but_verify_code": "Verify reset code"
-                }
-            },
-            "ErrorMessage": {
-                "UserMessageIfVerificationFailedRetryAllowed": "The verification has failed, please try again"
-            }
-        },
-        "selfasserted.localaccountpasswordchange": {
-            "UXElement": {
-                "button_continue": "Reset Password",
-                "initial_intro": "Almost there! Enter your new password below."
-            },
-            "ClaimType": {
-                "newPassword": {
-                    "DisplayName": "New password"
-                },
-                "reenterPassword": {
-                    "DisplayName": "Confirm new password"
-                }
+                "button_signin": "Log in",
+                "heading": "Log in",
+                "invalid_generic": "Please enter a valid {0}",
+                "local_intro_generic": "Log in with your {0}",
+                "requiredField_generic": "Cannot be empty",
+                "requiredField_password": "Cannot be empty",
+                "social_intro": "Log in with your social account"
             }
         }
     }

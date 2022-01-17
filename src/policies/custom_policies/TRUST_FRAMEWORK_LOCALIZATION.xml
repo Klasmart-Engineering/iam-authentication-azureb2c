@@ -121,7 +121,7 @@
           <LocalizedString ElementType="ClaimType" ElementId="hasAcceptedPrivacyPolicy" StringId="UserHelpText">Please agree to the KidsLoop Privacy policy to create an account</LocalizedString>
           <LocalizedString ElementType="ClaimType" ElementId="nationalNumber" StringId="DisplayName">Phone Number</LocalizedString>
           <LocalizedString ElementType="ClaimType" ElementId="newPassword" StringId="DisplayName">Create Password</LocalizedString>
-          <LocalizedString ElementType="ClaimType" ElementId="newPassword" StringId="PatternHelpText">8-16 characters, containing 3 out of 4 of the following: Lowercase characters, uppercase characters, digits (0-9), and one or more of the following symbols: @ # $ % ^ & * - _ + = [ ] { } | \ : ' , ? / ` ~ " ( ) ; .</LocalizedString>
+          <LocalizedString ElementType="ClaimType" ElementId="newPassword" StringId="PatternHelpText">8-16 characters, containing 3 out of 4 of the following: Lowercase characters, uppercase characters, digits (0-9), and one or more of the following symbols: @ # $ % ^ &amp; * - _ + = [ ] { } | \ : ' , ? / ` ~ " ( ) ; .</LocalizedString>
           <LocalizedString ElementType="ClaimType" ElementId="reenterPassword" StringId="DisplayName">Confirm Password</LocalizedString>
           <LocalizedString ElementType="ClaimType" ElementId="verificationCode" StringId="DisplayName">Verification Code</LocalizedString>
           <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="but_change_claims">Change email</LocalizedString>
@@ -148,7 +148,7 @@
       <LocalizedResources Id="api.selfasserted.localaccountpasswordchange.en">
         <LocalizedStrings>
           <LocalizedString ElementType="ClaimType" ElementId="newPassword" StringId="DisplayName">New password</LocalizedString>
-          <LocalizedString ElementType="ClaimType" ElementId="newPassword" StringId="PatternHelpText">8-16 characters, containing 3 out of 4 of the following: Lowercase characters, uppercase characters, digits (0-9), and one or more of the following symbols: @ # $ % ^ & * - _ + = [ ] { } | \ : ' , ? / ` ~ " ( ) ; .</LocalizedString>
+          <LocalizedString ElementType="ClaimType" ElementId="newPassword" StringId="PatternHelpText">8-16 characters, containing 3 out of 4 of the following: Lowercase characters, uppercase characters, digits (0-9), and one or more of the following symbols: @ # $ % ^ &amp; * - _ + = [ ] { } | \ : ' , ? / ` ~ " ( ) ; .</LocalizedString>
           <LocalizedString ElementType="ClaimType" ElementId="reenterPassword" StringId="DisplayName">Confirm new password</LocalizedString>
           <LocalizedString ElementType="UXElement" StringId="button_continue">Reset Password</LocalizedString>
           <LocalizedString ElementType="UXElement" StringId="initial_intro">Almost there! Enter your new password below.</LocalizedString>

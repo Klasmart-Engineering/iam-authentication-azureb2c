@@ -1,61 +1,95 @@
-#  Template NodeJS build
-
-#  This template allows you to validate your NodeJS code.
-#  The workflow allows running tests and code linting on the default branch.
-
 image: node:16
+
+definitions:
+    steps:
+        - step: &deps
+              name: Install npm dependencies
+              caches:
+                  - node
+              script:
+                  - npm install
+        - step: &checks
+              name: Check JS/CSS
+              caches:
+                  - node
+              script:
+                  - npm run check
+        - step: &build-assets
+              name: Build HTML/JS/CSS/images
+              caches:
+                  - node
+              script:
+                  - export $(cat .env | xargs)
+                  - npm run build -- --env=environment=$ENVIRONMENT
+              artifacts:
+                  - dist/**
+        - step: &build-policies
+              name: Build B2C policy XML
+              image: mcr.microsoft.com/powershell
+              script:
+                  - pwsh -Command "scripts/Build-CustomPolicies.ps1 -FilePath src/policies/custom_policies"
+              artifacts:
+                  - src/policies/custom_policies/**
+        - step: &deploy-assets
+              name: Deploy HTML/JS/CSS/images
+              script:
+                  - pipe: atlassian/azure-storage-deploy:1.0.2
+                    variables:
+                        SOURCE: "dist/**"
+                        DESTINATION: "https://$STORAGE_ACCOUNT.blob.core.windows.net/$STORAGE_CONTAINER?"
+                        DESTINATION_SAS_TOKEN: $AzureStorageSasToken
+                        EXTRA_ARGS: "--recursive --overwrite=true"
+                        DEBUG: "true"
+        - step: &deploy-policies
+              name: Upload B2C policies
+              script:
+                  - export $(cat .env | xargs)
+                  - npx ieftool deploy -t $TENANT_ID -c $CLIENT_ID -s $SECRET -p src/policies/custom_policies/Environments/$ENVIRONMENT
 
 pipelines:
     default:
+        - step: *deps
+        - step: *checks
         - step:
-            name: Lint & Build
-            caches:
-                - node
-            script:
-                - npm install
-                - npm run lint
-                # - npm run check
-                - npm run build -- --env=environment=SSO
-            artifacts:
-                - dist/**
-                - scripts/**
-                - src/policies/custom_policies/**
+              name: Setup environment
+              script:
+                  - echo 'ENVIRONMENT="SSO"' >> .env
+              artifacts:
+                  - .env
+        - parallel:
+              - step: *build-assets
+              - step: *build-policies
     branches:
         master:
-        - step:
-            name: Lint & Build
-            caches:
-                - node
-            script:
-                - npm install
-                - npm run lint
-                # - npm run check
-                - npm run build -- --env=environment=SSO
-            artifacts:
-                - dist/**
-                - scripts/**
-                - src/policies/custom_policies/**
-        - step:
-            name: Deploy build to SSO storage
-            script:
-                - pipe: atlassian/azure-storage-deploy:1.0.2
-                variables:
-                    SOURCE: "dist/**"
-                    DESTINATION: "https://$KL_POC_AccountStorage.blob.core.windows.net/$KL_POC_AccountStorageContainer?"
-                    DESTINATION_SAS_TOKEN: $KL_POC_AzureStorageSasToken
-                    EXTRA_ARGS: "--recursive --overwrite=true"
-                    DEBUG: "true"
-        - step:
-            name: Build IEF policies
-            image: mcr.microsoft.com/powershell
-            script:
-                - pwsh -Command "scripts/Build-CustomPolicies.ps1 -FilePath src/policies/custom_policies"
-            artifacts:
-                - src/policies/custom_policies/**
-        - step:
-            name: Upload IEF policies to SSO
-            script:
-                - npx ieftool deploy -t $KL_POC_TenantId -c $KL_POC_ClientId -s $KL_POC_Secret -p src/policies/custom_policies/Environments/SSO
-    deploy:
-        loadtest:
-        alpha:
+            - step: *deps
+            - step: *checks
+            - step:
+                  name: Setup environment
+                  script:
+                      - echo 'ENVIRONMENT="SSO"' >> .env
+                  artifacts:
+                      - .env
+            - parallel:
+                  - step: *build-assets
+                  - step: *build-policies
+            - parallel:
+                  - deployment: SSO
+                  - step: *deploy-assets
+                  - step: *deploy-policies
+    custom:
+        deploy-loadtest:
+            - step: *deps
+            - step: *checks
+            - step:
+                  name: Setup environment
+                  script:
+                      - echo 'ENVIRONMENT="LOADTEST"' >> .env
+                  artifacts:
+                      - .env
+            - parallel:
+                  - step: *build-assets
+                  - step: *build-policies
+            - parallel:
+                  - deployment: LOADTEST
+                  - step: *deploy-assets
+                  - step: *deploy-policies

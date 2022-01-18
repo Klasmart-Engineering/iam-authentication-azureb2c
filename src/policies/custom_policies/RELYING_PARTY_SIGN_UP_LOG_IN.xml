@@ -24,6 +24,7 @@
         <OutputClaim ClaimTypeReferenceId="email" />
         <!-- <OutputClaim ClaimTypeReferenceId="identityProvider" /> -->
         <OutputClaim ClaimTypeReferenceId="tenantId" AlwaysUseDefaultValue="true" DefaultValue="{Policy:TenantObjectId}" />
+        <OutputClaim ClaimTypeReferenceId="locale" DefaultValue="{Culture:RFC5646}" AlwaysUseDefaultValue="true" />
       </OutputClaims>
       <SubjectNamingInfo ClaimType="sub" />
     </TechnicalProfile>

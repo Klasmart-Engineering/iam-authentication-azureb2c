@@ -12,10 +12,6 @@
       <ContentDefinition Id="api.idpselections">
         <LoadUri>~/tenant/templates/AzureBlue/idpSelector.cshtml</LoadUri>
         <DataUri>urn:com:microsoft:aad:b2c:elements:contract:providerselection:1.2.1</DataUri>
-        <LocalizedResourcesReferences MergeBehavior="Prepend">
-          <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.idpselections.en" />
-          <!-- Add more languages here -->
-        </LocalizedResourcesReferences>
       </ContentDefinition>
       <ContentDefinition Id="api.idpselections.signup">
         <LoadUri>https://{settings:B2CStorage}.blob.core.windows.net/{settings:B2CStorageContainer}/policies/KL_create_user_or_sign_in/pages/unified-sign-up-or-sign-in/index.html</LoadUri>
@@ -28,17 +24,14 @@
           <Item Key="DisplayName">Log in</Item>
         </Metadata>
         <LocalizedResourcesReferences MergeBehavior="Prepend">
-          <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.signuporsignin.en" />
-          <!-- Add more languages here -->
+          <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.signuporsignin.en"></LocalizedResourcesReference>
+          <LocalizedResourcesReference Language="es" LocalizedResourcesReferenceId="api.signuporsignin.es"></LocalizedResourcesReference>
+          <LocalizedResourcesReference Language="zh-hans" LocalizedResourcesReferenceId="api.signuporsignin.zh-hans"></LocalizedResourcesReference>
         </LocalizedResourcesReferences>
       </ContentDefinition>
       <ContentDefinition Id="api.phonefactor">
         <LoadUri>https://{settings:B2CStorage}.blob.core.windows.net/{settings:B2CStorageContainer}/policies/KL_create_user_or_sign_in/pages/unified-sign-up-or-sign-in/index.html</LoadUri>
         <DataUri>urn:com:microsoft:aad:b2c:elements:contract:multifactor:1.2.5</DataUri>
-        <LocalizedResourcesReferences MergeBehavior="Prepend">
-          <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.phonefactor.en" />
-          <!-- Add more languages here -->
-        </LocalizedResourcesReferences>
       </ContentDefinition>
       <ContentDefinition Id="api.selfasserted">
         <LoadUri>https://{settings:B2CStorage}.blob.core.windows.net/{settings:B2CStorageContainer}/policies/KL_create_user_or_sign_in/pages/unified-sign-up-or-sign-in/index.html</LoadUri>
@@ -47,292 +40,261 @@
       <ContentDefinition Id="api.selfasserted.profileupdate">
         <LoadUri>https://{settings:B2CStorage}.blob.core.windows.net/{settings:B2CStorageContainer}/policies/KL_create_user_or_sign_in/pages/unified-sign-up-or-sign-in/index.html</LoadUri>
         <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.8</DataUri>
-        <LocalizedResourcesReferences MergeBehavior="Prepend">
-          <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.selfasserted.profileupdate.en" />
-          <!-- Add more languages here -->
-        </LocalizedResourcesReferences>
       </ContentDefinition>
       <ContentDefinition Id="api.localaccountsignup">
         <LoadUri>https://{settings:B2CStorage}.blob.core.windows.net/{settings:B2CStorageContainer}/policies/KL_create_user_or_sign_in/pages/local-account-sign-up/index.html</LoadUri>
         <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.8</DataUri>
         <LocalizedResourcesReferences MergeBehavior="Prepend">
-          <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.localaccountsignup.en" />
-          <!-- Add more languages here -->
+          <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.localaccountsignup.en"></LocalizedResourcesReference>
+          <LocalizedResourcesReference Language="es" LocalizedResourcesReferenceId="api.localaccountsignup.es"></LocalizedResourcesReference>
+          <LocalizedResourcesReference Language="zh-hans" LocalizedResourcesReferenceId="api.localaccountsignup.zh-hans"></LocalizedResourcesReference>
+        </LocalizedResourcesReferences>
+      </ContentDefinition>
+      <ContentDefinition Id="api.selfasserted.localaccountpasswordchange">
+        <LoadUri>https://{settings:B2CStorage}.blob.core.windows.net/{settings:B2CStorageContainer}/policies/KL_create_user_or_sign_in/pages/change-password/index.html</LoadUri>
+        <RecoveryUri>~/common/default_page_error.html</RecoveryUri>
+        <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.8</DataUri>
+        <LocalizedResourcesReferences MergeBehavior="Prepend">
+          <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.selfasserted.localaccountpasswordchange.en"></LocalizedResourcesReference>
+          <LocalizedResourcesReference Language="es" LocalizedResourcesReferenceId="api.selfasserted.localaccountpasswordchange.es"></LocalizedResourcesReference>
+          <LocalizedResourcesReference Language="zh-hans" LocalizedResourcesReferenceId="api.selfasserted.localaccountpasswordchange.zh-hans"></LocalizedResourcesReference>
         </LocalizedResourcesReferences>
       </ContentDefinition>
       <ContentDefinition Id="api.localaccountpasswordreset">
-        <LoadUri>https://{settings:B2CStorage}.blob.core.windows.net/{settings:B2CStorageContainer}/policies/KL_create_user_or_sign_in/pages/unified-sign-up-or-sign-in/index.html</LoadUri>
+        <LoadUri>https://{settings:B2CStorage}.blob.core.windows.net/{settings:B2CStorageContainer}/policies/KL_create_user_or_sign_in/pages/forgot-password/index.html</LoadUri>
         <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.8</DataUri>
         <LocalizedResourcesReferences MergeBehavior="Prepend">
-          <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.localaccountpasswordreset.en" />
-          <!-- Add more languages here -->
+          <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.localaccountpasswordreset.en"></LocalizedResourcesReference>
+          <LocalizedResourcesReference Language="es" LocalizedResourcesReferenceId="api.localaccountpasswordreset.es"></LocalizedResourcesReference>
+          <LocalizedResourcesReference Language="zh-hans" LocalizedResourcesReferenceId="api.localaccountpasswordreset.zh-hans"></LocalizedResourcesReference>
         </LocalizedResourcesReferences>
       </ContentDefinition>
       <ContentDefinition Id="api.socialccountsignup">
         <LoadUri>https://{settings:B2CStorage}.blob.core.windows.net/{settings:B2CStorageContainer}/policies/KL_create_user_or_sign_in/pages/unified-sign-up-or-sign-in/index.html</LoadUri>
         <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.8</DataUri>
-        <LocalizedResourcesReferences MergeBehavior="Prepend">
-          <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.socialccountsignup.en" />
-          <!-- Add more languages here -->
-        </LocalizedResourcesReferences>
       </ContentDefinition>
       <ContentDefinition Id="api.localaccountsignin">
         <LoadUri>https://{settings:B2CStorage}.blob.core.windows.net/{settings:B2CStorageContainer}/policies/KL_create_user_or_sign_in/pages/unified-sign-up-or-sign-in/index.html</LoadUri>
         <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.8</DataUri>
-        <LocalizedResourcesReferences MergeBehavior="Prepend">
-          <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.localaccountsignin.en" />
-          <!-- Add more languages here -->
-        </LocalizedResourcesReferences>
       </ContentDefinition>
     </ContentDefinitions>
     <Localization Enabled="true">
       <SupportedLanguages DefaultLanguage="en" MergeBehavior="Append">
         <SupportedLanguage>en</SupportedLanguage>
+        <SupportedLanguage>es</SupportedLanguage>
+        <SupportedLanguage>ko</SupportedLanguage>
+        <SupportedLanguage>th</SupportedLanguage>
+        <SupportedLanguage>zh-hans</SupportedLanguage>
+        <SupportedLanguage>vi</SupportedLanguage>
+        <SupportedLanguage>id</SupportedLanguage>
       </SupportedLanguages>
-      <LocalizedResources Id="api.signuporsignin.en">
+      <LocalizedResources Id="api.localaccountpasswordreset.en">
         <LocalizedStrings>
-          <LocalizedString ElementType="ClaimType" ElementId="signInName" StringId="DisplayName">Email Address or Phone Number</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="heading">Log in</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="social_intro">Log in with your social account</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="local_intro_generic">Log in with your {0}</LocalizedString>
-          <LocalizedString ElementType="ClaimType" ElementId="password" StringId="DisplayName">Password</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="requiredField_password">Cannot be empty</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="requiredField_generic">Cannot be empty</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="invalid_generic">Please enter a valid {0}</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="createaccount_one_link">Sign up now</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="createaccount_two_links">Sign up with {0} or {1}</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="createaccount_three_links">Sign up with {0}, {1}, or {2}</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="forgotpassword_link">Forgot your password?</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="button_signin">Log in</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="divider_title">OR</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="createaccount_intro">Don't have an account?</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="unknown_error">We are having trouble signing you in. Please try again later.</LocalizedString>
-          <!-- Uncomment the remember_me only if the keep me signed in is activated.
-          <LocalizedString ElementType="UxElement" StringId="remember_me">Keep me signed in</LocalizedString> -->
-          <LocalizedString ElementType="ClaimsProvider" StringId="FacebookExchange">Facebook</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage" StringId="ResourceOwnerFlowInvalidCredentials">Your password is incorrect.</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidPassword">Sorry, we don’t recognise your login details! Please check that you’ve entered them correctly and try again.</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfPasswordExpired">Your password has expired.</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalDoesNotExist">Sorry, we don’t recognise your login details! Please check that you’ve entered them correctly and try again.</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfOldPasswordUsed">Looks like you used an old password.</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage" StringId="DefaultMessage">Invalid username or password.</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfUserAccountDisabled">Your account has been locked. Contact your support person to unlock it, then try again.</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfUserAccountLocked">Your account is temporarily locked to prevent unauthorized use. Try again later.</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage" StringId="AADRequestsThrottled">There are too many requests at this moment. Please wait for some time and try again.</LocalizedString>
+          <LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">Email address</LocalizedString>
+          <LocalizedString ElementType="ClaimType" ElementId="verificationCode" StringId="DisplayName">Reset code</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="but_send_code">Send reset code</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="but_send_new_code">Send new reset code</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="but_verify_code">Verify reset code</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="intro_msg">Enter your email address below to receive a reset code.</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="success_send_code_msg">A reset code has been sent to your email. Please copy it into the input box below and verify reset code.</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="success_verify_code_msg">Email address verified. You can continue now</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedNoRetry">You've made too many incorrect attempts. Please try again later.</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedRetryAllowed">The verification has failed, please try again</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="ver_but_resend">Send new reset code</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="ver_but_send">Send reset code</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="ver_but_verify">Verify reset code</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="ver_fail_retry">The verification has failed, please try again</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="ver_info_msg">A reset code has been sent to your email. Please copy it into the input box below and verify reset code.</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="ver_intro_msg">Enter your email address below to receive a reset code.</LocalizedString>
         </LocalizedStrings>
       </LocalizedResources>
-      <!--Local account sign-up page English-->
       <LocalizedResources Id="api.localaccountsignup.en">
         <LocalizedCollections>
           <LocalizedCollection ElementType="ClaimType" ElementId="hasAcceptedPrivacyPolicy" TargetCollection="Restriction">
-            <Item Text="I agree to the KidsLoop {{Privacy policy}}" Value="true" />
+            <Item Value="true" Text="I agree to the KidsLoop {{Privacy policy}}"></Item>
           </LocalizedCollection>
         </LocalizedCollections>
         <LocalizedStrings>
+          <LocalizedString ElementType="ClaimType" ElementId="countryCode" StringId="DisplayName">Country</LocalizedString>
+          <LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">Email Address</LocalizedString>
           <LocalizedString ElementType="ClaimType" ElementId="hasAcceptedPrivacyPolicy" StringId="DisplayName">Privacy Policy</LocalizedString>
           <LocalizedString ElementType="ClaimType" ElementId="hasAcceptedPrivacyPolicy" StringId="UserHelpText">Please agree to the KidsLoop Privacy policy to create an account</LocalizedString>
-          <LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">Email Address</LocalizedString>
-          <LocalizedString ElementType="ClaimType" ElementId="email" StringId="UserHelpText">Email address that can be used to contact you.</LocalizedString>
-          <LocalizedString ElementType="ClaimType" ElementId="email" StringId="PatternHelpText">Please enter a valid email address.</LocalizedString>
-          <LocalizedString ElementType="ClaimType" ElementId="newPassword" StringId="DisplayName">New Password</LocalizedString>
-          <LocalizedString ElementType="ClaimType" ElementId="newPassword" StringId="UserHelpText">Enter new password</LocalizedString>
+          <LocalizedString ElementType="ClaimType" ElementId="nationalNumber" StringId="DisplayName">Phone Number</LocalizedString>
+          <LocalizedString ElementType="ClaimType" ElementId="newPassword" StringId="DisplayName">Create Password</LocalizedString>
           <LocalizedString ElementType="ClaimType" ElementId="newPassword" StringId="PatternHelpText">8-16 characters, containing 3 out of 4 of the following: Lowercase characters, uppercase characters, digits (0-9), and one or more of the following symbols: @ # $ % ^ &amp; * - _ + = [ ] { } | \ : ' , ? / ` ~ " ( ) ; .</LocalizedString>
-          <LocalizedString ElementType="ClaimType" ElementId="reenterPassword" StringId="DisplayName">Confirm New Password</LocalizedString>
-          <LocalizedString ElementType="ClaimType" ElementId="reenterPassword" StringId="UserHelpText">Confirm new password</LocalizedString>
-          <LocalizedString ElementType="ClaimType" ElementId="reenterPassword" StringId="PatternHelpText">8-16 characters, containing 3 out of 4 of the following: Lowercase characters, uppercase characters, digits (0-9), and one or more of the following symbols: @ # $ % ^ &amp; * - _ + = [ ] { } | \ : ' , ? / ` ~ " ( ) ; .</LocalizedString>
-          <LocalizedString ElementType="ClaimType" ElementId="displayName" StringId="DisplayName">Display Name</LocalizedString>
-          <LocalizedString ElementType="ClaimType" ElementId="displayName" StringId="UserHelpText">Your display name.</LocalizedString>
-          <LocalizedString ElementType="ClaimType" ElementId="surname" StringId="DisplayName">Surname</LocalizedString>
-          <LocalizedString ElementType="ClaimType" ElementId="surname" StringId="UserHelpText">Your surname (also known as family name or last name).</LocalizedString>
-          <LocalizedString ElementType="ClaimType" ElementId="givenName" StringId="DisplayName">Given Name</LocalizedString>
-          <LocalizedString ElementType="ClaimType" ElementId="givenName" StringId="UserHelpText">Your given name (also known as first name).</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="button_continue">Create</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="error_fieldIncorrect">One or more fields are filled out incorrectly. Please check your entries and try again.</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="error_passwordEntryMismatch">The password entry fields do not match. Please enter the same password in both fields and try again.</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="error_requiredFieldMissing">A required field is missing. Please fill out all required fields and try again.</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="helplink_text">What is this?</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="initial_intro">Please provide the following details.</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="preloader_alt">Please wait</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="required_field">This information is required.</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="button_cancel">Cancel</LocalizedString>
+          <LocalizedString ElementType="ClaimType" ElementId="reenterPassword" StringId="DisplayName">Confirm Password</LocalizedString>
+          <LocalizedString ElementType="ClaimType" ElementId="verificationCode" StringId="DisplayName">Verification Code</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="but_change_claims">Change email</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="but_send_code">Send verification code</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="but_send_new_code">Send new code</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="but_verify_code">Verify code</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl" StringId="but_change_claims">Change email</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl" StringId="but_send_code">Send verification code</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl" StringId="but_send_new_code">Send new code</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl" StringId="but_verify_code">Verify code</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalAlreadyExists">An account with this email address or number already exists.</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfMaxAllowedCodeRetryReached">You've made too many incorrect attempts. Please try again later.</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedNoRetry">You've made too many incorrect attempts. Please try again later.</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedRetryAllowed">The code is incorrect. Please try again</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfWrongCodeEntered">The code is incorrect, please try again</LocalizedString>
+          <LocalizedString ElementType="UXElement" StringId="button_continue">Create account</LocalizedString>
           <LocalizedString ElementType="UxElement" StringId="ver_but_edit">Change e-mail</LocalizedString>
           <LocalizedString ElementType="UxElement" StringId="ver_but_resend">Send new code</LocalizedString>
           <LocalizedString ElementType="UxElement" StringId="ver_but_send">Send verification code</LocalizedString>
           <LocalizedString ElementType="UxElement" StringId="ver_but_verify">Verify code</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="ver_fail_code_expired">That code is expired. Please request a new code.</LocalizedString>
           <LocalizedString ElementType="UxElement" StringId="ver_fail_no_retry">You've made too many incorrect attempts. Please try again later.</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="ver_fail_retry">That code is incorrect. Please try again.</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="ver_fail_server">We are having trouble verifying your email address. Please enter a valid email address and try again.</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="ver_fail_throttled">There have been too many requests to verify this email address. Please wait a while, then try again.</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="ver_info_msg">Verification code has been sent to your inbox. Please copy it to the input box below.</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="ver_input">Verification code</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="ver_intro_msg">Verification is necessary. Please click Send button.</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="ver_success_msg">E-mail address verified. You can now continue.</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage" StringId="ServiceThrottled">There are too many requests at this moment. Please wait for some time and try again.</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimNotVerified">Claim not verified: {0}</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalAlreadyExists">An account with this email address or number already exists.</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfIncorrectPattern">Incorrect pattern for: {0}</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidInput">{0} has invalid input.</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfMissingRequiredElement">Missing required element: {0}</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfValidationError">Error in validation by: {0}</LocalizedString>
         </LocalizedStrings>
       </LocalizedResources>
-      <!-- Social account sign-up page English-->
-      <LocalizedResources Id="api.socialccountsignup.en">
+      <LocalizedResources Id="api.selfasserted.localaccountpasswordchange.en">
         <LocalizedStrings>
-          <LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">Email Address</LocalizedString>
-          <LocalizedString ElementType="ClaimType" ElementId="email" StringId="UserHelpText">Email address that can be used to contact you.</LocalizedString>
-          <LocalizedString ElementType="ClaimType" ElementId="email" StringId="PatternHelpText">Please enter a valid email address.</LocalizedString>
-          <LocalizedString ElementType="ClaimType" ElementId="displayName" StringId="DisplayName">Display Name</LocalizedString>
-          <LocalizedString ElementType="ClaimType" ElementId="displayName" StringId="UserHelpText">Your display name.</LocalizedString>
-          <LocalizedString ElementType="ClaimType" ElementId="surname" StringId="DisplayName">Surname</LocalizedString>
-          <LocalizedString ElementType="ClaimType" ElementId="surname" StringId="UserHelpText">Your surname (also known as family name or last name).</LocalizedString>
-          <LocalizedString ElementType="ClaimType" ElementId="givenName" StringId="DisplayName">Given Name</LocalizedString>
-          <LocalizedString ElementType="ClaimType" ElementId="givenName" StringId="UserHelpText">Your given name (also known as first name).</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="button_continue">Create</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="button_cancel">Cancel</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalAlreadyExists">You are already registered, please press the back button and sign in instead.</LocalizedString>
-        </LocalizedStrings>
-      </LocalizedResources>
-      <!-- Password reset page English-->
-      <LocalizedResources Id="api.localaccountpasswordreset.en">
-        <LocalizedStrings>
-          <LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">Email Address</LocalizedString>
-          <LocalizedString ElementType="ClaimType" ElementId="email" StringId="UserHelpText">Email address that can be used to contact you.</LocalizedString>
-          <LocalizedString ElementType="ClaimType" ElementId="email" StringId="PatternHelpText">Please enter a valid email address.</LocalizedString>
-          <LocalizedString ElementType="ClaimType" ElementId="newPassword" StringId="DisplayName">New Password</LocalizedString>
-          <LocalizedString ElementType="ClaimType" ElementId="newPassword" StringId="UserHelpText">Enter new password</LocalizedString>
+          <LocalizedString ElementType="ClaimType" ElementId="newPassword" StringId="DisplayName">New password</LocalizedString>
           <LocalizedString ElementType="ClaimType" ElementId="newPassword" StringId="PatternHelpText">8-16 characters, containing 3 out of 4 of the following: Lowercase characters, uppercase characters, digits (0-9), and one or more of the following symbols: @ # $ % ^ &amp; * - _ + = [ ] { } | \ : ' , ? / ` ~ " ( ) ; .</LocalizedString>
-          <LocalizedString ElementType="ClaimType" ElementId="reenterPassword" StringId="DisplayName">Confirm New Password</LocalizedString>
-          <LocalizedString ElementType="ClaimType" ElementId="reenterPassword" StringId="UserHelpText">Confirm new password</LocalizedString>
-          <LocalizedString ElementType="ClaimType" ElementId="reenterPassword" StringId="PatternHelpText">8-16 characters, containing 3 out of 4 of the following: Lowercase characters, uppercase characters, digits (0-9), and one or more of the following symbols: @ # $ % ^ &amp; * - _ + = [ ] { } | \ : ' , ? / ` ~ " ( ) ; .</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="error_passwordEntryMismatch">The password entry fields do not match. Please enter the same password in both fields and try again.</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="error_fieldIncorrect">One or more fields are filled out incorrectly. Please check your entries and try again.</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="button_continue">Continue</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="button_cancel">Cancel</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalDoesNotExist">An account could not be found for the provided user ID.</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsTransformationBooleanValueIsNotEqual">Your account has been locked. Contact your support person to unlock it, then try again.</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="required_field">This information is required.</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="ver_but_edit">Change e-mail</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="ver_but_resend">Send new code</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="ver_but_send">Send verification code</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="ver_but_verify">Verify code</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="ver_fail_code_expired">That code is expired. Please request a new code.</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="ver_fail_no_retry">You've made too many incorrect attempts. Please try again later.</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="ver_fail_retry">That code is incorrect. Please try again.</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="ver_fail_server">We are having trouble verifying your email address. Please enter a valid email address and try again.</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="ver_fail_throttled">There have been too many requests to verify this email address. Please wait a while, then try again.</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="ver_info_msg">Verification code has been sent to your inbox. Please copy it to the input box below.</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="ver_input">Verification code</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="ver_intro_msg">Verification is necessary. Please click Send button.</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="ver_success_msg">E-mail address verified. You can now continue.</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage" StringId="ServiceThrottled">There are too many requests at this moment. Please wait for some time and try again.</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimNotVerified">Claim not verified: {0}</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalAlreadyExists">An account with this email address or number already exists.</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfIncorrectPattern">Incorrect pattern for: {0}</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidInput">{0} has invalid input.</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfMissingRequiredElement">Missing required element: {0}</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfValidationError">Error in validation by: {0}</LocalizedString>
+          <LocalizedString ElementType="ClaimType" ElementId="reenterPassword" StringId="DisplayName">Confirm new password</LocalizedString>
+          <LocalizedString ElementType="UXElement" StringId="button_continue">Reset Password</LocalizedString>
+          <LocalizedString ElementType="UXElement" StringId="initial_intro">Almost there! Enter your new password below.</LocalizedString>
         </LocalizedStrings>
       </LocalizedResources>
-      <!-- Edit profile sign-in page English-->
-      <LocalizedResources Id="api.idpselections.en">
+      <LocalizedResources Id="api.signuporsignin.en">
         <LocalizedStrings>
-          <LocalizedString ElementType="UxElement" StringId="intro">Sign in</LocalizedString>
-          <LocalizedString ElementType="ClaimsProvider" StringId="LocalAccountSigninEmailExchange">Local Account Signin</LocalizedString>
-          <LocalizedString ElementType="ClaimsProvider" StringId="FacebookExchange">Facebook</LocalizedString>
-        </LocalizedStrings>
-      </LocalizedResources>
-      <!-- Edit profile sign-in with local account English-->
-      <LocalizedResources Id="api.localaccountsignin.en">
-        <LocalizedStrings>
-          <LocalizedString ElementType="ClaimType" ElementId="signInName" StringId="DisplayName">Email Address</LocalizedString>
           <LocalizedString ElementType="ClaimType" ElementId="password" StringId="DisplayName">Password</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="button_continue">Continue</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="button_cancel">Cancel</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage" StringId="ResourceOwnerFlowInvalidCredentials">Your password is incorrect.</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidPassword">Your password is incorrect.</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfPasswordExpired">Your password has expired.</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalDoesNotExist">We can't seem to find your account.</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfOldPasswordUsed">Looks like you used an old password.</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage" StringId="DefaultMessage">Invalid username or password.</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfUserAccountDisabled">Your account has been locked. Contact your support person to unlock it, then try again.</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfUserAccountLocked">Your account is temporarily locked to prevent unauthorized use. Try again later.</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage" StringId="AADRequestsThrottled">There are too many requests at this moment. Please wait for some time and try again.</LocalizedString>
+          <LocalizedString ElementType="ClaimType" ElementId="signInName" StringId="DisplayName">Email Address or Phone Number</LocalizedString>
+          <LocalizedString ElementType="ClaimsProvider" StringId="SignupWithEmail">Email</LocalizedString>
+          <LocalizedString ElementType="ClaimsProvider" StringId="SignupWithPhone">Phone</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalDoesNotExist">Sorry, we don’t recognise your login details! Please check that you’ve entered them correctly and try again.</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidPassword">Sorry, we don’t recognise your login details! Please check that you’ve entered them correctly and try again.</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfOldPasswordUsed">Sorry, we don’t recognise your login details! Please check that you’ve entered them correctly and try again.</LocalizedString>
+          <LocalizedString ElementType="InputValidation" ElementId="phoneOrEmailSignInName" StringId="phoneOrEmailSignInName">Please enter at least one of the following:</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="email" StringId="HelpText">A valid email address</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="internationalPhoneNumber" StringId="HelpText">A valid phone number</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="button_signin">Log in</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="heading">Log in</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="invalid_generic">Please enter a valid {0}</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="local_intro_generic">Log in with your {0}</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="requiredField_generic">Cannot be empty</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="requiredField_password">Cannot be empty</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="social_intro">Log in with your social account</LocalizedString>
         </LocalizedStrings>
       </LocalizedResources>
-      <!-- Edit profile page English-->
-      <LocalizedResources Id="api.selfasserted.profileupdate.en">
+      <LocalizedResources Id="api.localaccountpasswordreset.es">
         <LocalizedStrings>
-          <LocalizedString ElementType="ClaimType" ElementId="displayName" StringId="DisplayName">Display Name</LocalizedString>
-          <LocalizedString ElementType="ClaimType" ElementId="displayName" StringId="UserHelpText">Your display name.</LocalizedString>
-          <LocalizedString ElementType="ClaimType" ElementId="surname" StringId="DisplayName">Surname</LocalizedString>
-          <LocalizedString ElementType="ClaimType" ElementId="surname" StringId="UserHelpText">Your surname (also known as family name or last name).</LocalizedString>
-          <LocalizedString ElementType="ClaimType" ElementId="givenName" StringId="DisplayName">Given Name</LocalizedString>
-          <LocalizedString ElementType="ClaimType" ElementId="givenName" StringId="UserHelpText">Your given name (also known as first name).</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="button_continue">Continue</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="button_cancel">Cancel</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="but_send_code">Enviar código de seguridad</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="but_send_new_code">Enviar nuevo código de seguridad</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="but_verify_code">Verificar código de seguridad</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="intro_msg">Ingrese su dirección de correo electrónico para recibir un código de seguridad.</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="success_send_code_msg">Se ha enviado un código de seguridad a su correo electrónico. Por favor, cópielo en la casilla que aparece a continuación para ser verificado.</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="success_verify_code_msg">Correo electrónico verificado. Puede continuar.</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedRetryAllowed">La verificación ha fallado, por favor inténtelo de nuevo</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="ver_but_resend">Enviar nuevo código de seguridad</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="ver_but_send">Enviar código de seguridad</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="ver_but_verify">Verificar código de seguridad</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="ver_fail_retry">La verificación ha fallado, por favor inténtelo de nuevo</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="ver_info_msg">Se ha enviado un código de seguridad a su correo electrónico. Por favor, cópielo en la casilla que aparece a continuación para ser verificado.</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="ver_intro_msg">Ingrese su dirección de correo electrónico para recibir el código de seguridad.</LocalizedString>
         </LocalizedStrings>
       </LocalizedResources>
-      <!-- Phone factor English-->
-      <LocalizedResources Id="api.phonefactor.en">
+      <LocalizedResources Id="api.localaccountsignup.es">
+        <LocalizedCollections>
+          <LocalizedCollection ElementType="ClaimType" ElementId="hasAcceptedPrivacyPolicy" TargetCollection="Restriction">
+            <Item Value="true" Text="Acepto la {{Política de privacidad}} de KidsLoop"></Item>
+          </LocalizedCollection>
+        </LocalizedCollections>
         <LocalizedStrings>
-          <LocalizedString ElementType="UxElement" StringId="button_verify">Call Me</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="country_code_label">Country Code</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="cancel_message">The user has canceled multi-factor authentication</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="text_button_send_second_code">Send a new code</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="code_pattern">\d{6}</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="intro_mixed">We have the following number on record for you. We can send a code via SMS or phone to authenticate you.</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="intro_mixed_p">We have the following numbers on record for you. Choose a number that we can phone or send a code via SMS to authenticate you.</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="button_verify_code">Verify Code</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="requiredField_code">Please enter the verification code you received</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="invalid_code">Please enter the 6-digit code you received</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="button_cancel">Cancel</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="local_number_input_placeholder_text">Phone number</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="button_retry">Retry</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="alternative_text">I don't have my phone</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="intro_phone_p">We have the following numbers on record for you. Choose a number that we can phone to authenticate you.</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="intro_phone">We have the following number on record for you. We will phone to authenticate you.</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="enter_code_text_intro">Enter your verification code below, or</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="intro_entry_phone">Enter a number below that we can phone to authenticate you.</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="intro_entry_sms">Enter a number below that we can send a code via SMS to authenticate you.</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="button_send_code">Send Code</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="invalid_number">Please enter a valid phone number</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="intro_sms">We have the following number on record for you. We will send a code via SMS to authenticate you.</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="intro_entry_mixed">Enter a number below that we can send a code via SMS or phone to authenticate you.</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="number_pattern">^\+(?:[0-9][\x20-]?){6,14}[0-9]$</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="intro_sms_p">We have the following numbers on record for you. Choose a number that we can send a code via SMS to authenticate you.</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="requiredField_countryCode">Please select your country code</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="requiredField_number">Please enter your phone number</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="country_code_input_placeholder_text">Country or region</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="number_label">Phone Number</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="error_tryagain">The phone number you provided is busy or unavailable. Please check the number and try again.</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="error_sms_throttled">You hit the limit on the number of text messages. Try again shortly.</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="error_phone_throttled">You hit the limit on the number of call attempts. Try again shortly.</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="error_throttled">You hit the limit on the number of verification attempts. Try again shortly.</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="error_incorrect_code">The verification code you have entered does not match our records. Please try again, or request a new code.</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="countryList">{"DEFAULT":"Country/Region","AF":"Afghanistan","AX":"Åland Islands","AL":"Albania","DZ":"Algeria","AS":"American Samoa","AD":"Andorra","AO":"Angola","AI":"Anguilla","AQ":"Antarctica","AG":"Antigua and Barbuda","AR":"Argentina","AM":"Armenia","AW":"Aruba","AU":"Australia","AT":"Austria","AZ":"Azerbaijan","BS":"Bahamas","BH":"Bahrain","BD":"Bangladesh","BB":"Barbados","BY":"Belarus","BE":"Belgium","BZ":"Belize","BJ":"Benin","BM":"Bermuda","BT":"Bhutan","BO":"Bolivia","BQ":"Bonaire","BA":"Bosnia and Herzegovina","BW":"Botswana","BV":"Bouvet Island","BR":"Brazil","IO":"British Indian Ocean Territory","VG":"British Virgin Islands","BN":"Brunei","BG":"Bulgaria","BF":"Burkina Faso","BI":"Burundi","CV":"Cabo Verde","KH":"Cambodia","CM":"Cameroon","CA":"Canada","KY":"Cayman Islands","CF":"Central African Republic","TD":"Chad","CL":"Chile","CN":"China","CX":"Christmas Island","CC":"Cocos (Keeling) Islands","CO":"Colombia","KM":"Comoros","CG":"Congo","CD":"Congo (DRC)","CK":"Cook Islands","CR":"Costa Rica","CI":"Côte d'Ivoire","HR":"Croatia","CU":"Cuba","CW":"Curaçao","CY":"Cyprus","CZ":"Czech Republic","DK":"Denmark","DJ":"Djibouti","DM":"Dominica","DO":"Dominican Republic","EC":"Ecuador","EG":"Egypt","SV":"El Salvador","GQ":"Equatorial Guinea","ER":"Eritrea","EE":"Estonia","ET":"Ethiopia","FK":"Falkland Islands","FO":"Faroe Islands","FJ":"Fiji","FI":"Finland","FR":"France","GF":"French Guiana","PF":"French Polynesia","TF":"French Southern Territories","GA":"Gabon","GM":"Gambia","GE":"Georgia","DE":"Germany","GH":"Ghana","GI":"Gibraltar","GR":"Greece","GL":"Greenland","GD":"Grenada","GP":"Guadeloupe","GU":"Guam","GT":"Guatemala","GG":"Guernsey","GN":"Guinea","GW":"Guinea-Bissau","GY":"Guyana","HT":"Haiti","HM":"Heard Island and McDonald Islands","HN":"Honduras","HK":"Hong Kong SAR","HU":"Hungary","IS":"Iceland","IN":"India","ID":"Indonesia","IR":"Iran","IQ":"Iraq","IE":"Ireland","IM":"Isle of Man","IL":"Israel","IT":"Italy","JM":"Jamaica","JP":"Japan","JE":"Jersey","JO":"Jordan","KZ":"Kazakhstan","KE":"Kenya","KI":"Kiribati","KR":"Korea","KW":"Kuwait","KG":"Kyrgyzstan","LA":"Laos","LV":"Latvia","LB":"Lebanon","LS":"Lesotho","LR":"Liberia","LY":"Libya","LI":"Liechtenstein","LT":"Lithuania","LU":"Luxembourg","MO":"Macao SAR","MK":"North Macedonia","MG":"Madagascar","MW":"Malawi","MY":"Malaysia","MV":"Maldives","ML":"Mali","MT":"Malta","MH":"Marshall Islands","MQ":"Martinique","MR":"Mauritania","MU":"Mauritius","YT":"Mayotte","MX":"Mexico","FM":"Micronesia","MD":"Moldova","MC":"Monaco","MN":"Mongolia","ME":"Montenegro","MS":"Montserrat","MA":"Morocco","MZ":"Mozambique","MM":"Myanmar","NA":"Namibia","NR":"Nauru","NP":"Nepal","NL":"Netherlands","NC":"New Caledonia","NZ":"New Zealand","NI":"Nicaragua","NE":"Niger","NG":"Nigeria","NU":"Niue","NF":"Norfolk Island","KP":"North Korea","MP":"Northern Mariana Islands","NO":"Norway","OM":"Oman","PK":"Pakistan","PW":"Palau","PS":"Palestinian Authority","PA":"Panama","PG":"Papua New Guinea","PY":"Paraguay","PE":"Peru","PH":"Philippines","PN":"Pitcairn Islands","PL":"Poland","PT":"Portugal","PR":"Puerto Rico","QA":"Qatar","RE":"Réunion","RO":"Romania","RU":"Russia","RW":"Rwanda","BL":"Saint Barthélemy","KN":"Saint Kitts and Nevis","LC":"Saint Lucia","MF":"Saint Martin","PM":"Saint Pierre and Miquelon","VC":"Saint Vincent and the Grenadines","WS":"Samoa","SM":"San Marino","ST":"São Tomé and Príncipe","SA":"Saudi Arabia","SN":"Senegal","RS":"Serbia","SC":"Seychelles","SL":"Sierra Leone","SG":"Singapore","SX":"Sint Maarten","SK":"Slovakia","SI":"Slovenia","SB":"Solomon Islands","SO":"Somalia","ZA":"South Africa","GS":"South Georgia and South Sandwich Islands","SS":"South Sudan","ES":"Spain","LK":"Sri Lanka","SH":"St Helena, Ascension, Tristan da Cunha","SD":"Sudan","SR":"Suriname","SJ":"Svalbard","SZ":"Swaziland","SE":"Sweden","CH":"Switzerland","SY":"Syria","TW":"Taiwan","TJ":"Tajikistan","TZ":"Tanzania","TH":"Thailand","TL":"Timor-Leste","TG":"Togo","TK":"Tokelau","TO":"Tonga","TT":"Trinidad and Tobago","TN":"Tunisia","TR":"Turkey","TM":"Turkmenistan","TC":"Turks and Caicos Islands","TV":"Tuvalu","UM":"U.S. Outlying Islands","VI":"U.S. Virgin Islands","UG":"Uganda","UA":"Ukraine","AE":"United Arab Emirates","GB":"United Kingdom","US":"United States","UY":"Uruguay","UZ":"Uzbekistan","VU":"Vanuatu","VA":"Vatican City","VE":"Venezuela","VN":"Vietnam","WF":"Wallis and Futuna","YE":"Yemen","ZM":"Zambia","ZW":"Zimbabwe"}</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="error_448">The phone number you provided is unreachable.</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="error_449">User has exceeded the number of retry attempts.</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="verification_code_input_placeholder_text">Verification code</LocalizedString>
-          <LocalizedString ElementType="ClaimType" ElementId="strongAuthenticationPhoneNumber" StringId="DisplayName">Phone Number</LocalizedString>
+          <LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">Correo electrónico</LocalizedString>
+          <LocalizedString ElementType="ClaimType" ElementId="hasAcceptedPrivacyPolicy" StringId="DisplayName">Política de privacidad</LocalizedString>
+          <LocalizedString ElementType="ClaimType" ElementId="hasAcceptedPrivacyPolicy" StringId="UserHelpText">Por favor, acepte la política de privacidad de KidsLoop para crear una cuenta</LocalizedString>
+          <LocalizedString ElementType="ClaimType" ElementId="newPassword" StringId="DisplayName">Contraseña</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalAlreadyExists">Ya existe una cuenta con esta dirección de correo electrónico o número telefónico.</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedNoRetry">Ha realizado demasiados intentos fallidos. Por favor, vuelva más tarde.</LocalizedString>
+          <LocalizedString ElementType="UXElement" StringId="button_continue">Crear cuenta</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="ver_but_edit">Cambiar correo electrónico</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="ver_but_resend">Enviar un nuevo código</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="ver_but_send">Enviar código de verificación</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="ver_but_verify">Verificar código</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="ver_fail_no_retry">Ha realizado demasiados intentos fallidos. Por favor, vuelva más tarde.</LocalizedString>
         </LocalizedStrings>
       </LocalizedResources>
-      <!-- Add more languages here -->
+      <LocalizedResources Id="api.selfasserted.localaccountpasswordchange.es">
+        <LocalizedStrings>
+          <LocalizedString ElementType="ClaimType" ElementId="newPassword" StringId="DisplayName">Contraseña nueva</LocalizedString>
+          <LocalizedString ElementType="ClaimType" ElementId="reenterPassword" StringId="DisplayName">Confirme la nueva contraseña</LocalizedString>
+          <LocalizedString ElementType="UXElement" StringId="button_continue">Restablecer la contraseña</LocalizedString>
+          <LocalizedString ElementType="UXElement" StringId="initial_intro">¡Ya casi estamos listos! Introduzca su nueva contraseña a continuación.</LocalizedString>
+        </LocalizedStrings>
+      </LocalizedResources>
+      <LocalizedResources Id="api.signuporsignin.es">
+        <LocalizedStrings>
+          <LocalizedString ElementType="ClaimType" ElementId="password" StringId="DisplayName">Contraseña</LocalizedString>
+          <LocalizedString ElementType="ClaimType" ElementId="signInName" StringId="DisplayName">Correo electrónico o teléfono</LocalizedString>
+          <LocalizedString ElementType="ClaimsProvider" StringId="SignupWithEmail">Correo electrónico</LocalizedString>
+          <LocalizedString ElementType="ClaimsProvider" StringId="SignupWithPhone">Teléfono</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalDoesNotExist">Lo sentimos, no reconocemos sus datos de acceso. Por favor, compruebe que hayan sido introducidos correctamente e inténtelo de nuevo.</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidPassword">Lo sentimos, no reconocemos sus datos de acceso. Por favor, compruebe que hayan sido introducidos correctamente e inténtelo de nuevo.</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfOldPasswordUsed">Lo sentimos, no reconocemos sus datos de acceso. Por favor, compruebe que hayan sido introducidos correctamente e inténtelo de nuevo.</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="button_signin">Iniciar sesión</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="heading">Iniciar sesión</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="requiredField_generic">No puede estar vacío</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="requiredField_password">No puede estar vacío</LocalizedString>
+        </LocalizedStrings>
+      </LocalizedResources>
+      <LocalizedResources Id="api.localaccountpasswordreset.zh-hans">
+        <LocalizedStrings>
+          <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="but_send_code">发送重置代码</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="but_send_new_code">发送新的重置代码</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="but_verify_code">验证重置代码</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="intro_msg">在下方输入您的电子邮件地址以接收重置代码。</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="success_send_code_msg">重置代码已发送到您的电子邮件。请将其复制到下面的输入框中并验证重置代码。</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedRetryAllowed">验证失败，请重试</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="ver_but_resend">发送新的重置代码</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="ver_but_send">发送重置代码</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="ver_but_verify">验证重置代码</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="ver_fail_retry">验证失败，请重试</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="ver_info_msg">重置代码已发送到您的电子邮件。请将其复制到下面的输入框中并验证重置代码。</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="ver_intro_msg">在下方输入您的电子邮件地址以接收重置代码。</LocalizedString>
+        </LocalizedStrings>
+      </LocalizedResources>
+      <LocalizedResources Id="api.localaccountsignup.zh-hans">
+        <LocalizedCollections>
+          <LocalizedCollection ElementType="ClaimType" ElementId="hasAcceptedPrivacyPolicy" TargetCollection="Restriction">
+            <Item Value="true" Text="我同意 KidsLoop {{隐私政策}}"></Item>
+          </LocalizedCollection>
+        </LocalizedCollections>
+        <LocalizedStrings>
+          <LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">电子邮箱</LocalizedString>
+          <LocalizedString ElementType="ClaimType" ElementId="hasAcceptedPrivacyPolicy" StringId="DisplayName">隐私政策</LocalizedString>
+          <LocalizedString ElementType="ClaimType" ElementId="hasAcceptedPrivacyPolicy" StringId="UserHelpText">请同意 KidsLoop 隐私政策以创建账户</LocalizedString>
+          <LocalizedString ElementType="ClaimType" ElementId="newPassword" StringId="DisplayName">密码</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="ver_but_edit">更改电子邮件</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="ver_but_resend">发送新代码</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="ver_but_send">发送验证码</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="ver_but_verify">验证码</LocalizedString>
+        </LocalizedStrings>
+      </LocalizedResources>
+      <LocalizedResources Id="api.selfasserted.localaccountpasswordchange.zh-hans">
+        <LocalizedStrings>
+          <LocalizedString ElementType="ClaimType" ElementId="newPassword" StringId="DisplayName">新密码</LocalizedString>
+          <LocalizedString ElementType="ClaimType" ElementId="reenterPassword" StringId="DisplayName">确认新密码</LocalizedString>
+          <LocalizedString ElementType="UXElement" StringId="button_continue">重置密码</LocalizedString>
+          <LocalizedString ElementType="UXElement" StringId="initial_intro">快好了！在下方输入您的新密码。</LocalizedString>
+        </LocalizedStrings>
+      </LocalizedResources>
+      <LocalizedResources Id="api.signuporsignin.zh-hans">
+        <LocalizedStrings>
+          <LocalizedString ElementType="ClaimType" ElementId="password" StringId="DisplayName">密码</LocalizedString>
+          <LocalizedString ElementType="ClaimType" ElementId="signInName" StringId="DisplayName">电子邮件地址或电话号码</LocalizedString>
+          <LocalizedString ElementType="ClaimsProvider" StringId="SignupWithEmail">邮箱</LocalizedString>
+          <LocalizedString ElementType="ClaimsProvider" StringId="SignupWithPhone">手机号</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalDoesNotExist">抱歉，我们无法识别您的登录信息！请检查您是否输入正确，然后重试。</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidPassword">抱歉，我们无法识别您的登录信息！请检查您是否输入正确，然后重试。</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfOldPasswordUsed">抱歉，我们无法识别您的登录信息！请检查您是否输入正确，然后重试。</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="button_signin">登录</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="heading">登录</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="invalid_generic">请输入有效的{0}</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="local_intro_generic">用你的{0}登录</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="requiredField_generic">不能为空</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="requiredField_password">不能为空</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="social_intro">使用您的社交账户登录</LocalizedString>
+        </LocalizedStrings>
+      </LocalizedResources>
     </Localization>
   </BuildingBlocks>
-  <ClaimsProviders>
-    <ClaimsProvider>
-      <DisplayName>Local Account</DisplayName>
-      <TechnicalProfiles>
-        <TechnicalProfile Id="login-NonInteractive">
-          <Metadata>
-            <Item Key="UserMessageIfClaimsPrincipalDoesNotExist">Sorry, those details don't match our records. Please try again.</Item>
-            <Item Key="UserMessageIfInvalidPassword">Sorry, those details don't match our records. Please try again.</Item>
-            <Item Key="UserMessageIfOldPasswordUsed">Sorry, those details don't match our records. Please try again.</Item>
-          </Metadata>
-        </TechnicalProfile>
-      </TechnicalProfiles>
-    </ClaimsProvider>
-  </ClaimsProviders>
 </TrustFrameworkPolicy>

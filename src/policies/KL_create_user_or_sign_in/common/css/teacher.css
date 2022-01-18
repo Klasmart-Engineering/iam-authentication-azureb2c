@@ -10,8 +10,14 @@
 }
 
 .logo {
-    margin-left: 24px;
+    margin-left: 3%;
     width: 140px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
 }
 
 .textInput {
@@ -25,7 +31,7 @@
 .main-content {
     background-color: #fff;
     min-height: 100vh;
-    padding: 40px;
+    padding: 18px 16px 35px 16px;
 }
 
 .main-heading {
@@ -122,6 +128,7 @@
         height: 100vh;
         overflow-y: scroll;
         width: 50vw;
+        padding: 18px 40px 40px 40px;
     }
 
     .space-filler {

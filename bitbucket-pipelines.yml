@@ -30,9 +30,10 @@ definitions:
                   - pwsh -Command "scripts/Build-CustomPolicies.ps1 -FilePath src/policies/custom_policies"
               artifacts:
                   - src/policies/custom_policies/**
-        - step: &deploy-assets
-              name: Deploy HTML/JS/CSS/images
+        - step: &deploy
+              name: Deploy assets/policies to B2C
               script:
+                  - export $(cat .env | xargs)
                   - pipe: atlassian/azure-storage-deploy:1.0.2
                     variables:
                         SOURCE: "dist/**"
@@ -40,10 +41,6 @@ definitions:
                         DESTINATION_SAS_TOKEN: $AzureStorageSasToken
                         EXTRA_ARGS: "--recursive --overwrite=true"
                         DEBUG: "true"
-        - step: &deploy-policies
-              name: Upload B2C policies
-              script:
-                  - export $(cat .env | xargs)
                   - npx ieftool deploy -t $TENANT_ID -c $CLIENT_ID -s $SECRET -p src/policies/custom_policies/Environments/$ENVIRONMENT
 
 pipelines:
@@ -59,10 +56,9 @@ pipelines:
         - parallel:
               - step: *build-assets
               - step: *build-policies
-        - parallel:
-              - deployment: SSO
-              - step: *deploy-assets
-              - step: *deploy-policies
+        - step:
+              <<: *deploy
+              deployment: SSO
     branches:
         master:
             - step: *deps
@@ -76,10 +72,9 @@ pipelines:
             - parallel:
                   - step: *build-assets
                   - step: *build-policies
-            - parallel:
-                  - deployment: SSO
-                  - step: *deploy-assets
-                  - step: *deploy-policies
+            - step:
+                  <<: *deploy
+                  deployment: SSO
     custom:
         deploy-loadtest:
             - step: *deps
@@ -93,7 +88,6 @@ pipelines:
             - parallel:
                   - step: *build-assets
                   - step: *build-policies
-            - parallel:
-                  - deployment: LOADTEST
-                  - step: *deploy-assets
-                  - step: *deploy-policies
+            - step:
+                  <<: *deploy
+                  deployment: LOADTEST

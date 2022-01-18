@@ -59,6 +59,10 @@ pipelines:
         - parallel:
               - step: *build-assets
               - step: *build-policies
+        - parallel:
+              - deployment: SSO
+              - step: *deploy-assets
+              - step: *deploy-policies
     branches:
         master:
             - step: *deps

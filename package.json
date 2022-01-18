@@ -33,7 +33,11 @@
     },
     "homepage": "https://bitbucket.org/calmisland/iam-authentication-azureb2c#readme",
     "browserslist": [
-        "defaults"
+        "last 2 Chrome versions",
+        "last 2 ios_saf major versions",
+        "last 2 safari versions",
+        "last 2 android versions",
+        "last 2 and_chr versions"
     ],
     "devDependencies": {
         "@babel/cli": "7.16.0",

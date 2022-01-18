@@ -168,10 +168,9 @@ module.exports = ({ environment }) => {
                 },
             },
             new webpack.DefinePlugin({
-                "process.env": {
-                    B2CStorage,
-                    B2CStorageContainer,
-                },
+                "process.env.B2CStorage": JSON.stringify(B2CStorage),
+                "process.env.B2CStorageContainer":
+                    JSON.stringify(B2CStorageContainer),
             }),
         ],
     }

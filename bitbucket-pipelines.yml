@@ -1,55 +1,90 @@
-#  Template NodeJS build
-
-#  This template allows you to validate your NodeJS code.
-#  The workflow allows running tests and code linting on the default branch.
-
 image: node:16
 
+definitions:
+    steps:
+        - step: &deps
+              name: Install npm dependencies
+              caches:
+                  - node
+              script:
+                  - npm install
+        - step: &checks
+              name: Check JS/CSS
+              caches:
+                  - node
+              script:
+                  - npm run check
+        - step: &build-assets
+              name: Build HTML/JS/CSS/images
+              caches:
+                  - node
+              script:
+                  - export $(cat .env | xargs)
+                  - npm run build -- --env=environment=$ENVIRONMENT
+              artifacts:
+                  - dist/**
+        - step: &build-policies
+              name: Build B2C policy XML
+              image: mcr.microsoft.com/powershell
+              script:
+                  - pwsh -Command "scripts/Build-CustomPolicies.ps1 -FilePath src/policies/custom_policies"
+              artifacts:
+                  - src/policies/custom_policies/**
+        - step: &deploy
+              name: Deploy assets/policies to B2C
+              script:
+                  - export $(cat .env | xargs)
+                  - pipe: atlassian/azure-storage-deploy:1.0.2
+                    variables:
+                        SOURCE: "dist/**"
+                        DESTINATION: "https://$STORAGE_ACCOUNT.blob.core.windows.net/$STORAGE_CONTAINER?"
+                        DESTINATION_SAS_TOKEN: $AzureStorageSasToken
+                        EXTRA_ARGS: "--recursive --overwrite=true"
+                        DEBUG: "true"
+                  - npx ieftool deploy -t $TENANT_ID -c $CLIENT_ID -s $SECRET -p src/policies/custom_policies/Environments/$ENVIRONMENT
+
 pipelines:
-  default:
+    default:
+        - step: *deps
+        - step: *checks
         - step:
-            name: Build
-            caches:
-              - node
-            script:
-              - npm install
-              - npm run build
-            artifacts:
-              - dist/**
-        - step:
-            name: Code linting
-            script:
-              - npx eslint .
-            caches:
-              - node
-  branches:
-    master:
-        - step:
-            name: Build
-            caches:
-              - node
-            script:
-              - npm install
-              - npm run build
-            artifacts:
-              - dist/**
-        - step:
-            name: Code linting
-            script:
-              - npx eslint .
-            caches:
-              - node
-        - step:
-            name: Deploy To AzureB2C
-            script:
-            - npm install
-            - npm run build
-            - pipe: atlassian/azure-storage-deploy:1.0.2
-              variables:
-                SOURCE: 'dist/*'
-                DESTINATION: 'https://$AccountName.blob.core.windows.net/$ContainerName?'
-                DESTINATION_SAS_TOKEN: $AzureStorageSasToken
-                EXTRA_ARGS: '--recursive --overwrite=true'
-            artifacts:
-              - dist/*
-                # trigger: manual  # Uncomment to make this a manual deployment.
+              name: Setup environment
+              script:
+                  - echo 'ENVIRONMENT="SSO"' >> .env
+              artifacts:
+                  - .env
+        - parallel:
+              - step: *build-assets
+              - step: *build-policies
+    branches:
+        master:
+            - step: *deps
+            - step: *checks
+            - step:
+                  name: Setup environment
+                  script:
+                      - echo 'ENVIRONMENT="SSO"' >> .env
+                  artifacts:
+                      - .env
+            - parallel:
+                  - step: *build-assets
+                  - step: *build-policies
+            - step:
+                  <<: *deploy
+                  deployment: SSO
+    custom:
+        deploy-loadtest:
+            - step: *deps
+            - step: *checks
+            - step:
+                  name: Setup environment
+                  script:
+                      - echo 'ENVIRONMENT="LOADTEST"' >> .env
+                  artifacts:
+                      - .env
+            - parallel:
+                  - step: *build-assets
+                  - step: *build-policies
+            - step:
+                  <<: *deploy
+                  deployment: LOADTEST

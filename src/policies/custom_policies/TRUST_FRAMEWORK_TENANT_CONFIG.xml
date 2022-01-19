@@ -1,4 +1,4 @@
-<TrustFrameworkPolicy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06" PolicySchemaVersion="0.3.0.0" TenantId="{settings:Tenant}" PolicyId="B2C_1A__{settings:PolicyNamePrefix}TrustFrameworkTenantConfig" PublicPolicyUri="http://{settings:Tenant}/B2C_1A__{settings:PolicyNamePrefix}TrustFrameworkTenantConfig" TenantObjectId="8dc632b7-4df1-4904-a155-7c4663e345bb">
+<TrustFrameworkPolicy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06" PolicySchemaVersion="0.3.0.0" TenantId="{settings:Tenant}" PolicyId="B2C_1A__{settings:PolicyNamePrefix}TrustFrameworkTenantConfig" PublicPolicyUri="http://{settings:Tenant}/B2C_1A__{settings:PolicyNamePrefix}TrustFrameworkTenantConfig">
   <BasePolicy>
     <TenantId>{settings:Tenant}</TenantId>
     <PolicyId>B2C_1A__{settings:PolicyNamePrefix}TrustFrameworkExtensions</PolicyId>
@@ -10,15 +10,15 @@
         <TechnicalProfile Id="login-NonInteractive">
           <Metadata>
             <!-- ProxyIdentityExperienceFramework: Application ID -->
-            <Item Key="client_id">4080d557-cdcc-42bf-b06f-a6d9dfe788c4</Item>
+            <Item Key="client_id">{settings:ProxyIdentityExperienceFrameworkAppId}</Item>
             <!-- IdentityExperienceFramework: Application ID-->
-            <Item Key="IdTokenAudience">f610e7c0-be73-4fc4-a5f4-e7389b0542eb</Item>
+            <Item Key="IdTokenAudience">{settings:IdentityExperienceFrameworkAppId}</Item>
           </Metadata>
           <InputClaims>
             <!-- ProxyIdentityExperienceFramework: Application ID -->
-            <InputClaim ClaimTypeReferenceId="client_id" DefaultValue="4080d557-cdcc-42bf-b06f-a6d9dfe788c4" />
+            <InputClaim ClaimTypeReferenceId="client_id" DefaultValue="{settings:ProxyIdentityExperienceFrameworkAppId}" />
             <!-- IdentityExperienceFramework: Application ID-->
-            <InputClaim ClaimTypeReferenceId="resource_id" PartnerClaimType="resource" DefaultValue="f610e7c0-be73-4fc4-a5f4-e7389b0542eb" />
+            <InputClaim ClaimTypeReferenceId="resource_id" PartnerClaimType="resource" DefaultValue="{settings:IdentityExperienceFrameworkAppId}" />
           </InputClaims>
         </TechnicalProfile>
       </TechnicalProfiles>
@@ -31,9 +31,9 @@
           <!-- Provide objectId and appId before using extension properties. -->
           <Metadata>
             <!-- B2C Extensions app: Object ID-->
-            <Item Key="ApplicationObjectId">20c0091e-bf0d-4b3a-a1a5-ea2c3fd18650</Item>
+            <Item Key="ApplicationObjectId">{settings:B2CExtensionsAppObjectId}</Item>
             <!-- B2C Extensions app: Application ID-->
-            <Item Key="ClientId">9a787327-8df0-4aed-b92e-00aa2d8c8329</Item>
+            <Item Key="ClientId">{settings:B2CExtensionsAppAppId}</Item>
           </Metadata>
         </TechnicalProfile>
       </TechnicalProfiles>
@@ -46,11 +46,11 @@
           <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.Insights.AzureApplicationInsightsProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
           <Metadata>
             <!-- The ApplicationInsights instrumentation key which will be used for logging the events -->
-            <Item Key="InstrumentationKey">4cc32ad1-fe79-411e-b457-6a9b0b764be7</Item>
+            <Item Key="InstrumentationKey">{settings:AppInsightsInstrumentationKey}</Item>
             <!-- A Boolean that indicates whether developer mode is enabled. This controls how events are buffered. In a development environment with minimal event volume, enabling developer mode results in events being sent immediately to ApplicationInsights. -->
-            <Item Key="DeveloperMode">true</Item>
+            <Item Key="DeveloperMode">{settings:AppInsightsDeveloperMode}</Item>
             <!-- A Boolean that indicates whether telemetry should be enabled or not. -->
-            <Item Key="DisableTelemetry ">false</Item>
+            <Item Key="DisableTelemetry ">{settings:AppInsightsDisableTelemetry}</Item>
           </Metadata>
           <InputClaims>
             <!-- Properties of an event are added through the syntax {property:NAME}, where NAME is property being added to the event. DefaultValue can be either a static value or a value that's resolved by one of the supported DefaultClaimResolvers. -->

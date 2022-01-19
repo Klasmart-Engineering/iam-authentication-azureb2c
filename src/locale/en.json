@@ -49,7 +49,7 @@
                 },
                 "newPassword": {
                     "DisplayName": "Create Password",
-                    "PatternHelpText": "8-16 characters, containing 3 out of 4 of the following: Lowercase characters, uppercase characters, digits (0-9), and one or more of the following symbols: @ # $ % ^ &amp; * - _ + = [ ] { } | \\ : ' , ? \/ ` ~ \" ( ) ; ."
+                    "PatternHelpText": "8-16 characters, containing 3 out of 4 of the following: Lowercase characters, uppercase characters, digits (0-9), and one or more of the following symbols: @ # $ % ^ &amp; * - _ + = [ ] { } | \\ : ' , ? / ` ~ \" ( ) ; ."
                 },
                 "reenterPassword": {
                     "DisplayName": "Confirm Password"
@@ -99,7 +99,7 @@
             "ClaimType": {
                 "newPassword": {
                     "DisplayName": "New password",
-                    "PatternHelpText": "8-16 characters, containing 3 out of 4 of the following: Lowercase characters, uppercase characters, digits (0-9), and one or more of the following symbols: @ # $ % ^ &amp; * - _ + = [ ] { } | \\ : ' , ? \/ ` ~ \" ( ) ; ."
+                    "PatternHelpText": "8-16 characters, containing 3 out of 4 of the following: Lowercase characters, uppercase characters, digits (0-9), and one or more of the following symbols: @ # $ % ^ &amp; * - _ + = [ ] { } | \\ : ' , ? / ` ~ \" ( ) ; ."
                 },
                 "reenterPassword": {
                     "DisplayName": "Confirm new password"

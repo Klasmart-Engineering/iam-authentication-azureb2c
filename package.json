@@ -5,10 +5,12 @@
     "main": "index.js",
     "module": "commonjs",
     "scripts": {
-        "check": "npm run check:types && npm run check:js",
+        "check": "npm run check:types && npm run check:eslint && npm run check:js && npm run check:css",
+        "check:eslint": "eslint . --ext .ts",
         "check:types": "tsc --noEmit",
         "check:js": "prettier --check .",
-        "lint:js": "eslint . --ext .ts",
+        "check:css": "stylelint \"**/*.css\"",
+        "lint:js": "eslint . --ext .ts --fix",
         "lint:css": "stylelint \"**/*.css\"",
         "lint": "npm run lint:js && npm run lint:css",
         "format:js": "prettier --write .",
@@ -32,7 +34,11 @@
     },
     "homepage": "https://bitbucket.org/calmisland/iam-authentication-azureb2c#readme",
     "browserslist": [
-        "defaults"
+        "last 2 Chrome versions",
+        "last 2 ios_saf major versions",
+        "last 2 safari versions",
+        "last 2 android versions",
+        "last 2 and_chr versions"
     ],
     "devDependencies": {
         "@babel/cli": "7.16.0",

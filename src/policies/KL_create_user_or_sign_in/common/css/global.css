@@ -145,22 +145,22 @@ p {
 }
 
 .header__language-select {
+    color: #666;
     display: flex;
     justify-content: end;
-    color: #666666;
 }
 
 .language-select {
     background: none;
     border: none;
-    color: #666666;
-    font-family: Roboto;
+    border-radius: 2px;
+    color: #666;
+    font-family: Roboto, sans-serif;
     font-size: 18px;
     font-weight: 400;
     line-height: 30px;
     margin-right: 3%;
     padding: 12px;
-    border-radius: 2px;
 }
 
 .language-select:hover {

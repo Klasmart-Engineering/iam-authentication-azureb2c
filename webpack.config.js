@@ -3,7 +3,10 @@
 
 const path = require("path")
 const glob = require("fast-glob")
+const webpack = require("webpack")
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin")
+
+const AppSettings = require("./src/policies/custom_policies/appsettings.json")
 
 /**
  * Create separate entrypoint per `index.ts` file in `src` folder, and preserve the folder structure
@@ -30,69 +33,145 @@ function buildEntrypoints() {
     )
 }
 
-module.exports = {
-    mode: "production",
-    entry: buildEntrypoints(),
-    context: path.resolve(__dirname, "src"),
-    output: {
-        path: path.resolve(__dirname, "dist"),
-        filename: "[name].js",
-        publicPath: "https://klukb2cstorage.blob.core.windows.net/b2ccosmosdb/",
-        assetModuleFilename: "[name][ext]",
-    },
-    module: {
-        rules: [
-            {
-                test: /\.tsx?$/,
-                exclude: /node_modules/,
-                use: {
-                    loader: `babel-loader`,
+module.exports = ({ environment }) => {
+    const { B2CStorage, B2CStorageContainer } =
+        (
+            AppSettings["Environments"].find(
+                ({ Name }) => Name === environment
+            ) || {}
+        )?.PolicySettings || {}
+    const DEFAULT_PUBLIC_PATH =
+        "https://klukb2cstorage.blob.core.windows.net/b2ccosmosdb/"
+    const PUBLIC_PATH =
+        B2CStorage && B2CStorageContainer
+            ? `https://${B2CStorage}.blob.core.windows.net/${B2CStorageContainer}/`
+            : DEFAULT_PUBLIC_PATH
+    return {
+        mode: "production",
+        entry: buildEntrypoints(),
+        context: path.resolve(__dirname, "src"),
+        output: {
+            path: path.resolve(__dirname, "dist"),
+            filename: "[name].js",
+            publicPath: PUBLIC_PATH,
+            assetModuleFilename: "[name][ext]",
+        },
+        module: {
+            rules: [
+                {
+                    test: /\.tsx?$/,
+                    exclude: /node_modules/,
+                    use: {
+                        loader: `babel-loader`,
+                    },
                 },
-            },
-            {
-                test: /\.svg$/,
-                use: {
-                    // Ideally we would use `type: "asset/resource" here, but it doesn't work with `extract-loader`
-                    loader: "file-loader",
-                    options: { name: "[path][name].[ext]" },
-                },
-            },
-            {
-                test: /\.css$/,
-                use: [
-                    {
+                {
+                    test: /\.svg$/,
+                    use: {
                         // Ideally we would use `type: "asset/resource" here, but it doesn't work with `extract-loader`
                         loader: "file-loader",
-                        options: {
-                            name: "[path][name].[ext]",
-                        },
+                        options: { name: "[path][name].[ext]" },
                     },
-                    "extract-loader",
-                    {
-                        loader: "css-loader",
-                        options: {
-                            esModule: false,
+                },
+                {
+                    test: /\.css$/,
+                    use: [
+                        {
+                            // Ideally we would use `type: "asset/resource" here, but it doesn't work with `extract-loader`
+                            loader: "file-loader",
+                            options: {
+                                name: "[path][name].[ext]",
+                            },
                         },
+                        "extract-loader",
+                        {
+                            loader: "css-loader",
+                            options: {
+                                esModule: false,
+                            },
+                        },
+                    ],
+                },
+                {
+                    test: /\.html$/,
+                    type: "asset/resource",
+                    generator: {
+                        filename: "[path][name][ext]",
                     },
-                ],
-            },
+                },
+                {
+                    test: /\.html$/i,
+                    use: [
+                        "extract-loader",
+                        {
+                            loader: "html-loader",
+                            options: {
+                                esModule: false,
+                                preprocessor: (content) => {
+                                    return content.replaceAll(
+                                        DEFAULT_PUBLIC_PATH,
+                                        PUBLIC_PATH
+                                    )
+                                },
+                            },
+                        },
+                    ],
+                },
+            ],
+        },
+        optimization: {
+            minimizer: ["...", new CssMinimizerPlugin()],
+        },
+        plugins: [
             {
-                test: /\.html$/,
-                type: "asset/resource",
-                generator: {
-                    filename: "[path][name][ext]",
+                apply: (compiler) => {
+                    compiler.hooks.beforeRun.tap("BeforeRunPlugin", () => {
+                        const argument = process.argv.pop()
+
+                        if (argument.includes("--env=environment=")) {
+                            const choosenEnvironment = argument.split("=").pop()
+                            const availableEnvironments = AppSettings[
+                                "Environments"
+                            ].map(({ Name }) => Name)
+
+                            if (
+                                availableEnvironments.includes(
+                                    choosenEnvironment
+                                )
+                            ) {
+                                const environment = AppSettings[
+                                    "Environments"
+                                ].find(
+                                    ({ Name }) => Name === choosenEnvironment
+                                )
+
+                                if (
+                                    !environment?.PolicySettings?.B2CStorage ||
+                                    !environment?.PolicySettings
+                                        ?.B2CStorageContainer
+                                ) {
+                                    throw new Error(
+                                        "Storage and container properties do not exists on the choosen environment."
+                                    )
+                                }
+                            } else {
+                                throw new Error(
+                                    "Choosen environment does not exists."
+                                )
+                            }
+                        } else {
+                            throw new Error(
+                                "Environment argument its not set. Use --env=environment="
+                            )
+                        }
+                    })
                 },
             },
-            {
-                test: /\.html$/i,
-                use: [
-                    "extract-loader",
-                    { loader: "html-loader", options: { esModule: false } },
-                ],
-            },
+            new webpack.DefinePlugin({
+                "process.env.B2CStorage": JSON.stringify(B2CStorage),
+                "process.env.B2CStorageContainer":
+                    JSON.stringify(B2CStorageContainer),
+            }),
         ],
-    },
-    optimization: {
-        minimizer: ["...", new CssMinimizerPlugin()],
-    },
+    }
 }

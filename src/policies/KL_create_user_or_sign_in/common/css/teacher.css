@@ -31,7 +31,7 @@
 .main-content {
     background-color: #fff;
     min-height: 100vh;
-    padding: 18px 16px 35px 16px;
+    padding: 18px 16px 35px;
 }
 
 .main-heading {
@@ -127,8 +127,8 @@
         display: inline-block;
         height: 100vh;
         overflow-y: scroll;
+        padding: 18px 40px 40px;
         width: 50vw;
-        padding: 18px 40px 40px 40px;
     }
 
     .space-filler {

@@ -43,7 +43,7 @@
       </ContentDefinition>
       <ContentDefinition Id="api.localaccountsignup">
         <LoadUri>https://{settings:B2CStorage}.blob.core.windows.net/{settings:B2CStorageContainer}/policies/KL_create_user_or_sign_in/pages/local-account-sign-up/index.html</LoadUri>
-        <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.8</DataUri>
+        <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.6</DataUri>
         <LocalizedResourcesReferences MergeBehavior="Prepend">
           <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.localaccountsignup.en"></LocalizedResourcesReference>
           <LocalizedResourcesReference Language="es" LocalizedResourcesReferenceId="api.localaccountsignup.es"></LocalizedResourcesReference>
@@ -137,6 +137,8 @@
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedNoRetry">You've made too many incorrect attempts. Please try again later.</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedRetryAllowed">The code is incorrect. Please try again</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfWrongCodeEntered">The code is incorrect, please try again</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="internationalOrNationalPhoneNumber" StringId="HelpText">Invalid number format. Please ensure that the phone number does not contain any special characters such as []{}().</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="noLeadingPlus" StringId="HelpText">You don't need to include your country code here. Instead, please use the dropdown above to select your country code</LocalizedString>
           <LocalizedString ElementType="UXElement" StringId="button_continue">Create account</LocalizedString>
           <LocalizedString ElementType="UxElement" StringId="ver_but_edit">Change e-mail</LocalizedString>
           <LocalizedString ElementType="UxElement" StringId="ver_but_resend">Send new code</LocalizedString>

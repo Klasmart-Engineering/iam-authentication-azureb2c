@@ -190,9 +190,7 @@
         <DataType>string</DataType>
         <UserHelpText>Enter Phone Number</UserHelpText>
         <UserInputType>TextBox</UserInputType>
-        <Restriction>
-          <Pattern RegularExpression="^[0-9]{1,10}$" HelpText="" />
-        </Restriction>
+        <PredicateValidationReference Id="nationalNumber" />
       </ClaimType>
       <ClaimType Id="countryCode">
         <DisplayName>Phone Number</DisplayName>
@@ -460,7 +458,7 @@
         </Parameters>
       </Predicate>
       <Predicate Id="internationalOrNationalPhoneNumber" Method="MatchesRegex">
-        <UserHelpText></UserHelpText>
+        <UserHelpText>Invalid number format. Please ensure that the phone number does not contain any special characters such as []{}().</UserHelpText>
         <Parameters>
           <!--
               This regex will match a string with an optional leading "+", 4 to 16 digits, and any number of dashes, parentheses, and spaces, in any order.
@@ -468,7 +466,7 @@
               in any country with any cusFtomary punctuation/formatting. In this policy, the ConvertStringToPhoneNumberClaim claims converter will do the the final validation,
               ignoring the dashes, parentheses, and spaces.
             -->
-          <Parameter Id="RegularExpression">^\+?(?:[-()\s]*\d[-()\s]*){4,16}$</Parameter>
+          <Parameter Id="RegularExpression">^\+?(?:[-().\s]*\d[-().\s]*){4,16}$</Parameter>
         </Parameters>
       </Predicate>
       <Predicate Id="internationalPhoneNumber" Method="MatchesRegex">
@@ -480,11 +478,11 @@
               in any country with any customary punctuation/formatting. In this policy, the ConvertStringToPhoneNumberClaim claims converter will do the the final validation,
               ignoring the dashes, parentheses, and spaces.
             -->
-          <Parameter Id="RegularExpression">^\+(?:[-()\s]*\d[-()\s]*){4,16}$</Parameter>
+          <Parameter Id="RegularExpression">^\+?(?:[-().\s]*\d[-().\s]*){4,16}$</Parameter>
         </Parameters>
       </Predicate>
       <Predicate Id="noLeadingPlus" Method="MatchesRegex">
-        <UserHelpText>The national number should not include a country code.</UserHelpText>
+        <UserHelpText>You don't need to include your country code here. Instead, please use the dropdown above to select your country code</UserHelpText>
         <Parameters>
           <!-- Combine this with the predicate above to match only a national phone number -->
           <Parameter Id="RegularExpression">^[^\\+]+$</Parameter>
@@ -567,7 +565,7 @@
           <InputClaim ClaimTypeReferenceId="signInName" TransformationClaimType="claimToMatch" />
         </InputClaims>
         <InputParameters>
-          <InputParameter Id="matchTo" DataType="string" Value="^\+?(?:[-()\s]*\d[-()\s]*){4,16}$" />
+          <InputParameter Id="matchTo" DataType="string" Value="^\+?(?:[-().\s]*\d[-().\s]*){4,16}$" />
           <InputParameter Id="outputClaimIfMatched" DataType="string" Value="isPhone" />
         </InputParameters>
         <OutputClaims>

@@ -84,6 +84,14 @@
                     "true": "I agree to the KidsLoop {{Privacy policy}}"
                 }
             },
+            "Predicate": {
+                "internationalOrNationalPhoneNumber": {
+                    "HelpText": "Invalid number format. Please ensure that the phone number does not contain any special characters such as []{}()."
+                },
+                "noLeadingPlus": {
+                    "HelpText": "You don't need to include your country code here. Instead, please use the dropdown above to select your country code"
+                }
+            },
             "UXElement": {
                 "button_continue": "Create account"
             },

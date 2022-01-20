@@ -8,6 +8,11 @@ const exec = util.promisify(execSync)
 
 const PAGES_FOLDER = "./src/policies/KL_create_user_or_sign_in/pages"
 
+// In Lokalise you can change the country code on the download page
+// However, that setting doesn't persist
+// To avoid accidents, it's safer to leave it as is in Lokalise, and fix capitalization here
+const LANGUAGE_RENAME_MAP = new Map([["zh-hans", "zh-Hans"]])
+
 const runCommand = async (command: string) => {
     const { stdout, stderr } = await exec(command)
     if (stdout) {
@@ -53,7 +58,11 @@ const main = async () => {
             await Promise.all(
                 languages.map(async (language) => {
                     const sourceFolder = path.join(folderPath, language)
-                    const destFolder = path.join(PAGES_FOLDER, page, language)
+                    const destFolder = path.join(
+                        PAGES_FOLDER,
+                        page,
+                        LANGUAGE_RENAME_MAP.get(language) ?? language
+                    )
                     try {
                         await fs.mkdir(destFolder)
                     } catch (error) {

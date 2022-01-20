@@ -128,6 +128,10 @@
       </ClaimType>
       <ClaimType Id="email">
         <UserInputType>EmailBox</UserInputType>
+        <Restriction>
+          <!-- Allow spaces before and after the email, which will be stripped before saving -->
+          <Pattern RegularExpression="^\s*[a-zA-Z0-9.!#$%&amp;'^_`{}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*\s*$" HelpText="Please enter a valid email address." />
+        </Restriction>
       </ClaimType>
       <ClaimType Id="ReadOnlyEmail">
         <DisplayName>Verified Email Address</DisplayName>

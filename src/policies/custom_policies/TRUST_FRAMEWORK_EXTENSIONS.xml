@@ -130,7 +130,7 @@
         <UserInputType>EmailBox</UserInputType>
         <Restriction>
           <!-- Allow spaces before and after the email, which will be stripped before saving -->
-          <Pattern RegularExpression="^\s*[a-zA-Z0-9.!#$%&amp;'^_`{}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*\s*$" HelpText="Please enter a valid email address." />
+          <Pattern RegularExpression="^\s*[a-zA-Z0-9!#$%&amp;'+^_`{}~-]+(?:\.[a-zA-Z0-9!#$%&amp;'+^_`{}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\s*$" HelpText="Please enter a valid email address." />
         </Restriction>
       </ClaimType>
       <ClaimType Id="ReadOnlyEmail">
@@ -461,7 +461,8 @@
             [a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$
             # the above line is the essentially same as the previous section, but forces the email to not end with a '.'
           -->
-          <Parameter Id="RegularExpression">^[a-zA-Z0-9!#$%&amp;'+^_`{}~-]+(?:\.[a-zA-Z0-9!#$%&amp;'+^_`{}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$</Parameter>
+          <!-- NB: This has been modified from the original to allow leading/trailing spaces -->
+          <Parameter Id="RegularExpression">^\s*[a-zA-Z0-9!#$%&amp;'+^_`{}~-]+(?:\.[a-zA-Z0-9!#$%&amp;'+^_`{}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\s*$</Parameter>
         </Parameters>
       </Predicate>
       <Predicate Id="internationalOrNationalPhoneNumber" Method="MatchesRegex">
@@ -559,7 +560,7 @@
           <InputClaim ClaimTypeReferenceId="signInName" TransformationClaimType="claimToMatch" />
         </InputClaims>
         <InputParameters>
-          <InputParameter Id="matchTo" DataType="string" Value="[^@]+@[^\.]+\..+" />
+          <InputParameter Id="matchTo" DataType="string" Value="^\s*[a-zA-Z0-9!#$%&amp;'+^_`{}~-]+(?:\.[a-zA-Z0-9!#$%&amp;'+^_`{}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\s*$" />
           <InputParameter Id="outputClaimIfMatched" DataType="string" Value="isEmail" />
         </InputParameters>
         <OutputClaims>

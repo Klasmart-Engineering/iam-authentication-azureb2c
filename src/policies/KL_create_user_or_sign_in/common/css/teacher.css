@@ -114,7 +114,7 @@
 
 @media screen and (min-width: 1000px) {
     body {
-        background-color: #6599d0;
+        background-color: #baeafd;
     }
 
     .wrapper {
@@ -140,7 +140,8 @@
 
     .space-filler-image {
         display: block;
+        height: 100vh;
         margin: auto;
-        max-width: 65%;
+        width: 100%;
     }
 }

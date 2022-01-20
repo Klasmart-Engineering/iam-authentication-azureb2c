@@ -50,12 +50,16 @@ pipelines:
         - step:
               name: Setup environment
               script:
-                  - echo 'ENVIRONMENT="SSO"' >> .env
+                  - echo 'ENVIRONMENT="LOADTEST"' >> .env
               artifacts:
                   - .env
         - parallel:
               - step: *build-assets
               - step: *build-policies
+        - step:
+                  <<: *deploy
+                  deployment: LOADTEST
+
     branches:
         master:
             - step: *deps

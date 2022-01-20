@@ -57,8 +57,8 @@ pipelines:
               - step: *build-assets
               - step: *build-policies
         - step:
-                  <<: *deploy
-                  deployment: LOADTEST
+              <<: *deploy
+              deployment: LOADTEST
 
     branches:
         master:

@@ -43,7 +43,7 @@ const addPrivacyPolicyLink = () => {
     label.innerHTML = cleanHTML
 }
 
-if (document.readyState === "complete") {
+if (document.readyState === "complete" || document.readyState === "interactive") {
     addPrivacyPolicyLink()
 } else {
     document.addEventListener("DOMContentLoaded", addPrivacyPolicyLink, false)

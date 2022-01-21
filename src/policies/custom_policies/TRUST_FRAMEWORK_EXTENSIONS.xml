@@ -126,6 +126,13 @@
         <DisplayName>isLocalAccountSignUp</DisplayName>
         <DataType>boolean</DataType>
       </ClaimType>
+      <ClaimType Id="email">
+        <UserInputType>EmailBox</UserInputType>
+        <Restriction>
+          <!-- Allow spaces before and after the email, which will be stripped before saving -->
+          <Pattern RegularExpression="^\s*[a-zA-Z0-9!#$%&amp;'+^_`{}~-]+(?:\.[a-zA-Z0-9!#$%&amp;'+^_`{}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\s*$" HelpText="Please enter a valid email address." />
+        </Restriction>
+      </ClaimType>
       <ClaimType Id="ReadOnlyEmail">
         <DisplayName>Verified Email Address</DisplayName>
         <DataType>string</DataType>
@@ -454,7 +461,8 @@
             [a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$
             # the above line is the essentially same as the previous section, but forces the email to not end with a '.'
           -->
-          <Parameter Id="RegularExpression">^[a-zA-Z0-9!#$%&amp;'+^_`{}~-]+(?:\.[a-zA-Z0-9!#$%&amp;'+^_`{}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$</Parameter>
+          <!-- NB: This has been modified from the original to allow leading/trailing spaces -->
+          <Parameter Id="RegularExpression">^\s*[a-zA-Z0-9!#$%&amp;'+^_`{}~-]+(?:\.[a-zA-Z0-9!#$%&amp;'+^_`{}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\s*$</Parameter>
         </Parameters>
       </Predicate>
       <Predicate Id="internationalOrNationalPhoneNumber" Method="MatchesRegex">
@@ -552,7 +560,7 @@
           <InputClaim ClaimTypeReferenceId="signInName" TransformationClaimType="claimToMatch" />
         </InputClaims>
         <InputParameters>
-          <InputParameter Id="matchTo" DataType="string" Value="[^@]+@[^\.]+\..+" />
+          <InputParameter Id="matchTo" DataType="string" Value="^\s*[a-zA-Z0-9!#$%&amp;'+^_`{}~-]+(?:\.[a-zA-Z0-9!#$%&amp;'+^_`{}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\s*$" />
           <InputParameter Id="outputClaimIfMatched" DataType="string" Value="isEmail" />
         </InputParameters>
         <OutputClaims>
@@ -671,6 +679,30 @@
         </InputParameters>
         <OutputClaims>
           <OutputClaim ClaimTypeReferenceId="identityProviders" TransformationClaimType="outputClaim" />
+        </OutputClaims>
+      </ClaimsTransformation>
+      <ClaimsTransformation Id="LowercaseEmail" TransformationMethod="ChangeCase">
+        <InputClaims>
+          <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="inputClaim1" />
+        </InputClaims>
+        <InputParameters>
+          <InputParameter Id="toCase" DataType="string" Value="LOWER" />
+        </InputParameters>
+        <OutputClaims>
+          <OutputClaim ClaimTypeReferenceId="email" TransformationClaimType="outputClaim" />
+        </OutputClaims>
+      </ClaimsTransformation>
+      <!-- Ideally we only remove spaces from each end of the email, but B2C doesn't seem to support that -->
+      <ClaimsTransformation Id="TrimEmail" TransformationMethod="StringReplace">
+        <InputClaims>
+          <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="inputClaim" />
+        </InputClaims>
+        <InputParameters>
+          <InputParameter Id="oldValue" DataType="string" Value=" " />
+          <InputParameter Id="newValue" DataType="string" Value="" />
+        </InputParameters>
+        <OutputClaims>
+          <OutputClaim ClaimTypeReferenceId="email" TransformationClaimType="outputClaim" />
         </OutputClaims>
       </ClaimsTransformation>
     </ClaimsTransformations>
@@ -836,6 +868,7 @@
             <!-- Optional claims, to be collected from the user -->
           </OutputClaims>
           <ValidationTechnicalProfiles>
+            <ValidationTechnicalProfile ReferenceId="NormalizeEmail" />
             <ValidationTechnicalProfile ReferenceId="AAD-UserWriteUsingLogonEmail-custom" />
           </ValidationTechnicalProfiles>
           <UseTechnicalProfileForSessionManagement ReferenceId="SM-AAD" />
@@ -1187,6 +1220,18 @@
           </OutputClaims>
           <IncludeTechnicalProfile ReferenceId="AAD-Common" />
           <UseTechnicalProfileForSessionManagement ReferenceId="SM-AAD" />
+        </TechnicalProfile>
+        <TechnicalProfile Id="NormalizeEmail">
+          <DisplayName>Normalize email</DisplayName>
+          <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.ClaimsTransformationProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+          <InputClaimsTransformations>
+            <InputClaimsTransformation ReferenceId="LowercaseEmail" />
+            <InputClaimsTransformation ReferenceId="TrimEmail" />
+          </InputClaimsTransformations>
+          <OutputClaims>
+            <OutputClaim ClaimTypeReferenceId="email" />
+          </OutputClaims>
+          <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
         </TechnicalProfile>
       </TechnicalProfiles>
     </ClaimsProvider>

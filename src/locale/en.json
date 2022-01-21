@@ -124,7 +124,7 @@
                     "DisplayName": "Password"
                 },
                 "signInName": {
-                    "DisplayName": "Email Address"
+                    "DisplayName": "Email Address or Phone Number"
                 }
             },
             "ClaimsProvider": {

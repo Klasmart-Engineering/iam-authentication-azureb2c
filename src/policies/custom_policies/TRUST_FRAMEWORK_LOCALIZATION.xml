@@ -159,7 +159,7 @@
       <LocalizedResources Id="api.signuporsignin.en">
         <LocalizedStrings>
           <LocalizedString ElementType="ClaimType" ElementId="password" StringId="DisplayName">Password</LocalizedString>
-          <LocalizedString ElementType="ClaimType" ElementId="signInName" StringId="DisplayName">Email Address</LocalizedString>
+          <LocalizedString ElementType="ClaimType" ElementId="signInName" StringId="DisplayName">Email Address or Phone Number</LocalizedString>
           <LocalizedString ElementType="ClaimsProvider" StringId="SigninWithPhone">Use Phone number</LocalizedString>
           <LocalizedString ElementType="ClaimsProvider" StringId="SignupWithEmail">Email</LocalizedString>
           <LocalizedString ElementType="ClaimsProvider" StringId="SignupWithPhone">Phone</LocalizedString>
@@ -249,7 +249,7 @@
       <LocalizedResources Id="api.signuporsignin.es">
         <LocalizedStrings>
           <LocalizedString ElementType="ClaimType" ElementId="password" StringId="DisplayName">Contraseña</LocalizedString>
-          <LocalizedString ElementType="ClaimType" ElementId="signInName" StringId="DisplayName">Correo electrónico</LocalizedString>
+          <LocalizedString ElementType="ClaimType" ElementId="signInName" StringId="DisplayName">Correo electrónico o teléfono</LocalizedString>
           <LocalizedString ElementType="ClaimsProvider" StringId="SigninWithPhone">Use su número de teléfono</LocalizedString>
           <LocalizedString ElementType="ClaimsProvider" StringId="SignupWithEmail">Correo electrónico</LocalizedString>
           <LocalizedString ElementType="ClaimsProvider" StringId="SignupWithPhone">Teléfono</LocalizedString>
@@ -312,7 +312,7 @@
       <LocalizedResources Id="api.signuporsignin.zh-hans">
         <LocalizedStrings>
           <LocalizedString ElementType="ClaimType" ElementId="password" StringId="DisplayName">密码</LocalizedString>
-          <LocalizedString ElementType="ClaimType" ElementId="signInName" StringId="DisplayName">电子邮箱</LocalizedString>
+          <LocalizedString ElementType="ClaimType" ElementId="signInName" StringId="DisplayName">电子邮件地址或电话号码</LocalizedString>
           <LocalizedString ElementType="ClaimsProvider" StringId="SignupWithEmail">邮箱</LocalizedString>
           <LocalizedString ElementType="ClaimsProvider" StringId="SignupWithPhone">手机号</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalDoesNotExist">抱歉，我们无法识别您的登录信息！请检查您是否输入正确，然后重试。</LocalizedString>

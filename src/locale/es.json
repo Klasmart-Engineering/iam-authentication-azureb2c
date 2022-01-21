@@ -124,7 +124,7 @@
                     "DisplayName": "Contraseña"
                 },
                 "signInName": {
-                    "DisplayName": "Correo electrónico"
+                    "DisplayName": "Correo electrónico o teléfono"
                 }
             },
             "ClaimsProvider": {

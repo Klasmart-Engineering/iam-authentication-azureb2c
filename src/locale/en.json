@@ -16,7 +16,7 @@
                     "but_verify_code": "Verify reset code",
                     "intro_msg": "Enter your email address below to receive a reset code.",
                     "success_send_code_msg": "A reset code has been sent to your email. Please copy it into the input box below and verify reset code.",
-                    "success_verify_code_msg": "Email address verified. You can continue now"
+                    "success_verify_code_msg": "Email address verified. You can continue now."
                 }
             },
             "ErrorMessage": {
@@ -66,7 +66,7 @@
                     "but_verify_code": "Verify code"
                 },
                 "phoneVerificationControl": {
-                    "but_change_claims": "Change email",
+                    "but_change_claims": "Change phone number",
                     "but_send_code": "Send verification code",
                     "but_send_new_code": "Send new code",
                     "but_verify_code": "Verify code"
@@ -76,7 +76,7 @@
                 "UserMessageIfClaimsPrincipalAlreadyExists": "An account with this email address or number already exists.",
                 "UserMessageIfMaxAllowedCodeRetryReached": "You've made too many incorrect attempts. Please try again later.",
                 "UserMessageIfVerificationFailedNoRetry": "You've made too many incorrect attempts. Please try again later.",
-                "UserMessageIfVerificationFailedRetryAllowed": "The code is incorrect. Please try again",
+                "UserMessageIfVerificationFailedRetryAllowed": "The code is incorrect. Please try again.",
                 "UserMessageIfWrongCodeEntered": "The code is incorrect, please try again"
             },
             "LocalizedCollection": {
@@ -124,10 +124,11 @@
                     "DisplayName": "Password"
                 },
                 "signInName": {
-                    "DisplayName": "Email Address or Phone Number"
+                    "DisplayName": "Email Address"
                 }
             },
             "ClaimsProvider": {
+                "SigninWithPhone": "Use Phone number",
                 "SignupWithEmail": "Email",
                 "SignupWithPhone": "Phone"
             },

@@ -67,7 +67,7 @@
                     "DisplayName": "密码"
                 },
                 "signInName": {
-                    "DisplayName": "电子邮件地址或电话号码"
+                    "DisplayName": "电子邮箱"
                 }
             },
             "ClaimsProvider": {

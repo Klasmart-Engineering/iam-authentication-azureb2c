@@ -100,7 +100,10 @@ const setup = () => {
     setupKidsloopSSORedirect()
 }
 
-if (document.readyState === "complete" || document.readyState === "interactive") {
+if (
+    document.readyState === "complete" ||
+    document.readyState === "interactive"
+) {
     setup()
 } else {
     document.addEventListener("DOMContentLoaded", setup, false)

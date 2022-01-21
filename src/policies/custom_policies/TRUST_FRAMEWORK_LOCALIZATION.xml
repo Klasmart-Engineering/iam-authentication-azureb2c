@@ -97,7 +97,7 @@
           <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="but_verify_code">Verify reset code</LocalizedString>
           <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="intro_msg">Enter your email address below to receive a reset code.</LocalizedString>
           <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="success_send_code_msg">A reset code has been sent to your email. Please copy it into the input box below and verify reset code.</LocalizedString>
-          <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="success_verify_code_msg">Email address verified. You can continue now</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="success_verify_code_msg">Email address verified. You can continue now.</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedNoRetry">You've made too many incorrect attempts. Please try again later.</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedRetryAllowed">The verification has failed, please try again</LocalizedString>
           <LocalizedString ElementType="UxElement" StringId="ver_but_resend">Send new reset code</LocalizedString>
@@ -128,14 +128,14 @@
           <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="but_send_code">Send verification code</LocalizedString>
           <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="but_send_new_code">Send new code</LocalizedString>
           <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="but_verify_code">Verify code</LocalizedString>
-          <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl" StringId="but_change_claims">Change email</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl" StringId="but_change_claims">Change phone number</LocalizedString>
           <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl" StringId="but_send_code">Send verification code</LocalizedString>
           <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl" StringId="but_send_new_code">Send new code</LocalizedString>
           <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl" StringId="but_verify_code">Verify code</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalAlreadyExists">An account with this email address or number already exists.</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfMaxAllowedCodeRetryReached">You've made too many incorrect attempts. Please try again later.</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedNoRetry">You've made too many incorrect attempts. Please try again later.</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedRetryAllowed">The code is incorrect. Please try again</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedRetryAllowed">The code is incorrect. Please try again.</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfWrongCodeEntered">The code is incorrect, please try again</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="internationalOrNationalPhoneNumber" StringId="HelpText">Invalid number format. Please ensure that the phone number does not contain any special characters such as []{}().</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="noLeadingPlus" StringId="HelpText">You don't need to include your country code here. Instead, please use the dropdown above to select your country code</LocalizedString>
@@ -160,6 +160,7 @@
         <LocalizedStrings>
           <LocalizedString ElementType="ClaimType" ElementId="password" StringId="DisplayName">Password</LocalizedString>
           <LocalizedString ElementType="ClaimType" ElementId="signInName" StringId="DisplayName">Email Address or Phone Number</LocalizedString>
+          <LocalizedString ElementType="ClaimsProvider" StringId="SigninWithPhone">Use Phone number</LocalizedString>
           <LocalizedString ElementType="ClaimsProvider" StringId="SignupWithEmail">Email</LocalizedString>
           <LocalizedString ElementType="ClaimsProvider" StringId="SignupWithPhone">Phone</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalDoesNotExist">Sorry, we don’t recognise your login details! Please check that you’ve entered them correctly and try again.</LocalizedString>
@@ -179,12 +180,15 @@
       </LocalizedResources>
       <LocalizedResources Id="api.localaccountpasswordreset.es">
         <LocalizedStrings>
+          <LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">Dirección de correo electrónico</LocalizedString>
+          <LocalizedString ElementType="ClaimType" ElementId="verificationCode" StringId="DisplayName">Restablecer Código</LocalizedString>
           <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="but_send_code">Enviar código de seguridad</LocalizedString>
           <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="but_send_new_code">Enviar nuevo código de seguridad</LocalizedString>
           <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="but_verify_code">Verificar código de seguridad</LocalizedString>
           <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="intro_msg">Ingrese su dirección de correo electrónico para recibir un código de seguridad.</LocalizedString>
           <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="success_send_code_msg">Se ha enviado un código de seguridad a su correo electrónico. Por favor, cópielo en la casilla que aparece a continuación para ser verificado.</LocalizedString>
           <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="success_verify_code_msg">Correo electrónico verificado. Puede continuar.</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedNoRetry">Ha realizado demasiados intentos fallidos. Por favor, vuelva más tarde.</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedRetryAllowed">La verificación ha fallado, por favor inténtelo de nuevo</LocalizedString>
           <LocalizedString ElementType="UxElement" StringId="ver_but_resend">Enviar nuevo código de seguridad</LocalizedString>
           <LocalizedString ElementType="UxElement" StringId="ver_but_send">Enviar código de seguridad</LocalizedString>
@@ -201,12 +205,30 @@
           </LocalizedCollection>
         </LocalizedCollections>
         <LocalizedStrings>
+          <LocalizedString ElementType="ClaimType" ElementId="countryCode" StringId="DisplayName">País</LocalizedString>
           <LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">Correo electrónico</LocalizedString>
           <LocalizedString ElementType="ClaimType" ElementId="hasAcceptedPrivacyPolicy" StringId="DisplayName">Política de privacidad</LocalizedString>
           <LocalizedString ElementType="ClaimType" ElementId="hasAcceptedPrivacyPolicy" StringId="UserHelpText">Por favor, acepte la política de privacidad de KidsLoop para crear una cuenta</LocalizedString>
-          <LocalizedString ElementType="ClaimType" ElementId="newPassword" StringId="DisplayName">Contraseña</LocalizedString>
+          <LocalizedString ElementType="ClaimType" ElementId="nationalNumber" StringId="DisplayName">Número de teléfono</LocalizedString>
+          <LocalizedString ElementType="ClaimType" ElementId="newPassword" StringId="DisplayName">Crear contraseña</LocalizedString>
+          <LocalizedString ElementType="ClaimType" ElementId="newPassword" StringId="PatternHelpText">8-16 caracteres, que contenga 3 de 4 de los siguientes: Letras en minúsculas, letras en mayúsculas, dígitos (0-9) y uno o más de los siguientes símbolos: @ # $ % ^ &amp; * - _ + = [ ] { } | \ : ' , ? / ` ~ " ( ) ; .</LocalizedString>
+          <LocalizedString ElementType="ClaimType" ElementId="reenterPassword" StringId="DisplayName">Confirma la contraseña</LocalizedString>
+          <LocalizedString ElementType="ClaimType" ElementId="verificationCode" StringId="DisplayName">Código de verificación</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="but_change_claims">Cambiar correo electrónico</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="but_send_code">Enviar código de verificación</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="but_send_new_code">Enviar un nuevo código</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="but_verify_code">Verificar código</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl" StringId="but_change_claims">Cambiar número de teléfono</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl" StringId="but_send_code">Enviar código de verificación</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl" StringId="but_send_new_code">Enviar un nuevo código</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl" StringId="but_verify_code">Verificar código</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalAlreadyExists">Ya existe una cuenta con esta dirección de correo electrónico o número telefónico.</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfMaxAllowedCodeRetryReached">Ha realizado demasiados intentos fallidos. Por favor, vuelva más tarde.</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedNoRetry">Ha realizado demasiados intentos fallidos. Por favor, vuelva más tarde.</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedRetryAllowed">El código es incorrecto. Por favor, inténtelo de nuevo</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfWrongCodeEntered">El código es incorrecto. Por favor, inténtelo de nuevo</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="internationalOrNationalPhoneNumber" StringId="HelpText">Formato de número no válido. Asegúrese de que el número de teléfono no contenga caracteres especiales como []{}().</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="noLeadingPlus" StringId="HelpText">No es necesario incluir el código del país aquí. En su lugar, utilice el menú desplegable para seleccionar el código del país.</LocalizedString>
           <LocalizedString ElementType="UXElement" StringId="button_continue">Crear cuenta</LocalizedString>
           <LocalizedString ElementType="UxElement" StringId="ver_but_edit">Cambiar correo electrónico</LocalizedString>
           <LocalizedString ElementType="UxElement" StringId="ver_but_resend">Enviar un nuevo código</LocalizedString>
@@ -218,6 +240,7 @@
       <LocalizedResources Id="api.selfasserted.localaccountpasswordchange.es">
         <LocalizedStrings>
           <LocalizedString ElementType="ClaimType" ElementId="newPassword" StringId="DisplayName">Contraseña nueva</LocalizedString>
+          <LocalizedString ElementType="ClaimType" ElementId="newPassword" StringId="PatternHelpText">8-16 caracteres, que contenga 3 de 4 de los siguientes: Letras en minúsculas, letras en mayúsculas, dígitos (0-9) y uno o más de los siguientes símbolos: @ # $ % ^ &amp; * - _ + = [ ] { } | \ : ' , ? / ` ~ " ( ) ; .</LocalizedString>
           <LocalizedString ElementType="ClaimType" ElementId="reenterPassword" StringId="DisplayName">Confirme la nueva contraseña</LocalizedString>
           <LocalizedString ElementType="UXElement" StringId="button_continue">Restablecer la contraseña</LocalizedString>
           <LocalizedString ElementType="UXElement" StringId="initial_intro">¡Ya casi estamos listos! Introduzca su nueva contraseña a continuación.</LocalizedString>
@@ -227,15 +250,22 @@
         <LocalizedStrings>
           <LocalizedString ElementType="ClaimType" ElementId="password" StringId="DisplayName">Contraseña</LocalizedString>
           <LocalizedString ElementType="ClaimType" ElementId="signInName" StringId="DisplayName">Correo electrónico o teléfono</LocalizedString>
+          <LocalizedString ElementType="ClaimsProvider" StringId="SigninWithPhone">Use su número de teléfono</LocalizedString>
           <LocalizedString ElementType="ClaimsProvider" StringId="SignupWithEmail">Correo electrónico</LocalizedString>
           <LocalizedString ElementType="ClaimsProvider" StringId="SignupWithPhone">Teléfono</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalDoesNotExist">Lo sentimos, no reconocemos sus datos de acceso. Por favor, compruebe que hayan sido introducidos correctamente e inténtelo de nuevo.</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidPassword">Lo sentimos, no reconocemos sus datos de acceso. Por favor, compruebe que hayan sido introducidos correctamente e inténtelo de nuevo.</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfOldPasswordUsed">Lo sentimos, no reconocemos sus datos de acceso. Por favor, compruebe que hayan sido introducidos correctamente e inténtelo de nuevo.</LocalizedString>
+          <LocalizedString ElementType="InputValidation" ElementId="phoneOrEmailSignInName" StringId="phoneOrEmailSignInName">Por favor ingrese al menos uno de los siguientes:</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="email" StringId="HelpText">Una dirección de correo electrónico válida</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="internationalPhoneNumber" StringId="HelpText">Un número de teléfono válido</LocalizedString>
           <LocalizedString ElementType="UxElement" StringId="button_signin">Iniciar sesión</LocalizedString>
           <LocalizedString ElementType="UxElement" StringId="heading">Iniciar sesión</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="invalid_generic">Por favor, introduzca un {0} válido</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="local_intro_generic">Ingresar con su {0}</LocalizedString>
           <LocalizedString ElementType="UxElement" StringId="requiredField_generic">No puede estar vacío</LocalizedString>
           <LocalizedString ElementType="UxElement" StringId="requiredField_password">No puede estar vacío</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="social_intro">Ingresar con su cuenta de redes sociales</LocalizedString>
         </LocalizedStrings>
       </LocalizedResources>
       <LocalizedResources Id="api.localaccountpasswordreset.zh-hans">

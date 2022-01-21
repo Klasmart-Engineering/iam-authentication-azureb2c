@@ -1,6 +1,14 @@
 {
     "custom_policy": {
         "localaccountpasswordreset": {
+            "ClaimType": {
+                "email": {
+                    "DisplayName": "Dirección de correo electrónico"
+                },
+                "verificationCode": {
+                    "DisplayName": "Restablecer Código"
+                }
+            },
             "DisplayControl": {
                 "emailControl": {
                     "but_send_code": "Enviar código de seguridad",
@@ -12,6 +20,7 @@
                 }
             },
             "ErrorMessage": {
+                "UserMessageIfVerificationFailedNoRetry": "Ha realizado demasiados intentos fallidos. Por favor, vuelva más tarde.",
                 "UserMessageIfVerificationFailedRetryAllowed": "La verificación ha fallado, por favor inténtelo de nuevo"
             },
             "UxElement": {
@@ -25,6 +34,9 @@
         },
         "localaccountsignup": {
             "ClaimType": {
+                "countryCode": {
+                    "DisplayName": "País"
+                },
                 "email": {
                     "DisplayName": "Correo electrónico"
                 },
@@ -32,17 +44,52 @@
                     "DisplayName": "Política de privacidad",
                     "UserHelpText": "Por favor, acepte la política de privacidad de KidsLoop para crear una cuenta"
                 },
+                "nationalNumber": {
+                    "DisplayName": "Número de teléfono"
+                },
                 "newPassword": {
-                    "DisplayName": "Contraseña"
+                    "DisplayName": "Crear contraseña",
+                    "PatternHelpText": "8-16 caracteres, que contenga 3 de 4 de los siguientes: Letras en minúsculas, letras en mayúsculas, dígitos (0-9) y uno o más de los siguientes símbolos: @ # $ % ^ &amp; * - _ + = [ ] { } | \\ : ' , ? / ` ~ \" ( ) ; ."
+                },
+                "reenterPassword": {
+                    "DisplayName": "Confirma la contraseña"
+                },
+                "verificationCode": {
+                    "DisplayName": "Código de verificación"
+                }
+            },
+            "DisplayControl": {
+                "emailControl": {
+                    "but_change_claims": "Cambiar correo electrónico",
+                    "but_send_code": "Enviar código de verificación",
+                    "but_send_new_code": "Enviar un nuevo código",
+                    "but_verify_code": "Verificar código"
+                },
+                "phoneVerificationControl": {
+                    "but_change_claims": "Cambiar número de teléfono",
+                    "but_send_code": "Enviar código de verificación",
+                    "but_send_new_code": "Enviar un nuevo código",
+                    "but_verify_code": "Verificar código"
                 }
             },
             "ErrorMessage": {
                 "UserMessageIfClaimsPrincipalAlreadyExists": "Ya existe una cuenta con esta dirección de correo electrónico o número telefónico.",
-                "UserMessageIfVerificationFailedNoRetry": "Ha realizado demasiados intentos fallidos. Por favor, vuelva más tarde."
+                "UserMessageIfMaxAllowedCodeRetryReached": "Ha realizado demasiados intentos fallidos. Por favor, vuelva más tarde.",
+                "UserMessageIfVerificationFailedNoRetry": "Ha realizado demasiados intentos fallidos. Por favor, vuelva más tarde.",
+                "UserMessageIfVerificationFailedRetryAllowed": "El código es incorrecto. Por favor, inténtelo de nuevo",
+                "UserMessageIfWrongCodeEntered": "El código es incorrecto. Por favor, inténtelo de nuevo"
             },
             "LocalizedCollection": {
                 "hasAcceptedPrivacyPolicy": {
                     "true": "Acepto la {{Política de privacidad}} de KidsLoop"
+                }
+            },
+            "Predicate": {
+                "internationalOrNationalPhoneNumber": {
+                    "HelpText": "Formato de número no válido. Asegúrese de que el número de teléfono no contenga caracteres especiales como []{}()."
+                },
+                "noLeadingPlus": {
+                    "HelpText": "No es necesario incluir el código del país aquí. En su lugar, utilice el menú desplegable para seleccionar el código del país."
                 }
             },
             "UXElement": {
@@ -59,7 +106,8 @@
         "selfasserted.localaccountpasswordchange": {
             "ClaimType": {
                 "newPassword": {
-                    "DisplayName": "Contraseña nueva"
+                    "DisplayName": "Contraseña nueva",
+                    "PatternHelpText": "8-16 caracteres, que contenga 3 de 4 de los siguientes: Letras en minúsculas, letras en mayúsculas, dígitos (0-9) y uno o más de los siguientes símbolos: @ # $ % ^ &amp; * - _ + = [ ] { } | \\ : ' , ? / ` ~ \" ( ) ; ."
                 },
                 "reenterPassword": {
                     "DisplayName": "Confirme la nueva contraseña"
@@ -80,6 +128,7 @@
                 }
             },
             "ClaimsProvider": {
+                "SigninWithPhone": "Use su número de teléfono",
                 "SignupWithEmail": "Correo electrónico",
                 "SignupWithPhone": "Teléfono"
             },
@@ -88,11 +137,27 @@
                 "UserMessageIfInvalidPassword": "Lo sentimos, no reconocemos sus datos de acceso. Por favor, compruebe que hayan sido introducidos correctamente e inténtelo de nuevo.",
                 "UserMessageIfOldPasswordUsed": "Lo sentimos, no reconocemos sus datos de acceso. Por favor, compruebe que hayan sido introducidos correctamente e inténtelo de nuevo."
             },
+            "InputValidation": {
+                "phoneOrEmailSignInName": {
+                    "phoneOrEmailSignInName": "Por favor ingrese al menos uno de los siguientes:"
+                }
+            },
+            "Predicate": {
+                "email": {
+                    "HelpText": "Una dirección de correo electrónico válida"
+                },
+                "internationalPhoneNumber": {
+                    "HelpText": "Un número de teléfono válido"
+                }
+            },
             "UxElement": {
                 "button_signin": "Iniciar sesión",
                 "heading": "Iniciar sesión",
+                "invalid_generic": "Por favor, introduzca un {0} válido",
+                "local_intro_generic": "Ingresar con su {0}",
                 "requiredField_generic": "No puede estar vacío",
-                "requiredField_password": "No puede estar vacío"
+                "requiredField_password": "No puede estar vacío",
+                "social_intro": "Ingresar con su cuenta de redes sociales"
             }
         }
     }

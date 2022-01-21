@@ -1354,7 +1354,7 @@
             <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="name" />
             <OutputClaim ClaimTypeReferenceId="email" />
             <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" AlwaysUseDefaultValue="true" />
-            <OutputClaim ClaimTypeReferenceId="identityProvider" PartnerClaimType="iss" />
+            <OutputClaim ClaimTypeReferenceId="identityProvider" PartnerClaimType="iss" DefaultValue="KidsLoopAD" AlwaysUseDefaultValue="true" />
           </OutputClaims>
           <OutputClaimsTransformations>
             <OutputClaimsTransformation ReferenceId="CreateRandomUPNUserName" />
@@ -1400,7 +1400,7 @@
             <OutputClaim ClaimTypeReferenceId="signInNames.userName" PartnerClaimType="name" />
             <OutputClaim ClaimTypeReferenceId="email" />
             <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" AlwaysUseDefaultValue="true" />
-            <OutputClaim ClaimTypeReferenceId="identityProvider" PartnerClaimType="iss" />
+            <OutputClaim ClaimTypeReferenceId="identityProvider" PartnerClaimType="iss" DefaultValue="MyClassBoard" AlwaysUseDefaultValue="true" />
             <!-- Need to clean up obsolete claims https://calmisland.atlassian.net/browse/IAM-646 -->
             <OutputClaim ClaimTypeReferenceId="isUserNameBoolean" DefaultValue="true" AlwaysUseDefaultValue="true" />
           </OutputClaims>

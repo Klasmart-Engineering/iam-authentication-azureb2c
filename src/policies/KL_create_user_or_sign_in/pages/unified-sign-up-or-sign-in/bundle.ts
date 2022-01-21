@@ -1,15 +1,20 @@
 const LANGUAGE_DROPDOWN_SELECTOR = "#language-select"
 const LANGUAGE_PARAM = "ui_locales"
 
-const getLanguageDropdown = (): HTMLInputElement | null => {
-    const languageDropdown = document.querySelector(LANGUAGE_DROPDOWN_SELECTOR)
-    if (!languageDropdown) {
-        console.error(
-            `languageDropdown with selector ${LANGUAGE_DROPDOWN_SELECTOR} not found`
-        )
-        return null
+const SIGN_IN_NAME_SELECTOR = "#signInName"
+const REDIRECT_TO_SSO_BUTTON_SELECTOR = "#SiginInWithKidsLoopCredentials"
+const PASSWORD_LABEL_SELECTOR = ".password-label"
+const PASSWORD_INPUT_SELECTOR = "#password"
+const SIGN_IN_BUTTON_SELECTOR = "#next"
+const CREATE_ACCOUNT_LINKS_SELECTOR = ".claims-provider-list-text-links"
+const THROBBER_CONTAINER_SELECTOR = "#throbber"
+
+const checkedQuerySelector = <T extends HTMLElement>(selector: string): T => {
+    const el = document.querySelector<T>(selector)
+    if (!el) {
+        throw new Error(`Selector "${selector}" not found`)
     }
-    return languageDropdown as HTMLInputElement
+    return el
 }
 
 const onChangeLanguage = (e: Event) => {
@@ -26,8 +31,9 @@ const onChangeLanguage = (e: Event) => {
 }
 
 const setupLanguangeSelect = () => {
-    const languageDropdown = getLanguageDropdown()
-    if (languageDropdown === null) return
+    const languageDropdown = checkedQuerySelector<HTMLInputElement>(
+        LANGUAGE_DROPDOWN_SELECTOR
+    )
 
     setInitialLanguage(languageDropdown)
 
@@ -45,8 +51,57 @@ const setInitialLanguage = (languageDropdown: HTMLInputElement) => {
     if (currentLocale) languageDropdown.value = currentLocale
 }
 
-if (document.readyState === "complete") {
+const isKidsloopEmail = (email: string): boolean => {
+    const signInNameParts = email.split("@")
+
+    return (
+        signInNameParts.length === 2 &&
+        signInNameParts[1].toLowerCase() === "kidsloop.live"
+    )
+}
+
+const redirectToKidsloopSSO = () => {
+    const signInNameField = checkedQuerySelector<HTMLInputElement>(
+        SIGN_IN_NAME_SELECTOR
+    )
+
+    if (!isKidsloopEmail(signInNameField.value)) return
+
+    const redirectToSSOButton = checkedQuerySelector(
+        REDIRECT_TO_SSO_BUTTON_SELECTOR
+    )
+    const passwordLabel = checkedQuerySelector(PASSWORD_LABEL_SELECTOR)
+    const passwordInput = checkedQuerySelector(PASSWORD_INPUT_SELECTOR)
+    const signInButton = checkedQuerySelector(SIGN_IN_BUTTON_SELECTOR)
+    const createAccountLink = checkedQuerySelector(
+        CREATE_ACCOUNT_LINKS_SELECTOR
+    )
+    const throbberContainer = checkedQuerySelector(THROBBER_CONTAINER_SELECTOR)
+
+    const elementsToRemoveForSSOAccounts = [
+        passwordLabel,
+        passwordInput,
+        signInButton,
+        createAccountLink,
+    ]
+
+    throbberContainer.classList.remove("hidden")
+    redirectToSSOButton.click()
+    elementsToRemoveForSSOAccounts.forEach((e) => e.remove())
+}
+
+const setupKidsloopSSORedirect = () => {
+    const signInNameInput = checkedQuerySelector(SIGN_IN_NAME_SELECTOR)
+    signInNameInput.addEventListener("blur", redirectToKidsloopSSO)
+}
+
+const setup = () => {
     setupLanguangeSelect()
+    setupKidsloopSSORedirect()
+}
+
+if (document.readyState === "complete") {
+    setup()
 } else {
-    document.addEventListener("DOMContentLoaded", setupLanguangeSelect, false)
+    document.addEventListener("DOMContentLoaded", setup, false)
 }

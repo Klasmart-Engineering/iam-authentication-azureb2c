@@ -5,7 +5,7 @@
   </BasePolicy>
   <RelyingParty>
     <!-- make the default user journey config enabled, to allow federated only, local only, or both. -->
-    <DefaultUserJourney ReferenceId="SUSI-PhoneOrEmail" />
+    <DefaultUserJourney ReferenceId="{settings:Sign_Up_Log_In:DefaultUserJourney}" />
     <UserJourneyBehaviors>
       <SingleSignOn Scope="Tenant" />
       <SessionExpiryType>Absolute</SessionExpiryType>

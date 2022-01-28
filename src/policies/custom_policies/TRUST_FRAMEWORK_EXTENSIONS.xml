@@ -1476,7 +1476,7 @@
           <InputClaims>
             <!-- TODO: Need to decide if we are still going to use the idp selection query string parameter. 
                   If not, make this a deployment parameter to enable/disable when there are multiple federated accounts. -->
-            <InputClaim ClaimTypeReferenceId="idps" DefaultValue="{OAUTH-KV:idps}" AlwaysUseDefaultValue="true" />
+            <InputClaim ClaimTypeReferenceId="idps" DefaultValue="{Settings:EnabledFederatedIdps}" AlwaysUseDefaultValue="true" />
           </InputClaims>
           <OutputClaims>
             <OutputClaim ClaimTypeReferenceId="identityProviders" />

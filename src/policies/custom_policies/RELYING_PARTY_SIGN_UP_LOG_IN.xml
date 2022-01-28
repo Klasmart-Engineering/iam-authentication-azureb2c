@@ -4,7 +4,10 @@
     <PolicyId>B2C_1A__{settings:PolicyNamePrefix}TrustFrameworkLocalization</PolicyId>
   </BasePolicy>
   <RelyingParty>
-    <!-- make the default user journey config enabled, to allow federated only, local only, or both. -->
+    <!-- make the default user journey config enabled, to allow 
+          federated only (SUSI-PhoneOrEmail-FederatedOnlyEntryPoint), 
+          local only (SUSI-PhoneOrEmail-LocalAndKidsLoopOnlyEntryPoint), 
+          or both (SUSI-PhoneOrEmail). -->
     <DefaultUserJourney ReferenceId="{settings:Sign_Up_Log_In:DefaultUserJourney}" />
     <UserJourneyBehaviors>
       <SingleSignOn Scope="Tenant" />

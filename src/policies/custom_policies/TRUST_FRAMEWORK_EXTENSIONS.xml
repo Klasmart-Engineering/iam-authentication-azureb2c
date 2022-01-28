@@ -1474,8 +1474,8 @@
             <Item Key="IncludeClaimResolvingInClaimsHandling">true</Item>
           </Metadata>
           <InputClaims>
-            <!-- TODO: Need to decide if we are still going to use the idp selection query string parameter. 
-                  If not, make this a deployment parameter to enable/disable when there are multiple federated accounts. -->
+            <!-- The default value is set by a variable during deployment pipeline. 
+                  {OAUTH-KV:idps} means the enabled IdPs is read from the url, or you can provide a comma separated list "idp1,idp2" in the appsettings and not use a query parameter. -->
             <InputClaim ClaimTypeReferenceId="idps" DefaultValue="{Settings:EnabledFederatedIdps}" AlwaysUseDefaultValue="true" />
           </InputClaims>
           <OutputClaims>

@@ -14,7 +14,7 @@
       <SessionExpiryType>Absolute</SessionExpiryType>
       <!-- 5 days * 24 hours * 60 minutes * 60 seconds -->
       <SessionExpiryInSeconds>432000</SessionExpiryInSeconds>
-      <JourneyInsights TelemetryEngine="ApplicationInsights" InstrumentationKey="4cc32ad1-fe79-411e-b457-6a9b0b764be7" DeveloperMode="true" ClientEnabled="true" ServerEnabled="true" TelemetryVersion="1.0.0" />
+      <JourneyInsights TelemetryEngine="ApplicationInsights" InstrumentationKey="{settings:AppInsightsInstrumentationKey}" DeveloperMode="true" ClientEnabled="true" ServerEnabled="true" TelemetryVersion="1.0.0" />
       <ScriptExecution>Allow</ScriptExecution>
     </UserJourneyBehaviors>
     <TechnicalProfile Id="PolicyProfile">

@@ -42,6 +42,17 @@ definitions:
                         EXTRA_ARGS: "--recursive --overwrite=true"
                         DEBUG: "true"
                   - npx ieftool deploy -t $TENANT_ID -c $CLIENT_ID -s $SECRET -p src/policies/custom_policies/Environments/$ENVIRONMENT
+        - step: &e2e-tests
+              name: Cypress Regression for IAM
+              script:
+                  - pipe: atlassian/trigger-pipeline:4.3.1
+                    variables:
+                        BITBUCKET_USERNAME: $BITBUCKET_USERNAME
+                        BITBUCKET_APP_PASSWORD: $BITBUCKET_APP_PASSWORD
+                        REPOSITORY: "kidsloop-auth-frontend"
+                        ACCOUNT: "calmisland"
+                        CUSTOM_PIPELINE_NAME: "cypress-tests-SSO-chrome"
+                        BRANCH_NAME: "dev"
 
 pipelines:
     default:
@@ -73,6 +84,7 @@ pipelines:
             - step:
                   <<: *deploy
                   deployment: SSO
+            - step: *e2e-tests
     custom:
         deploy-loadtest:
             - step: *deps

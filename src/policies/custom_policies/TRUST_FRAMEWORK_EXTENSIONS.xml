@@ -1,4 +1,6 @@
-<TrustFrameworkPolicy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06" PolicySchemaVersion="0.3.0.0" TenantId="{settings:Tenant}" PolicyId="B2C_1A__{settings:PolicyNamePrefix}TrustFrameworkExtensions" PublicPolicyUri="http://{settings:Tenant}/B2C_1A__{settings:PolicyNamePrefix}TrustFrameworkExtensions">
+<TrustFrameworkPolicy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06" PolicySchemaVersion="0.3.0.0" TenantId="{settings:Tenant}" PolicyId="B2C_1A__{settings:PolicyNamePrefix}TrustFrameworkExtensions" PublicPolicyUri="http://{settings:Tenant}/B2C_1A__{settings:PolicyNamePrefix}TrustFrameworkExtensions">
   <BasePolicy>
     <TenantId>{settings:Tenant}</TenantId>
     <PolicyId>B2C_1A__{settings:PolicyNamePrefix}TrustFrameworkBase</PolicyId>
@@ -1335,7 +1337,7 @@
             <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="name" />
             <OutputClaim ClaimTypeReferenceId="email" />
             <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" AlwaysUseDefaultValue="true" />
-            <OutputClaim ClaimTypeReferenceId="identityProvider" PartnerClaimType="iss" />
+            <OutputClaim ClaimTypeReferenceId="identityProvider" PartnerClaimType="iss" DefaultValue="KidsLoopAD" AlwaysUseDefaultValue="true" />
           </OutputClaims>
           <OutputClaimsTransformations>
             <OutputClaimsTransformation ReferenceId="CreateRandomUPNUserName" />
@@ -1381,7 +1383,7 @@
             <OutputClaim ClaimTypeReferenceId="signInNames.userName" PartnerClaimType="name" />
             <OutputClaim ClaimTypeReferenceId="email" />
             <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" AlwaysUseDefaultValue="true" />
-            <OutputClaim ClaimTypeReferenceId="identityProvider" PartnerClaimType="iss" />
+            <OutputClaim ClaimTypeReferenceId="identityProvider" PartnerClaimType="iss" DefaultValue="MyClassBoard" AlwaysUseDefaultValue="true" />
             <!-- Need to clean up obsolete claims https://calmisland.atlassian.net/browse/IAM-646 -->
             <OutputClaim ClaimTypeReferenceId="isUserNameBoolean" DefaultValue="true" AlwaysUseDefaultValue="true" />
           </OutputClaims>
@@ -1406,7 +1408,9 @@
             <Item Key="IncludeClaimResolvingInClaimsHandling">true</Item>
           </Metadata>
           <InputClaims>
-            <InputClaim ClaimTypeReferenceId="idps" DefaultValue="{OAUTH-KV:idps}" AlwaysUseDefaultValue="true" />
+            <!-- The default value is set by a variable during deployment pipeline. 
+                  {OAUTH-KV:idps} means the enabled IdPs is read from the url, or you can provide a comma separated list "idp1,idp2" in the appsettings and not use a query parameter. -->
+            <InputClaim ClaimTypeReferenceId="idps" DefaultValue="{Settings:EnabledFederatedIdps}" AlwaysUseDefaultValue="true" />
           </InputClaims>
           <OutputClaims>
             <OutputClaim ClaimTypeReferenceId="identityProviders" />
@@ -1418,10 +1422,83 @@
         </TechnicalProfile>
       </TechnicalProfiles>
     </ClaimsProvider>
-
   </ClaimsProviders>
   <UserJourneys>
-    <UserJourney Id="SUSI-PhoneOrEmail">
+    <UserJourney Id="SUSI-PhoneOrEmail-FederatedOnlyEntryPoint" DefaultCpimIssuerTechnicalProfileReferenceId="JwtIssuer">
+      <OrchestrationSteps>
+        <OrchestrationStep Order="1" Type="ClaimsExchange">
+          <ClaimsExchanges>
+            <ClaimsExchange Id="ClaimsExchange-CheckSession" TechnicalProfileReferenceId="CheckSession" />
+          </ClaimsExchanges>
+        </OrchestrationStep>
+        <OrchestrationStep Order="2" Type="ClaimsExchange">
+          <ClaimsExchanges>
+            <ClaimsExchange Id="Get-IdentityProvidersList" TechnicalProfileReferenceId="Get-IdentityProvidersList" />
+          </ClaimsExchanges>
+        </OrchestrationStep>
+        <OrchestrationStep Order="3" Type="ClaimsExchange">
+          <ClaimsExchanges>
+            <ClaimsExchange Id="SiginInWithMCBCredentials" TechnicalProfileReferenceId="Log-in-with-MCB" />
+          </ClaimsExchanges>
+        </OrchestrationStep>
+        <OrchestrationStep Order="4" Type="InvokeSubJourney">
+          <JourneyList>
+            <Candidate SubJourneyReferenceId="SUSI-PhoneOrEmail-Handler" />
+          </JourneyList>
+        </OrchestrationStep>
+        <OrchestrationStep Order="5" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="JwtIssuer" />
+      </OrchestrationSteps>
+      <ClientDefinition ReferenceId="DefaultWeb" />
+    </UserJourney>
+
+    <UserJourney Id="SUSI-PhoneOrEmail-LocalAndKidsLoopOnlyEntryPoint" DefaultCpimIssuerTechnicalProfileReferenceId="JwtIssuer">
+      <OrchestrationSteps>
+        <OrchestrationStep Order="1" Type="ClaimsExchange">
+          <ClaimsExchanges>
+            <ClaimsExchange Id="ClaimsExchange-CheckSession" TechnicalProfileReferenceId="CheckSession" />
+          </ClaimsExchanges>
+        </OrchestrationStep>
+        <OrchestrationStep Order="2" Type="CombinedSignInAndSignUp" ContentDefinitionReferenceId="api.signuporsignin">
+          <ClaimsProviderSelections>
+            <ClaimsProviderSelection ValidationClaimsExchangeId="LocalAccountSigninPhoneOrEmailExchange" />
+            <ClaimsProviderSelection TargetClaimsExchangeId="SiginInWithKidsLoopCredentials" />
+            <ClaimsProviderSelection TargetClaimsExchangeId="SignupWithEmail" />
+            <ClaimsProviderSelection TargetClaimsExchangeId="SignupWithPhone" />
+            <ClaimsProviderSelection TargetClaimsExchangeId="ForgotPasswordExchange" />
+          </ClaimsProviderSelections>
+          <ClaimsExchanges>
+            <ClaimsExchange Id="LocalAccountSigninPhoneOrEmailExchange" TechnicalProfileReferenceId="SelfAsserted-LocalAccountSignin-Username" />
+          </ClaimsExchanges>
+        </OrchestrationStep>
+        <!-- A new end-user has selected to sign up with a phone number -->
+        <OrchestrationStep Order="3" Type="ClaimsExchange">
+          <Preconditions>
+            <Precondition Type="ClaimsExist" ExecuteActionsIf="true">
+              <Value>objectId</Value>
+              <Action>SkipThisOrchestrationStep</Action>
+            </Precondition>
+          </Preconditions>
+          <ClaimsExchanges>
+            <ClaimsExchange Id="LocalAccountSignUp" TechnicalProfileReferenceId="LocalAccountSignUp-EntryPoint" />
+            <ClaimsExchange Id="SiginInWithMCBCredentials" TechnicalProfileReferenceId="Log-in-with-MCB" />
+            <ClaimsExchange Id="SiginInWithKidsLoopCredentials" TechnicalProfileReferenceId="Log-in-with-Kids-Loop" />
+            <ClaimsExchange Id="SignupWithEmail" TechnicalProfileReferenceId="LocalAccountSignUpWithLogonEmail-custom" />
+            <ClaimsExchange Id="SignupWithPhone" TechnicalProfileReferenceId="LocalAccountSignUpWithLogonPhoneNumber-WithDisplayControls" />
+            <ClaimsExchange Id="ForgotPasswordExchange" TechnicalProfileReferenceId="ForgotPassword" />
+          </ClaimsExchanges>
+        </OrchestrationStep>
+        <OrchestrationStep Order="4" Type="InvokeSubJourney">
+          <JourneyList>
+            <Candidate SubJourneyReferenceId="SUSI-PhoneOrEmail-Handler" />
+          </JourneyList>
+        </OrchestrationStep>
+        <OrchestrationStep Order="5" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="JwtIssuer" />
+
+      </OrchestrationSteps>
+      <ClientDefinition ReferenceId="DefaultWeb" />
+    </UserJourney>
+
+    <UserJourney Id="SUSI-PhoneOrEmail" DefaultCpimIssuerTechnicalProfileReferenceId="JwtIssuer">
       <OrchestrationSteps>
         <OrchestrationStep Order="1" Type="ClaimsExchange">
           <ClaimsExchanges>
@@ -1464,57 +1541,16 @@
           </ClaimsExchanges>
         </OrchestrationStep>
         <OrchestrationStep Order="5" Type="InvokeSubJourney">
-          <Preconditions>
-            <Precondition Type="ClaimsExist" ExecuteActionsIf="false">
-              <Value>isForgotPassword</Value>
-              <Action>SkipThisOrchestrationStep</Action>
-            </Precondition>
-          </Preconditions>
           <JourneyList>
-            <Candidate SubJourneyReferenceId="PasswordResetUsingEmailAddress" />
+            <Candidate SubJourneyReferenceId="SUSI-PhoneOrEmail-Handler" />
           </JourneyList>
         </OrchestrationStep>
-        <OrchestrationStep Order="6" Type="InvokeSubJourney">
-          <Preconditions>
-            <Precondition Type="ClaimsExist" ExecuteActionsIf="false">
-              <Value>authenticationSource</Value>
-              <Action>SkipThisOrchestrationStep</Action>
-            </Precondition>
-            <Precondition Type="ClaimEquals" ExecuteActionsIf="false">
-              <Value>authenticationSource</Value>
-              <Value>socialIdpAuthentication</Value>
-              <Action>SkipThisOrchestrationStep</Action>
-            </Precondition>
-          </Preconditions>
-          <JourneyList>
-            <Candidate SubJourneyReferenceId="HandleFederatedUser" />
-          </JourneyList>
-        </OrchestrationStep>
-        <OrchestrationStep Order="7" Type="InvokeSubJourney">
-          <Preconditions>
-            <Precondition Type="ClaimsExist" ExecuteActionsIf="false">
-              <Value>isLocalAccountSignUp</Value>
-              <Action>SkipThisOrchestrationStep</Action>
-            </Precondition>
-            <Precondition Type="ClaimEquals" ExecuteActionsIf="true">
-              <Value>isLocalAccountSignUp</Value>
-              <Value>False</Value>
-              <Action>SkipThisOrchestrationStep</Action>
-            </Precondition>
-          </Preconditions>
-          <JourneyList>
-            <Candidate SubJourneyReferenceId="HandleEmailOrTelephoneSignUp" />
-          </JourneyList>
-        </OrchestrationStep>
-        <OrchestrationStep Order="8" Type="ClaimsExchange">
-          <ClaimsExchanges>
-            <ClaimsExchange Id="AADUserReadWithObjectId" TechnicalProfileReferenceId="AAD-UserReadUsingObjectId" />
-          </ClaimsExchanges>
-        </OrchestrationStep>
-        <OrchestrationStep Order="9" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="JwtIssuer" />
+        <OrchestrationStep Order="6" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="JwtIssuer" />
+
       </OrchestrationSteps>
       <ClientDefinition ReferenceId="DefaultWeb" />
     </UserJourney>
+
     <UserJourney Id="PasswordResetUsernameOrEmail">
       <OrchestrationSteps>
         <OrchestrationStep Order="1" Type="ClaimsExchange">
@@ -1586,6 +1622,61 @@
     </UserJourney>
   </UserJourneys>
   <SubJourneys>
+    <SubJourney Id="SUSI-PhoneOrEmail-Handler" Type="Transfer">
+      <OrchestrationSteps>
+        <OrchestrationStep Order="1" Type="InvokeSubJourney">
+          <Preconditions>
+            <Precondition Type="ClaimsExist" ExecuteActionsIf="false">
+              <Value>isForgotPassword</Value>
+              <Action>SkipThisOrchestrationStep</Action>
+            </Precondition>
+          </Preconditions>
+          <JourneyList>
+            <Candidate SubJourneyReferenceId="PasswordResetUsingEmailAddress" />
+          </JourneyList>
+        </OrchestrationStep>
+        <OrchestrationStep Order="2" Type="InvokeSubJourney">
+          <Preconditions>
+            <Precondition Type="ClaimsExist" ExecuteActionsIf="false">
+              <Value>authenticationSource</Value>
+              <Action>SkipThisOrchestrationStep</Action>
+            </Precondition>
+            <Precondition Type="ClaimEquals" ExecuteActionsIf="false">
+              <Value>authenticationSource</Value>
+              <Value>socialIdpAuthentication</Value>
+              <Action>SkipThisOrchestrationStep</Action>
+            </Precondition>
+          </Preconditions>
+          <JourneyList>
+            <Candidate SubJourneyReferenceId="HandleFederatedUser" />
+          </JourneyList>
+        </OrchestrationStep>
+        <OrchestrationStep Order="3" Type="InvokeSubJourney">
+          <Preconditions>
+            <Precondition Type="ClaimsExist" ExecuteActionsIf="false">
+              <Value>isLocalAccountSignUp</Value>
+              <Action>SkipThisOrchestrationStep</Action>
+            </Precondition>
+            <Precondition Type="ClaimEquals" ExecuteActionsIf="true">
+              <Value>isLocalAccountSignUp</Value>
+              <Value>False</Value>
+              <Action>SkipThisOrchestrationStep</Action>
+            </Precondition>
+          </Preconditions>
+          <JourneyList>
+            <Candidate SubJourneyReferenceId="HandleEmailOrTelephoneSignUp" />
+          </JourneyList>
+        </OrchestrationStep>
+        <OrchestrationStep Order="4" Type="ClaimsExchange">
+          <ClaimsExchanges>
+            <ClaimsExchange Id="AADUserReadWithObjectId" TechnicalProfileReferenceId="AAD-UserReadUsingObjectId" />
+          </ClaimsExchanges>
+        </OrchestrationStep>
+
+        <OrchestrationStep Order="5" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="JwtIssuer" />
+      </OrchestrationSteps>
+    </SubJourney>
+
     <SubJourney Id="SignUpPhoneOrEmail" Type="Call">
       <OrchestrationSteps>
         <OrchestrationStep Order="1" Type="InvokeSubJourney">
@@ -1614,6 +1705,7 @@
         </OrchestrationStep>
       </OrchestrationSteps>
     </SubJourney>
+
     <SubJourney Id="HandleTelephoneSignUp" Type="Call">
       <OrchestrationSteps>
         <!--
@@ -1646,6 +1738,7 @@
         </OrchestrationStep>
       </OrchestrationSteps>
     </SubJourney>
+
     <SubJourney Id="HandleEmailSignUp" Type="Call">
       <OrchestrationSteps>
         <!--
@@ -1664,6 +1757,7 @@
         </OrchestrationStep>
       </OrchestrationSteps>
     </SubJourney>
+
     <SubJourney Id="HandleEmailOrTelephoneSignUp" Type="Call">
       <OrchestrationSteps>
         <OrchestrationStep Order="1" Type="CombinedSignInAndSignUp" ContentDefinitionReferenceId="api.signup.email">
@@ -1688,6 +1782,7 @@
         </OrchestrationStep>
       </OrchestrationSteps>
     </SubJourney>
+
     <SubJourney Id="HandleFederatedUser" Type="Call">
       <OrchestrationSteps>
         <OrchestrationStep Order="1" Type="ClaimsExchange">
@@ -1708,6 +1803,7 @@
         </OrchestrationStep>
       </OrchestrationSteps>
     </SubJourney>
+
     <SubJourney Id="PasswordResetUsingEmailAddress" Type="Call">
       <OrchestrationSteps>
         <!-- Validate user's email address. -->

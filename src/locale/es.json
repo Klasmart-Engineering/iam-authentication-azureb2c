@@ -3,7 +3,8 @@
         "localaccountpasswordreset": {
             "ClaimType": {
                 "email": {
-                    "DisplayName": "Dirección de correo electrónico"
+                    "DisplayName": "Dirección de correo electrónico",
+                    "PatternHelpText": "Por favor ingrese un correo electrónico válido"
                 },
                 "verificationCode": {
                     "DisplayName": "Restablecer Código"
@@ -17,19 +18,19 @@
                     "intro_msg": "Ingrese su dirección de correo electrónico para recibir un código de seguridad.",
                     "success_send_code_msg": "Se ha enviado un código de seguridad a su correo electrónico. Por favor, cópielo en la casilla que aparece a continuación para ser verificado.",
                     "success_verify_code_msg": "Correo electrónico verificado. Puede continuar."
+                },
+                "phoneVerificationControl": {
+                    "but_send_code": "Enviar código de seguridad",
+                    "but_send_new_code": "Enviar nuevo código de seguridad",
+                    "but_verify_code": "Verificar código de seguridad",
+                    "intro_msg": "Ingrese su número de teléfono a continuación para recibir un código de verificación.",
+                    "success_send_code_msg": "Se ha enviado un código de verificación a su teléfono. Por favor, cópielo en la casilla que aparece a continuación para ser verificado.",
+                    "success_verify_code_msg": "Número de teléfono verificado. Ahora puede continuar."
                 }
             },
             "ErrorMessage": {
                 "UserMessageIfVerificationFailedNoRetry": "Ha realizado demasiados intentos fallidos. Por favor, vuelva más tarde.",
                 "UserMessageIfVerificationFailedRetryAllowed": "La verificación ha fallado, por favor inténtelo de nuevo"
-            },
-            "UxElement": {
-                "ver_but_resend": "Enviar nuevo código de seguridad",
-                "ver_but_send": "Enviar código de seguridad",
-                "ver_but_verify": "Verificar código de seguridad",
-                "ver_fail_retry": "La verificación ha fallado, por favor inténtelo de nuevo",
-                "ver_info_msg": "Se ha enviado un código de seguridad a su correo electrónico. Por favor, cópielo en la casilla que aparece a continuación para ser verificado.",
-                "ver_intro_msg": "Ingrese su dirección de correo electrónico para recibir el código de seguridad."
             }
         },
         "localaccountsignup": {
@@ -38,7 +39,8 @@
                     "DisplayName": "País"
                 },
                 "email": {
-                    "DisplayName": "Correo electrónico"
+                    "DisplayName": "Correo electrónico",
+                    "PatternHelpText": "Por favor ingrese un correo electrónico válido"
                 },
                 "hasAcceptedPrivacyPolicy": {
                     "DisplayName": "Política de privacidad",
@@ -118,13 +120,37 @@
                 "initial_intro": "¡Ya casi estamos listos! Introduzca su nueva contraseña a continuación."
             }
         },
+        "selfasserted": {
+            "ClaimType": {
+                "countryCode": {
+                    "DisplayName": "País"
+                },
+                "nationalNumber": {
+                    "DisplayName": "Número de teléfono"
+                }
+            },
+            "Predicate": {
+                "internationalOrNationalPhoneNumber": {
+                    "HelpText": "Formato de número no válido. Asegúrese de que el número de teléfono no contenga caracteres especiales como []{}()."
+                },
+                "noLeadingPlus": {
+                    "HelpText": "No es necesario incluir el código del país aquí. En su lugar, utilice el menú desplegable para seleccionar el código del país."
+                }
+            },
+            "UxElement": {
+                "required_field": "No puede estar vacío"
+            }
+        },
         "signuporsignin": {
             "ClaimType": {
                 "password": {
                     "DisplayName": "Contraseña"
                 },
                 "signInName": {
-                    "DisplayName": "Correo electrónico o teléfono"
+                    "DisplayName": "Correo electrónico"
+                },
+                "signInNamePhoneNumber": {
+                    "DisplayName": "Número de teléfono"
                 }
             },
             "ClaimsProvider": {
@@ -137,17 +163,9 @@
                 "UserMessageIfInvalidPassword": "Lo sentimos, no reconocemos sus datos de acceso. Por favor, compruebe que hayan sido introducidos correctamente e inténtelo de nuevo.",
                 "UserMessageIfOldPasswordUsed": "Lo sentimos, no reconocemos sus datos de acceso. Por favor, compruebe que hayan sido introducidos correctamente e inténtelo de nuevo."
             },
-            "InputValidation": {
-                "phoneOrEmailSignInName": {
-                    "phoneOrEmailSignInName": "Por favor ingrese al menos uno de los siguientes:"
-                }
-            },
             "Predicate": {
                 "email": {
-                    "HelpText": "Una dirección de correo electrónico válida"
-                },
-                "internationalPhoneNumber": {
-                    "HelpText": "Un número de teléfono válido"
+                    "HelpText": "Por favor ingrese un correo electrónico válido"
                 }
             },
             "UxElement": {

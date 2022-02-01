@@ -22,6 +22,7 @@
         <DataUri>urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:2.1.5</DataUri>
         <Metadata>
           <Item Key="DisplayName">Log in</Item>
+          <Item Key="setting.bottomUnderFormClaimsProviderSelections">SigninWithPhone</Item>
         </Metadata>
         <LocalizedResourcesReferences MergeBehavior="Prepend">
           <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.signuporsignin.en"></LocalizedResourcesReference>
@@ -36,6 +37,10 @@
       <ContentDefinition Id="api.selfasserted">
         <LoadUri>https://{settings:B2CStorage}.blob.core.windows.net/{settings:B2CStorageContainer}/policies/KL_create_user_or_sign_in/pages/unified-sign-up-or-sign-in/{Culture:RFC5646}/index.html</LoadUri>
         <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.8</DataUri>
+        <LocalizedResourcesReferences MergeBehavior="Prepend">
+          <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.selfasserted.en"></LocalizedResourcesReference>
+          <LocalizedResourcesReference Language="es" LocalizedResourcesReferenceId="api.selfasserted.es"></LocalizedResourcesReference>
+        </LocalizedResourcesReferences>
       </ContentDefinition>
       <ContentDefinition Id="api.selfasserted.profileupdate">
         <LoadUri>https://{settings:B2CStorage}.blob.core.windows.net/{settings:B2CStorageContainer}/policies/KL_create_user_or_sign_in/pages/unified-sign-up-or-sign-in/{Culture:RFC5646}/index.html</LoadUri>
@@ -91,6 +96,7 @@
       <LocalizedResources Id="api.localaccountpasswordreset.en">
         <LocalizedStrings>
           <LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">Email address</LocalizedString>
+          <LocalizedString ElementType="ClaimType" ElementId="email" StringId="PatternHelpText">Please enter a valid email address</LocalizedString>
           <LocalizedString ElementType="ClaimType" ElementId="verificationCode" StringId="DisplayName">Reset code</LocalizedString>
           <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="but_send_code">Send reset code</LocalizedString>
           <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="but_send_new_code">Send new reset code</LocalizedString>
@@ -98,14 +104,14 @@
           <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="intro_msg">Enter your email address below to receive a reset code.</LocalizedString>
           <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="success_send_code_msg">A reset code has been sent to your email. Please copy it into the input box below and verify reset code.</LocalizedString>
           <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="success_verify_code_msg">Email address verified. You can continue now.</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl" StringId="but_send_code">Send reset code</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl" StringId="but_send_new_code">Send new reset code</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl" StringId="but_verify_code">Verify reset code</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl" StringId="intro_msg">Enter your phone number below to receive a reset code.</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl" StringId="success_send_code_msg">A reset code has been sent to your phone. Please copy it into the input box below and verify reset code.</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl" StringId="success_verify_code_msg">Phone number verified. You can continue now.</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedNoRetry">You've made too many incorrect attempts. Please try again later.</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedRetryAllowed">The verification has failed, please try again</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="ver_but_resend">Send new reset code</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="ver_but_send">Send reset code</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="ver_but_verify">Verify reset code</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="ver_fail_retry">The verification has failed, please try again</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="ver_info_msg">A reset code has been sent to your email. Please copy it into the input box below and verify reset code.</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="ver_intro_msg">Enter your email address below to receive a reset code.</LocalizedString>
         </LocalizedStrings>
       </LocalizedResources>
       <LocalizedResources Id="api.localaccountsignup.en">
@@ -117,6 +123,7 @@
         <LocalizedStrings>
           <LocalizedString ElementType="ClaimType" ElementId="countryCode" StringId="DisplayName">Country</LocalizedString>
           <LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">Email Address</LocalizedString>
+          <LocalizedString ElementType="ClaimType" ElementId="email" StringId="PatternHelpText">Please enter a valid email address</LocalizedString>
           <LocalizedString ElementType="ClaimType" ElementId="hasAcceptedPrivacyPolicy" StringId="DisplayName">Privacy Policy</LocalizedString>
           <LocalizedString ElementType="ClaimType" ElementId="hasAcceptedPrivacyPolicy" StringId="UserHelpText">Please agree to the KidsLoop Privacy policy to create an account</LocalizedString>
           <LocalizedString ElementType="ClaimType" ElementId="nationalNumber" StringId="DisplayName">Phone Number</LocalizedString>
@@ -156,19 +163,27 @@
           <LocalizedString ElementType="UXElement" StringId="initial_intro">Almost there! Enter your new password below.</LocalizedString>
         </LocalizedStrings>
       </LocalizedResources>
+      <LocalizedResources Id="api.selfasserted.en">
+        <LocalizedStrings>
+          <LocalizedString ElementType="ClaimType" ElementId="countryCode" StringId="DisplayName">Country</LocalizedString>
+          <LocalizedString ElementType="ClaimType" ElementId="nationalNumber" StringId="DisplayName">Phone Number</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="internationalOrNationalPhoneNumber" StringId="HelpText">Invalid number format. Please ensure that the phone number does not contain any special characters such as []{}().</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="noLeadingPlus" StringId="HelpText">You don't need to include your country code here. Instead, please use the dropdown above to select your country code</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="required_field">Cannot be empty</LocalizedString>
+        </LocalizedStrings>
+      </LocalizedResources>
       <LocalizedResources Id="api.signuporsignin.en">
         <LocalizedStrings>
           <LocalizedString ElementType="ClaimType" ElementId="password" StringId="DisplayName">Password</LocalizedString>
-          <LocalizedString ElementType="ClaimType" ElementId="signInName" StringId="DisplayName">Email Address or Phone Number</LocalizedString>
+          <LocalizedString ElementType="ClaimType" ElementId="signInName" StringId="DisplayName">Email Address</LocalizedString>
+          <LocalizedString ElementType="ClaimType" ElementId="signInNamePhoneNumber" StringId="DisplayName">Phone Number</LocalizedString>
           <LocalizedString ElementType="ClaimsProvider" StringId="SigninWithPhone">Use Phone number</LocalizedString>
           <LocalizedString ElementType="ClaimsProvider" StringId="SignupWithEmail">Email</LocalizedString>
           <LocalizedString ElementType="ClaimsProvider" StringId="SignupWithPhone">Phone</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalDoesNotExist">Sorry, we don’t recognise your login details! Please check that you’ve entered them correctly and try again.</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidPassword">Sorry, we don’t recognise your login details! Please check that you’ve entered them correctly and try again.</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfOldPasswordUsed">Sorry, we don’t recognise your login details! Please check that you’ve entered them correctly and try again.</LocalizedString>
-          <LocalizedString ElementType="InputValidation" ElementId="phoneOrEmailSignInName" StringId="phoneOrEmailSignInName">Please enter at least one of the following:</LocalizedString>
-          <LocalizedString ElementType="Predicate" ElementId="email" StringId="HelpText">A valid email address</LocalizedString>
-          <LocalizedString ElementType="Predicate" ElementId="internationalPhoneNumber" StringId="HelpText">A valid phone number</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="email" StringId="HelpText">Please enter a valid email address</LocalizedString>
           <LocalizedString ElementType="UxElement" StringId="button_signin">Log in</LocalizedString>
           <LocalizedString ElementType="UxElement" StringId="heading">Log in</LocalizedString>
           <LocalizedString ElementType="UxElement" StringId="invalid_generic">Please enter a valid {0}</LocalizedString>
@@ -181,6 +196,7 @@
       <LocalizedResources Id="api.localaccountpasswordreset.es">
         <LocalizedStrings>
           <LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">Dirección de correo electrónico</LocalizedString>
+          <LocalizedString ElementType="ClaimType" ElementId="email" StringId="PatternHelpText">Por favor ingrese un correo electrónico válido</LocalizedString>
           <LocalizedString ElementType="ClaimType" ElementId="verificationCode" StringId="DisplayName">Restablecer Código</LocalizedString>
           <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="but_send_code">Enviar código de seguridad</LocalizedString>
           <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="but_send_new_code">Enviar nuevo código de seguridad</LocalizedString>
@@ -188,14 +204,14 @@
           <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="intro_msg">Ingrese su dirección de correo electrónico para recibir un código de seguridad.</LocalizedString>
           <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="success_send_code_msg">Se ha enviado un código de seguridad a su correo electrónico. Por favor, cópielo en la casilla que aparece a continuación para ser verificado.</LocalizedString>
           <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="success_verify_code_msg">Correo electrónico verificado. Puede continuar.</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl" StringId="but_send_code">Enviar código de seguridad</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl" StringId="but_send_new_code">Enviar nuevo código de seguridad</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl" StringId="but_verify_code">Verificar código de seguridad</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl" StringId="intro_msg">Ingrese su número de teléfono a continuación para recibir un código de verificación.</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl" StringId="success_send_code_msg">Se ha enviado un código de verificación a su teléfono. Por favor, cópielo en la casilla que aparece a continuación para ser verificado.</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl" StringId="success_verify_code_msg">Número de teléfono verificado. Ahora puede continuar.</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedNoRetry">Ha realizado demasiados intentos fallidos. Por favor, vuelva más tarde.</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedRetryAllowed">La verificación ha fallado, por favor inténtelo de nuevo</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="ver_but_resend">Enviar nuevo código de seguridad</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="ver_but_send">Enviar código de seguridad</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="ver_but_verify">Verificar código de seguridad</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="ver_fail_retry">La verificación ha fallado, por favor inténtelo de nuevo</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="ver_info_msg">Se ha enviado un código de seguridad a su correo electrónico. Por favor, cópielo en la casilla que aparece a continuación para ser verificado.</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="ver_intro_msg">Ingrese su dirección de correo electrónico para recibir el código de seguridad.</LocalizedString>
         </LocalizedStrings>
       </LocalizedResources>
       <LocalizedResources Id="api.localaccountsignup.es">
@@ -207,6 +223,7 @@
         <LocalizedStrings>
           <LocalizedString ElementType="ClaimType" ElementId="countryCode" StringId="DisplayName">País</LocalizedString>
           <LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">Correo electrónico</LocalizedString>
+          <LocalizedString ElementType="ClaimType" ElementId="email" StringId="PatternHelpText">Por favor ingrese un correo electrónico válido</LocalizedString>
           <LocalizedString ElementType="ClaimType" ElementId="hasAcceptedPrivacyPolicy" StringId="DisplayName">Política de privacidad</LocalizedString>
           <LocalizedString ElementType="ClaimType" ElementId="hasAcceptedPrivacyPolicy" StringId="UserHelpText">Por favor, acepte la política de privacidad de KidsLoop para crear una cuenta</LocalizedString>
           <LocalizedString ElementType="ClaimType" ElementId="nationalNumber" StringId="DisplayName">Número de teléfono</LocalizedString>
@@ -246,19 +263,27 @@
           <LocalizedString ElementType="UXElement" StringId="initial_intro">¡Ya casi estamos listos! Introduzca su nueva contraseña a continuación.</LocalizedString>
         </LocalizedStrings>
       </LocalizedResources>
+      <LocalizedResources Id="api.selfasserted.es">
+        <LocalizedStrings>
+          <LocalizedString ElementType="ClaimType" ElementId="countryCode" StringId="DisplayName">País</LocalizedString>
+          <LocalizedString ElementType="ClaimType" ElementId="nationalNumber" StringId="DisplayName">Número de teléfono</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="internationalOrNationalPhoneNumber" StringId="HelpText">Formato de número no válido. Asegúrese de que el número de teléfono no contenga caracteres especiales como []{}().</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="noLeadingPlus" StringId="HelpText">No es necesario incluir el código del país aquí. En su lugar, utilice el menú desplegable para seleccionar el código del país.</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="required_field">No puede estar vacío</LocalizedString>
+        </LocalizedStrings>
+      </LocalizedResources>
       <LocalizedResources Id="api.signuporsignin.es">
         <LocalizedStrings>
           <LocalizedString ElementType="ClaimType" ElementId="password" StringId="DisplayName">Contraseña</LocalizedString>
-          <LocalizedString ElementType="ClaimType" ElementId="signInName" StringId="DisplayName">Correo electrónico o teléfono</LocalizedString>
+          <LocalizedString ElementType="ClaimType" ElementId="signInName" StringId="DisplayName">Correo electrónico</LocalizedString>
+          <LocalizedString ElementType="ClaimType" ElementId="signInNamePhoneNumber" StringId="DisplayName">Número de teléfono</LocalizedString>
           <LocalizedString ElementType="ClaimsProvider" StringId="SigninWithPhone">Use su número de teléfono</LocalizedString>
           <LocalizedString ElementType="ClaimsProvider" StringId="SignupWithEmail">Correo electrónico</LocalizedString>
           <LocalizedString ElementType="ClaimsProvider" StringId="SignupWithPhone">Teléfono</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalDoesNotExist">Lo sentimos, no reconocemos sus datos de acceso. Por favor, compruebe que hayan sido introducidos correctamente e inténtelo de nuevo.</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidPassword">Lo sentimos, no reconocemos sus datos de acceso. Por favor, compruebe que hayan sido introducidos correctamente e inténtelo de nuevo.</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfOldPasswordUsed">Lo sentimos, no reconocemos sus datos de acceso. Por favor, compruebe que hayan sido introducidos correctamente e inténtelo de nuevo.</LocalizedString>
-          <LocalizedString ElementType="InputValidation" ElementId="phoneOrEmailSignInName" StringId="phoneOrEmailSignInName">Por favor ingrese al menos uno de los siguientes:</LocalizedString>
-          <LocalizedString ElementType="Predicate" ElementId="email" StringId="HelpText">Una dirección de correo electrónico válida</LocalizedString>
-          <LocalizedString ElementType="Predicate" ElementId="internationalPhoneNumber" StringId="HelpText">Un número de teléfono válido</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="email" StringId="HelpText">Por favor ingrese un correo electrónico válido</LocalizedString>
           <LocalizedString ElementType="UxElement" StringId="button_signin">Iniciar sesión</LocalizedString>
           <LocalizedString ElementType="UxElement" StringId="heading">Iniciar sesión</LocalizedString>
           <LocalizedString ElementType="UxElement" StringId="invalid_generic">Por favor, introduzca un {0} válido</LocalizedString>
@@ -312,7 +337,7 @@
       <LocalizedResources Id="api.signuporsignin.zh-hans">
         <LocalizedStrings>
           <LocalizedString ElementType="ClaimType" ElementId="password" StringId="DisplayName">密码</LocalizedString>
-          <LocalizedString ElementType="ClaimType" ElementId="signInName" StringId="DisplayName">电子邮件地址或电话号码</LocalizedString>
+          <LocalizedString ElementType="ClaimType" ElementId="signInName" StringId="DisplayName">电子邮箱</LocalizedString>
           <LocalizedString ElementType="ClaimsProvider" StringId="SignupWithEmail">邮箱</LocalizedString>
           <LocalizedString ElementType="ClaimsProvider" StringId="SignupWithPhone">手机号</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalDoesNotExist">抱歉，我们无法识别您的登录信息！请检查您是否输入正确，然后重试。</LocalizedString>

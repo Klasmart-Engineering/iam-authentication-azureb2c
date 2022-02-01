@@ -3,7 +3,8 @@
         "localaccountpasswordreset": {
             "ClaimType": {
                 "email": {
-                    "DisplayName": "Email address"
+                    "DisplayName": "Email address",
+                    "PatternHelpText": "Please enter a valid email address"
                 },
                 "verificationCode": {
                     "DisplayName": "Reset code"
@@ -17,19 +18,19 @@
                     "intro_msg": "Enter your email address below to receive a reset code.",
                     "success_send_code_msg": "A reset code has been sent to your email. Please copy it into the input box below and verify reset code.",
                     "success_verify_code_msg": "Email address verified. You can continue now."
+                },
+                "phoneVerificationControl": {
+                    "but_send_code": "Send reset code",
+                    "but_send_new_code": "Send new reset code",
+                    "but_verify_code": "Verify reset code",
+                    "intro_msg": "Enter your phone number below to receive a reset code.",
+                    "success_send_code_msg": "A reset code has been sent to your phone. Please copy it into the input box below and verify reset code.",
+                    "success_verify_code_msg": "Phone number verified. You can continue now."
                 }
             },
             "ErrorMessage": {
                 "UserMessageIfVerificationFailedNoRetry": "You've made too many incorrect attempts. Please try again later.",
                 "UserMessageIfVerificationFailedRetryAllowed": "The verification has failed, please try again"
-            },
-            "UxElement": {
-                "ver_but_resend": "Send new reset code",
-                "ver_but_send": "Send reset code",
-                "ver_but_verify": "Verify reset code",
-                "ver_fail_retry": "The verification has failed, please try again",
-                "ver_info_msg": "A reset code has been sent to your email. Please copy it into the input box below and verify reset code.",
-                "ver_intro_msg": "Enter your email address below to receive a reset code."
             }
         },
         "localaccountsignup": {
@@ -38,7 +39,8 @@
                     "DisplayName": "Country"
                 },
                 "email": {
-                    "DisplayName": "Email Address"
+                    "DisplayName": "Email Address",
+                    "PatternHelpText": "Please enter a valid email address"
                 },
                 "hasAcceptedPrivacyPolicy": {
                     "DisplayName": "Privacy Policy",
@@ -118,13 +120,37 @@
                 "initial_intro": "Almost there! Enter your new password below."
             }
         },
+        "selfasserted": {
+            "ClaimType": {
+                "countryCode": {
+                    "DisplayName": "Country"
+                },
+                "nationalNumber": {
+                    "DisplayName": "Phone Number"
+                }
+            },
+            "Predicate": {
+                "internationalOrNationalPhoneNumber": {
+                    "HelpText": "Invalid number format. Please ensure that the phone number does not contain any special characters such as []{}()."
+                },
+                "noLeadingPlus": {
+                    "HelpText": "You don't need to include your country code here. Instead, please use the dropdown above to select your country code"
+                }
+            },
+            "UxElement": {
+                "required_field": "Cannot be empty"
+            }
+        },
         "signuporsignin": {
             "ClaimType": {
                 "password": {
                     "DisplayName": "Password"
                 },
                 "signInName": {
-                    "DisplayName": "Email Address or Phone Number"
+                    "DisplayName": "Email Address"
+                },
+                "signInNamePhoneNumber": {
+                    "DisplayName": "Phone Number"
                 }
             },
             "ClaimsProvider": {
@@ -137,17 +163,9 @@
                 "UserMessageIfInvalidPassword": "Sorry, we don’t recognise your login details! Please check that you’ve entered them correctly and try again.",
                 "UserMessageIfOldPasswordUsed": "Sorry, we don’t recognise your login details! Please check that you’ve entered them correctly and try again."
             },
-            "InputValidation": {
-                "phoneOrEmailSignInName": {
-                    "phoneOrEmailSignInName": "Please enter at least one of the following:"
-                }
-            },
             "Predicate": {
                 "email": {
-                    "HelpText": "A valid email address"
-                },
-                "internationalPhoneNumber": {
-                    "HelpText": "A valid phone number"
+                    "HelpText": "Please enter a valid email address"
                 }
             },
             "UxElement": {

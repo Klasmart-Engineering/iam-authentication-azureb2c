@@ -32,3 +32,8 @@
     font-weight: 600;
     line-height: 2.4rem;
 }
+
+#countryCode {
+    /* Counteract global.css margin-bottom */
+    margin-bottom: 0;
+}

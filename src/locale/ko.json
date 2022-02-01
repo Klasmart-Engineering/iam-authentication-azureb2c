@@ -1,0 +1,172 @@
+{
+    "custom_policy": {
+        "localaccountpasswordreset": {
+            "ClaimType": {
+                "email": {
+                    "DisplayName": "이메일 주소"
+                },
+                "verificationCode": {
+                    "DisplayName": "코드 재설정"
+                }
+            },
+            "DisplayControl": {
+                "emailControl": {
+                    "but_send_code": "재설정 코드 보내기",
+                    "but_send_new_code": "새 재설정 코드 보내기",
+                    "but_verify_code": "재설정 코드 확인",
+                    "intro_msg": "재설정 코드를 받으려면 아래에 이메일 주소를 입력하십시오.",
+                    "success_send_code_msg": "재설정 코드가 귀하의 이메일로 전송되었습니다. 아래 입력란에 복사하여 리셋코드를 확인해주세요.",
+                    "success_verify_code_msg": "이메일 주소가 확인되었습니다. 지금 계속할 수 있습니다."
+                },
+                "phoneVerificationControl": {
+                    "but_send_code": "재설정 코드 보내기",
+                    "but_send_new_code": "새 재설정 코드 보내기",
+                    "but_verify_code": "재설정 코드 확인"
+                }
+            },
+            "ErrorMessage": {
+                "UserMessageIfVerificationFailedNoRetry": "잘못된 시도 횟수가 너무 많습니다. 나중에 다시 시도하십시오.",
+                "UserMessageIfVerificationFailedRetryAllowed": "확인에 실패했습니다. 다시 시도해 주세요."
+            }
+        },
+        "localaccountsignup": {
+            "ClaimType": {
+                "countryCode": {
+                    "DisplayName": "국가"
+                },
+                "email": {
+                    "DisplayName": "이메일 주소"
+                },
+                "hasAcceptedPrivacyPolicy": {
+                    "DisplayName": "개인정보 처리방침",
+                    "UserHelpText": "계정을 만들기 위해 KidsLoop 개인 정보 보호 정책에 동의하십시오."
+                },
+                "nationalNumber": {
+                    "DisplayName": "전화 번호"
+                },
+                "newPassword": {
+                    "DisplayName": "비밀번호 생성",
+                    "PatternHelpText": "다음 중 4개 중 3개를 포함하는 8-16자: 소문자, 대문자, 숫자(0-9) 및 다음 기호 중 하나 이상: @ # $ % ^ &amp; * - _ + = [ ] { } | \\ : ' , ? / ` ~ \" ( ) ; ."
+                },
+                "reenterPassword": {
+                    "DisplayName": "비밀번호 확인"
+                },
+                "verificationCode": {
+                    "DisplayName": "인증 코드"
+                }
+            },
+            "DisplayControl": {
+                "emailControl": {
+                    "but_change_claims": "이메일 변경",
+                    "but_send_code": "인증 코드 보내기",
+                    "but_send_new_code": "새 코드 보내기",
+                    "but_verify_code": "코드 확인"
+                },
+                "phoneVerificationControl": {
+                    "but_change_claims": "전화 번호 변경",
+                    "but_send_code": "인증 코드 보내기",
+                    "but_send_new_code": "새 코드 보내기",
+                    "but_verify_code": "코드 확인"
+                }
+            },
+            "ErrorMessage": {
+                "UserMessageIfClaimsPrincipalAlreadyExists": "이 이메일 주소 또는 번호를 가진 계정이 이미 존재합니다.",
+                "UserMessageIfMaxAllowedCodeRetryReached": "잘못된 시도 횟수가 너무 많습니다. 나중에 다시 시도하십시오.",
+                "UserMessageIfVerificationFailedNoRetry": "잘못된 시도 횟수가 너무 많습니다. 나중에 다시 시도하십시오.",
+                "UserMessageIfVerificationFailedRetryAllowed": "코드가 올바르지 않습니다. 다시 시도하십시오.",
+                "UserMessageIfWrongCodeEntered": "코드가 올바르지 않습니다, 다시 시도하십시오"
+            },
+            "LocalizedCollection": {
+                "hasAcceptedPrivacyPolicy": {
+                    "true": "나는 키즈룹의 {{Privacy policy}}에 동의합니다."
+                }
+            },
+            "Predicate": {
+                "internationalOrNationalPhoneNumber": {
+                    "HelpText": "잘못된 숫자 형식입니다. 전화 번호에 []{}()와 같은 특수 문자가 포함되어 있지 않은지 확인하십시오."
+                },
+                "noLeadingPlus": {
+                    "HelpText": "여기에 국가 코드를 포함할 필요가 없습니다. 대신 위의 드롭다운을 사용하여 국가 코드를 선택하십시오."
+                }
+            },
+            "UXElement": {
+                "button_continue": "계정 만들기"
+            },
+            "UxElement": {
+                "ver_but_edit": "이메일 변경",
+                "ver_but_resend": "새 코드 보내기",
+                "ver_but_send": "인증 코드 보내기",
+                "ver_but_verify": "코드 확인",
+                "ver_fail_no_retry": "잘못된 시도 횟수가 너무 많습니다. 나중에 다시 시도하십시오."
+            }
+        },
+        "selfasserted.localaccountpasswordchange": {
+            "ClaimType": {
+                "newPassword": {
+                    "DisplayName": "새 비밀번호",
+                    "PatternHelpText": "다음 중 4개 중 3개를 포함하는 8-16자: 소문자 문자, 대문자 문자, 숫자(0-9), 그리고 다음 기호 중 하나 이상: @ # # % ^ &amp; * _ + = = = = = = { | } \\ : ' , ? / ` ~ \" ( ) ; ."
+                },
+                "reenterPassword": {
+                    "DisplayName": "새 암호 확인"
+                }
+            },
+            "UXElement": {
+                "button_continue": "암호 재설정",
+                "initial_intro": "거의 다 왔습니다! 아래에 새 비밀번호를 입력하세요."
+            }
+        },
+        "selfasserted": {
+            "ClaimType": {
+                "countryCode": {
+                    "DisplayName": "국가"
+                },
+                "nationalNumber": {
+                    "DisplayName": "전화 번호"
+                }
+            },
+            "Predicate": {
+                "internationalOrNationalPhoneNumber": {
+                    "HelpText": "잘못된 숫자 형식입니다. 전화 번호에 []{}()와 같은 특수 문자가 포함되어 있지 않은지 확인하십시오."
+                },
+                "noLeadingPlus": {
+                    "HelpText": "여기에 국가 코드를 포함할 필요가 없습니다. 대신 위의 드롭다운을 사용하여 국가 코드를 선택하십시오."
+                }
+            },
+            "UxElement": {
+                "required_field": "비워둘 수 없습니다."
+            }
+        },
+        "signuporsignin": {
+            "ClaimType": {
+                "password": {
+                    "DisplayName": "비밀번호"
+                },
+                "signInName": {
+                    "DisplayName": "이메일 주소"
+                },
+                "signInNamePhoneNumber": {
+                    "DisplayName": "전화 번호"
+                }
+            },
+            "ClaimsProvider": {
+                "SigninWithPhone": "전화 번호 사용",
+                "SignupWithEmail": "이메일",
+                "SignupWithPhone": "연락처"
+            },
+            "ErrorMessage": {
+                "UserMessageIfClaimsPrincipalDoesNotExist": "죄송합니다. 로그인 정보를 인식할 수 없습니다! 올바르게 입력했는지 확인하고 다시 시도하십시오.",
+                "UserMessageIfInvalidPassword": "죄송합니다. 로그인 정보를 인식할 수 없습니다! 올바르게 입력했는지 확인하고 다시 시도하십시오.",
+                "UserMessageIfOldPasswordUsed": "죄송합니다. 로그인 정보를 인식할 수 없습니다! 올바르게 입력했는지 확인하고 다시 시도하십시오."
+            },
+            "UxElement": {
+                "button_signin": "로그인",
+                "heading": "로그인",
+                "invalid_generic": "유효한 {0} 입력을 부탁드립니다.",
+                "local_intro_generic": "{0}을 사용하여 로그인",
+                "requiredField_generic": "비워둘 수 없습니다.",
+                "requiredField_password": "비워둘 수 없습니다.",
+                "social_intro": "소셜 계정으로 로그인"
+            }
+        }
+    }
+}

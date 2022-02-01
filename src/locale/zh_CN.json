@@ -1,29 +1,39 @@
 {
     "custom_policy": {
         "localaccountpasswordreset": {
+            "ClaimType": {
+                "email": {
+                    "DisplayName": "邮箱"
+                },
+                "verificationCode": {
+                    "DisplayName": "重置代码"
+                }
+            },
             "DisplayControl": {
                 "emailControl": {
                     "but_send_code": "发送重置代码",
                     "but_send_new_code": "发送新的重置代码",
                     "but_verify_code": "验证重置代码",
                     "intro_msg": "在下方输入您的电子邮件地址以接收重置代码。",
-                    "success_send_code_msg": "重置代码已发送到您的电子邮件。请将其复制到下面的输入框中并验证重置代码。"
+                    "success_send_code_msg": "重置代码已发送到您的电子邮件。请将其复制到下面的输入框中并验证重置代码。",
+                    "success_verify_code_msg": "邮箱已验证。您现在可以继续。"
+                },
+                "phoneVerificationControl": {
+                    "but_send_code": "发送重置代码",
+                    "but_send_new_code": "发送新的重置代码",
+                    "but_verify_code": "验证重置代码"
                 }
             },
             "ErrorMessage": {
+                "UserMessageIfVerificationFailedNoRetry": "错误地尝试过多，请稍后再试。",
                 "UserMessageIfVerificationFailedRetryAllowed": "验证失败，请重试"
-            },
-            "UxElement": {
-                "ver_but_resend": "发送新的重置代码",
-                "ver_but_send": "发送重置代码",
-                "ver_but_verify": "验证重置代码",
-                "ver_fail_retry": "验证失败，请重试",
-                "ver_info_msg": "重置代码已发送到您的电子邮件。请将其复制到下面的输入框中并验证重置代码。",
-                "ver_intro_msg": "在下方输入您的电子邮件地址以接收重置代码。"
             }
         },
         "localaccountsignup": {
             "ClaimType": {
+                "countryCode": {
+                    "DisplayName": "国家"
+                },
                 "email": {
                     "DisplayName": "电子邮箱"
                 },
@@ -31,26 +41,70 @@
                     "DisplayName": "隐私政策",
                     "UserHelpText": "请同意 KidsLoop 隐私政策以创建账户"
                 },
+                "nationalNumber": {
+                    "DisplayName": "手机号码"
+                },
                 "newPassword": {
-                    "DisplayName": "密码"
+                    "DisplayName": "创建密码",
+                    "PatternHelpText": "8-16 个字符，包含以下 4 个字符中的 3 个：小写字符、大写字符、数字 (0-9) 以及以下一个或多个符号：@ # $ % ^ &amp; * - _ + = [ ] { } | \\ : ' , ? /`~\" ();."
+                },
+                "reenterPassword": {
+                    "DisplayName": "确认密码"
+                },
+                "verificationCode": {
+                    "DisplayName": "验证码"
                 }
+            },
+            "DisplayControl": {
+                "emailControl": {
+                    "but_change_claims": "更改邮件地址",
+                    "but_send_code": "发送验证码",
+                    "but_send_new_code": "发送新代码",
+                    "but_verify_code": "验证码"
+                },
+                "phoneVerificationControl": {
+                    "but_change_claims": "更改电话号码",
+                    "but_send_code": "发送验证码",
+                    "but_send_new_code": "发送新代码",
+                    "but_verify_code": "验证码"
+                }
+            },
+            "ErrorMessage": {
+                "UserMessageIfClaimsPrincipalAlreadyExists": "使用此邮箱或号码的账户已存在。",
+                "UserMessageIfMaxAllowedCodeRetryReached": "错误地尝试过多，请稍后再试。",
+                "UserMessageIfVerificationFailedNoRetry": "错误地尝试过多，请稍后再试。",
+                "UserMessageIfVerificationFailedRetryAllowed": "代码不正确。请再试一次。",
+                "UserMessageIfWrongCodeEntered": "代码不正确。请再试一次。"
             },
             "LocalizedCollection": {
                 "hasAcceptedPrivacyPolicy": {
                     "true": "我同意 KidsLoop {{隐私政策}}"
                 }
             },
+            "Predicate": {
+                "internationalOrNationalPhoneNumber": {
+                    "HelpText": "无效的数字格式。请确保电话号码不包含任何特殊字符，例如 []{}()。"
+                },
+                "noLeadingPlus": {
+                    "HelpText": "您无需在此处填写您的国家/地区代码。请使用上面的下拉菜单选择您的国家代码"
+                }
+            },
+            "UXElement": {
+                "button_continue": "创建账户"
+            },
             "UxElement": {
                 "ver_but_edit": "更改电子邮件",
                 "ver_but_resend": "发送新代码",
                 "ver_but_send": "发送验证码",
-                "ver_but_verify": "验证码"
+                "ver_but_verify": "验证码",
+                "ver_fail_no_retry": "错误地尝试过多，请稍后再试。"
             }
         },
         "selfasserted.localaccountpasswordchange": {
             "ClaimType": {
                 "newPassword": {
-                    "DisplayName": "新密码"
+                    "DisplayName": "新密码",
+                    "PatternHelpText": "8-16 个字符，包含以下 4 个字符中的 3 个：小写字符、大写字符、数字 (0-9) 以及以下一个或多个符号：@ # $ % ^ &amp; * - _ + = [ ] { } | \\ : ' , ? /`~\" ();."
                 },
                 "reenterPassword": {
                     "DisplayName": "确认新密码"
@@ -61,6 +115,27 @@
                 "initial_intro": "快好了！在下方输入您的新密码。"
             }
         },
+        "selfasserted": {
+            "ClaimType": {
+                "countryCode": {
+                    "DisplayName": "国家"
+                },
+                "nationalNumber": {
+                    "DisplayName": "手机号码"
+                }
+            },
+            "Predicate": {
+                "internationalOrNationalPhoneNumber": {
+                    "HelpText": "无效的数字格式。请确保电话号码不包含任何特殊字符，例如 []{}()。"
+                },
+                "noLeadingPlus": {
+                    "HelpText": "您无需在此处填写您的国家/地区代码。请使用上面的下拉菜单选择您的国家代码"
+                }
+            },
+            "UxElement": {
+                "required_field": "不能为空"
+            }
+        },
         "signuporsignin": {
             "ClaimType": {
                 "password": {
@@ -68,9 +143,13 @@
                 },
                 "signInName": {
                     "DisplayName": "电子邮箱"
+                },
+                "signInNamePhoneNumber": {
+                    "DisplayName": "手机号码"
                 }
             },
             "ClaimsProvider": {
+                "SigninWithPhone": "使用电话号码",
                 "SignupWithEmail": "邮箱",
                 "SignupWithPhone": "手机号"
             },

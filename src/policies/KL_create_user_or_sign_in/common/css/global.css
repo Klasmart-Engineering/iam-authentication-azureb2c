@@ -293,6 +293,7 @@ p {
 .buttons button[aria-disabled="true"] {
     opacity: 30%;
 }
+
 .buttons button:not([aria-disabled="true"]) {
     opacity: 100%;
 }

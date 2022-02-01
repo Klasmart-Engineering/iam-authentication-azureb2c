@@ -1,0 +1,42 @@
+/* stylelint-disable selector-class-pattern, selector-id-pattern -- most classes/IDs are dictated by Azure B2C */
+
+#SigninWithPhone,
+#SigninWithEmail {
+    /* We want this to be hidden on initial load, then inline styled with display: block (using JS)
+    after we move the link to the right place */
+    color: #2765c1;
+    display: none;
+    float: right;
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.25rem;
+    text-decoration: none;
+}
+
+#signInName {
+    /* Space before `Use Phone number/email */
+    margin-bottom: 0.5rem;
+}
+
+.password-label {
+    /* Space after `Use Phone number/email */
+    margin-top: 0.5rem;
+}
+
+#nationalNumber,
+#signInNamePhoneNumber {
+    /* Space between number and "Use email" link */
+    margin-bottom: 0.5rem;
+}
+
+.nationalNumber_li {
+    /* Space after phone number */
+    margin-bottom: 3rem;
+}
+
+.claims-provider-list-text-links {
+    color: #616161;
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-top: 1.25rem;
+}

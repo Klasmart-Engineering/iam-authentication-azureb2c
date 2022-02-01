@@ -59,13 +59,19 @@ p {
 #email,
 #password,
 #signInName,
+#signInNamePhoneNumber,
 #verificationCode,
 #countryCode {
     border-color: #b8b8b8;
     border-radius: 8px;
+    border-style: solid;
     border-width: 1px;
     padding: 16px 12px;
     width: 100%;
+}
+
+#countryCode {
+    background: transparent;
 }
 
 .entry-item,

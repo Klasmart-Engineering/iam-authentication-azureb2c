@@ -24,6 +24,12 @@
             data-preload="true"
             type="text/css"
         />
+        <link
+            href="../index.css"
+            rel="stylesheet"
+            data-preload="true"
+            type="text/css"
+        />
         <title>KidsLoop | Iniciar sesi&oacute;n</title>
     </head>
 
@@ -35,7 +41,11 @@
                         class="logo"
                         src="../../../../../assets/logo.svg"
                     /><!-- Made visible after initial locale is set (to avoid seeing it flicker) -->
-                    <div class="header__language-select" hidden>
+                    <div
+                        id="language-select__container"
+                        class="header__language-select"
+                        style="display: none"
+                    >
                         <img
                             src="../../../../../assets/language-select-icon.svg"
                             alt="Ícono de selección de idioma"
@@ -86,7 +96,13 @@
                 />
             </div>
         </div>
-
+        <a
+            id="SigninWithEmail"
+            class="text-link"
+            style="display: none"
+            href="javascript:history.back()"
+            >Usar correo electrónico</a
+        >
         <script src="https://klukb2cstorage.blob.core.windows.net/b2ccosmosdb/policies/KL_create_user_or_sign_in/pages/unified-sign-up-or-sign-in/bundle.js"></script>
     </body>
 </html>

@@ -1,5 +1,13 @@
 const LANGUAGE_DROPDOWN_SELECTOR = "#language-select"
+const LANGUAGE_DROPDOWN_CONTAINER_SELECTOR = "#language-select__container"
 const LANGUAGE_PARAM = "ui_locales"
+
+const LOGIN_WITH_PHONE_SELECTOR = "#SigninWithPhone"
+const EMAIL_INPUT_SELECTOR = "#signInName"
+
+const LOGIN_WITH_EMAIL_SELECTOR = "#SigninWithEmail"
+const PHONE_NUMBER_INPUT_SELECTOR = "#signInNamePhoneNumber"
+const NATIONAL_NUMBER_INPUT_SELECTOR = "#nationalNumber"
 
 const SIGN_IN_NAME_SELECTOR = "#signInName"
 const REDIRECT_TO_SSO_BUTTON_SELECTOR = "#SiginInWithKidsLoopCredentials"
@@ -30,14 +38,18 @@ const onChangeLanguage = (e: Event) => {
     window.location.replace(url)
 }
 
-const setupLanguangeSelect = () => {
+const setupLanguageSelect = () => {
     const languageDropdown = checkedQuerySelector<HTMLInputElement>(
         LANGUAGE_DROPDOWN_SELECTOR
     )
 
+    const languageDropdownContainer = checkedQuerySelector(
+        LANGUAGE_DROPDOWN_CONTAINER_SELECTOR
+    )
+
     setInitialLanguage(languageDropdown)
 
-    languageDropdown.hidden = false
+    languageDropdownContainer.style.removeProperty("display")
 
     languageDropdown.addEventListener("change", onChangeLanguage)
 }
@@ -49,6 +61,17 @@ const setInitialLanguage = (languageDropdown: HTMLInputElement) => {
         new URLSearchParams(location.search).get(LANGUAGE_PARAM)
 
     if (currentLocale) languageDropdown.value = currentLocale
+}
+
+const repositionPhoneLoginLink = () => {
+    const phoneLoginLink = checkedQuerySelector<HTMLAnchorElement>(
+        LOGIN_WITH_PHONE_SELECTOR
+    )
+
+    const emailInput = checkedQuerySelector(EMAIL_INPUT_SELECTOR)
+
+    emailInput.parentElement?.appendChild(phoneLoginLink)
+    phoneLoginLink.style.display = "block"
 }
 
 const isKidsloopEmail = (email: string): boolean => {
@@ -95,9 +118,38 @@ const setupKidsloopSSORedirect = () => {
     signInNameInput.addEventListener("blur", redirectToKidsloopSSO)
 }
 
+const setupUseEmail = () => {
+    const emailLoginLink = checkedQuerySelector<HTMLTemplateElement>(
+        LOGIN_WITH_EMAIL_SELECTOR
+    )
+
+    // Phone number input is different per page in the SigninWithPhone journey
+    // 1st Page: Country Code + National Number input
+    // 2nd Page: Combined phone number input
+    const phoneNumberInput =
+        document.querySelector(NATIONAL_NUMBER_INPUT_SELECTOR) ||
+        document.querySelector(PHONE_NUMBER_INPUT_SELECTOR)
+
+    if (phoneNumberInput === null) {
+        throw new Error(`Phone number input not found`)
+    }
+
+    phoneNumberInput.parentElement?.appendChild(emailLoginLink)
+    emailLoginLink.style.display = "block"
+}
+
+const isEmailLoginPage = (): boolean => {
+    return document.querySelector(EMAIL_INPUT_SELECTOR) !== null
+}
+
 const setup = () => {
-    setupLanguangeSelect()
-    setupKidsloopSSORedirect()
+    if (isEmailLoginPage()) {
+        setupLanguageSelect()
+        repositionPhoneLoginLink()
+        setupKidsloopSSORedirect()
+    } else {
+        setupUseEmail()
+    }
 }
 
 if (

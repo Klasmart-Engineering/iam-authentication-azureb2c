@@ -1,6 +1,4 @@
-<TrustFrameworkPolicy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-  xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06" PolicySchemaVersion="0.3.0.0" TenantId="{settings:Tenant}" PolicyId="B2C_1A__{settings:PolicyNamePrefix}TrustFrameworkExtensions" PublicPolicyUri="http://{settings:Tenant}/B2C_1A__{settings:PolicyNamePrefix}TrustFrameworkExtensions">
+<TrustFrameworkPolicy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06" PolicySchemaVersion="0.3.0.0" TenantId="{settings:Tenant}" PolicyId="B2C_1A__{settings:PolicyNamePrefix}TrustFrameworkExtensions" PublicPolicyUri="http://{settings:Tenant}/B2C_1A__{settings:PolicyNamePrefix}TrustFrameworkExtensions">
   <BasePolicy>
     <TenantId>{settings:Tenant}</TenantId>
     <PolicyId>B2C_1A__{settings:PolicyNamePrefix}TrustFrameworkBase</PolicyId>
@@ -13,14 +11,12 @@
         <DataType>stringCollection</DataType>
         <UserHelpText>User identity providers</UserHelpText>
       </ClaimType>
-
       <ClaimType Id="idps">
         <DisplayName>IDP comma delimiter string</DisplayName>
         <DataType>string</DataType>
         <UserHelpText>identity providers in a comma separated string</UserHelpText>
       </ClaimType>
       <!-- End of Dynamic identity provider selection claims -->
-
       <!-- Custom claims for federation -->
       <ClaimType Id="idpObjectId">
         <DisplayName>Issuer Object ID</DisplayName>
@@ -32,19 +28,16 @@
         <DataType>string</DataType>
         <UserHelpText />
       </ClaimType>
-
       <ClaimType Id="locale">
         <DisplayName>Locale</DisplayName>
         <DataType>string</DataType>
         <UserHelpText />
       </ClaimType>
-
       <ClaimType Id="roles">
         <DisplayName>Consolidated roles collection</DisplayName>
         <DataType>stringCollection</DataType>
         <UserHelpText />
       </ClaimType>
-
       <ClaimType Id="identityProviderAccessToken">
         <DisplayName>Identity Provider Access Token</DisplayName>
         <DataType>string</DataType>
@@ -55,7 +48,6 @@
         <DataType>string</DataType>
         <AdminHelpText>Stores the refresh token of the identity provider.</AdminHelpText>
       </ClaimType>
-
       <ClaimType Id="loginHint">
         <DisplayName>Login Hint</DisplayName>
         <DataType>string</DataType>
@@ -149,6 +141,11 @@
         <DataType>boolean</DataType>
         <AdminHelpText>Whether the user has selected Forgot your Password</AdminHelpText>
       </ClaimType>
+      <ClaimType Id="isForgotPasswordPhone">
+        <DisplayName>isForgotPassword</DisplayName>
+        <DataType>boolean</DataType>
+        <AdminHelpText>Whether the user has selected Forgot your Password</AdminHelpText>
+      </ClaimType>
       <ClaimType Id="isEmailBoolean">
         <DisplayName>is Email</DisplayName>
         <DataType>boolean</DataType>
@@ -184,8 +181,15 @@
         <DataType>string</DataType>
       </ClaimType>
       <ClaimType Id="signInName">
-        <DisplayName>Email Address or Phone Number</DisplayName>
-        <PredicateValidationReference Id="phoneOrEmailSignInName" />
+        <DisplayName>Email Address</DisplayName>
+        <PredicateValidationReference Id="email" />
+      </ClaimType>
+      <ClaimType Id="signInNamePhoneNumber">
+        <DisplayName>Phone Number</DisplayName>
+        <DataType>string</DataType>
+        <UserHelpText />
+        <UserInputType>TextBox</UserInputType>
+        <PredicateValidationReference Id="internationalOrNationalPhoneNumber" />
       </ClaimType>
       <ClaimType Id="phoneNumber">
         <DisplayName>Phone Number</DisplayName>
@@ -201,6 +205,12 @@
         <UserInputType>TextBox</UserInputType>
         <PredicateValidationReference Id="nationalNumber" />
       </ClaimType>
+      <ClaimType Id="LoggingInWithPhone">
+        <DisplayName>LoggingInWithPhone</DisplayName>
+        <DataType>string</DataType>
+        <AdminHelpText>Add help text here</AdminHelpText>
+      </ClaimType>
+
       <ClaimType Id="countryCode">
         <DisplayName>Phone Number</DisplayName>
         <DataType>string</DataType>
@@ -509,17 +519,6 @@
           </PredicateGroup>
         </PredicateGroups>
       </PredicateValidation>
-      <PredicateValidation Id="phoneOrEmailSignInName">
-        <PredicateGroups>
-          <PredicateGroup Id="phoneOrEmailSignInName">
-            <UserHelpText>Please enter at least one of the following:</UserHelpText>
-            <PredicateReferences MatchAtLeast="1">
-              <PredicateReference Id="email" />
-              <PredicateReference Id="internationalPhoneNumber" />
-            </PredicateReferences>
-          </PredicateGroup>
-        </PredicateGroups>
-      </PredicateValidation>
       <PredicateValidation Id="nationalNumber">
         <PredicateGroups>
           <PredicateGroup Id="internationalOrNationalPhoneNumber">
@@ -537,7 +536,6 @@
       <PredicateValidation Id="internationalOrNationalPhoneNumber">
         <PredicateGroups>
           <PredicateGroup Id="internationalOrNationalPhoneNumber">
-            <UserHelpText>Please enter a valid phone number.</UserHelpText>
             <PredicateReferences>
               <PredicateReference Id="internationalOrNationalPhoneNumber" />
             </PredicateReferences>
@@ -546,6 +544,14 @@
       </PredicateValidation>
     </PredicateValidations>
     <ClaimsTransformations>
+      <ClaimsTransformation Id="CopySignInPhoneNumberToSigninName" TransformationMethod="CopyClaim">
+        <InputClaims>
+          <InputClaim ClaimTypeReferenceId="signInNamePhoneNumber" TransformationClaimType="inputClaim" />
+        </InputClaims>
+        <OutputClaims>
+          <OutputClaim ClaimTypeReferenceId="signInName" TransformationClaimType="outputClaim" />
+        </OutputClaims>
+      </ClaimsTransformation>
       <ClaimsTransformation Id="CopySignInNameToReadOnly" TransformationMethod="FormatStringClaim">
         <InputClaims>
           <InputClaim ClaimTypeReferenceId="signInName" TransformationClaimType="inputClaim" />
@@ -664,6 +670,22 @@
           <OutputClaim ClaimTypeReferenceId="signInNames.phoneNumber" TransformationClaimType="outputClaim" />
         </OutputClaims>
       </ClaimsTransformation>
+      <ClaimsTransformation Id="CopySignInNamesPhoneNumberToSignInName" TransformationMethod="ConvertPhoneNumberClaimToString">
+        <InputClaims>
+          <InputClaim ClaimTypeReferenceId="signInNames.phoneNumber" TransformationClaimType="phoneNumber" />
+        </InputClaims>
+        <OutputClaims>
+          <OutputClaim ClaimTypeReferenceId="signInName" TransformationClaimType="phoneNumberString" />
+        </OutputClaims>
+      </ClaimsTransformation>
+      <ClaimsTransformation Id="CopySignInNamesPhoneNumberToSignInNamePhoneNumber" TransformationMethod="ConvertPhoneNumberClaimToString">
+        <InputClaims>
+          <InputClaim ClaimTypeReferenceId="signInNames.phoneNumber" TransformationClaimType="phoneNumber" />
+        </InputClaims>
+        <OutputClaims>
+          <OutputClaim ClaimTypeReferenceId="signInNamePhoneNumber" TransformationClaimType="phoneNumberString" />
+        </OutputClaims>
+      </ClaimsTransformation>
       <ClaimsTransformation Id="ConvertSignInNameStringToPhoneNumber" TransformationMethod="ConvertStringToPhoneNumberClaim">
         <InputClaims>
           <InputClaim ClaimTypeReferenceId="signInName" TransformationClaimType="phoneNumberString" />
@@ -727,7 +749,6 @@
           <DisplayName>Local Account Signin</DisplayName>
           <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
           <Metadata>
-            <Item Key="SignUpTarget">LocalAccountSignUp</Item>
             <Item Key="ContentDefinitionReferenceId">api.selfasserted</Item>
             <Item Key="UserMessageIfClaimsTransformationStringsAreNotEqual">The last names you provided are not the same</Item>
             <Item Key="AllowGenerationOfClaimsWithNullValues">true</Item>
@@ -747,6 +768,60 @@
             <OutputClaim ClaimTypeReferenceId="isUserNameBoolean" />
           </OutputClaims>
           <ValidationTechnicalProfiles>
+            <ValidationTechnicalProfile ReferenceId="login-NonInteractive" />
+            <ValidationTechnicalProfile ReferenceId="regexAnalysisUsername" />
+          </ValidationTechnicalProfiles>
+          <UseTechnicalProfileForSessionManagement ReferenceId="SM-AAD" />
+        </TechnicalProfile>
+        <TechnicalProfile Id="SelfAsserted-LocalAccountSignin-PhoneNumber">
+          <DisplayName>Use Phone number</DisplayName>
+          <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+          <Metadata>
+            <Item Key="ContentDefinitionReferenceId">api.selfasserted</Item>
+            <Item Key="ClaimsProviderSelectionDisplayType">TextLink</Item>
+            <Item Key="AllowGenerationOfClaimsWithNullValues">true</Item>
+          </Metadata>
+          <IncludeInSso>false</IncludeInSso>
+          <InputClaims>
+            <InputClaim ClaimTypeReferenceId="countryCode" />
+            <InputClaim ClaimTypeReferenceId="nationalNumber" />
+          </InputClaims>
+          <OutputClaims>
+            <OutputClaim ClaimTypeReferenceId="countryCode" Required="true" />
+            <OutputClaim ClaimTypeReferenceId="nationalNumber" Required="true" />
+            <OutputClaim ClaimTypeReferenceId="signInNamePhoneNumber" />
+          </OutputClaims>
+          <ValidationTechnicalProfiles>
+            <ValidationTechnicalProfile ReferenceId="CombineCountryCodeAndNationalNumber" />
+            <ValidationTechnicalProfile ReferenceId="CopySignInNamesPhoneNumberToSignInNamePhoneNumber" />
+          </ValidationTechnicalProfiles>
+          <UseTechnicalProfileForSessionManagement ReferenceId="SM-AAD" />
+        </TechnicalProfile>
+        <TechnicalProfile Id="SelfAsserted-LocalAccountSignin-PhoneNumber-Actual">
+          <DisplayName>Use Phone number</DisplayName>
+          <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+          <Metadata>
+            <Item Key="ContentDefinitionReferenceId">api.signuporsignin</Item>
+            <Item Key="ClaimsProviderSelectionDisplayType">TextLink</Item>
+            <Item Key="AllowGenerationOfClaimsWithNullValues">true</Item>
+            <Item Key="setting.forgotPasswordLinkOverride">ForgotPasswordExchangePhone</Item>
+          </Metadata>
+          <IncludeInSso>false</IncludeInSso>
+          <InputClaims>
+            <InputClaim ClaimTypeReferenceId="signInNamePhoneNumber" />
+          </InputClaims>
+          <OutputClaims>
+            <OutputClaim ClaimTypeReferenceId="signInNamePhoneNumber" />
+            <OutputClaim ClaimTypeReferenceId="password" Required="true" />
+            <OutputClaim ClaimTypeReferenceId="objectId" />
+            <OutputClaim ClaimTypeReferenceId="authenticationSource" />
+            <OutputClaim ClaimTypeReferenceId="isEmailBoolean" />
+            <OutputClaim ClaimTypeReferenceId="isPhoneBoolean" />
+            <OutputClaim ClaimTypeReferenceId="isUserNameBoolean" />
+            <OutputClaim ClaimTypeReferenceId="signInName" />
+          </OutputClaims>
+          <ValidationTechnicalProfiles>
+            <ValidationTechnicalProfile ReferenceId="CopySignInNamePhoneNumberToSignInName" />
             <ValidationTechnicalProfile ReferenceId="login-NonInteractive" />
             <ValidationTechnicalProfile ReferenceId="regexAnalysisUsername" />
           </ValidationTechnicalProfiles>
@@ -784,6 +859,13 @@
             <OutputClaim ClaimTypeReferenceId="isForgotPassword" DefaultValue="true" AlwaysUseDefaultValue="true" />
           </OutputClaims>
         </TechnicalProfile>
+        <TechnicalProfile Id="ForgotPasswordPhone">
+          <DisplayName>Forgot your password?</DisplayName>
+          <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.ClaimsTransformationProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+          <OutputClaims>
+            <OutputClaim ClaimTypeReferenceId="isForgotPasswordPhone" DefaultValue="true" AlwaysUseDefaultValue="true" />
+          </OutputClaims>
+        </TechnicalProfile>
         <TechnicalProfile Id="LocalAccountWritePasswordUsingObjectId">
           <Metadata>
             <!-- Defaults to api.localaccountpasswordreset, which isn't what we want as we have different text/CSS for the "change password" step-->
@@ -794,6 +876,7 @@
     </ClaimsProvider>
     <ClaimsProvider>
       <DisplayName>Local Account</DisplayName>
+
       <TechnicalProfiles>
         <!-- Call at step one to see if user has valid login session -->
         <TechnicalProfile Id="CheckSession">
@@ -1034,6 +1117,35 @@
     <ClaimsProvider>
       <DisplayName>Local Account Pwd Reset</DisplayName>
       <TechnicalProfiles>
+        <TechnicalProfile Id="LocalAccountDiscoveryUsingPhone">
+          <DisplayName>Reset password using phone</DisplayName>
+          <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+          <Metadata>
+            <Item Key="IpAddressClaimReferenceId">IpAddress</Item>
+            <Item Key="ContentDefinitionReferenceId">api.localaccountpasswordreset</Item>
+          </Metadata>
+          <CryptographicKeys>
+            <Key Id="issuer_secret" StorageReferenceId="B2C_1A_TokenSigningKeyContainer" />
+          </CryptographicKeys>
+          <IncludeInSso>false</IncludeInSso>
+          <InputClaimsTransformations>
+            <InputClaimsTransformation ReferenceId="CreateRandomUPNUserName" />
+            <InputClaimsTransformation ReferenceId="CreateUserPrincipalName" />
+          </InputClaimsTransformations>
+          <DisplayClaims>
+            <DisplayClaim DisplayControlReferenceId="phoneVerificationControl" />
+          </DisplayClaims>
+          <OutputClaims>
+            <OutputClaim ClaimTypeReferenceId="objectId" />
+            <OutputClaim ClaimTypeReferenceId="userPrincipalName" />
+            <OutputClaim ClaimTypeReferenceId="signInNames.phoneNumber" />
+          </OutputClaims>
+          <ValidationTechnicalProfiles>
+            <ValidationTechnicalProfile ReferenceId="CombineCountryCodeAndNationalNumber" />
+            <ValidationTechnicalProfile ReferenceId="AAD-UserReadUsingPhoneNumber" />
+          </ValidationTechnicalProfiles>
+        </TechnicalProfile>
+
         <TechnicalProfile Id="LocalAccountDiscoveryUsingUserNameAndValidateStrongAuthenticationEmailAddress">
           <DisplayName>Reset password using username</DisplayName>
           <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -1065,6 +1177,33 @@
           </ValidationTechnicalProfiles>
           <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
         </TechnicalProfile>
+        <TechnicalProfile Id="AAD-UserReadUsingPhoneNumber">
+          <Metadata>
+            <Item Key="Operation">Read</Item>
+            <Item Key="RaiseErrorIfClaimsPrincipalDoesNotExist">true</Item>
+          </Metadata>
+          <IncludeInSso>false</IncludeInSso>
+          <InputClaims>
+            <InputClaim ClaimTypeReferenceId="signInNames.phoneNumber" Required="true" />
+          </InputClaims>
+          <OutputClaims>
+            <!-- Required claims -->
+            <OutputClaim ClaimTypeReferenceId="objectId" />
+            <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="localAccountAuthentication" />
+            <OutputClaim ClaimTypeReferenceId="strongAuthenticationPhoneNumber" />
+            <!-- Optional claims -->
+            <OutputClaim ClaimTypeReferenceId="userPrincipalName" />
+            <OutputClaim ClaimTypeReferenceId="displayName" />
+            <OutputClaim ClaimTypeReferenceId="accountEnabled" />
+            <OutputClaim ClaimTypeReferenceId="otherMails" />
+            <OutputClaim ClaimTypeReferenceId="signInNames.phoneNumber" />
+          </OutputClaims>
+          <OutputClaimsTransformations>
+            <OutputClaimsTransformation ReferenceId="AssertAccountEnabledIsTrue" />
+          </OutputClaimsTransformations>
+          <IncludeTechnicalProfile ReferenceId="AAD-Common" />
+        </TechnicalProfile>
+
         <TechnicalProfile Id="AAD-UserReadUsingUserNameAndValidateStrongAuthenticationEmailAddress">
           <Metadata>
             <Item Key="Operation">Read</Item>
@@ -1142,7 +1281,7 @@
           </InputClaimsTransformations>
           <InputClaims>
             <InputClaim ClaimTypeReferenceId="userIdForMFA" PartnerClaimType="UserId" />
-            <InputClaim ClaimTypeReferenceId="strongAuthenticationPhoneNumber" PartnerClaimType="signInName.phoneNumber" />
+            <InputClaim ClaimTypeReferenceId="strongAuthenticationPhoneNumber" PartnerClaimType="signInNamePhoneNumber" />
           </InputClaims>
           <OutputClaims>
             <OutputClaim ClaimTypeReferenceId="Verified.strongAuthenticationPhoneNumber" PartnerClaimType="Verified.OfficePhone" />
@@ -1158,6 +1297,40 @@
           </InputClaimsTransformations>
           <OutputClaims>
             <OutputClaim ClaimTypeReferenceId="signInNames.phoneNumber" />
+          </OutputClaims>
+          <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
+        </TechnicalProfile>
+        <TechnicalProfile Id="CopySignInNamesPhoneNumberToSignInName">
+          <DisplayName>Combine country code and national number</DisplayName>
+          <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.ClaimsTransformationProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+          <InputClaimsTransformations>
+            <InputClaimsTransformation ReferenceId="CopySignInNamesPhoneNumberToSignInName" />
+          </InputClaimsTransformations>
+          <OutputClaims>
+            <OutputClaim ClaimTypeReferenceId="signInName" />
+          </OutputClaims>
+          <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
+        </TechnicalProfile>
+        <TechnicalProfile Id="CopySignInNamesPhoneNumberToSignInNamePhoneNumber">
+          <DisplayName>Combine country code and national number</DisplayName>
+          <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.ClaimsTransformationProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+          <InputClaimsTransformations>
+            <InputClaimsTransformation ReferenceId="CopySignInNamesPhoneNumberToSignInNamePhoneNumber" />
+          </InputClaimsTransformations>
+          <OutputClaims>
+            <OutputClaim ClaimTypeReferenceId="signInNamePhoneNumber" />
+          </OutputClaims>
+          <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
+        </TechnicalProfile>
+
+        <TechnicalProfile Id="CopySignInNamePhoneNumberToSignInName">
+          <DisplayName>Combine country code and national number</DisplayName>
+          <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.ClaimsTransformationProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+          <InputClaimsTransformations>
+            <InputClaimsTransformation ReferenceId="CopySignInPhoneNumberToSigninName" />
+          </InputClaimsTransformations>
+          <OutputClaims>
+            <OutputClaim ClaimTypeReferenceId="signInName" />
           </OutputClaims>
           <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
         </TechnicalProfile>
@@ -1415,7 +1588,6 @@
         </TechnicalProfile>
       </TechnicalProfiles>
     </ClaimsProvider>
-
     <ClaimsProvider>
       <Domain>MCB</Domain>
       <DisplayName>Myclassboard</DisplayName>
@@ -1474,7 +1646,7 @@
             <Item Key="IncludeClaimResolvingInClaimsHandling">true</Item>
           </Metadata>
           <InputClaims>
-            <!-- The default value is set by a variable during deployment pipeline. 
+            <!-- The default value is set by a variable during deployment pipeline.
                   {OAUTH-KV:idps} means the enabled IdPs is read from the url, or you can provide a comma separated list "idp1,idp2" in the appsettings and not use a query parameter. -->
             <InputClaim ClaimTypeReferenceId="idps" DefaultValue="{Settings:EnabledFederatedIdps}" AlwaysUseDefaultValue="true" />
           </InputClaims>
@@ -1490,6 +1662,64 @@
     </ClaimsProvider>
   </ClaimsProviders>
   <UserJourneys>
+    <UserJourney Id="SUSI-PhoneOrEmail" DefaultCpimIssuerTechnicalProfileReferenceId="JwtIssuer">
+      <OrchestrationSteps>
+        <OrchestrationStep Order="1" Type="ClaimsExchange">
+          <ClaimsExchanges>
+            <ClaimsExchange Id="ClaimsExchange-CheckSession" TechnicalProfileReferenceId="CheckSession" />
+          </ClaimsExchanges>
+        </OrchestrationStep>
+        <OrchestrationStep Order="2" Type="ClaimsExchange">
+          <ClaimsExchanges>
+            <ClaimsExchange Id="Get-IdentityProvidersList" TechnicalProfileReferenceId="Get-IdentityProvidersList" />
+          </ClaimsExchanges>
+        </OrchestrationStep>
+        <OrchestrationStep Order="3" Type="CombinedSignInAndSignUp" ContentDefinitionReferenceId="api.signuporsignin">
+          <ClaimsProviderSelections>
+            <ClaimsProviderSelection ValidationClaimsExchangeId="LocalAccountSigninPhoneOrEmailExchange" />
+            <ClaimsProviderSelection TargetClaimsExchangeId="SiginInWithMCBCredentials" />
+            <ClaimsProviderSelection TargetClaimsExchangeId="SiginInWithKidsLoopCredentials" />
+            <ClaimsProviderSelection TargetClaimsExchangeId="SigninWithPhone" />
+            <ClaimsProviderSelection TargetClaimsExchangeId="SignupWithEmail" />
+            <ClaimsProviderSelection TargetClaimsExchangeId="SignupWithPhone" />
+            <ClaimsProviderSelection TargetClaimsExchangeId="ForgotPasswordExchange" />
+          </ClaimsProviderSelections>
+          <ClaimsExchanges>
+            <ClaimsExchange Id="LocalAccountSigninPhoneOrEmailExchange" TechnicalProfileReferenceId="SelfAsserted-LocalAccountSignin-Username" />
+          </ClaimsExchanges>
+        </OrchestrationStep>
+        <!-- A new end-user has selected to sign up with a phone number -->
+        <OrchestrationStep Order="4" Type="ClaimsExchange">
+          <Preconditions>
+            <Precondition Type="ClaimsExist" ExecuteActionsIf="true">
+              <Value>objectId</Value>
+              <Action>SkipThisOrchestrationStep</Action>
+            </Precondition>
+            <Precondition Type="ClaimsExist" ExecuteActionsIf="true">
+              <Value>issuerUserId</Value>
+              <Action>SkipThisOrchestrationStep</Action>
+            </Precondition>
+          </Preconditions>
+          <ClaimsExchanges>
+            <ClaimsExchange Id="LocalAccountSignUp" TechnicalProfileReferenceId="LocalAccountSignUp-EntryPoint" />
+            <ClaimsExchange Id="SiginInWithMCBCredentials" TechnicalProfileReferenceId="Log-in-with-MCB" />
+            <ClaimsExchange Id="SiginInWithKidsLoopCredentials" TechnicalProfileReferenceId="Log-in-with-Kids-Loop" />
+            <ClaimsExchange Id="SigninWithPhone" TechnicalProfileReferenceId="SelfAsserted-LocalAccountSignin-PhoneNumber" />
+            <ClaimsExchange Id="SignupWithEmail" TechnicalProfileReferenceId="LocalAccountSignUpWithLogonEmail-custom" />
+            <ClaimsExchange Id="SignupWithPhone" TechnicalProfileReferenceId="LocalAccountSignUpWithLogonPhoneNumber-WithDisplayControls" />
+            <ClaimsExchange Id="ForgotPasswordExchange" TechnicalProfileReferenceId="ForgotPassword" />
+          </ClaimsExchanges>
+        </OrchestrationStep>
+        <OrchestrationStep Order="5" Type="InvokeSubJourney">
+          <JourneyList>
+            <Candidate SubJourneyReferenceId="SUSI-PhoneOrEmail-Handler" />
+          </JourneyList>
+        </OrchestrationStep>
+        <OrchestrationStep Order="6" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="JwtIssuer" />
+
+      </OrchestrationSteps>
+      <ClientDefinition ReferenceId="DefaultWeb" />
+    </UserJourney>
     <UserJourney Id="SUSI-PhoneOrEmail-FederatedOnlyEntryPoint" DefaultCpimIssuerTechnicalProfileReferenceId="JwtIssuer">
       <OrchestrationSteps>
         <OrchestrationStep Order="1" Type="ClaimsExchange">
@@ -1528,6 +1758,7 @@
           <ClaimsProviderSelections>
             <ClaimsProviderSelection ValidationClaimsExchangeId="LocalAccountSigninPhoneOrEmailExchange" />
             <ClaimsProviderSelection TargetClaimsExchangeId="SiginInWithKidsLoopCredentials" />
+            <ClaimsProviderSelection TargetClaimsExchangeId="SigninWithPhone" />
             <ClaimsProviderSelection TargetClaimsExchangeId="SignupWithEmail" />
             <ClaimsProviderSelection TargetClaimsExchangeId="SignupWithPhone" />
             <ClaimsProviderSelection TargetClaimsExchangeId="ForgotPasswordExchange" />
@@ -1546,8 +1777,8 @@
           </Preconditions>
           <ClaimsExchanges>
             <ClaimsExchange Id="LocalAccountSignUp" TechnicalProfileReferenceId="LocalAccountSignUp-EntryPoint" />
-            <ClaimsExchange Id="SiginInWithMCBCredentials" TechnicalProfileReferenceId="Log-in-with-MCB" />
             <ClaimsExchange Id="SiginInWithKidsLoopCredentials" TechnicalProfileReferenceId="Log-in-with-Kids-Loop" />
+            <ClaimsExchange Id="SigninWithPhone" TechnicalProfileReferenceId="SelfAsserted-LocalAccountSignin-PhoneNumber" />
             <ClaimsExchange Id="SignupWithEmail" TechnicalProfileReferenceId="LocalAccountSignUpWithLogonEmail-custom" />
             <ClaimsExchange Id="SignupWithPhone" TechnicalProfileReferenceId="LocalAccountSignUpWithLogonPhoneNumber-WithDisplayControls" />
             <ClaimsExchange Id="ForgotPasswordExchange" TechnicalProfileReferenceId="ForgotPassword" />
@@ -1559,60 +1790,6 @@
           </JourneyList>
         </OrchestrationStep>
         <OrchestrationStep Order="5" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="JwtIssuer" />
-
-      </OrchestrationSteps>
-      <ClientDefinition ReferenceId="DefaultWeb" />
-    </UserJourney>
-
-    <UserJourney Id="SUSI-PhoneOrEmail" DefaultCpimIssuerTechnicalProfileReferenceId="JwtIssuer">
-      <OrchestrationSteps>
-        <OrchestrationStep Order="1" Type="ClaimsExchange">
-          <ClaimsExchanges>
-            <ClaimsExchange Id="ClaimsExchange-CheckSession" TechnicalProfileReferenceId="CheckSession" />
-          </ClaimsExchanges>
-        </OrchestrationStep>
-        <OrchestrationStep Order="2" Type="ClaimsExchange">
-          <ClaimsExchanges>
-            <ClaimsExchange Id="Get-IdentityProvidersList" TechnicalProfileReferenceId="Get-IdentityProvidersList" />
-          </ClaimsExchanges>
-        </OrchestrationStep>
-        <OrchestrationStep Order="3" Type="CombinedSignInAndSignUp" ContentDefinitionReferenceId="api.signuporsignin">
-          <ClaimsProviderSelections>
-            <ClaimsProviderSelection ValidationClaimsExchangeId="LocalAccountSigninPhoneOrEmailExchange" />
-            <ClaimsProviderSelection TargetClaimsExchangeId="SiginInWithMCBCredentials" />
-            <ClaimsProviderSelection TargetClaimsExchangeId="SiginInWithKidsLoopCredentials" />
-            <ClaimsProviderSelection TargetClaimsExchangeId="SignupWithEmail" />
-            <ClaimsProviderSelection TargetClaimsExchangeId="SignupWithPhone" />
-            <ClaimsProviderSelection TargetClaimsExchangeId="ForgotPasswordExchange" />
-          </ClaimsProviderSelections>
-          <ClaimsExchanges>
-            <ClaimsExchange Id="LocalAccountSigninPhoneOrEmailExchange" TechnicalProfileReferenceId="SelfAsserted-LocalAccountSignin-Username" />
-          </ClaimsExchanges>
-        </OrchestrationStep>
-        <!-- A new end-user has selected to sign up with a phone number -->
-        <OrchestrationStep Order="4" Type="ClaimsExchange">
-          <Preconditions>
-            <Precondition Type="ClaimsExist" ExecuteActionsIf="true">
-              <Value>objectId</Value>
-              <Action>SkipThisOrchestrationStep</Action>
-            </Precondition>
-          </Preconditions>
-          <ClaimsExchanges>
-            <ClaimsExchange Id="LocalAccountSignUp" TechnicalProfileReferenceId="LocalAccountSignUp-EntryPoint" />
-            <ClaimsExchange Id="SiginInWithMCBCredentials" TechnicalProfileReferenceId="Log-in-with-MCB" />
-            <ClaimsExchange Id="SiginInWithKidsLoopCredentials" TechnicalProfileReferenceId="Log-in-with-Kids-Loop" />
-            <ClaimsExchange Id="SignupWithEmail" TechnicalProfileReferenceId="LocalAccountSignUpWithLogonEmail-custom" />
-            <ClaimsExchange Id="SignupWithPhone" TechnicalProfileReferenceId="LocalAccountSignUpWithLogonPhoneNumber-WithDisplayControls" />
-            <ClaimsExchange Id="ForgotPasswordExchange" TechnicalProfileReferenceId="ForgotPassword" />
-          </ClaimsExchanges>
-        </OrchestrationStep>
-        <OrchestrationStep Order="5" Type="InvokeSubJourney">
-          <JourneyList>
-            <Candidate SubJourneyReferenceId="SUSI-PhoneOrEmail-Handler" />
-          </JourneyList>
-        </OrchestrationStep>
-        <OrchestrationStep Order="6" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="JwtIssuer" />
-
       </OrchestrationSteps>
       <ClientDefinition ReferenceId="DefaultWeb" />
     </UserJourney>
@@ -1696,12 +1873,75 @@
               <Value>isForgotPassword</Value>
               <Action>SkipThisOrchestrationStep</Action>
             </Precondition>
+            <Precondition Type="ClaimsExist" ExecuteActionsIf="true">
+              <Value>objectId</Value>
+              <Action>SkipThisOrchestrationStep</Action>
+            </Precondition>
           </Preconditions>
           <JourneyList>
             <Candidate SubJourneyReferenceId="PasswordResetUsingEmailAddress" />
           </JourneyList>
         </OrchestrationStep>
-        <OrchestrationStep Order="2" Type="InvokeSubJourney">
+        <OrchestrationStep Order="2" Type="CombinedSignInAndSignUp" ContentDefinitionReferenceId="api.signuporsignin">
+          <Preconditions>
+            <Precondition Type="ClaimsExist" ExecuteActionsIf="true">
+              <Value>objectId</Value>
+              <Action>SkipThisOrchestrationStep</Action>
+            </Precondition>
+            <Precondition Type="ClaimsExist" ExecuteActionsIf="true">
+              <Value>issuerUserId</Value>
+              <Action>SkipThisOrchestrationStep</Action>
+            </Precondition>
+          </Preconditions>
+          <ClaimsProviderSelections>
+            <ClaimsProviderSelection ValidationClaimsExchangeId="LocalAccountSigninPhoneOrEmailExchange2" />
+            <ClaimsProviderSelection TargetClaimsExchangeId="SignupWithEmail2" />
+            <ClaimsProviderSelection TargetClaimsExchangeId="SignupWithPhone2" />
+            <ClaimsProviderSelection TargetClaimsExchangeId="ForgotPasswordExchangePhone" />
+          </ClaimsProviderSelections>
+          <ClaimsExchanges>
+            <ClaimsExchange Id="LocalAccountSigninPhoneOrEmailExchange2" TechnicalProfileReferenceId="SelfAsserted-LocalAccountSignin-PhoneNumber-Actual" />
+          </ClaimsExchanges>
+        </OrchestrationStep>
+        <!-- A new end-user has selected to sign in with a phone number -->
+        <OrchestrationStep Order="3" Type="ClaimsExchange">
+          <Preconditions>
+            <Precondition Type="ClaimsExist" ExecuteActionsIf="true">
+              <Value>objectId</Value>
+              <Action>SkipThisOrchestrationStep</Action>
+            </Precondition>
+            <Precondition Type="ClaimsExist" ExecuteActionsIf="true">
+              <Value>issuerUserId</Value>
+              <Action>SkipThisOrchestrationStep</Action>
+            </Precondition>
+          </Preconditions>
+          <ClaimsExchanges>
+            <ClaimsExchange Id="LocalAccountSignUp2" TechnicalProfileReferenceId="LocalAccountSignUp-EntryPoint" />
+            <ClaimsExchange Id="SignupWithEmail2" TechnicalProfileReferenceId="LocalAccountSignUpWithLogonEmail-custom" />
+            <ClaimsExchange Id="SignupWithPhone2" TechnicalProfileReferenceId="LocalAccountSignUpWithLogonPhoneNumber-WithDisplayControls" />
+            <ClaimsExchange Id="ForgotPasswordExchangePhone" TechnicalProfileReferenceId="ForgotPasswordPhone" />
+          </ClaimsExchanges>
+        </OrchestrationStep>
+        <OrchestrationStep Order="4" Type="InvokeSubJourney">
+          <Preconditions>
+            <Precondition Type="ClaimsExist" ExecuteActionsIf="false">
+              <Value>isForgotPasswordPhone</Value>
+              <Action>SkipThisOrchestrationStep</Action>
+            </Precondition>
+            <Precondition Type="ClaimsExist" ExecuteActionsIf="true">
+              <Value>objectId</Value>
+              <Action>SkipThisOrchestrationStep</Action>
+            </Precondition>
+            <Precondition Type="ClaimsExist" ExecuteActionsIf="true">
+              <Value>issuerUserId</Value>
+              <Action>SkipThisOrchestrationStep</Action>
+            </Precondition>
+          </Preconditions>
+          <JourneyList>
+            <Candidate SubJourneyReferenceId="PasswordResetUsingPhone" />
+          </JourneyList>
+        </OrchestrationStep>
+        <OrchestrationStep Order="5" Type="InvokeSubJourney">
           <Preconditions>
             <Precondition Type="ClaimsExist" ExecuteActionsIf="false">
               <Value>authenticationSource</Value>
@@ -1717,7 +1957,7 @@
             <Candidate SubJourneyReferenceId="HandleFederatedUser" />
           </JourneyList>
         </OrchestrationStep>
-        <OrchestrationStep Order="3" Type="InvokeSubJourney">
+        <OrchestrationStep Order="6" Type="InvokeSubJourney">
           <Preconditions>
             <Precondition Type="ClaimsExist" ExecuteActionsIf="false">
               <Value>isLocalAccountSignUp</Value>
@@ -1733,13 +1973,12 @@
             <Candidate SubJourneyReferenceId="HandleEmailOrTelephoneSignUp" />
           </JourneyList>
         </OrchestrationStep>
-        <OrchestrationStep Order="4" Type="ClaimsExchange">
+        <OrchestrationStep Order="7" Type="ClaimsExchange">
           <ClaimsExchanges>
             <ClaimsExchange Id="AADUserReadWithObjectId" TechnicalProfileReferenceId="AAD-UserReadUsingObjectId" />
           </ClaimsExchanges>
         </OrchestrationStep>
-
-        <OrchestrationStep Order="5" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="JwtIssuer" />
+        <OrchestrationStep Order="8" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="JwtIssuer" />
       </OrchestrationSteps>
     </SubJourney>
 
@@ -1876,6 +2115,23 @@
         <OrchestrationStep Order="1" Type="ClaimsExchange">
           <ClaimsExchanges>
             <ClaimsExchange Id="PasswordResetUsingEmailAddressExchange" TechnicalProfileReferenceId="LocalAccountDiscoveryUsingEmailAddress" />
+          </ClaimsExchanges>
+        </OrchestrationStep>
+
+        <!-- Collect and persist a new password. -->
+        <OrchestrationStep Order="2" Type="ClaimsExchange">
+          <ClaimsExchanges>
+            <ClaimsExchange Id="NewCredentials" TechnicalProfileReferenceId="LocalAccountWritePasswordUsingObjectId" />
+          </ClaimsExchanges>
+        </OrchestrationStep>
+      </OrchestrationSteps>
+    </SubJourney>
+    <SubJourney Id="PasswordResetUsingPhone" Type="Call">
+      <OrchestrationSteps>
+        <!-- Validate user's email address. -->
+        <OrchestrationStep Order="1" Type="ClaimsExchange">
+          <ClaimsExchanges>
+            <ClaimsExchange Id="PasswordResetUsingPhoneExchange" TechnicalProfileReferenceId="LocalAccountDiscoveryUsingPhone" />
           </ClaimsExchanges>
         </OrchestrationStep>
 

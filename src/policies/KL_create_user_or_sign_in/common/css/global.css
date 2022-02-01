@@ -290,4 +290,11 @@ p {
     }
 }
 
+.buttons button[aria-disabled="true"] {
+    opacity: 0.3;
+}
+.buttons button:not([aria-disabled="true"]) {
+    opacity: 1;
+}
+
 /* Throbber CSS end */

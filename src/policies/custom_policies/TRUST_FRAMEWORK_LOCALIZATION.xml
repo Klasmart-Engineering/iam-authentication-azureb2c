@@ -121,6 +121,7 @@
           <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl" StringId="intro_msg">Enter your phone number below to receive a reset code.</LocalizedString>
           <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl" StringId="success_send_code_msg">A reset code has been sent to your phone. Please copy it into the input box below and verify reset code.</LocalizedString>
           <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl" StringId="success_verify_code_msg">Phone number verified. You can continue now.</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsTransformationBooleanValueIsNotEqual">Your account is deactivated. Please contact your organization.</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedNoRetry">You've made too many incorrect attempts. Please try again later.</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedRetryAllowed">The verification has failed, please try again</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="internationalOrNationalPhoneNumber" StringId="HelpText">Invalid number format. Please ensure that the phone number does not contain any special characters such as []{}().</LocalizedString>
@@ -196,6 +197,7 @@
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalDoesNotExist">Sorry, we don’t recognise your login details! Please check that you’ve entered them correctly and try again.</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidPassword">Sorry, we don’t recognise your login details! Please check that you’ve entered them correctly and try again.</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfOldPasswordUsed">Sorry, we don’t recognise your login details! Please check that you’ve entered them correctly and try again.</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfUserAccountDisabled">Your account is deactivated. Please contact your organization.</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="email" StringId="HelpText">Please enter a valid email address</LocalizedString>
           <LocalizedString ElementType="UxElement" StringId="button_signin">Log in</LocalizedString>
           <LocalizedString ElementType="UxElement" StringId="heading">Log in</LocalizedString>

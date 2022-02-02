@@ -171,7 +171,8 @@
                 "UserMessageIfClaimsPrincipalDoesNotExist": "Sorry, we don’t recognise your login details! Please check that you’ve entered them correctly and try again.",
                 "UserMessageIfInvalidPassword": "Sorry, we don’t recognise your login details! Please check that you’ve entered them correctly and try again.",
                 "UserMessageIfOldPasswordUsed": "Sorry, we don’t recognise your login details! Please check that you’ve entered them correctly and try again.",
-                "UserMessageIfUserAccountDisabled": "Your account is deactivated. Please contact your organization."
+                "UserMessageIfUserAccountDisabled": "Your account is deactivated. Please contact your organization.",
+                "UserMessageIfUserAccountLocked": "You have tried to login incorrectly too many times. Please wait and try again later."
             },
             "Predicate": {
                 "email": {

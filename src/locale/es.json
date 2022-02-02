@@ -29,6 +29,7 @@
                 }
             },
             "ErrorMessage": {
+                "UserMessageIfClaimsTransformationBooleanValueIsNotEqual": "Su cuenta está desactivada. Por favor, póngase en contacto con su organización.",
                 "UserMessageIfVerificationFailedNoRetry": "Ha realizado demasiados intentos fallidos. Por favor, vuelva más tarde.",
                 "UserMessageIfVerificationFailedRetryAllowed": "La verificación ha fallado, por favor inténtelo de nuevo"
             },
@@ -169,7 +170,9 @@
             "ErrorMessage": {
                 "UserMessageIfClaimsPrincipalDoesNotExist": "Lo sentimos, no reconocemos sus datos de acceso. Por favor, compruebe que hayan sido introducidos correctamente e inténtelo de nuevo.",
                 "UserMessageIfInvalidPassword": "Lo sentimos, no reconocemos sus datos de acceso. Por favor, compruebe que hayan sido introducidos correctamente e inténtelo de nuevo.",
-                "UserMessageIfOldPasswordUsed": "Lo sentimos, no reconocemos sus datos de acceso. Por favor, compruebe que hayan sido introducidos correctamente e inténtelo de nuevo."
+                "UserMessageIfOldPasswordUsed": "Lo sentimos, no reconocemos sus datos de acceso. Por favor, compruebe que hayan sido introducidos correctamente e inténtelo de nuevo.",
+                "UserMessageIfUserAccountDisabled": "Su cuenta está desactivada. Por favor, póngase en contacto con su organización.",
+                "UserMessageIfUserAccountLocked": "Ha intentado iniciar sesión incorrectamente demasiadas veces. Por favor espere y vuelva a intentarlo más tarde."
             },
             "Predicate": {
                 "email": {

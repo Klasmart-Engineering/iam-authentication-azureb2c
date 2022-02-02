@@ -226,6 +226,7 @@
           <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl" StringId="intro_msg">Ingrese su número de teléfono a continuación para recibir un código de verificación.</LocalizedString>
           <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl" StringId="success_send_code_msg">Se ha enviado un código de verificación a su teléfono. Por favor, cópielo en la casilla que aparece a continuación para ser verificado.</LocalizedString>
           <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl" StringId="success_verify_code_msg">Número de teléfono verificado. Ahora puede continuar.</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsTransformationBooleanValueIsNotEqual">Su cuenta está desactivada. Por favor, póngase en contacto con su organización.</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedNoRetry">Ha realizado demasiados intentos fallidos. Por favor, vuelva más tarde.</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedRetryAllowed">La verificación ha fallado, por favor inténtelo de nuevo</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="internationalOrNationalPhoneNumber" StringId="HelpText">Formato de número no válido. Asegúrese de que el número de teléfono no contenga caracteres especiales como []{}().</LocalizedString>
@@ -301,6 +302,8 @@
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalDoesNotExist">Lo sentimos, no reconocemos sus datos de acceso. Por favor, compruebe que hayan sido introducidos correctamente e inténtelo de nuevo.</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidPassword">Lo sentimos, no reconocemos sus datos de acceso. Por favor, compruebe que hayan sido introducidos correctamente e inténtelo de nuevo.</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfOldPasswordUsed">Lo sentimos, no reconocemos sus datos de acceso. Por favor, compruebe que hayan sido introducidos correctamente e inténtelo de nuevo.</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfUserAccountDisabled">Su cuenta está desactivada. Por favor, póngase en contacto con su organización.</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfUserAccountLocked">Ha intentado iniciar sesión incorrectamente demasiadas veces. Por favor espere y vuelva a intentarlo más tarde.</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="email" StringId="HelpText">Por favor ingrese un correo electrónico válido</LocalizedString>
           <LocalizedString ElementType="UxElement" StringId="button_signin">Iniciar sesión</LocalizedString>
           <LocalizedString ElementType="UxElement" StringId="heading">Iniciar sesión</LocalizedString>

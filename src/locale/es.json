@@ -31,6 +31,14 @@
             "ErrorMessage": {
                 "UserMessageIfVerificationFailedNoRetry": "Ha realizado demasiados intentos fallidos. Por favor, vuelva más tarde.",
                 "UserMessageIfVerificationFailedRetryAllowed": "La verificación ha fallado, por favor inténtelo de nuevo"
+            },
+            "Predicate": {
+                "internationalOrNationalPhoneNumber": {
+                    "HelpText": "Formato de número no válido. Asegúrese de que el número de teléfono no contenga caracteres especiales como []{}()."
+                },
+                "noLeadingPlus": {
+                    "HelpText": "No es necesario incluir el código del país aquí. En su lugar, utilice el menú desplegable para seleccionar el código del país."
+                }
             }
         },
         "localaccountsignup": {

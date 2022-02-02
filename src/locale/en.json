@@ -31,6 +31,14 @@
             "ErrorMessage": {
                 "UserMessageIfVerificationFailedNoRetry": "You've made too many incorrect attempts. Please try again later.",
                 "UserMessageIfVerificationFailedRetryAllowed": "The verification has failed, please try again"
+            },
+            "Predicate": {
+                "internationalOrNationalPhoneNumber": {
+                    "HelpText": "Invalid number format. Please ensure that the phone number does not contain any special characters such as []{}()."
+                },
+                "noLeadingPlus": {
+                    "HelpText": "You don't need to include your country code here. Instead, please use the dropdown above to select your country code"
+                }
             }
         },
         "localaccountsignup": {

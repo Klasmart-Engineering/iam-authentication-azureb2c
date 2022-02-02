@@ -27,6 +27,14 @@
             "ErrorMessage": {
                 "UserMessageIfVerificationFailedNoRetry": "잘못된 시도 횟수가 너무 많습니다. 나중에 다시 시도하십시오.",
                 "UserMessageIfVerificationFailedRetryAllowed": "확인에 실패했습니다. 다시 시도해 주세요."
+            },
+            "Predicate": {
+                "internationalOrNationalPhoneNumber": {
+                    "HelpText": "잘못된 숫자 형식입니다. 전화 번호에 []{}()와 같은 특수 문자가 포함되어 있지 않은지 확인하십시오."
+                },
+                "noLeadingPlus": {
+                    "HelpText": "여기에 국가 코드를 포함할 필요가 없습니다. 대신 위의 드롭다운을 사용하여 국가 코드를 선택하십시오."
+                }
             }
         },
         "localaccountsignup": {

@@ -53,6 +53,7 @@
       </ContentDefinition>
       <ContentDefinition Id="api.localaccountsignup">
         <LoadUri>https://{settings:B2CStorage}.blob.core.windows.net/{settings:B2CStorageContainer}/policies/KL_create_user_or_sign_in/pages/local-account-sign-up/{Culture:RFC5646}/index.html</LoadUri>
+        <!-- This must stay at 2.1.6 until Microsoft fix the bug with later versions - where Predicate validation error messages aren't shown e.g. phone input -->
         <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.6</DataUri>
         <LocalizedResourcesReferences MergeBehavior="Prepend">
           <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.localaccountsignup.en"></LocalizedResourcesReference>
@@ -76,7 +77,8 @@
       </ContentDefinition>
       <ContentDefinition Id="api.localaccountpasswordreset">
         <LoadUri>https://{settings:B2CStorage}.blob.core.windows.net/{settings:B2CStorageContainer}/policies/KL_create_user_or_sign_in/pages/forgot-password/{Culture:RFC5646}/index.html</LoadUri>
-        <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.8</DataUri>
+        <!-- This must stay at 2.1.6 until Microsoft fix the bug with later versions - where Predicate validation error messages aren't shown e.g. phone input -->
+        <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.6</DataUri>
         <LocalizedResourcesReferences MergeBehavior="Prepend">
           <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.localaccountpasswordreset.en"></LocalizedResourcesReference>
           <LocalizedResourcesReference Language="es" LocalizedResourcesReferenceId="api.localaccountpasswordreset.es"></LocalizedResourcesReference>

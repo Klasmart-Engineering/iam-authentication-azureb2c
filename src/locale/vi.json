@@ -1,0 +1,172 @@
+{
+    "custom_policy": {
+        "localaccountpasswordreset": {
+            "ClaimType": {
+                "email": {
+                    "DisplayName": "Địa chỉ email"
+                },
+                "verificationCode": {
+                    "DisplayName": "Đặt lại mã"
+                }
+            },
+            "DisplayControl": {
+                "emailControl": {
+                    "but_send_code": "Gửi lại mã ",
+                    "but_send_new_code": "Gửi lại mã mới",
+                    "but_verify_code": "Đặt lại mã xác minh",
+                    "intro_msg": "Nhập địa chỉ email của bạn vào bên dưới để nhận lại mã.",
+                    "success_send_code_msg": "Mã cài đặt lại đã được gửi đến email của bạn. Vui lòng sao chép nó vào hộp nhập bên dưới và xác minh lại mã.",
+                    "success_verify_code_msg": "Địa chỉ email đã được xác minh. Bạn có thể tiếp tục."
+                },
+                "phoneVerificationControl": {
+                    "but_send_code": "Gửi lại mã ",
+                    "but_send_new_code": "Gửi lại mã mới",
+                    "but_verify_code": "Đặt lại mã xác minh"
+                }
+            },
+            "ErrorMessage": {
+                "UserMessageIfVerificationFailedNoRetry": "Bạn đã thực hiện nhiều lần không chính xác. Vui lòng thử lại sau.",
+                "UserMessageIfVerificationFailedRetryAllowed": "Xác minh không thành công, vui lòng thử lại"
+            }
+        },
+        "localaccountsignup": {
+            "ClaimType": {
+                "countryCode": {
+                    "DisplayName": "Quốc gia"
+                },
+                "email": {
+                    "DisplayName": "Địa chỉ email"
+                },
+                "hasAcceptedPrivacyPolicy": {
+                    "DisplayName": "Chính sách bảo mật",
+                    "UserHelpText": "Vui lòng đồng ý với Chính sách quyền riêng tư của KidsLoop để tạo tài khoản"
+                },
+                "nationalNumber": {
+                    "DisplayName": "Số điện thoại"
+                },
+                "newPassword": {
+                    "DisplayName": "Tạo mật khẩu",
+                    "PatternHelpText": "8-16 ký tự, chứa 3 trong số 4 ký tự sau: ký tự chữ thường, chữ hoa, chữ số (0-9) và một hoặc nhiều ký hiệu sau: @ # $ % ^ &amp; * * - _ + = [ ] { } | \\ : ' , ? / ` ~ \" ( ) ; ."
+                },
+                "reenterPassword": {
+                    "DisplayName": "Xác nhận mật khẩu"
+                },
+                "verificationCode": {
+                    "DisplayName": "Mã xác minh"
+                }
+            },
+            "DisplayControl": {
+                "emailControl": {
+                    "but_change_claims": "Thay đổi e-mail",
+                    "but_send_code": "Gửi mã xác minh",
+                    "but_send_new_code": "Gửi mã mới",
+                    "but_verify_code": "Xác minh mã"
+                },
+                "phoneVerificationControl": {
+                    "but_change_claims": "Thay đổi số điện thoại",
+                    "but_send_code": "Gửi mã xác minh",
+                    "but_send_new_code": "Gửi mã mới",
+                    "but_verify_code": "Xác minh mã"
+                }
+            },
+            "ErrorMessage": {
+                "UserMessageIfClaimsPrincipalAlreadyExists": "Một tài khoản với địa chỉ email hoặc số điện thoại này đã tồn tại.",
+                "UserMessageIfMaxAllowedCodeRetryReached": "Bạn đã thực hiện nhiều lần không chính xác. Vui lòng thử lại sau.",
+                "UserMessageIfVerificationFailedNoRetry": "Bạn đã thực hiện nhiều lần không chính xác. Vui lòng thử lại sau.",
+                "UserMessageIfVerificationFailedRetryAllowed": "Mã không chính xác. Vui lòng thử lại.",
+                "UserMessageIfWrongCodeEntered": "Mã không chính xác, vui lòng thử lại"
+            },
+            "LocalizedCollection": {
+                "hasAcceptedPrivacyPolicy": {
+                    "true": "Tôi đồng ý với {{Privacy policy}} của KidsLoop"
+                }
+            },
+            "Predicate": {
+                "internationalOrNationalPhoneNumber": {
+                    "HelpText": "Định dạng số không hợp lệ. Vui lòng đảm bảo rằng số điện thoại không chứa bất kỳ ký tự đặc biệt nào như []{}()."
+                },
+                "noLeadingPlus": {
+                    "HelpText": "Bạn không cần đưa mã quốc gia của mình vào đây. Thay vào đó, vui lòng sử dụng bảng chọn trên để chọn mã quốc gia của bạn"
+                }
+            },
+            "UXElement": {
+                "button_continue": "Tạo tài khoản"
+            },
+            "UxElement": {
+                "ver_but_edit": "Thay đổi e-mail",
+                "ver_but_resend": "Gửi mã mới",
+                "ver_but_send": "Gửi mã xác minh",
+                "ver_but_verify": "Xác minh mã",
+                "ver_fail_no_retry": "Bạn đã thực hiện nhiều lần không chính xác. Vui lòng thử lại sau."
+            }
+        },
+        "selfasserted.localaccountpasswordchange": {
+            "ClaimType": {
+                "newPassword": {
+                    "DisplayName": "Mật khẩu mới",
+                    "PatternHelpText": "8-16 ký tự, chứa 3 trong số 4 ký tự sau: ký tự chữ thường, chữ hoa, chữ số (0-9) và một hoặc nhiều ký hiệu sau: @ # $ % ^ &amp; * * - _ + = [ ] { } | \\ : ' , ? / ` ~ \" ( ) ; ."
+                },
+                "reenterPassword": {
+                    "DisplayName": "Xác nhận mật khẩu mới"
+                }
+            },
+            "UXElement": {
+                "button_continue": "Đặt lại mật khẩu",
+                "initial_intro": "Sắp hoàn thành! Nhập mật khẩu mới của bạn ở dưới."
+            }
+        },
+        "selfasserted": {
+            "ClaimType": {
+                "countryCode": {
+                    "DisplayName": "Quốc gia"
+                },
+                "nationalNumber": {
+                    "DisplayName": "Số điện thoại"
+                }
+            },
+            "Predicate": {
+                "internationalOrNationalPhoneNumber": {
+                    "HelpText": "Định dạng số không hợp lệ. Vui lòng đảm bảo rằng số điện thoại không chứa bất kỳ ký tự đặc biệt nào như []{}()."
+                },
+                "noLeadingPlus": {
+                    "HelpText": "Bạn không cần đưa mã quốc gia của mình vào đây. Thay vào đó, vui lòng sử dụng bảng chọn trên để chọn mã quốc gia của bạn"
+                }
+            },
+            "UxElement": {
+                "required_field": "Không được để trống"
+            }
+        },
+        "signuporsignin": {
+            "ClaimType": {
+                "password": {
+                    "DisplayName": "Mật khẩu"
+                },
+                "signInName": {
+                    "DisplayName": "Địa chỉ email"
+                },
+                "signInNamePhoneNumber": {
+                    "DisplayName": "Số điện thoại"
+                }
+            },
+            "ClaimsProvider": {
+                "SigninWithPhone": "Sử dụng số điện thoại",
+                "SignupWithEmail": "E-mail",
+                "SignupWithPhone": "Điện thoại"
+            },
+            "ErrorMessage": {
+                "UserMessageIfClaimsPrincipalDoesNotExist": "Xin lỗi, chúng tôi không nhận ra thông tin đăng nhập của bạn! Vui lòng kiểm tra xem bạn đã nhập cách chính xác chưa và thử lại.",
+                "UserMessageIfInvalidPassword": "Xin lỗi, chúng tôi không nhận ra thông tin đăng nhập của bạn! Vui lòng kiểm tra xem bạn đã nhập chính xác chưa và thử lại.",
+                "UserMessageIfOldPasswordUsed": "Xin lỗi, chúng tôi không nhận ra thông tin đăng nhập của bạn! Vui lòng kiểm tra xem bạn đã nhập chính xác chưa và thử lại."
+            },
+            "UxElement": {
+                "button_signin": "Đăng nhập",
+                "heading": "Đăng nhập",
+                "invalid_generic": "Vui lòng nhập {0} hợp lệ",
+                "local_intro_generic": "Đăng nhập bằng {0} của bạn",
+                "requiredField_generic": "Không được để trống",
+                "requiredField_password": "Không được để trống",
+                "social_intro": "Đăng nhập bằng tài khoản xã hội của bạn"
+            }
+        }
+    }
+}

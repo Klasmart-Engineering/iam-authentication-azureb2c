@@ -101,3 +101,18 @@ pipelines:
             - step:
                   <<: *deploy
                   deployment: LOADTEST
+        deploy-alpha-dev:
+            - step: *deps
+            - step: *checks
+            - step:
+                  name: Setup environment
+                  script:
+                      - echo 'ENVIRONMENT="Alpha-Dev"' >> .env
+                  artifacts:
+                      - .env
+            - parallel:
+                  - step: *build-assets
+                  - step: *build-policies
+            - step:
+                  <<: *deploy
+                  deployment: Alpha-Dev

@@ -27,6 +27,14 @@
             "ErrorMessage": {
                 "UserMessageIfVerificationFailedNoRetry": "错误地尝试过多，请稍后再试。",
                 "UserMessageIfVerificationFailedRetryAllowed": "验证失败，请重试"
+            },
+            "Predicate": {
+                "internationalOrNationalPhoneNumber": {
+                    "HelpText": "无效的数字格式。请确保电话号码不包含任何特殊字符，例如 []{}()。"
+                },
+                "noLeadingPlus": {
+                    "HelpText": "您无需在此处填写您的国家/地区代码。请使用上面的下拉菜单选择您的国家代码"
+                }
             }
         },
         "localaccountsignup": {

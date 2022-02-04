@@ -125,6 +125,7 @@
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedNoRetry">You've made too many incorrect attempts. Please try again later.</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedRetryAllowed">The verification has failed, please try again</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="internationalOrNationalPhoneNumber" StringId="HelpText">Invalid number format. Please ensure that the phone number does not contain any special characters such as []{}().</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="noCorporateEmail" StringId="HelpText">It is not possible to reset password for accounts with email addresses with KidsLoop domain</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="noLeadingPlus" StringId="HelpText">You don't need to include your country code here. Instead, please use the dropdown above to select your country code</LocalizedString>
         </LocalizedStrings>
       </LocalizedResources>
@@ -159,8 +160,8 @@
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedRetryAllowed">The code is incorrect. Please try again.</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfWrongCodeEntered">The code is incorrect, please try again</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="internationalOrNationalPhoneNumber" StringId="HelpText">Invalid number format. Please ensure that the phone number does not contain any special characters such as []{}().</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="noCorporateEmail" StringId="HelpText">It is not possible to create an account for email addresses with KidsLoop domain</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="noLeadingPlus" StringId="HelpText">You don't need to include your country code here. Instead, please use the dropdown above to select your country code</LocalizedString>
-          <LocalizedString ElementType="Predicate" ElementId="disallowSignupCorporateEmail" StringId="HelpText">It is not possible to create an account for email addresses with KidsLoop domain</LocalizedString>
           <LocalizedString ElementType="UXElement" StringId="button_continue">Create account</LocalizedString>
           <LocalizedString ElementType="UxElement" StringId="ver_but_edit">Change e-mail</LocalizedString>
           <LocalizedString ElementType="UxElement" StringId="ver_but_resend">Send new code</LocalizedString>
@@ -231,6 +232,7 @@
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedNoRetry">Ha realizado demasiados intentos fallidos. Por favor, vuelva más tarde.</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedRetryAllowed">La verificación ha fallado, por favor inténtelo de nuevo</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="internationalOrNationalPhoneNumber" StringId="HelpText">Formato de número no válido. Asegúrese de que el número de teléfono no contenga caracteres especiales como []{}().</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="noCorporateEmail" StringId="HelpText">No es posible reestablecer contraseña para cuentas con correos electrónicos con el dominio de KidsLoop</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="noLeadingPlus" StringId="HelpText">No es necesario incluir el código del país aquí. En su lugar, utilice el menú desplegable para seleccionar el código del país.</LocalizedString>
         </LocalizedStrings>
       </LocalizedResources>
@@ -265,8 +267,8 @@
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedRetryAllowed">El código es incorrecto. Por favor, inténtelo de nuevo</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfWrongCodeEntered">El código es incorrecto. Por favor, inténtelo de nuevo</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="internationalOrNationalPhoneNumber" StringId="HelpText">Formato de número no válido. Asegúrese de que el número de teléfono no contenga caracteres especiales como []{}().</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="noCorporateEmail" StringId="HelpText">No es posible crear una cuenta para correos electrónicos con el dominio de KidsLoop</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="noLeadingPlus" StringId="HelpText">No es necesario incluir el código del país aquí. En su lugar, utilice el menú desplegable para seleccionar el código del país.</LocalizedString>
-          <LocalizedString ElementType="Predicate" ElementId="disallowSignupCorporateEmail" StringId="HelpText">No es posible crear una cuenta para correos electrónicos con el dominio de KidsLoop</LocalizedString>
           <LocalizedString ElementType="UXElement" StringId="button_continue">Crear cuenta</LocalizedString>
           <LocalizedString ElementType="UxElement" StringId="ver_but_edit">Cambiar correo electrónico</LocalizedString>
           <LocalizedString ElementType="UxElement" StringId="ver_but_resend">Enviar un nuevo código</LocalizedString>

@@ -2128,7 +2128,7 @@
     </SubJourney>
     <SubJourney Id="PasswordResetUsingPhone" Type="Call">
       <OrchestrationSteps>
-        <!-- Validate user's email address. -->
+        <!-- Validate user's phone number. -->
         <OrchestrationStep Order="1" Type="ClaimsExchange">
           <ClaimsExchanges>
             <ClaimsExchange Id="PasswordResetUsingPhoneExchange" TechnicalProfileReferenceId="LocalAccountDiscoveryUsingPhone" />

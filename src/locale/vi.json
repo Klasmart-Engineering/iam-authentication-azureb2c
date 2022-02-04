@@ -27,6 +27,14 @@
             "ErrorMessage": {
                 "UserMessageIfVerificationFailedNoRetry": "Bạn đã thực hiện nhiều lần không chính xác. Vui lòng thử lại sau.",
                 "UserMessageIfVerificationFailedRetryAllowed": "Xác minh không thành công, vui lòng thử lại"
+            },
+            "Predicate": {
+                "internationalOrNationalPhoneNumber": {
+                    "HelpText": "Định dạng số không hợp lệ. Vui lòng đảm bảo rằng số điện thoại không chứa bất kỳ ký tự đặc biệt nào như []{}()."
+                },
+                "noLeadingPlus": {
+                    "HelpText": "Bạn không cần đưa mã quốc gia của mình vào đây. Thay vào đó, vui lòng sử dụng bảng chọn trên để chọn mã quốc gia của bạn"
+                }
             }
         },
         "localaccountsignup": {

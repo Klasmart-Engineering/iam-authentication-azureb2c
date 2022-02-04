@@ -475,7 +475,7 @@
         </Parameters>
       </Predicate>
       <Predicate Id="disallowSignupCorporateEmail" Method="MatchesRegex">
-        <UserHelpText>It is not possible to create an account for email addresseses with KidsLoop domain</UserHelpText>
+        <UserHelpText>It is not possible to create an account for email addresses with KidsLoop domain</UserHelpText>
         <Parameters>
           <Parameter Id="RegularExpression">^(?!.*?@kidsloop.live).*?$</Parameter>
         </Parameters>

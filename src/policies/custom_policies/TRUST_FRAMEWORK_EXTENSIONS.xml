@@ -1162,7 +1162,6 @@
             <Item Key="ContentDefinitionReferenceId">api.selfasserted</Item>
             <Item Key="AllowGenerationOfClaimsWithNullValues">true</Item>
             <Item Key="UserMessageIfClaimsTransformationStringsAreNotEqual">An account could not be found for the provided User ID and email combination.</Item>
-            <Item Key="UserMessageIfClaimsTransformationBooleanValueIsNotEqual">Your account has been locked. Contact your support person to unlock it, then try again.</Item>
             <Item Key="LocalAccountType">Username</Item>
             <Item Key="LocalAccountProfile">true</Item>
             <!-- Reduce the default self-asserted retry limit of 7 for the reset journey -->
@@ -2136,7 +2135,7 @@
     </SubJourney>
     <SubJourney Id="PasswordResetUsingPhone" Type="Call">
       <OrchestrationSteps>
-        <!-- Validate user's email address. -->
+        <!-- Validate user's phone number. -->
         <OrchestrationStep Order="1" Type="ClaimsExchange">
           <ClaimsExchanges>
             <ClaimsExchange Id="PasswordResetUsingPhoneExchange" TechnicalProfileReferenceId="LocalAccountDiscoveryUsingPhone" />

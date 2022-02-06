@@ -56,6 +56,10 @@ definitions:
 
 pipelines:
     default:
+        - step:
+            name: clone azure frontend repo
+            script:
+                - git clone git@bitbucket.org:calmisland/kidsloop-auth-frontend.git 
         - step: *deps
         - step: *checks
         - step:

@@ -46,6 +46,7 @@ definitions:
               name: Cypress Regression for IAM
               script:
                   - git clone git@bitbucket.org:calmisland/kidsloop-auth-frontend.git
+                  - cd kidsloop-auth-frontend
                   - npm i
                   - npm run test:sso
 
@@ -57,6 +58,7 @@ pipelines:
                   - node
               script:
                   - git clone git@bitbucket.org:calmisland/kidsloop-auth-frontend.git --branch dev
+                  - cd kidsloop-auth-frontend
                   - npm i
                   - npm run test:sso
         - step: *deps

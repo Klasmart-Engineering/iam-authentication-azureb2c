@@ -59,6 +59,7 @@ pipelines:
               script:
                   - git clone git@bitbucket.org:calmisland/kidsloop-auth-frontend.git --branch dev
                   - cd kidsloop-auth-frontend
+                  - apt-get install libgtk2.0-0 libgtk-3-0 libgbm-dev libnotify-dev libgconf-2-4 libnss3 libxss1 libasound2 libxtst6 xauth xvfb
                   - npm i
                   - npm run test:sso
         - step: *deps

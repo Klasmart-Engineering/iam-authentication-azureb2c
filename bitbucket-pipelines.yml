@@ -45,21 +45,18 @@ definitions:
         - step: &e2e-tests
               name: Cypress Regression for IAM
               script:
-                  - pipe: atlassian/trigger-pipeline:4.3.1
-                    variables:
-                        BITBUCKET_USERNAME: $BITBUCKET_USERNAME
-                        BITBUCKET_APP_PASSWORD: $BITBUCKET_APP_PASSWORD
-                        REPOSITORY: "kidsloop-auth-frontend"
-                        ACCOUNT: "calmisland"
-                        CUSTOM_PIPELINE_NAME: "cypress-tests-SSO-chrome"
-                        BRANCH_NAME: "dev"
+                  - git clone git@bitbucket.org:calmisland/kidsloop-auth-frontend.git
+                  - npm i
+                  - npm run test:sso
 
 pipelines:
-    default:
+    default: 
         - step:
-            name: clone azure frontend repo
-            script:
-                - git clone git@bitbucket.org:calmisland/kidsloop-auth-frontend.git 
+            name: run e2e tests
+              script:
+                  - git clone git@bitbucket.org:calmisland/kidsloop-auth-frontend.git
+                  - npm i
+                  - npm run test:sso
         - step: *deps
         - step: *checks
         - step:

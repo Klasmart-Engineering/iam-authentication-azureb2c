@@ -55,6 +55,7 @@ pipelines:
               name: run e2e tests
               script:
                   - git clone git@bitbucket.org:calmisland/kidsloop-auth-frontend.git
+                  - git checkout dev
                   - npm i
                   - npm run test:sso
         - step: *deps

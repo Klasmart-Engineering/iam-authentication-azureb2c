@@ -122,10 +122,7 @@
       </ClaimType>
       <ClaimType Id="email">
         <UserInputType>EmailBox</UserInputType>
-        <Restriction>
-          <!-- Allow spaces before and after the email, which will be stripped before saving -->
-          <Pattern RegularExpression="^\s*[a-zA-Z0-9!#$%&amp;'+^_`{}~-]+(?:\.[a-zA-Z0-9!#$%&amp;'+^_`{}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\s*$" HelpText="Please enter a valid email address." />
-        </Restriction>
+        <PredicateValidationReference Id="email" />
       </ClaimType>
       <ClaimType Id="ReadOnlyEmail">
         <DisplayName>Verified Email Address</DisplayName>
@@ -456,7 +453,7 @@
     </ClaimsSchema>
     <Predicates>
       <Predicate Id="email" Method="MatchesRegex">
-        <UserHelpText>A valid email address.</UserHelpText>
+        <UserHelpText>Please enter a valid email address</UserHelpText>
         <Parameters>
           <!--
             This regex is constructed mostly from RFC 5322 for email, with intentional omissions based on discovery of characters that don't work for other services we use
@@ -475,6 +472,12 @@
           -->
           <!-- NB: This has been modified from the original to allow leading/trailing spaces -->
           <Parameter Id="RegularExpression">^\s*[a-zA-Z0-9!#$%&amp;'+^_`{}~-]+(?:\.[a-zA-Z0-9!#$%&amp;'+^_`{}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\s*$</Parameter>
+        </Parameters>
+      </Predicate>
+      <Predicate Id="noCorporateEmail" Method="MatchesRegex">
+        <UserHelpText>It is not possible to create an account for email addresses with KidsLoop domain</UserHelpText>
+        <Parameters>
+          <Parameter Id="RegularExpression">^(?!.*@kidsloop\.live$).*</Parameter>
         </Parameters>
       </Predicate>
       <Predicate Id="internationalOrNationalPhoneNumber" Method="MatchesRegex">
@@ -515,6 +518,11 @@
           <PredicateGroup Id="email">
             <PredicateReferences>
               <PredicateReference Id="email" />
+            </PredicateReferences>
+          </PredicateGroup>
+          <PredicateGroup Id="noCorporateEmail">
+            <PredicateReferences>
+              <PredicateReference Id="noCorporateEmail" />
             </PredicateReferences>
           </PredicateGroup>
         </PredicateGroups>

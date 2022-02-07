@@ -1,6 +1,8 @@
 image: node:16
 
 definitions:
+    caches:
+        cypress: $HOME/.cache/Cypress
     steps:
         - step: &deps
               name: Install npm dependencies
@@ -43,26 +45,17 @@ definitions:
                         DEBUG: "true"
                   - npx ieftool deploy -t $TENANT_ID -c $CLIENT_ID -s $SECRET -p src/policies/custom_policies/Environments/$ENVIRONMENT
         - step: &e2e-tests
-              name: Cypress Regression for IAM
-              script:
-                  - git clone git@bitbucket.org:calmisland/kidsloop-auth-frontend.git
-                  - cd kidsloop-auth-frontend
-                  - npm i
-                  - npm run test:sso
-
-pipelines:
-    default:
-        - step:
-              name: "UI Cypress Regression Tests - Chrome Browser On SSO"
+              name: "UI Cypress Regression Tests - Chrome Browser"
               image: cypress/browsers:node16.5.0-chrome97-ff96
               script:
                   - git clone git@bitbucket.org:calmisland/kidsloop-auth-frontend.git --branch dev
                   - cd kidsloop-auth-frontend
                   - npm i --no-audit --no-progress
-                  - npm run test:sso
+                  - npm run $CYPRESS_TEST_CMD
                   - npm run e2e:reports
               caches:
                   - node
+                  - cypress
               artifacts:
                   # store any generates images and videos as artifacts
                   - cypress/screenshots/**
@@ -70,6 +63,9 @@ pipelines:
                   - cypress/videos/**
                   - test-reports/**
                   - test-reports/cucumber-report/cucumber-htmlreport/index.html
+
+pipelines:
+    default:
         - step: *deps
         - step: *checks
         - step:

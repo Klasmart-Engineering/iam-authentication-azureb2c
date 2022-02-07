@@ -53,15 +53,24 @@ definitions:
 pipelines:
     default:
         - step:
-              name: run e2e tests
-              caches:
-                  - node
-              script:
-                  - git clone git@bitbucket.org:calmisland/kidsloop-auth-frontend.git --branch dev
-                  - cd kidsloop-auth-frontend
-                  - apt-get install libgtk2.0-0 libgtk-3-0 libgbm-dev libnotify-dev libgconf-2-4 libnss3 libxss1 libasound2 libxtst6 xauth xvfb
-                  - npm i
-                  - npm run test:sso
+            name: 'UI Cypress Regression Tests - Chrome Browser On SSO'
+            image: cypress/browsers:node16.5.0-chrome97-ff96
+            script: 
+                - git clone git@bitbucket.org:calmisland/kidsloop-auth-frontend.git --branch dev
+                - cd kidsloop-auth-frontend  
+                - npm i --no-audit --no-progress
+                - npm run test:sso
+                - npm run e2e:reports
+            caches:
+                - node
+                - cypress
+            artifacts:
+                # store any generates images and videos as artifacts
+                - cypress/screenshots/**
+                - cypress/cucumber-json
+                - cypress/videos/**  
+                - test-reports/**
+                - test-reports/cucumber-report/cucumber-htmlreport/index.html
         - step: *deps
         - step: *checks
         - step:

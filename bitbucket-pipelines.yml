@@ -54,6 +54,22 @@ pipelines:
     default:
         - step:
               name: "UI Cypress Regression Tests - Chrome Browser On SSO"
+              image: cypress/browsers:node16.5.0-chrome97-ff96
+              script:
+                  - git clone git@bitbucket.org:calmisland/kidsloop-auth-frontend.git --branch dev
+                  - cd kidsloop-auth-frontend
+                  - npm i --no-audit --no-progress
+                  - npm run test:sso
+                  - npm run e2e:reports
+              caches:
+                  - node
+              artifacts:
+                  # store any generates images and videos as artifacts
+                  - cypress/screenshots/**
+                  - cypress/cucumber-json
+                  - cypress/videos/**
+                  - test-reports/**
+                  - test-reports/cucumber-report/cucumber-htmlreport/index.html
         - step: *deps
         - step: *checks
         - step:

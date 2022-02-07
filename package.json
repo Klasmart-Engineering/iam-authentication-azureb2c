@@ -18,8 +18,7 @@
         "format": "npm run format:js && npm run format:css",
         "clean": "rm -rf dist",
         "build": "webpack",
-        "update-translations": "ts-node ./scripts/updateLocalizationXmlWithNewTranslations",
-        "run:e2e": "git clone git@bitbucket.org:calmisland/kidsloop-auth-frontend.git --branch dev && npm i && npm run test:sso"
+        "update-translations": "ts-node ./scripts/updateLocalizationXmlWithNewTranslations"
     },
     "repository": {
         "type": "git",

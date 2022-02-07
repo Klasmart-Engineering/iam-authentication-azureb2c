@@ -94,7 +94,12 @@ pipelines:
             - step:
                   <<: *deploy
                   deployment: SSO
-            - step: *e2e-tests
+            - step:
+                  <<: *e2e-tests
+                  deployment: SSO
+            - step:
+                  <<: *deploy
+                  deployment: Alpha-Dev
     custom:
         deploy-loadtest:
             - step: *deps

@@ -57,7 +57,7 @@ definitions:
               caches:
                   - node
                   - cypress
-                #   - auth-frontend-node-modules
+                  #   - auth-frontend-node-modules
               artifacts:
                   # store any generates images and videos as artifacts
                   - cypress/screenshots/**
@@ -84,6 +84,9 @@ pipelines:
               deployment: SSO
         - step:
               <<: *e2e-tests
+         - step:
+              <<: *deploy
+              deployment: Alpha-Dev
 
     branches:
         master:

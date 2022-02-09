@@ -82,6 +82,8 @@ pipelines:
         - step:
               <<: *deploy
               deployment: SSO
+        - step:
+              <<: *e2e-tests
 
     branches:
         master:

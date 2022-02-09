@@ -18,7 +18,7 @@ definitions:
               script:
                   - npm run check
         - step: &build-assets
-              name: Build Code - $STAGE
+              name: Build Code
               caches:
                   - node
               script:
@@ -27,14 +27,14 @@ definitions:
               artifacts:
                   - dist/**
         - step: &build-policies
-              name: Build B2C - $STAGE
+              name: Build B2C
               image: mcr.microsoft.com/powershell
               script:
                   - pwsh -Command "scripts/Build-CustomPolicies.ps1 -FilePath src/policies/custom_policies"
               artifacts:
                   - src/policies/custom_policies/**
         - step: &deploy
-              name: Deploy B2C - $STAGE
+              name: Deploy B2C
               script:
                   - export $(cat .env | xargs)
                   - pipe: atlassian/azure-storage-deploy:1.0.2

@@ -1,4 +1,4 @@
-<TrustFrameworkPolicy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06" DeploymentMode="Development" UserJourneyRecorderEndpoint="urn:journeyrecorder:applicationinsights" PolicySchemaVersion="0.3.0.0" TenantId="{settings:Tenant}" PolicyId="B2C_1A_{settings:PolicyNamePrefix}RELYING_PARTY_SIGN_UP_LOG_IN" PublicPolicyUri="http://{settings:Tenant}/B2C_1A_{settings:PolicyNamePrefix}signup_signin">
+<TrustFrameworkPolicy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06" DeploymentMode="{settings:DeploymentMode}" UserJourneyRecorderEndpoint="urn:journeyrecorder:applicationinsights" PolicySchemaVersion="0.3.0.0" TenantId="{settings:Tenant}" PolicyId="B2C_1A_{settings:PolicyNamePrefix}RELYING_PARTY_SIGN_UP_LOG_IN" PublicPolicyUri="http://{settings:Tenant}/B2C_1A_{settings:PolicyNamePrefix}signup_signin">
   <BasePolicy>
     <TenantId>{settings:Tenant}</TenantId>
     <PolicyId>B2C_1A__{settings:PolicyNamePrefix}TrustFrameworkLocalization</PolicyId>
@@ -14,7 +14,7 @@
       <SessionExpiryType>Absolute</SessionExpiryType>
       <!-- 5 days * 24 hours * 60 minutes * 60 seconds -->
       <SessionExpiryInSeconds>432000</SessionExpiryInSeconds>
-      <JourneyInsights TelemetryEngine="ApplicationInsights" InstrumentationKey="{settings:AppInsightsInstrumentationKey}" DeveloperMode="true" ClientEnabled="true" ServerEnabled="true" TelemetryVersion="1.0.0" />
+      <JourneyInsights TelemetryEngine="ApplicationInsights" InstrumentationKey="{settings:AppInsightsInstrumentationKey}" DeveloperMode="{settings:AppInsightsDeveloperMode}" ClientEnabled="true" ServerEnabled="true" TelemetryVersion="1.0.0" />
       <ScriptExecution>Allow</ScriptExecution>
     </UserJourneyBehaviors>
     <TechnicalProfile Id="PolicyProfile">

@@ -29,8 +29,20 @@
                 }
             },
             "ErrorMessage": {
+                "UserMessageIfClaimsTransformationBooleanValueIsNotEqual": "Your account is deactivated. Please contact your organization.",
                 "UserMessageIfVerificationFailedNoRetry": "You've made too many incorrect attempts. Please try again later.",
                 "UserMessageIfVerificationFailedRetryAllowed": "The verification has failed, please try again"
+            },
+            "Predicate": {
+                "internationalOrNationalPhoneNumber": {
+                    "HelpText": "Invalid number format. Please ensure that the phone number does not contain any special characters such as []{}()."
+                },
+                "noCorporateEmail": {
+                    "HelpText": "It is not possible to reset password for accounts with email addresses with KidsLoop domain"
+                },
+                "noLeadingPlus": {
+                    "HelpText": "You don't need to include your country code here. Instead, please use the dropdown above to select your country code"
+                }
             }
         },
         "localaccountsignup": {
@@ -89,6 +101,9 @@
             "Predicate": {
                 "internationalOrNationalPhoneNumber": {
                     "HelpText": "Invalid number format. Please ensure that the phone number does not contain any special characters such as []{}()."
+                },
+                "noCorporateEmail": {
+                    "HelpText": "It is not possible to create an account for email addresses with KidsLoop domain"
                 },
                 "noLeadingPlus": {
                     "HelpText": "You don't need to include your country code here. Instead, please use the dropdown above to select your country code"
@@ -161,7 +176,9 @@
             "ErrorMessage": {
                 "UserMessageIfClaimsPrincipalDoesNotExist": "Sorry, we don’t recognise your login details! Please check that you’ve entered them correctly and try again.",
                 "UserMessageIfInvalidPassword": "Sorry, we don’t recognise your login details! Please check that you’ve entered them correctly and try again.",
-                "UserMessageIfOldPasswordUsed": "Sorry, we don’t recognise your login details! Please check that you’ve entered them correctly and try again."
+                "UserMessageIfOldPasswordUsed": "Sorry, we don’t recognise your login details! Please check that you’ve entered them correctly and try again.",
+                "UserMessageIfUserAccountDisabled": "Your account is deactivated. Please contact your organization.",
+                "UserMessageIfUserAccountLocked": "You have tried to login incorrectly too many times. Please wait and try again later."
             },
             "Predicate": {
                 "email": {

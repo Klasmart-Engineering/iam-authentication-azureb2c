@@ -29,8 +29,20 @@
                 }
             },
             "ErrorMessage": {
+                "UserMessageIfClaimsTransformationBooleanValueIsNotEqual": "Su cuenta está desactivada. Por favor, póngase en contacto con su organización.",
                 "UserMessageIfVerificationFailedNoRetry": "Ha realizado demasiados intentos fallidos. Por favor, vuelva más tarde.",
                 "UserMessageIfVerificationFailedRetryAllowed": "La verificación ha fallado, por favor inténtelo de nuevo"
+            },
+            "Predicate": {
+                "internationalOrNationalPhoneNumber": {
+                    "HelpText": "Formato de número no válido. Asegúrese de que el número de teléfono no contenga caracteres especiales como []{}()."
+                },
+                "noCorporateEmail": {
+                    "HelpText": "No es posible reestablecer contraseña para cuentas con correos electrónicos con el dominio de KidsLoop"
+                },
+                "noLeadingPlus": {
+                    "HelpText": "No es necesario incluir el código del país aquí. En su lugar, utilice el menú desplegable para seleccionar el código del país."
+                }
             }
         },
         "localaccountsignup": {
@@ -89,6 +101,9 @@
             "Predicate": {
                 "internationalOrNationalPhoneNumber": {
                     "HelpText": "Formato de número no válido. Asegúrese de que el número de teléfono no contenga caracteres especiales como []{}()."
+                },
+                "noCorporateEmail": {
+                    "HelpText": "No es posible crear una cuenta para correos electrónicos con el dominio de KidsLoop"
                 },
                 "noLeadingPlus": {
                     "HelpText": "No es necesario incluir el código del país aquí. En su lugar, utilice el menú desplegable para seleccionar el código del país."
@@ -161,7 +176,9 @@
             "ErrorMessage": {
                 "UserMessageIfClaimsPrincipalDoesNotExist": "Lo sentimos, no reconocemos sus datos de acceso. Por favor, compruebe que hayan sido introducidos correctamente e inténtelo de nuevo.",
                 "UserMessageIfInvalidPassword": "Lo sentimos, no reconocemos sus datos de acceso. Por favor, compruebe que hayan sido introducidos correctamente e inténtelo de nuevo.",
-                "UserMessageIfOldPasswordUsed": "Lo sentimos, no reconocemos sus datos de acceso. Por favor, compruebe que hayan sido introducidos correctamente e inténtelo de nuevo."
+                "UserMessageIfOldPasswordUsed": "Lo sentimos, no reconocemos sus datos de acceso. Por favor, compruebe que hayan sido introducidos correctamente e inténtelo de nuevo.",
+                "UserMessageIfUserAccountDisabled": "Su cuenta está desactivada. Por favor, póngase en contacto con su organización.",
+                "UserMessageIfUserAccountLocked": "Ha intentado iniciar sesión incorrectamente demasiadas veces. Por favor espere y vuelva a intentarlo más tarde."
             },
             "Predicate": {
                 "email": {

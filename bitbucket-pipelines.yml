@@ -80,15 +80,12 @@ pipelines:
               - step: *build-assets
               - step: *build-policies
         - step:
-                <<: *deploy
-                deployment: SSO
+              <<: *deploy
+              deployment: SSO
         - step:
-                <<: *e2e-tests
-                deployment: SSO
-        - step:
-                <<: *deploy
-                deployment: Alpha-Dev
-    
+              <<: *e2e-tests
+              deployment: SSO
+
     branches:
         master:
             - step: *deps

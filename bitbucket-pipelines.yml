@@ -46,14 +46,13 @@ definitions:
                         DEBUG: "true"
                   - npx ieftool deploy -t $TENANT_ID -c $CLIENT_ID -s $SECRET -p src/policies/custom_policies/Environments/$ENVIRONMENT
         - step: &e2e-tests
-              name: "UI Cypress Regression Tests - Chrome Browser"
+              name: "E2E tests - SSO - Chrome Browser"
               image: cypress/browsers:node16.5.0-chrome97-ff96
               script:
                   - git clone git@bitbucket.org:calmisland/kidsloop-auth-frontend.git --branch dev
                   - cd kidsloop-auth-frontend
                   - npm i --no-audit --no-progress
-                  - echo CYPRESS_TEST_CMD $CYPRESS_TEST_CMD
-                  - npm run $CYPRESS_TEST_CMD
+                  - npm run test:sso
                   #   - npm run e2e:reports
               caches:
                   - node

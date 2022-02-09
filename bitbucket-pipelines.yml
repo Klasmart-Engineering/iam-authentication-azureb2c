@@ -4,26 +4,6 @@ definitions:
     caches:
         cypress: $HOME/.cache/Cypress
     steps:
-        - step: &e2e-tests
-              name: "E2E tests - SSO - Chrome Browser"
-              image: cypress/browsers:node16.5.0-chrome97-ff96
-              script:
-                  - git clone git@bitbucket.org:calmisland/kidsloop-auth-frontend.git --branch dev
-                  - cd kidsloop-auth-frontend
-                  - npm i --no-audit --no-progress
-                  - npm run test:sso:default
-                  - npm run e2e:reports
-              caches:
-                  - node
-                  - cypress
-              artifacts:
-                  # store any generates images and videos as artifacts
-                  - kidsloop-auth-frontend/cypress/screenshots/**
-                  - kidsloop-auth-frontend/cypress/cucumber-json
-                  - kidsloop-auth-frontend/cypress/videos/**
-                  - kidsloop-auth-frontend/test-reports/**
-                  - kidsloop-auth-frontend/test-reports/cucumber-report/cucumber-htmlreport/index.html
-
         - step: &deps
               name: Install npm dependencies
               caches:
@@ -64,32 +44,6 @@ definitions:
                         EXTRA_ARGS: "--recursive --overwrite=true"
                         DEBUG: "true"
                   - npx ieftool deploy -t $TENANT_ID -c $CLIENT_ID -s $SECRET -p src/policies/custom_policies/Environments/$ENVIRONMENT
-
-pipelines:
-    default:
-        - step: *deps
-        - step: *checks
-        - step:
-              name: Setup environment - SSO
-              script:
-                  - echo 'ENVIRONMENT="SSO"' >> .env
-              artifacts:
-                  - .env
-        - parallel:
-              - step: *build-assets
-              - step: *build-policies
-        - step: &deploy
-              name: Deploy B2C
-              script:
-                  - export $(cat .env | xargs)
-                  - pipe: atlassian/azure-storage-deploy:1.0.2
-                    variables:
-                        SOURCE: "dist/**"
-                        DESTINATION: "https://$STORAGE_ACCOUNT.blob.core.windows.net/$STORAGE_CONTAINER?"
-                        DESTINATION_SAS_TOKEN: $AzureStorageSasToken
-                        EXTRA_ARGS: "--recursive --overwrite=true"
-                        DEBUG: "true"
-                  - npx ieftool deploy -t $TENANT_ID -c $CLIENT_ID -s $SECRET -p src/policies/custom_policies/Environments/$ENVIRONMENT
         - step: &e2e-tests
               name: "E2E tests - SSO - Chrome Browser"
               image: cypress/browsers:node16.5.0-chrome97-ff96
@@ -109,6 +63,39 @@ pipelines:
                   - kidsloop-auth-frontend/cypress/videos/**
                   - kidsloop-auth-frontend/test-reports/**
                   - kidsloop-auth-frontend/test-reports/cucumber-report/cucumber-htmlreport/index.html
+
+pipelines:
+    default:
+        - step: &e2e-tests
+              name: "E2E tests - SSO - Chrome Browser"
+              image: cypress/browsers:node16.5.0-chrome97-ff96
+              script:
+                  - git clone git@bitbucket.org:calmisland/kidsloop-auth-frontend.git --branch dev
+                  - cd kidsloop-auth-frontend
+                  - npm i --no-audit --no-progress
+                  - npm run test:sso:default
+                  - npm run e2e:reports
+              caches:
+                  - node
+                  - cypress
+              artifacts:
+                  # store any generates images and videos as artifacts
+                  - kidsloop-auth-frontend/cypress/screenshots/**
+                  - kidsloop-auth-frontend/cypress/cucumber-json
+                  - kidsloop-auth-frontend/cypress/videos/**
+                  - kidsloop-auth-frontend/test-reports/**
+                  - kidsloop-auth-frontend/test-reports/cucumber-report/cucumber-htmlreport/index.html
+        - step: *deps
+        - step: *checks
+        - step:
+              name: Setup environment - SSO
+              script:
+                  - echo 'ENVIRONMENT="SSO"' >> .env
+              artifacts:
+                  - .env
+        - parallel:
+              - step: *build-assets
+              - step: *build-policies
 
     branches:
         master:

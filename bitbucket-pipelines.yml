@@ -54,7 +54,7 @@ definitions:
                   - npm i --no-audit --no-progress
                   - echo CYPRESS_TEST_CMD $CYPRESS_TEST_CMD
                   - npm run $CYPRESS_TEST_CMD
-                #   - npm run e2e:reports
+                  #   - npm run e2e:reports
               caches:
                   - node
                   - cypress

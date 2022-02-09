@@ -84,7 +84,7 @@ pipelines:
               deployment: SSO
         - step:
               <<: *e2e-tests
-         - step:
+        - step:
               <<: *deploy
               deployment: Alpha-Dev
 

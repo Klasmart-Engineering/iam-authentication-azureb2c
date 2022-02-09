@@ -3,7 +3,6 @@ image: node:16
 definitions:
     caches:
         cypress: $HOME/.cache/Cypress
-        # auth-frontend-node-modules: ~/kidsloop-auth-frontend/node_modules
     steps:
         - step: &deps
               name: Install npm dependencies
@@ -57,7 +56,6 @@ definitions:
               caches:
                   - node
                   - cypress
-                  #   - auth-frontend-node-modules
               artifacts:
                   # store any generates images and videos as artifacts
                   - cypress/screenshots/**
@@ -79,23 +77,6 @@ pipelines:
         - parallel:
               - step: *build-assets
               - step: *build-policies
-        - step:
-              <<: *deploy
-              deployment: SSO
-        - step:
-              <<: *e2e-tests
-        - step:
-              name: Setup environment - Alpha
-              script:
-                  - echo 'ENVIRONMENT="Alpha-Dev"' >> .env
-              artifacts:
-                  - .env
-        - parallel:
-              - step: *build-assets
-              - step: *build-policies
-        - step:
-              <<: *deploy
-              deployment: Alpha-Dev
 
     branches:
         master:
@@ -116,7 +97,7 @@ pipelines:
             - step:
                   <<: *e2e-tests
             - step:
-                  name: Setup environment
+                  name: Setup environment - Alpha
                   script:
                       - echo 'ENVIRONMENT="Alpha-Dev"' >> .env
                   artifacts:

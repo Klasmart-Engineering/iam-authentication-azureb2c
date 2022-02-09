@@ -52,7 +52,7 @@ definitions:
                   - git clone git@bitbucket.org:calmisland/kidsloop-auth-frontend.git --branch dev
                   - cd kidsloop-auth-frontend
                   - npm i --no-audit --no-progress
-                  - npm run test:sso
+                  #   - npm run test:sso
                   #   - npm run e2e:reports
               caches:
                   - node

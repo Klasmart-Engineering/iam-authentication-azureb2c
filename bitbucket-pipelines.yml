@@ -3,7 +3,7 @@ image: node:16
 definitions:
     caches:
         cypress: $HOME/.cache/Cypress
-        auth-frontend-node-modules: ~/kidsloop-auth-frontend/node_modules
+        # auth-frontend-node-modules: ~/kidsloop-auth-frontend/node_modules
     steps:
         - step: &deps
               name: Install npm dependencies
@@ -103,7 +103,6 @@ pipelines:
                   deployment: SSO
             - step:
                   <<: *e2e-tests
-                  deployment: SSO
             - step:
                   <<: *deploy
                   deployment: Alpha-Dev

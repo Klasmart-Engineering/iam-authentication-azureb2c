@@ -85,6 +85,15 @@ pipelines:
         - step:
               <<: *e2e-tests
         - step:
+              name: Setup environment
+              script:
+                  - echo 'ENVIRONMENT="Alpha-Dev"' >> .env
+              artifacts:
+                  - .env
+        - parallel:
+              - step: *build-assets
+              - step: *build-policies
+        - step:
               <<: *deploy
               deployment: Alpha-Dev
 

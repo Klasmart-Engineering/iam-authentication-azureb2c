@@ -2,3 +2,5 @@ dist
 node_modules
 # Formatted by stylelint
 *.css
+# Cloned as part of bitbucket-pipeline
+kidsloop-auth-frontend

@@ -1,2 +1,4 @@
 node_modules
 dist
+# Cloned as part of bitbucket-pipeline
+kidsloop-auth-frontend

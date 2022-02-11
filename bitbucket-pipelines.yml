@@ -63,7 +63,6 @@ definitions:
                   - kidsloop-auth-frontend/cypress/cucumber-json
                   - kidsloop-auth-frontend/cypress/videos/**
                   - kidsloop-auth-frontend/test-reports/**
-                  - kidsloop-auth-frontend/test-reports/cucumber-report/cucumber-htmlreport/index.html
 
 pipelines:
     default:

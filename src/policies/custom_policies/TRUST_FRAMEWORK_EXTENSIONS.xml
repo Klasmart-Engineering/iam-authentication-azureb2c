@@ -1522,6 +1522,8 @@
           <OutputClaimsTransformations>
             <OutputClaimsTransformation ReferenceId="CreateRandomUPNUserName" />
             <OutputClaimsTransformation ReferenceId="CreateUserPrincipalName" />
+            <OutputClaimsTransformation ReferenceId="LowercaseEmail" />
+            <OutputClaimsTransformation ReferenceId="TrimEmail" />
             <OutputClaimsTransformation ReferenceId="CreateAlternativeSecurityId" />
             <OutputClaimsTransformation ReferenceId="CreateSubjectClaimFromAlternativeSecurityId" />
           </OutputClaimsTransformations>
@@ -1569,6 +1571,8 @@
           <OutputClaimsTransformations>
             <OutputClaimsTransformation ReferenceId="CreateRandomUPNUserName" />
             <OutputClaimsTransformation ReferenceId="CreateUserPrincipalName" />
+            <OutputClaimsTransformation ReferenceId="LowercaseEmail" />
+            <OutputClaimsTransformation ReferenceId="TrimEmail" />
             <OutputClaimsTransformation ReferenceId="CreateAlternativeSecurityId" />
             <OutputClaimsTransformation ReferenceId="CreateSubjectClaimFromAlternativeSecurityId" />
           </OutputClaimsTransformations>

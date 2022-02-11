@@ -54,8 +54,8 @@ definitions:
                   - npm i --no-audit --no-progress
                   - npm run test:sso:default
                   - npm run e2e:reports
+                  - cd ..
               caches:
-                  - node
                   - cypress
               artifacts:
                   # store any generates images and videos as artifacts

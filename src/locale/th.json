@@ -1,0 +1,199 @@
+{
+    "custom_policy": {
+        "localaccountpasswordreset": {
+            "ClaimType": {
+                "email": {
+                    "DisplayName": "อีเมล",
+                    "PatternHelpText": "คุณไม่ได้ป้อนอีเมลที่ถูกต้อง"
+                },
+                "verificationCode": {
+                    "DisplayName": "ยืนยันรหัสรีเซ็ต"
+                }
+            },
+            "DisplayControl": {
+                "emailControl": {
+                    "but_send_code": "ยืนยันรหัสรีเซ็ต",
+                    "but_send_new_code": "ส่งรหัสรีเซ็ตใหม่",
+                    "but_verify_code": "ยืนยันรหัสรีเซ็ต",
+                    "intro_msg": "ป้อนหมายเลขโทรศัพท์ของคุณด้านล่างเพื่อรับรหัสรีเซ็ต",
+                    "success_send_code_msg": "รหัสรีเซ็ตถูกส่งไปยังโทรศัพท์ของคุณแล้ว โปรดคัดลอกลงในช่องป้อนข้อมูลด้านล่างและยืนยันรหัสรีเซ็ต",
+                    "success_verify_code_msg": "ยืนยันหมายเลขโทรศัพท์แล้ว คุณสามารถดำเนินการต่อได้เลย"
+                },
+                "phoneVerificationControl": {
+                    "but_send_code": "ยืนยันรหัสรีเซ็ต",
+                    "but_send_new_code": "ส่งรหัสรีเซ็ตใหม่",
+                    "but_verify_code": "ยืนยันรหัสรีเซ็ต",
+                    "intro_msg": "ป้อนหมายเลขโทรศัพท์ของคุณด้านล่างเพื่อรับรหัสรีเซ็ต",
+                    "success_send_code_msg": "รหัสรีเซ็ตถูกส่งไปยังโทรศัพท์ของคุณแล้ว โปรดคัดลอกลงในช่องป้อนข้อมูลด้านล่างและยืนยันรหัสรีเซ็ต",
+                    "success_verify_code_msg": "ยืนยันหมายเลขโทรศัพท์แล้ว คุณสามารถดำเนินการต่อได้เลย"
+                }
+            },
+            "ErrorMessage": {
+                "UserMessageIfClaimsTransformationBooleanValueIsNotEqual": "มีบางอย่างผิดปกติเกิดขึ้นกับเรา!\n โปรดลองอีกครั้งหรือติดต่อผู้ดูแลระบบองค์กรของคุณ",
+                "UserMessageIfVerificationFailedNoRetry": "คุณพยายามเข้าสู่ระบบไม่ถูกต้องหลายครั้งเกินไป โปรดรอและลองอีกครั้งในภายหลัง",
+                "UserMessageIfVerificationFailedRetryAllowed": "การตรวจสอบ PDF ล้มเหลว โปรดลองอีกครั้ง"
+            },
+            "Predicate": {
+                "internationalOrNationalPhoneNumber": {
+                    "HelpText": "รูปแบบตัวเลขไม่ถูกต้อง โปรดตรวจสอบให้แน่ใจว่าหมายเลขโทรศัพท์ไม่มีสัญลักษณ์พิเศษ เช่น []{}()"
+                },
+                "noCorporateEmail": {
+                    "HelpText": "ไม่สามารถรีเซ็ตรหัสผ่านสำหรับบัญชีที่มีที่อยู่อีเมล KidsLoop โปรดลงชื่อเข้าใช้แทน"
+                },
+                "noLeadingPlus": {
+                    "HelpText": "คุณไม่จำเป็นต้องใส่รหัสประเทศของคุณที่นี่ โปรดใช้เมนูแบบเลื่อนลงด้านบนเพื่อเลือกรหัสประเทศของคุณแทน"
+                }
+            }
+        },
+        "localaccountsignup": {
+            "ClaimType": {
+                "countryCode": {
+                    "DisplayName": "ประเทศ"
+                },
+                "email": {
+                    "DisplayName": "อีเมล",
+                    "PatternHelpText": "คุณไม่ได้ป้อนอีเมลที่ถูกต้อง"
+                },
+                "hasAcceptedPrivacyPolicy": {
+                    "DisplayName": "นโยบายความเป็นส่วนตัว",
+                    "UserHelpText": "ฉันยอมรับ KidsLoop {{นโยบายความเป็นส่วนตัว}}"
+                },
+                "nationalNumber": {
+                    "DisplayName": "หมายเลขโทรศัพท์"
+                },
+                "newPassword": {
+                    "DisplayName": "รีเซ็ตรหัสผ่าน",
+                    "PatternHelpText": "อักขระ 8-16 ตัว มี 3 ใน 4 ตัวต่อไปนี้: อักขระตัวพิมพ์เล็ก อักขระตัวพิมพ์ใหญ่ ตัวเลข (0-9) และสัญลักษณ์ต่อไปนี้อย่างน้อยหนึ่งตัว: @ # $ % ^ &amp; * - _ + = [ ] { } | \\ : ' , ? / ` ~ \" ( ) ; ."
+                },
+                "reenterPassword": {
+                    "DisplayName": "รีเซ็ตรหัสผ่าน"
+                },
+                "verificationCode": {
+                    "DisplayName": "ยืนยันรหัสรีเซ็ต"
+                }
+            },
+            "DisplayControl": {
+                "emailControl": {
+                    "but_change_claims": "ใส่อีเมล์",
+                    "but_send_code": "ยืนยันรหัสรีเซ็ต",
+                    "but_send_new_code": "ส่งรหัสรีเซ็ตใหม่",
+                    "but_verify_code": "ยืนยันรหัสรีเซ็ต"
+                },
+                "phoneVerificationControl": {
+                    "but_change_claims": "หมายเลขโทรศัพท์",
+                    "but_send_code": "ยืนยันรหัสรีเซ็ต",
+                    "but_send_new_code": "ส่งรหัสรีเซ็ตใหม่",
+                    "but_verify_code": "ยืนยันรหัสรีเซ็ต"
+                }
+            },
+            "ErrorMessage": {
+                "UserMessageIfClaimsPrincipalAlreadyExists": "มีบัญชีที่ใช้ที่อยู่อีเมลหรือหมายเลขนี้อยู่แล้ว",
+                "UserMessageIfMaxAllowedCodeRetryReached": "คุณพยายามเข้าสู่ระบบไม่ถูกต้องหลายครั้งเกินไป โปรดรอและลองอีกครั้งในภายหลัง",
+                "UserMessageIfVerificationFailedNoRetry": "คุณพยายามเข้าสู่ระบบไม่ถูกต้องหลายครั้งเกินไป โปรดรอและลองอีกครั้งในภายหลัง",
+                "UserMessageIfVerificationFailedRetryAllowed": "คุณพยายามเข้าสู่ระบบไม่ถูกต้องหลายครั้งเกินไป โปรดรอและลองอีกครั้งในภายหลัง",
+                "UserMessageIfWrongCodeEntered": "คุณพยายามเข้าสู่ระบบไม่ถูกต้องหลายครั้งเกินไป โปรดรอและลองอีกครั้งในภายหลัง"
+            },
+            "LocalizedCollection": {
+                "hasAcceptedPrivacyPolicy": {
+                    "true": "ฉันยอมรับ KidsLoop {{นโยบายความเป็นส่วนตัว}}"
+                }
+            },
+            "Predicate": {
+                "internationalOrNationalPhoneNumber": {
+                    "HelpText": "รูปแบบตัวเลขไม่ถูกต้อง โปรดตรวจสอบให้แน่ใจว่าหมายเลขโทรศัพท์ไม่มีสัญลักษณ์พิเศษ เช่น []{}()"
+                },
+                "noCorporateEmail": {
+                    "HelpText": "ไม่สามารถสร้างบัญชีด้วยที่อยู่อีเมล KidsLoop โปรดลงชื่อเข้าใช้แทน"
+                },
+                "noLeadingPlus": {
+                    "HelpText": "คุณไม่จำเป็นต้องใส่รหัสประเทศของคุณที่นี่ โปรดใช้เมนูแบบเลื่อนลงด้านบนเพื่อเลือกรหัสประเทศของคุณแทน"
+                }
+            },
+            "UXElement": {
+                "button_continue": "สร้างบัญชี"
+            },
+            "UxElement": {
+                "ver_but_edit": "ใส่อีเมล์",
+                "ver_but_resend": "ส่งรหัสรีเซ็ตใหม่",
+                "ver_but_send": "ยืนยันรหัสรีเซ็ต",
+                "ver_but_verify": "ยืนยันรหัสรีเซ็ต",
+                "ver_fail_no_retry": "คุณพยายามเข้าสู่ระบบไม่ถูกต้องหลายครั้งเกินไป โปรดรอและลองอีกครั้งในภายหลัง"
+            }
+        },
+        "selfasserted.localaccountpasswordchange": {
+            "ClaimType": {
+                "newPassword": {
+                    "DisplayName": "รีเซ็ตรหัสผ่าน",
+                    "PatternHelpText": "อักขระ 8-16 ตัว มี 3 ใน 4 ตัวต่อไปนี้: อักขระตัวพิมพ์เล็ก อักขระตัวพิมพ์ใหญ่ ตัวเลข (0-9) และสัญลักษณ์ต่อไปนี้อย่างน้อยหนึ่งตัว: @ # $ % ^ &amp; * - _ + = [ ] { } | \\ : ' , ? / ` ~ \" ( ) ; ."
+                },
+                "reenterPassword": {
+                    "DisplayName": "รีเซ็ตรหัสผ่าน"
+                }
+            },
+            "UXElement": {
+                "button_continue": "รีเซ็ตรหัสผ่าน",
+                "initial_intro": "มารีเซ็ตรหัสผ่านของคุณกันเถอะ"
+            }
+        },
+        "selfasserted": {
+            "ClaimType": {
+                "countryCode": {
+                    "DisplayName": "ประเทศ"
+                },
+                "nationalNumber": {
+                    "DisplayName": "หมายเลขโทรศัพท์"
+                }
+            },
+            "Predicate": {
+                "internationalOrNationalPhoneNumber": {
+                    "HelpText": "รูปแบบตัวเลขไม่ถูกต้อง โปรดตรวจสอบให้แน่ใจว่าหมายเลขโทรศัพท์ไม่มีสัญลักษณ์พิเศษ เช่น []{}()"
+                },
+                "noLeadingPlus": {
+                    "HelpText": "คุณไม่จำเป็นต้องใส่รหัสประเทศของคุณที่นี่ โปรดใช้เมนูแบบเลื่อนลงด้านบนเพื่อเลือกรหัสประเทศของคุณแทน"
+                }
+            },
+            "UxElement": {
+                "required_field": "ว่างเปล่าไม่ได้"
+            }
+        },
+        "signuporsignin": {
+            "ClaimType": {
+                "password": {
+                    "DisplayName": "รีเซ็ตรหัสผ่าน"
+                },
+                "signInName": {
+                    "DisplayName": "อีเมล"
+                },
+                "signInNamePhoneNumber": {
+                    "DisplayName": "หมายเลขโทรศัพท์"
+                }
+            },
+            "ClaimsProvider": {
+                "SigninWithPhone": "หมายเลขโทรศัพท์",
+                "SignupWithEmail": "อีเมล",
+                "SignupWithPhone": "หมายเลขโทรศัพท์"
+            },
+            "ErrorMessage": {
+                "UserMessageIfClaimsPrincipalDoesNotExist": "ขออภัย เราไม่รู้จักรายละเอียดการเข้าสู่ระบบของคุณ! โปรดตรวจสอบว่าคุณป้อนถูกต้องแล้วลองอีกครั้ง",
+                "UserMessageIfInvalidPassword": "ขออภัย เราไม่รู้จักรายละเอียดการเข้าสู่ระบบของคุณ! โปรดตรวจสอบว่าคุณป้อนถูกต้องแล้วลองอีกครั้ง",
+                "UserMessageIfOldPasswordUsed": "ขออภัย เราไม่รู้จักรายละเอียดการเข้าสู่ระบบของคุณ! โปรดตรวจสอบว่าคุณป้อนถูกต้องแล้วลองอีกครั้ง",
+                "UserMessageIfUserAccountDisabled": "มีบางอย่างผิดปกติเกิดขึ้นกับเรา!\n โปรดลองอีกครั้งหรือติดต่อผู้ดูแลระบบองค์กรของคุณ",
+                "UserMessageIfUserAccountLocked": "คุณพยายามเข้าสู่ระบบไม่ถูกต้องหลายครั้งเกินไป โปรดรอและลองอีกครั้งในภายหลัง"
+            },
+            "Predicate": {
+                "email": {
+                    "HelpText": "คุณไม่ได้ป้อนอีเมลที่ถูกต้อง"
+                }
+            },
+            "UxElement": {
+                "button_signin": "เข้าสู่ระบบ",
+                "heading": "เข้าสู่ระบบ",
+                "invalid_generic": "คุณไม่ได้ป้อนอีเมลที่ถูกต้อง{0}",
+                "local_intro_generic": "เข้าสู่ระบบ{0}",
+                "requiredField_generic": "ว่างเปล่าไม่ได้",
+                "requiredField_password": "ว่างเปล่าไม่ได้",
+                "social_intro": "เข้าสู่ระบบ{0}"
+            }
+        }
+    }
+}

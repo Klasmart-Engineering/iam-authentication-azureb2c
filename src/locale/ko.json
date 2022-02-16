@@ -3,7 +3,8 @@
         "localaccountpasswordreset": {
             "ClaimType": {
                 "email": {
-                    "DisplayName": "이메일 주소"
+                    "DisplayName": "이메일 주소",
+                    "PatternHelpText": "이메일 주소를 올바르게 입력하세요."
                 },
                 "verificationCode": {
                     "DisplayName": "코드 재설정"
@@ -43,7 +44,8 @@
                     "DisplayName": "국가"
                 },
                 "email": {
-                    "DisplayName": "이메일 주소"
+                    "DisplayName": "이메일 주소",
+                    "PatternHelpText": "이메일 주소를 올바르게 입력하세요."
                 },
                 "hasAcceptedPrivacyPolicy": {
                     "DisplayName": "개인정보 처리방침",
@@ -165,6 +167,11 @@
                 "UserMessageIfClaimsPrincipalDoesNotExist": "죄송합니다. 로그인 정보를 인식할 수 없습니다! 올바르게 입력했는지 확인하고 다시 시도하십시오.",
                 "UserMessageIfInvalidPassword": "죄송합니다. 로그인 정보를 인식할 수 없습니다! 올바르게 입력했는지 확인하고 다시 시도하십시오.",
                 "UserMessageIfOldPasswordUsed": "죄송합니다. 로그인 정보를 인식할 수 없습니다! 올바르게 입력했는지 확인하고 다시 시도하십시오."
+            },
+            "Predicate": {
+                "email": {
+                    "HelpText": "이메일 주소를 올바르게 입력하세요."
+                }
             },
             "UxElement": {
                 "button_signin": "로그인",

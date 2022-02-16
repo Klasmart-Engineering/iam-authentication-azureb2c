@@ -38,7 +38,7 @@
                     "HelpText": "Invalid number format. Please ensure that the phone number does not contain any special characters such as []{}()."
                 },
                 "noCorporateEmail": {
-                    "HelpText": "It is not possible to reset password for accounts with email addresses with KidsLoop domain"
+                    "HelpText": "It is not possible to reset the password for an account with a KidsLoop email address. Please sign-in instead."
                 },
                 "noLeadingPlus": {
                     "HelpText": "You don't need to include your country code here. Instead, please use the dropdown above to select your country code"
@@ -103,7 +103,7 @@
                     "HelpText": "Invalid number format. Please ensure that the phone number does not contain any special characters such as []{}()."
                 },
                 "noCorporateEmail": {
-                    "HelpText": "It is not possible to create an account for email addresses with KidsLoop domain"
+                    "HelpText": "It is not possible to create an account with a KidsLoop email address. Please sign-in instead."
                 },
                 "noLeadingPlus": {
                     "HelpText": "You don't need to include your country code here. Instead, please use the dropdown above to select your country code"

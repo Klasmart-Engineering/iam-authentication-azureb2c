@@ -1564,7 +1564,8 @@
             <OutputClaim ClaimTypeReferenceId="signInNames.userName" PartnerClaimType="name" />
             <!-- IAM-904: Copy MCB username into displayName -->
             <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="name" />
-            <OutputClaim ClaimTypeReferenceId="email" />
+            <!-- IAM-932: Email normalization will fail if email is null (i.e. not provided by IDP)-->
+            <OutputClaim ClaimTypeReferenceId="email" DefaultValue="" />
             <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" AlwaysUseDefaultValue="true" />
             <OutputClaim ClaimTypeReferenceId="identityProvider" PartnerClaimType="iss" DefaultValue="MyClassBoard" AlwaysUseDefaultValue="true" />
             <!-- Need to clean up obsolete claims https://calmisland.atlassian.net/browse/IAM-646 -->

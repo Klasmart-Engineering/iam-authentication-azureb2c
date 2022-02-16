@@ -1,0 +1,199 @@
+{
+    "custom_policy": {
+        "localaccountpasswordreset": {
+            "ClaimType": {
+                "email": {
+                    "DisplayName": "Alamat email",
+                    "PatternHelpText": "Masukkan email yang valid"
+                },
+                "verificationCode": {
+                    "DisplayName": "Reset kode"
+                }
+            },
+            "DisplayControl": {
+                "emailControl": {
+                    "but_send_code": "Kirim kode reset",
+                    "but_send_new_code": "Kirim kode reset baru",
+                    "but_verify_code": "Verifikasi kode reset",
+                    "intro_msg": "Masukkan alamat email untuk menerima kode reset.",
+                    "success_send_code_msg": "Kode reset dikirimkan ke email Anda. Salin dan masukkan kode pada kolom di bawah dan lakukan verifikasi.",
+                    "success_verify_code_msg": "Alamat email terverifikasi. Silakan melanjutkan."
+                },
+                "phoneVerificationControl": {
+                    "but_send_code": "Kirim kode reset",
+                    "but_send_new_code": "Kirim kode reset baru",
+                    "but_verify_code": "Verifikasi kode reset",
+                    "intro_msg": "Masukkan nomor hp di bawah untuk menerima kode reset.",
+                    "success_send_code_msg": "Kode reset sudah dikirimkan ke hp Anda. Salin dan masukkan di kolom isian di bawah untuk verifikasi kode reset.",
+                    "success_verify_code_msg": "Nomor hp terverifikasi. Silakan melanjutkan."
+                }
+            },
+            "ErrorMessage": {
+                "UserMessageIfClaimsTransformationBooleanValueIsNotEqual": "Akun sudah tidak aktif. Silakan hubungi organisasi Anda.",
+                "UserMessageIfVerificationFailedNoRetry": "Terlalu banyak percobaan yang gagal. Silakan coba lagi nanti.",
+                "UserMessageIfVerificationFailedRetryAllowed": "Verifikasi gagal, yuk coba lagi"
+            },
+            "Predicate": {
+                "internationalOrNationalPhoneNumber": {
+                    "HelpText": "Format angka tidak valid. Pastikan nomor hp tidak mengandung karakter spesial seperti []{}()."
+                },
+                "noCorporateEmail": {
+                    "HelpText": "Tidak bisa reset password untuk akun dengan email KidsLoop. Coba masuk sebagai gantinya."
+                },
+                "noLeadingPlus": {
+                    "HelpText": "Anda tidak perlu memasukkan kode negara di sini. Sebagai gantinya, gunakan pilihan di atas untuk memilih kode negara."
+                }
+            }
+        },
+        "localaccountsignup": {
+            "ClaimType": {
+                "countryCode": {
+                    "DisplayName": "Negara"
+                },
+                "email": {
+                    "DisplayName": "Alamat Email",
+                    "PatternHelpText": "Masukkan email yang valid"
+                },
+                "hasAcceptedPrivacyPolicy": {
+                    "DisplayName": "Kebijakan Privasi",
+                    "UserHelpText": "Setujui Kebijakan Privasi KidsLoop untuk membuat akun"
+                },
+                "nationalNumber": {
+                    "DisplayName": "Nomor HP"
+                },
+                "newPassword": {
+                    "DisplayName": "Buat Kata Sandi",
+                    "PatternHelpText": "8-16 karakter, terdiri dari 3 dari 4 hal berikut: Huruf kecil, huruf besar, angka (0-9), dan satu atau lebih simbol berikut: @ # $ % ^ &amp; * - _ + = [ ] {} | \\ : ' , ? / `~ \" ( ) ; ."
+                },
+                "reenterPassword": {
+                    "DisplayName": "Konfirmasi Password"
+                },
+                "verificationCode": {
+                    "DisplayName": "Kode Verifikasi"
+                }
+            },
+            "DisplayControl": {
+                "emailControl": {
+                    "but_change_claims": "Ubah email",
+                    "but_send_code": "Kirim kode verifikasi",
+                    "but_send_new_code": "Kirim kode baru",
+                    "but_verify_code": "Verifikasi kode"
+                },
+                "phoneVerificationControl": {
+                    "but_change_claims": "Ubah nomor hp",
+                    "but_send_code": "Kirim kode verifikasi",
+                    "but_send_new_code": "Kirim kode baru",
+                    "but_verify_code": "Verifikasi kode"
+                }
+            },
+            "ErrorMessage": {
+                "UserMessageIfClaimsPrincipalAlreadyExists": "Akun dengan email atau nomor ini sudah ada.",
+                "UserMessageIfMaxAllowedCodeRetryReached": "Terlalu banyak percobaan yang gagal. Silakan coba lagi nanti.",
+                "UserMessageIfVerificationFailedNoRetry": "Terlalu banyak percobaan yang gagal. Silakan coba lagi nanti.",
+                "UserMessageIfVerificationFailedRetryAllowed": "Kode salah. Yuk coba lagi.",
+                "UserMessageIfWrongCodeEntered": "Kode salah, yuk coba lagi"
+            },
+            "LocalizedCollection": {
+                "hasAcceptedPrivacyPolicy": {
+                    "true": "Saya setuju dengan {{Kebijakan privasi}} KidsLoop"
+                }
+            },
+            "Predicate": {
+                "internationalOrNationalPhoneNumber": {
+                    "HelpText": "Format nomor tidak valid. Pastikan nomor hp tidak mengandung karakter spesial seperti []{}()."
+                },
+                "noCorporateEmail": {
+                    "HelpText": "Tidak bisa membuat akun menggunakan email KidsLoop. Coba masuk sebagai gantinya."
+                },
+                "noLeadingPlus": {
+                    "HelpText": "Anda tidak perlu memasukkan kode negara di sini. Sebagai gantinya, gunakan pilihan di atas untuk memilih kode negara."
+                }
+            },
+            "UXElement": {
+                "button_continue": "Buat akun"
+            },
+            "UxElement": {
+                "ver_but_edit": "Ubah email",
+                "ver_but_resend": "Kirim kode baru",
+                "ver_but_send": "Kirim kode verifikasi",
+                "ver_but_verify": "Verifikasi kode",
+                "ver_fail_no_retry": "Terlalu banyak percobaan yang gagal. Silakan coba lagi nanti."
+            }
+        },
+        "selfasserted.localaccountpasswordchange": {
+            "ClaimType": {
+                "newPassword": {
+                    "DisplayName": "Kata sandi baru",
+                    "PatternHelpText": "8-16 karakter, terdiri dari 3 dari 4 hal berikut: Huruf kecil, huruf besar, angka (0-9), dan satu atau lebih simbol berikut: @ # $ % ^ &amp; * - _ + = [ ] {} | \\ : ' , ? / `~ \" ( ) ; ."
+                },
+                "reenterPassword": {
+                    "DisplayName": "Konfirmasi kata sandi baru"
+                }
+            },
+            "UXElement": {
+                "button_continue": "Reset Kata Sandi",
+                "initial_intro": "Sedikit lagi! Masukkan kata sandi baru di bawah."
+            }
+        },
+        "selfasserted": {
+            "ClaimType": {
+                "countryCode": {
+                    "DisplayName": "Negara"
+                },
+                "nationalNumber": {
+                    "DisplayName": "Nomor Hp"
+                }
+            },
+            "Predicate": {
+                "internationalOrNationalPhoneNumber": {
+                    "HelpText": "Format angka tidak valid. Pastikan nomor hp tidak mengandung karakter spesial seperti []{}()."
+                },
+                "noLeadingPlus": {
+                    "HelpText": "Anda tidak perlu memasukkan kode negara di sini. Sebagai gantinya, gunakan pilihan di atas untuk memilih kode negara."
+                }
+            },
+            "UxElement": {
+                "required_field": "Tidak boleh kosong"
+            }
+        },
+        "signuporsignin": {
+            "ClaimType": {
+                "password": {
+                    "DisplayName": "Kata Sandi"
+                },
+                "signInName": {
+                    "DisplayName": "Email"
+                },
+                "signInNamePhoneNumber": {
+                    "DisplayName": "Nomor Hp"
+                }
+            },
+            "ClaimsProvider": {
+                "SigninWithPhone": "Pakai nomor hp",
+                "SignupWithEmail": "Email",
+                "SignupWithPhone": "Nomor hp"
+            },
+            "ErrorMessage": {
+                "UserMessageIfClaimsPrincipalDoesNotExist": "Maaf, kami tidak mengenali informasi Anda! Pastikan Anda memasukkannya dengan benar lalu coba lagi.",
+                "UserMessageIfInvalidPassword": "Maaf, kami tidak mengenali informasi Anda! Pastikan Anda memasukkannya dengan benar lalu coba lagi.",
+                "UserMessageIfOldPasswordUsed": "Maaf, kami tidak mengenali informasi Anda! Pastikan Anda memasukkannya dengan benar lalu coba lagi.",
+                "UserMessageIfUserAccountDisabled": "Akun sudah tidak aktif. Silakan hubungi organisasi Anda.",
+                "UserMessageIfUserAccountLocked": "Terlalu sering gagal masuk. Silakan tunggu dan coba lagi nanti."
+            },
+            "Predicate": {
+                "email": {
+                    "HelpText": "Masukkan email yang valid"
+                }
+            },
+            "UxElement": {
+                "button_signin": "Masuk",
+                "heading": "Masuk",
+                "invalid_generic": "Masukkan {0} yang valid",
+                "local_intro_generic": "Masuk dengan {0} Anda",
+                "requiredField_generic": "Tidak bisa kosong",
+                "requiredField_password": "Tidak bisa kosong",
+                "social_intro": "Masuk dengan media sosial"
+            }
+        }
+    }
+}

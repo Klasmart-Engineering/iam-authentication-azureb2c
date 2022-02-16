@@ -38,7 +38,7 @@
                     "HelpText": "Formato de número no válido. Asegúrese de que el número de teléfono no contenga caracteres especiales como []{}()."
                 },
                 "noCorporateEmail": {
-                    "HelpText": "No es posible reestablecer contraseña para cuentas con correos electrónicos con el dominio de KidsLoop"
+                    "HelpText": "No es posible restablecer la contraseña de una cuenta con una dirección de correo electrónico de KidsLoop. Por favor, inicie sesión en su lugar."
                 },
                 "noLeadingPlus": {
                     "HelpText": "No es necesario incluir el código del país aquí. En su lugar, utilice el menú desplegable para seleccionar el código del país."
@@ -103,7 +103,7 @@
                     "HelpText": "Formato de número no válido. Asegúrese de que el número de teléfono no contenga caracteres especiales como []{}()."
                 },
                 "noCorporateEmail": {
-                    "HelpText": "No es posible crear una cuenta para correos electrónicos con el dominio de KidsLoop"
+                    "HelpText": "No es posible crear una cuenta con una dirección de correo electrónico de KidsLoop. Por favor, inicie sesión en su lugar."
                 },
                 "noLeadingPlus": {
                     "HelpText": "No es necesario incluir el código del país aquí. En su lugar, utilice el menú desplegable para seleccionar el código del país."

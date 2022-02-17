@@ -96,12 +96,6 @@ const main = async () => {
     } catch (e) {
         return fail(e)
     }
-
-    // Unfortunately, can't get this command to do anything at all with `exec`, need to prompt to run the script manually
-    console.log(`Translated HTML successfully moved
-Please run the following command in the terminal to re-add "DOCTYPE" to each HTML file
-
-sed -i '1 i<!DOCTYPE html>' ${newFilesGlob}`)
 }
 
 main()

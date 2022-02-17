@@ -117,8 +117,6 @@ e.g. if folder found at "~/Downloads/lokalise", run
 npx ts-node scripts/MoveTranslatedHTML.ts ~/Downloads/lokalise
 ```
 
-NB: Make sure to run the `sed` command logged to the console once the script finishes
-
 ##### Repo -> Lokalise
 
 ### Directory structure

@@ -1539,9 +1539,9 @@
           <DisplayName>Log in with MCB</DisplayName>
           <Protocol Name="OpenIdConnect" />
           <Metadata>
-            <Item Key="client_id">gw0McvVIBcYJkGNwzuhNigPyr52eDGXc</Item>
-            <Item Key="METADATA">https://dev-om9uecyh.us.auth0.com/.well-known/openid-configuration</Item>
-            <Item Key="ValidTokenIssuerPrefixes">https://dev-om9uecyh.us.auth0.com/</Item>
+            <Item Key="client_id">{settings:MCBClientId}</Item>
+            <Item Key="METADATA">{settings:MCBMetadataUrl}</Item>
+            <Item Key="ValidTokenIssuerPrefixes">{settings:MCBValidTokenIssuerPrefixes}</Item>
             <Item Key="response_mode">form_post</Item>
             <Item Key="HttpBinding">POST</Item>
             <Item Key="UsePolicyInRedirectUri">false</Item>
@@ -1561,9 +1561,9 @@
             <OutputClaim ClaimTypeReferenceId="tenantId" PartnerClaimType="tid" />
             <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="given_name" />
             <OutputClaim ClaimTypeReferenceId="surName" PartnerClaimType="family_name" />
-            <OutputClaim ClaimTypeReferenceId="signInNames.userName" PartnerClaimType="name" />
+            <OutputClaim ClaimTypeReferenceId="signInNames.userName" PartnerClaimType="username" />
             <!-- IAM-904: Copy MCB username into displayName -->
-            <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="name" />
+            <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="username" />
             <!-- IAM-932: Email normalization will fail if email is null (i.e. not provided by IDP)-->
             <OutputClaim ClaimTypeReferenceId="email" DefaultValue="" />
             <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" AlwaysUseDefaultValue="true" />

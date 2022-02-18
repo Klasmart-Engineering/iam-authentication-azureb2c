@@ -28,60 +28,10 @@
     display: none;
 }
 
-.banner {
-    align-items: center;
-    display: flex;
-    font-size: 14px;
-    justify-content: center;
-    padding: 10px;
-    text-align: center;
-    width: 100%;
-}
-
-.banner.banner--is-hidden {
-    display: none;
-}
-
-.banner .banner__icon {
-    margin-left: auto;
-    margin-right: 8px;
-    width: 32px;
-}
-
-.banner .banner__close-button {
-    appearance: none;
-    background: transparent;
-    border: none;
-    color: inherit;
-    cursor: pointer;
-    font: inherit;
-    -webkit-font-smoothing: inherit;
-    -moz-osx-font-smoothing: inherit;
-    line-height: normal;
-    margin: 0;
-    margin-left: auto;
-    overflow: visible;
-    padding: 0;
-    width: auto;
-}
-
-.banner.banner--danger {
-    background-color: #d32f2f;
-    color: #fff;
-}
-
 .main-content {
     background-color: #fff;
     min-height: 100vh;
     padding: 18px 16px 35px;
-    position: relative;
-}
-
-.main-content .banner {
-    margin-bottom: 16px;
-    margin-left: -16px;
-    margin-top: -18px;
-    width: calc(100% + 32px);
 }
 
 .main-heading {
@@ -179,12 +129,6 @@
         overflow-y: scroll;
         padding: 18px 40px 40px;
         width: 50vw;
-    }
-
-    .main-content .banner {
-        margin-left: -40px;
-        margin-top: -18px;
-        width: calc(100% + 80px);
     }
 
     .space-filler {

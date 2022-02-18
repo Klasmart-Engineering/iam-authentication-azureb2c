@@ -34,6 +34,9 @@
                 "UserMessageIfVerificationFailedRetryAllowed": "Verifikasi gagal, yuk coba lagi"
             },
             "Predicate": {
+                "email": {
+                    "HelpText": "Masukkan email yang valid"
+                },
                 "internationalOrNationalPhoneNumber": {
                     "HelpText": "Format angka tidak valid. Pastikan nomor hp tidak mengandung karakter spesial seperti []{}()."
                 },
@@ -99,6 +102,9 @@
                 }
             },
             "Predicate": {
+                "email": {
+                    "HelpText": "Masukkan email yang valid"
+                },
                 "internationalOrNationalPhoneNumber": {
                     "HelpText": "Format nomor tidak valid. Pastikan nomor hp tidak mengandung karakter spesial seperti []{}()."
                 },

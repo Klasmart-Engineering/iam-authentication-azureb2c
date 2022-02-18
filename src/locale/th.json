@@ -34,6 +34,9 @@
                 "UserMessageIfVerificationFailedRetryAllowed": "การตรวจสอบ PDF ล้มเหลว โปรดลองอีกครั้ง"
             },
             "Predicate": {
+                "email": {
+                    "HelpText": "คุณไม่ได้ป้อนอีเมลที่ถูกต้อง"
+                },
                 "internationalOrNationalPhoneNumber": {
                     "HelpText": "รูปแบบตัวเลขไม่ถูกต้อง โปรดตรวจสอบให้แน่ใจว่าหมายเลขโทรศัพท์ไม่มีสัญลักษณ์พิเศษ เช่น []{}()"
                 },
@@ -99,6 +102,9 @@
                 }
             },
             "Predicate": {
+                "email": {
+                    "HelpText": "คุณไม่ได้ป้อนอีเมลที่ถูกต้อง"
+                },
                 "internationalOrNationalPhoneNumber": {
                     "HelpText": "รูปแบบตัวเลขไม่ถูกต้อง โปรดตรวจสอบให้แน่ใจว่าหมายเลขโทรศัพท์ไม่มีสัญลักษณ์พิเศษ เช่น []{}()"
                 },

@@ -34,6 +34,9 @@
                 "UserMessageIfVerificationFailedRetryAllowed": "The verification has failed, please try again"
             },
             "Predicate": {
+                "email": {
+                    "HelpText": "Please enter a valid email address"
+                },
                 "internationalOrNationalPhoneNumber": {
                     "HelpText": "Invalid number format. Please ensure that the phone number does not contain any special characters such as []{}()."
                 },
@@ -99,6 +102,9 @@
                 }
             },
             "Predicate": {
+                "email": {
+                    "HelpText": "Please enter a valid email address"
+                },
                 "internationalOrNationalPhoneNumber": {
                     "HelpText": "Invalid number format. Please ensure that the phone number does not contain any special characters such as []{}()."
                 },

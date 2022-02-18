@@ -34,6 +34,9 @@
                 "UserMessageIfVerificationFailedRetryAllowed": "확인에 실패했습니다. 다시 시도해 주세요."
             },
             "Predicate": {
+                "email": {
+                    "HelpText": "이메일 주소를 올바르게 입력하세요."
+                },
                 "internationalOrNationalPhoneNumber": {
                     "HelpText": "잘못된 숫자 형식입니다. 전화 번호에 []{}()와 같은 특수 문자가 포함되어 있지 않은지 확인하십시오."
                 },
@@ -99,6 +102,9 @@
                 }
             },
             "Predicate": {
+                "email": {
+                    "HelpText": "이메일 주소를 올바르게 입력하세요."
+                },
                 "internationalOrNationalPhoneNumber": {
                     "HelpText": "잘못된 숫자 형식입니다. 전화 번호에 []{}()와 같은 특수 문자가 포함되어 있지 않은지 확인하십시오."
                 },

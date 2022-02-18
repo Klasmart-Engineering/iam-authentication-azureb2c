@@ -34,6 +34,9 @@
                 "UserMessageIfVerificationFailedRetryAllowed": "验证失败，请重试"
             },
             "Predicate": {
+                "email": {
+                    "HelpText": "请输入有效的电子邮件地址"
+                },
                 "internationalOrNationalPhoneNumber": {
                     "HelpText": "无效的数字格式。请确保电话号码不包含任何特殊字符，例如 []{}()。"
                 },
@@ -99,6 +102,9 @@
                 }
             },
             "Predicate": {
+                "email": {
+                    "HelpText": "请输入有效的电子邮件地址"
+                },
                 "internationalOrNationalPhoneNumber": {
                     "HelpText": "无效的数字格式。请确保电话号码不包含任何特殊字符，例如 []{}()。"
                 },

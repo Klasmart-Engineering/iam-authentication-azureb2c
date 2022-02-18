@@ -180,9 +180,9 @@
                 "SignupWithPhone": "Teléfono"
             },
             "ErrorMessage": {
-                "UserMessageIfClaimsPrincipalDoesNotExist": "Lo sentimos, no reconocemos sus datos de acceso. Por favor, compruebe que hayan sido introducidos correctamente e inténtelo de nuevo.",
-                "UserMessageIfInvalidPassword": "Lo sentimos, no reconocemos sus datos de acceso. Por favor, compruebe que hayan sido introducidos correctamente e inténtelo de nuevo.",
-                "UserMessageIfOldPasswordUsed": "Lo sentimos, no reconocemos sus datos de acceso. Por favor, compruebe que hayan sido introducidos correctamente e inténtelo de nuevo.",
+                "UserMessageIfClaimsPrincipalDoesNotExist": "Debido a una actualización del sistema, deberá restablecer la contraseña de su cuenta. Si ya lo hizo y recibe este mensaje, entonces ha ingresado una contraseña no válida. Vuelva a intentarlo o haga clic en el enlace \"Olvidé mi contraseña\" si necesita restablecer su contraseña.",
+                "UserMessageIfInvalidPassword": "Debido a una actualización del sistema, deberá restablecer la contraseña de su cuenta. Si ya lo hizo y recibe este mensaje, entonces ha ingresado una contraseña no válida. Vuelva a intentarlo o haga clic en el enlace \"Olvidé mi contraseña\" si necesita restablecer su contraseña.",
+                "UserMessageIfOldPasswordUsed": "Debido a una actualización del sistema, deberá restablecer la contraseña de su cuenta. Si ya lo hizo y recibe este mensaje, entonces ha ingresado una contraseña no válida. Vuelva a intentarlo o haga clic en el enlace \"Olvidé mi contraseña\" si necesita restablecer su contraseña.",
                 "UserMessageIfUserAccountDisabled": "Su cuenta está desactivada. Por favor, póngase en contacto con su organización.",
                 "UserMessageIfUserAccountLocked": "Ha intentado iniciar sesión incorrectamente demasiadas veces. Por favor espere y vuelva a intentarlo más tarde."
             },

@@ -3,7 +3,8 @@
         "localaccountpasswordreset": {
             "ClaimType": {
                 "email": {
-                    "DisplayName": "Địa chỉ email"
+                    "DisplayName": "Địa chỉ email",
+                    "PatternHelpText": "Vui lòng nhập địa chỉ email hợp lệ"
                 },
                 "verificationCode": {
                     "DisplayName": "Đặt lại mã"
@@ -21,16 +22,26 @@
                 "phoneVerificationControl": {
                     "but_send_code": "Gửi lại mã ",
                     "but_send_new_code": "Gửi lại mã mới",
-                    "but_verify_code": "Đặt lại mã xác minh"
+                    "but_verify_code": "Đặt lại mã xác minh",
+                    "intro_msg": "Nhập số điện thoại của bạn vào ô bên dưới để nhận lại mã cài đặt.",
+                    "success_send_code_msg": "Mã cài đặt lại đã được gửi đến điện thoại của bạn. Vui lòng sao chép nó để nhập vào ô bên dưới và xác minh mã lại cài đặt.",
+                    "success_verify_code_msg": "Số điện thoại đã được xác minh. Bạn có thể tiếp tục ngay bây giờ."
                 }
             },
             "ErrorMessage": {
+                "UserMessageIfClaimsTransformationBooleanValueIsNotEqual": "Tài khoản của bạn đã bị vô hiệu hóa. Vui lòng liên hệ với tổ chức của bạn.",
                 "UserMessageIfVerificationFailedNoRetry": "Bạn đã thực hiện nhiều lần không chính xác. Vui lòng thử lại sau.",
                 "UserMessageIfVerificationFailedRetryAllowed": "Xác minh không thành công, vui lòng thử lại"
             },
             "Predicate": {
+                "email": {
+                    "HelpText": "Vui lòng nhập địa chỉ email hợp lệ"
+                },
                 "internationalOrNationalPhoneNumber": {
                     "HelpText": "Định dạng số không hợp lệ. Vui lòng đảm bảo rằng số điện thoại không chứa bất kỳ ký tự đặc biệt nào như []{}()."
+                },
+                "noCorporateEmail": {
+                    "HelpText": "Bạn không thể lấy lại mật khẩu cho một account với địa chỉ email của KidsLoop. Vui lòng đăng nhập."
                 },
                 "noLeadingPlus": {
                     "HelpText": "Bạn không cần đưa mã quốc gia của mình vào đây. Thay vào đó, vui lòng sử dụng bảng chọn trên để chọn mã quốc gia của bạn"
@@ -43,7 +54,8 @@
                     "DisplayName": "Quốc gia"
                 },
                 "email": {
-                    "DisplayName": "Địa chỉ email"
+                    "DisplayName": "Địa chỉ email",
+                    "PatternHelpText": "Vui lòng nhập một email khả dụng."
                 },
                 "hasAcceptedPrivacyPolicy": {
                     "DisplayName": "Chính sách bảo mật",
@@ -90,8 +102,14 @@
                 }
             },
             "Predicate": {
+                "email": {
+                    "HelpText": "Vui lòng nhập địa chỉ email hợp lệ"
+                },
                 "internationalOrNationalPhoneNumber": {
                     "HelpText": "Định dạng số không hợp lệ. Vui lòng đảm bảo rằng số điện thoại không chứa bất kỳ ký tự đặc biệt nào như []{}()."
+                },
+                "noCorporateEmail": {
+                    "HelpText": "Bạn không thể tạo tài khoản với một địa chỉ email của KidsLoop. Vui lòng đăng nhập."
                 },
                 "noLeadingPlus": {
                     "HelpText": "Bạn không cần đưa mã quốc gia của mình vào đây. Thay vào đó, vui lòng sử dụng bảng chọn trên để chọn mã quốc gia của bạn"
@@ -164,7 +182,14 @@
             "ErrorMessage": {
                 "UserMessageIfClaimsPrincipalDoesNotExist": "Xin lỗi, chúng tôi không nhận ra thông tin đăng nhập của bạn! Vui lòng kiểm tra xem bạn đã nhập cách chính xác chưa và thử lại.",
                 "UserMessageIfInvalidPassword": "Xin lỗi, chúng tôi không nhận ra thông tin đăng nhập của bạn! Vui lòng kiểm tra xem bạn đã nhập chính xác chưa và thử lại.",
-                "UserMessageIfOldPasswordUsed": "Xin lỗi, chúng tôi không nhận ra thông tin đăng nhập của bạn! Vui lòng kiểm tra xem bạn đã nhập chính xác chưa và thử lại."
+                "UserMessageIfOldPasswordUsed": "Xin lỗi, chúng tôi không nhận ra thông tin đăng nhập của bạn! Vui lòng kiểm tra xem bạn đã nhập chính xác chưa và thử lại.",
+                "UserMessageIfUserAccountDisabled": "Tài khoản của bạn đã bị bất hoạt. Vui lòng liên hệ tổ chức của bạn để được giúp đỡ.",
+                "UserMessageIfUserAccountLocked": "Bạn đã đăng nhập không chính xác quá nhiều lần. Vui lòng đợi và đăng nhập lại sau."
+            },
+            "Predicate": {
+                "email": {
+                    "HelpText": "Vui lòng nhập địa chỉ email hợp lệ"
+                }
             },
             "UxElement": {
                 "button_signin": "Đăng nhập",

@@ -3,7 +3,8 @@
         "localaccountpasswordreset": {
             "ClaimType": {
                 "email": {
-                    "DisplayName": "邮箱"
+                    "DisplayName": "邮箱",
+                    "PatternHelpText": "请输入有效的电子邮件地址"
                 },
                 "verificationCode": {
                     "DisplayName": "重置代码"
@@ -21,16 +22,26 @@
                 "phoneVerificationControl": {
                     "but_send_code": "发送重置代码",
                     "but_send_new_code": "发送新的重置代码",
-                    "but_verify_code": "验证重置代码"
+                    "but_verify_code": "验证重置代码",
+                    "intro_msg": "在下方输入您的电话号码以接收重置代码。",
+                    "success_send_code_msg": "重置代码已发送到您的手机。请将其复制到下面的输入框中并验证重置代码。",
+                    "success_verify_code_msg": "电话号码已验证。您现在可以继续。"
                 }
             },
             "ErrorMessage": {
+                "UserMessageIfClaimsTransformationBooleanValueIsNotEqual": "您的账户已停用。请联系您的组织。",
                 "UserMessageIfVerificationFailedNoRetry": "错误地尝试过多，请稍后再试。",
                 "UserMessageIfVerificationFailedRetryAllowed": "验证失败，请重试"
             },
             "Predicate": {
+                "email": {
+                    "HelpText": "请输入有效的电子邮件地址"
+                },
                 "internationalOrNationalPhoneNumber": {
                     "HelpText": "无效的数字格式。请确保电话号码不包含任何特殊字符，例如 []{}()。"
+                },
+                "noCorporateEmail": {
+                    "HelpText": "不可能用KidsLoop的电子邮件地址重设账户的密码。请改用登录。"
                 },
                 "noLeadingPlus": {
                     "HelpText": "您无需在此处填写您的国家/地区代码。请使用上面的下拉菜单选择您的国家代码"
@@ -43,7 +54,8 @@
                     "DisplayName": "国家"
                 },
                 "email": {
-                    "DisplayName": "电子邮箱"
+                    "DisplayName": "电子邮箱",
+                    "PatternHelpText": "请输入有效的电子邮件地址"
                 },
                 "hasAcceptedPrivacyPolicy": {
                     "DisplayName": "隐私政策",
@@ -90,8 +102,14 @@
                 }
             },
             "Predicate": {
+                "email": {
+                    "HelpText": "请输入有效的电子邮件地址"
+                },
                 "internationalOrNationalPhoneNumber": {
                     "HelpText": "无效的数字格式。请确保电话号码不包含任何特殊字符，例如 []{}()。"
+                },
+                "noCorporateEmail": {
+                    "HelpText": "无法使用KidsLoop电子邮件地址创建账户。请直接登录。"
                 },
                 "noLeadingPlus": {
                     "HelpText": "您无需在此处填写您的国家/地区代码。请使用上面的下拉菜单选择您的国家代码"
@@ -164,7 +182,14 @@
             "ErrorMessage": {
                 "UserMessageIfClaimsPrincipalDoesNotExist": "抱歉，我们无法识别您的登录信息！请检查您是否输入正确，然后重试。",
                 "UserMessageIfInvalidPassword": "抱歉，我们无法识别您的登录信息！请检查您是否输入正确，然后重试。",
-                "UserMessageIfOldPasswordUsed": "抱歉，我们无法识别您的登录信息！请检查您是否输入正确，然后重试。"
+                "UserMessageIfOldPasswordUsed": "抱歉，我们无法识别您的登录信息！请检查您是否输入正确，然后重试。",
+                "UserMessageIfUserAccountDisabled": "您的账户已停用。请联系您的组织。",
+                "UserMessageIfUserAccountLocked": "您尝试错误登录的次数过多。请稍后再试。"
+            },
+            "Predicate": {
+                "email": {
+                    "HelpText": "请输入有效的电子邮件地址"
+                }
             },
             "UxElement": {
                 "button_signin": "登录",

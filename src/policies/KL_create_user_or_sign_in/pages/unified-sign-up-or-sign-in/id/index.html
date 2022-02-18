@@ -29,16 +29,37 @@
             data-preload="true"
             type="text/css"
         />
-        <title>KidsLoop | Login</title>
+        <title>KidsLoop | Masuk</title>
     </head>
 
     <body>
         <div class="wrapper">
             <div class="main-content">
+                <div class="banner banner--danger">
+                    <img
+                        class="banner__icon"
+                        src="../../../../../assets/warning.svg"
+                        alt="Perhatian"
+                    />
+                    <p>
+                        Karena ada pembaruan sistem pengguna akun harus
+                        melakukan reset kata sandi akun.
+                    </p>
+                    <button
+                        id="banner__close-button"
+                        class="banner__close-button"
+                    >
+                        <img
+                            src="../../../../../assets/close.svg"
+                            alt="Tutup"
+                        />
+                    </button>
+                </div>
                 <div class="header">
                     <img
                         class="logo"
                         src="../../../../../assets/logo.svg"
+                        alt="Logo KidsLoop"
                     /><!-- Made visible after initial locale is set (to avoid seeing it flicker) -->
                     <div
                         id="language-select__container"
@@ -47,7 +68,7 @@
                     >
                         <img
                             src="../../../../../assets/language-select-icon.svg"
-                            alt="Language Select Icon"
+                            alt="Ikon pilihan bahasa"
                             class="language-select__icon"
                         /><select
                             id="language-select"
@@ -68,9 +89,9 @@
                     <img
                         class="header-image"
                         src="../../../../../assets/cat_clouds_image.svg"
-                        alt="Cat in clouds"
+                        alt="Kucing di awan"
                     />
-                    <h1 class="main-heading">Login</h1>
+                    <h1 class="main-heading">Masuk</h1>
                     <div id="api"></div>
 
                     <div id="throbber" class="hidden centered">
@@ -91,7 +112,7 @@
                 <img
                     class="space-filler-image"
                     src="../../../../../assets/kids.svg"
-                    alt="Kids learning"
+                    alt="Pelajaran anak"
                 />
             </div>
         </div>
@@ -100,8 +121,9 @@
             class="text-link"
             style="display: none"
             href="javascript:history.back()"
-            >Use email</a
         >
+            Pakai email
+        </a>
         <script src="https://klukb2cstorage.blob.core.windows.net/b2ccosmosdb/policies/KL_create_user_or_sign_in/pages/unified-sign-up-or-sign-in/bundle.js"></script>
     </body>
 </html>

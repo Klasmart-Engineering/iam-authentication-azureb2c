@@ -22,16 +22,26 @@
                 "phoneVerificationControl": {
                     "but_send_code": "재설정 코드 보내기",
                     "but_send_new_code": "새 재설정 코드 보내기",
-                    "but_verify_code": "재설정 코드 확인"
+                    "but_verify_code": "재설정 코드 확인",
+                    "intro_msg": "비밀번호 재설정 코드를 받으려면 아래에 전화번호를 입력하세요.",
+                    "success_send_code_msg": "재설정 코드가 귀하의 핸드폰으로 전송되었습니다. 아래 입력란에 복사하여 리셋코드를 확인해주세요.",
+                    "success_verify_code_msg": "전화번호가 확인되었습니다. 지금 계속할 수 있습니다."
                 }
             },
             "ErrorMessage": {
+                "UserMessageIfClaimsTransformationBooleanValueIsNotEqual": "계정이 비활성화되었습니다. 귀하의 조직에 문의해 주세요.",
                 "UserMessageIfVerificationFailedNoRetry": "잘못된 시도 횟수가 너무 많습니다. 나중에 다시 시도하십시오.",
                 "UserMessageIfVerificationFailedRetryAllowed": "확인에 실패했습니다. 다시 시도해 주세요."
             },
             "Predicate": {
+                "email": {
+                    "HelpText": "이메일 주소를 올바르게 입력하세요."
+                },
                 "internationalOrNationalPhoneNumber": {
                     "HelpText": "잘못된 숫자 형식입니다. 전화 번호에 []{}()와 같은 특수 문자가 포함되어 있지 않은지 확인하십시오."
+                },
+                "noCorporateEmail": {
+                    "HelpText": "KidsLoop 이메일 주소가 있는 계정의 비밀번호는 재설정할 수 없습니다. 대신 로그인하십시오."
                 },
                 "noLeadingPlus": {
                     "HelpText": "여기에 국가 코드를 포함할 필요가 없습니다. 대신 위의 드롭다운을 사용하여 국가 코드를 선택하십시오."
@@ -92,8 +102,14 @@
                 }
             },
             "Predicate": {
+                "email": {
+                    "HelpText": "이메일 주소를 올바르게 입력하세요."
+                },
                 "internationalOrNationalPhoneNumber": {
                     "HelpText": "잘못된 숫자 형식입니다. 전화 번호에 []{}()와 같은 특수 문자가 포함되어 있지 않은지 확인하십시오."
+                },
+                "noCorporateEmail": {
+                    "HelpText": "KidsLoop 이메일 주소로 계정을 생성할 수 없습니다. 대신 로그인하십시오."
                 },
                 "noLeadingPlus": {
                     "HelpText": "여기에 국가 코드를 포함할 필요가 없습니다. 대신 위의 드롭다운을 사용하여 국가 코드를 선택하십시오."
@@ -166,7 +182,9 @@
             "ErrorMessage": {
                 "UserMessageIfClaimsPrincipalDoesNotExist": "죄송합니다. 로그인 정보를 인식할 수 없습니다! 올바르게 입력했는지 확인하고 다시 시도하십시오.",
                 "UserMessageIfInvalidPassword": "죄송합니다. 로그인 정보를 인식할 수 없습니다! 올바르게 입력했는지 확인하고 다시 시도하십시오.",
-                "UserMessageIfOldPasswordUsed": "죄송합니다. 로그인 정보를 인식할 수 없습니다! 올바르게 입력했는지 확인하고 다시 시도하십시오."
+                "UserMessageIfOldPasswordUsed": "죄송합니다. 로그인 정보를 인식할 수 없습니다! 올바르게 입력했는지 확인하고 다시 시도하십시오.",
+                "UserMessageIfUserAccountDisabled": "계정이 비활성화되었습니다. 귀하의 조직에 문의해 주세요.",
+                "UserMessageIfUserAccountLocked": "잘못된 로그인 시도 횟수가 너무 많습니다. 잠시 후 다시 시도하십시오."
             },
             "Predicate": {
                 "email": {

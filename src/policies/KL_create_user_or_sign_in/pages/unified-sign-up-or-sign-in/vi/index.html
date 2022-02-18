@@ -29,16 +29,37 @@
             data-preload="true"
             type="text/css"
         />
-        <title>KidsLoop | Login</title>
+        <title>KidsLoop | Đăng nhập</title>
     </head>
 
     <body>
         <div class="wrapper">
             <div class="main-content">
+                <div class="banner banner--danger">
+                    <img
+                        class="banner__icon"
+                        src="../../../../../assets/warning.svg"
+                        alt="Warning"
+                    />
+                    <p>
+                        Due to system upgrade current account users need to
+                        reset their account passwords.
+                    </p>
+                    <button
+                        id="banner__close-button"
+                        class="banner__close-button"
+                    >
+                        <img
+                            src="../../../../../assets/close.svg"
+                            alt="Close button"
+                        />
+                    </button>
+                </div>
                 <div class="header">
                     <img
                         class="logo"
                         src="../../../../../assets/logo.svg"
+                        alt="KidsLoop logo"
                     /><!-- Made visible after initial locale is set (to avoid seeing it flicker) -->
                     <div
                         id="language-select__container"
@@ -70,7 +91,7 @@
                         src="../../../../../assets/cat_clouds_image.svg"
                         alt="Cat in clouds"
                     />
-                    <h1 class="main-heading">Login</h1>
+                    <h1 class="main-heading">Đăng nhập</h1>
                     <div id="api"></div>
 
                     <div id="throbber" class="hidden centered">
@@ -100,7 +121,7 @@
             class="text-link"
             style="display: none"
             href="javascript:history.back()"
-            >Use email</a
+            >Sử dụng email</a
         >
         <script src="https://klukb2cstorage.blob.core.windows.net/b2ccosmosdb/policies/KL_create_user_or_sign_in/pages/unified-sign-up-or-sign-in/bundle.js"></script>
     </body>

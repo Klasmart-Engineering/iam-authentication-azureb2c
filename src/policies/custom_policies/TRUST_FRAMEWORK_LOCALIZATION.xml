@@ -134,6 +134,7 @@
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsTransformationBooleanValueIsNotEqual">Your account is deactivated. Please contact your organization.</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedNoRetry">You've made too many incorrect attempts. Please try again later.</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedRetryAllowed">The verification has failed, please try again</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="email" StringId="HelpText">Please enter a valid email address</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="internationalOrNationalPhoneNumber" StringId="HelpText">Invalid number format. Please ensure that the phone number does not contain any special characters such as []{}().</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="noCorporateEmail" StringId="HelpText">It is not possible to reset the password for an account with a KidsLoop email address. Please sign-in instead.</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="noLeadingPlus" StringId="HelpText">You don't need to include your country code here. Instead, please use the dropdown above to select your country code</LocalizedString>
@@ -169,6 +170,7 @@
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedNoRetry">You've made too many incorrect attempts. Please try again later.</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedRetryAllowed">The code is incorrect. Please try again.</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfWrongCodeEntered">The code is incorrect, please try again</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="email" StringId="HelpText">Please enter a valid email address</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="internationalOrNationalPhoneNumber" StringId="HelpText">Invalid number format. Please ensure that the phone number does not contain any special characters such as []{}().</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="noCorporateEmail" StringId="HelpText">It is not possible to create an account with a KidsLoop email address. Please sign-in instead.</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="noLeadingPlus" StringId="HelpText">You don't need to include your country code here. Instead, please use the dropdown above to select your country code</LocalizedString>
@@ -241,6 +243,7 @@
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsTransformationBooleanValueIsNotEqual">Su cuenta está desactivada. Por favor, póngase en contacto con su organización.</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedNoRetry">Ha realizado demasiados intentos fallidos. Por favor, vuelva más tarde.</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedRetryAllowed">La verificación ha fallado, por favor inténtelo de nuevo</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="email" StringId="HelpText">Por favor ingrese un correo electrónico válido</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="internationalOrNationalPhoneNumber" StringId="HelpText">Formato de número no válido. Asegúrese de que el número de teléfono no contenga caracteres especiales como []{}().</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="noCorporateEmail" StringId="HelpText">No es posible restablecer la contraseña de una cuenta con una dirección de correo electrónico de KidsLoop. Por favor, inicie sesión en su lugar.</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="noLeadingPlus" StringId="HelpText">No es necesario incluir el código del país aquí. En su lugar, utilice el menú desplegable para seleccionar el código del país.</LocalizedString>
@@ -276,6 +279,7 @@
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedNoRetry">Ha realizado demasiados intentos fallidos. Por favor, vuelva más tarde.</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedRetryAllowed">El código es incorrecto. Por favor, inténtelo de nuevo</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfWrongCodeEntered">El código es incorrecto. Por favor, inténtelo de nuevo</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="email" StringId="HelpText">Por favor ingrese un correo electrónico válido</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="internationalOrNationalPhoneNumber" StringId="HelpText">Formato de número no válido. Asegúrese de que el número de teléfono no contenga caracteres especiales como []{}().</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="noCorporateEmail" StringId="HelpText">No es posible crear una cuenta con una dirección de correo electrónico de KidsLoop. Por favor, inicie sesión en su lugar.</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="noLeadingPlus" StringId="HelpText">No es necesario incluir el código del país aquí. En su lugar, utilice el menú desplegable para seleccionar el código del país.</LocalizedString>
@@ -348,6 +352,7 @@
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsTransformationBooleanValueIsNotEqual">Akun sudah tidak aktif. Silakan hubungi organisasi Anda.</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedNoRetry">Terlalu banyak percobaan yang gagal. Silakan coba lagi nanti.</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedRetryAllowed">Verifikasi gagal, yuk coba lagi</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="email" StringId="HelpText">Masukkan email yang valid</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="internationalOrNationalPhoneNumber" StringId="HelpText">Format angka tidak valid. Pastikan nomor hp tidak mengandung karakter spesial seperti []{}().</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="noCorporateEmail" StringId="HelpText">Tidak bisa reset password untuk akun dengan email KidsLoop. Coba masuk sebagai gantinya.</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="noLeadingPlus" StringId="HelpText">Anda tidak perlu memasukkan kode negara di sini. Sebagai gantinya, gunakan pilihan di atas untuk memilih kode negara.</LocalizedString>
@@ -383,6 +388,7 @@
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedNoRetry">Terlalu banyak percobaan yang gagal. Silakan coba lagi nanti.</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedRetryAllowed">Kode salah. Yuk coba lagi.</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfWrongCodeEntered">Kode salah, yuk coba lagi</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="email" StringId="HelpText">Masukkan email yang valid</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="internationalOrNationalPhoneNumber" StringId="HelpText">Format nomor tidak valid. Pastikan nomor hp tidak mengandung karakter spesial seperti []{}().</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="noCorporateEmail" StringId="HelpText">Tidak bisa membuat akun menggunakan email KidsLoop. Coba masuk sebagai gantinya.</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="noLeadingPlus" StringId="HelpText">Anda tidak perlu memasukkan kode negara di sini. Sebagai gantinya, gunakan pilihan di atas untuk memilih kode negara.</LocalizedString>
@@ -449,9 +455,15 @@
           <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl" StringId="but_send_code">재설정 코드 보내기</LocalizedString>
           <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl" StringId="but_send_new_code">새 재설정 코드 보내기</LocalizedString>
           <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl" StringId="but_verify_code">재설정 코드 확인</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl" StringId="intro_msg">비밀번호 재설정 코드를 받으려면 아래에 전화번호를 입력하세요.</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl" StringId="success_send_code_msg">재설정 코드가 귀하의 핸드폰으로 전송되었습니다. 아래 입력란에 복사하여 리셋코드를 확인해주세요.</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl" StringId="success_verify_code_msg">전화번호가 확인되었습니다. 지금 계속할 수 있습니다.</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsTransformationBooleanValueIsNotEqual">계정이 비활성화되었습니다. 귀하의 조직에 문의해 주세요.</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedNoRetry">잘못된 시도 횟수가 너무 많습니다. 나중에 다시 시도하십시오.</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedRetryAllowed">확인에 실패했습니다. 다시 시도해 주세요.</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="email" StringId="HelpText">이메일 주소를 올바르게 입력하세요.</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="internationalOrNationalPhoneNumber" StringId="HelpText">잘못된 숫자 형식입니다. 전화 번호에 []{}()와 같은 특수 문자가 포함되어 있지 않은지 확인하십시오.</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="noCorporateEmail" StringId="HelpText">KidsLoop 이메일 주소가 있는 계정의 비밀번호는 재설정할 수 없습니다. 대신 로그인하십시오.</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="noLeadingPlus" StringId="HelpText">여기에 국가 코드를 포함할 필요가 없습니다. 대신 위의 드롭다운을 사용하여 국가 코드를 선택하십시오.</LocalizedString>
         </LocalizedStrings>
       </LocalizedResources>
@@ -485,7 +497,9 @@
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedNoRetry">잘못된 시도 횟수가 너무 많습니다. 나중에 다시 시도하십시오.</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedRetryAllowed">코드가 올바르지 않습니다. 다시 시도하십시오.</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfWrongCodeEntered">코드가 올바르지 않습니다, 다시 시도하십시오</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="email" StringId="HelpText">이메일 주소를 올바르게 입력하세요.</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="internationalOrNationalPhoneNumber" StringId="HelpText">잘못된 숫자 형식입니다. 전화 번호에 []{}()와 같은 특수 문자가 포함되어 있지 않은지 확인하십시오.</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="noCorporateEmail" StringId="HelpText">KidsLoop 이메일 주소로 계정을 생성할 수 없습니다. 대신 로그인하십시오.</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="noLeadingPlus" StringId="HelpText">여기에 국가 코드를 포함할 필요가 없습니다. 대신 위의 드롭다운을 사용하여 국가 코드를 선택하십시오.</LocalizedString>
           <LocalizedString ElementType="UXElement" StringId="button_continue">계정 만들기</LocalizedString>
           <LocalizedString ElementType="UxElement" StringId="ver_but_edit">이메일 변경</LocalizedString>
@@ -524,6 +538,8 @@
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalDoesNotExist">죄송합니다. 로그인 정보를 인식할 수 없습니다! 올바르게 입력했는지 확인하고 다시 시도하십시오.</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidPassword">죄송합니다. 로그인 정보를 인식할 수 없습니다! 올바르게 입력했는지 확인하고 다시 시도하십시오.</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfOldPasswordUsed">죄송합니다. 로그인 정보를 인식할 수 없습니다! 올바르게 입력했는지 확인하고 다시 시도하십시오.</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfUserAccountDisabled">계정이 비활성화되었습니다. 귀하의 조직에 문의해 주세요.</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfUserAccountLocked">잘못된 로그인 시도 횟수가 너무 많습니다. 잠시 후 다시 시도하십시오.</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="email" StringId="HelpText">이메일 주소를 올바르게 입력하세요.</LocalizedString>
           <LocalizedString ElementType="UxElement" StringId="button_signin">로그인</LocalizedString>
           <LocalizedString ElementType="UxElement" StringId="heading">로그인</LocalizedString>
@@ -555,6 +571,7 @@
  โปรดลองอีกครั้งหรือติดต่อผู้ดูแลระบบองค์กรของคุณ</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedNoRetry">คุณพยายามเข้าสู่ระบบไม่ถูกต้องหลายครั้งเกินไป โปรดรอและลองอีกครั้งในภายหลัง</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedRetryAllowed">การตรวจสอบ PDF ล้มเหลว โปรดลองอีกครั้ง</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="email" StringId="HelpText">คุณไม่ได้ป้อนอีเมลที่ถูกต้อง</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="internationalOrNationalPhoneNumber" StringId="HelpText">รูปแบบตัวเลขไม่ถูกต้อง โปรดตรวจสอบให้แน่ใจว่าหมายเลขโทรศัพท์ไม่มีสัญลักษณ์พิเศษ เช่น []{}()</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="noCorporateEmail" StringId="HelpText">ไม่สามารถรีเซ็ตรหัสผ่านสำหรับบัญชีที่มีที่อยู่อีเมล KidsLoop โปรดลงชื่อเข้าใช้แทน</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="noLeadingPlus" StringId="HelpText">คุณไม่จำเป็นต้องใส่รหัสประเทศของคุณที่นี่ โปรดใช้เมนูแบบเลื่อนลงด้านบนเพื่อเลือกรหัสประเทศของคุณแทน</LocalizedString>
@@ -590,6 +607,7 @@
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedNoRetry">คุณพยายามเข้าสู่ระบบไม่ถูกต้องหลายครั้งเกินไป โปรดรอและลองอีกครั้งในภายหลัง</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedRetryAllowed">คุณพยายามเข้าสู่ระบบไม่ถูกต้องหลายครั้งเกินไป โปรดรอและลองอีกครั้งในภายหลัง</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfWrongCodeEntered">คุณพยายามเข้าสู่ระบบไม่ถูกต้องหลายครั้งเกินไป โปรดรอและลองอีกครั้งในภายหลัง</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="email" StringId="HelpText">คุณไม่ได้ป้อนอีเมลที่ถูกต้อง</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="internationalOrNationalPhoneNumber" StringId="HelpText">รูปแบบตัวเลขไม่ถูกต้อง โปรดตรวจสอบให้แน่ใจว่าหมายเลขโทรศัพท์ไม่มีสัญลักษณ์พิเศษ เช่น []{}()</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="noCorporateEmail" StringId="HelpText">ไม่สามารถสร้างบัญชีด้วยที่อยู่อีเมล KidsLoop โปรดลงชื่อเข้าใช้แทน</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="noLeadingPlus" StringId="HelpText">คุณไม่จำเป็นต้องใส่รหัสประเทศของคุณที่นี่ โปรดใช้เมนูแบบเลื่อนลงด้านบนเพื่อเลือกรหัสประเทศของคุณแทน</LocalizedString>
@@ -646,6 +664,7 @@
       <LocalizedResources Id="api.localaccountpasswordreset.vi">
         <LocalizedStrings>
           <LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">Địa chỉ email</LocalizedString>
+          <LocalizedString ElementType="ClaimType" ElementId="email" StringId="PatternHelpText">Vui lòng nhập địa chỉ email hợp lệ</LocalizedString>
           <LocalizedString ElementType="ClaimType" ElementId="verificationCode" StringId="DisplayName">Đặt lại mã</LocalizedString>
           <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="but_send_code">Gửi lại mã</LocalizedString>
           <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="but_send_new_code">Gửi lại mã mới</LocalizedString>
@@ -656,9 +675,15 @@
           <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl" StringId="but_send_code">Gửi lại mã</LocalizedString>
           <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl" StringId="but_send_new_code">Gửi lại mã mới</LocalizedString>
           <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl" StringId="but_verify_code">Đặt lại mã xác minh</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl" StringId="intro_msg">Nhập số điện thoại của bạn vào ô bên dưới để nhận lại mã cài đặt.</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl" StringId="success_send_code_msg">Mã cài đặt lại đã được gửi đến điện thoại của bạn. Vui lòng sao chép nó để nhập vào ô bên dưới và xác minh mã lại cài đặt.</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl" StringId="success_verify_code_msg">Số điện thoại đã được xác minh. Bạn có thể tiếp tục ngay bây giờ.</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsTransformationBooleanValueIsNotEqual">Tài khoản của bạn đã bị vô hiệu hóa. Vui lòng liên hệ với tổ chức của bạn.</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedNoRetry">Bạn đã thực hiện nhiều lần không chính xác. Vui lòng thử lại sau.</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedRetryAllowed">Xác minh không thành công, vui lòng thử lại</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="email" StringId="HelpText">Vui lòng nhập địa chỉ email hợp lệ</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="internationalOrNationalPhoneNumber" StringId="HelpText">Định dạng số không hợp lệ. Vui lòng đảm bảo rằng số điện thoại không chứa bất kỳ ký tự đặc biệt nào như []{}().</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="noCorporateEmail" StringId="HelpText">Bạn không thể lấy lại mật khẩu cho một account với địa chỉ email của KidsLoop. Vui lòng đăng nhập.</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="noLeadingPlus" StringId="HelpText">Bạn không cần đưa mã quốc gia của mình vào đây. Thay vào đó, vui lòng sử dụng bảng chọn trên để chọn mã quốc gia của bạn</LocalizedString>
         </LocalizedStrings>
       </LocalizedResources>
@@ -671,6 +696,7 @@
         <LocalizedStrings>
           <LocalizedString ElementType="ClaimType" ElementId="countryCode" StringId="DisplayName">Quốc gia</LocalizedString>
           <LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">Địa chỉ email</LocalizedString>
+          <LocalizedString ElementType="ClaimType" ElementId="email" StringId="PatternHelpText">Vui lòng nhập một email khả dụng.</LocalizedString>
           <LocalizedString ElementType="ClaimType" ElementId="hasAcceptedPrivacyPolicy" StringId="DisplayName">Chính sách bảo mật</LocalizedString>
           <LocalizedString ElementType="ClaimType" ElementId="hasAcceptedPrivacyPolicy" StringId="UserHelpText">Vui lòng đồng ý với Chính sách quyền riêng tư của KidsLoop để tạo tài khoản</LocalizedString>
           <LocalizedString ElementType="ClaimType" ElementId="nationalNumber" StringId="DisplayName">Số điện thoại</LocalizedString>
@@ -691,7 +717,9 @@
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedNoRetry">Bạn đã thực hiện nhiều lần không chính xác. Vui lòng thử lại sau.</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedRetryAllowed">Mã không chính xác. Vui lòng thử lại.</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfWrongCodeEntered">Mã không chính xác, vui lòng thử lại</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="email" StringId="HelpText">Vui lòng nhập địa chỉ email hợp lệ</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="internationalOrNationalPhoneNumber" StringId="HelpText">Định dạng số không hợp lệ. Vui lòng đảm bảo rằng số điện thoại không chứa bất kỳ ký tự đặc biệt nào như []{}().</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="noCorporateEmail" StringId="HelpText">Bạn không thể tạo tài khoản với một địa chỉ email của KidsLoop. Vui lòng đăng nhập.</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="noLeadingPlus" StringId="HelpText">Bạn không cần đưa mã quốc gia của mình vào đây. Thay vào đó, vui lòng sử dụng bảng chọn trên để chọn mã quốc gia của bạn</LocalizedString>
           <LocalizedString ElementType="UXElement" StringId="button_continue">Tạo tài khoản</LocalizedString>
           <LocalizedString ElementType="UxElement" StringId="ver_but_edit">Thay đổi e-mail</LocalizedString>
@@ -730,6 +758,9 @@
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalDoesNotExist">Xin lỗi, chúng tôi không nhận ra thông tin đăng nhập của bạn! Vui lòng kiểm tra xem bạn đã nhập cách chính xác chưa và thử lại.</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidPassword">Xin lỗi, chúng tôi không nhận ra thông tin đăng nhập của bạn! Vui lòng kiểm tra xem bạn đã nhập chính xác chưa và thử lại.</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfOldPasswordUsed">Xin lỗi, chúng tôi không nhận ra thông tin đăng nhập của bạn! Vui lòng kiểm tra xem bạn đã nhập chính xác chưa và thử lại.</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfUserAccountDisabled">Tài khoản của bạn đã bị bất hoạt. Vui lòng liên hệ tổ chức của bạn để được giúp đỡ.</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfUserAccountLocked">Bạn đã đăng nhập không chính xác quá nhiều lần. Vui lòng đợi và đăng nhập lại sau.</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="email" StringId="HelpText">Vui lòng nhập địa chỉ email hợp lệ</LocalizedString>
           <LocalizedString ElementType="UxElement" StringId="button_signin">Đăng nhập</LocalizedString>
           <LocalizedString ElementType="UxElement" StringId="heading">Đăng nhập</LocalizedString>
           <LocalizedString ElementType="UxElement" StringId="invalid_generic">Vui lòng nhập {0} hợp lệ</LocalizedString>
@@ -742,6 +773,7 @@
       <LocalizedResources Id="api.localaccountpasswordreset.zh-hans">
         <LocalizedStrings>
           <LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">邮箱</LocalizedString>
+          <LocalizedString ElementType="ClaimType" ElementId="email" StringId="PatternHelpText">请输入有效的电子邮件地址</LocalizedString>
           <LocalizedString ElementType="ClaimType" ElementId="verificationCode" StringId="DisplayName">重置代码</LocalizedString>
           <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="but_send_code">发送重置代码</LocalizedString>
           <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="but_send_new_code">发送新的重置代码</LocalizedString>
@@ -752,9 +784,15 @@
           <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl" StringId="but_send_code">发送重置代码</LocalizedString>
           <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl" StringId="but_send_new_code">发送新的重置代码</LocalizedString>
           <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl" StringId="but_verify_code">验证重置代码</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl" StringId="intro_msg">在下方输入您的电话号码以接收重置代码。</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl" StringId="success_send_code_msg">重置代码已发送到您的手机。请将其复制到下面的输入框中并验证重置代码。</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl" StringId="success_verify_code_msg">电话号码已验证。您现在可以继续。</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsTransformationBooleanValueIsNotEqual">您的账户已停用。请联系您的组织。</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedNoRetry">错误地尝试过多，请稍后再试。</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedRetryAllowed">验证失败，请重试</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="email" StringId="HelpText">请输入有效的电子邮件地址</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="internationalOrNationalPhoneNumber" StringId="HelpText">无效的数字格式。请确保电话号码不包含任何特殊字符，例如 []{}()。</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="noCorporateEmail" StringId="HelpText">不可能用KidsLoop的电子邮件地址重设账户的密码。请改用登录。</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="noLeadingPlus" StringId="HelpText">您无需在此处填写您的国家/地区代码。请使用上面的下拉菜单选择您的国家代码</LocalizedString>
         </LocalizedStrings>
       </LocalizedResources>
@@ -767,6 +805,7 @@
         <LocalizedStrings>
           <LocalizedString ElementType="ClaimType" ElementId="countryCode" StringId="DisplayName">国家</LocalizedString>
           <LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">电子邮箱</LocalizedString>
+          <LocalizedString ElementType="ClaimType" ElementId="email" StringId="PatternHelpText">请输入有效的电子邮件地址</LocalizedString>
           <LocalizedString ElementType="ClaimType" ElementId="hasAcceptedPrivacyPolicy" StringId="DisplayName">隐私政策</LocalizedString>
           <LocalizedString ElementType="ClaimType" ElementId="hasAcceptedPrivacyPolicy" StringId="UserHelpText">请同意 KidsLoop 隐私政策以创建账户</LocalizedString>
           <LocalizedString ElementType="ClaimType" ElementId="nationalNumber" StringId="DisplayName">手机号码</LocalizedString>
@@ -787,7 +826,9 @@
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedNoRetry">错误地尝试过多，请稍后再试。</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedRetryAllowed">代码不正确。请再试一次。</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfWrongCodeEntered">代码不正确。请再试一次。</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="email" StringId="HelpText">请输入有效的电子邮件地址</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="internationalOrNationalPhoneNumber" StringId="HelpText">无效的数字格式。请确保电话号码不包含任何特殊字符，例如 []{}()。</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="noCorporateEmail" StringId="HelpText">无法使用KidsLoop电子邮件地址创建账户。请直接登录。</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="noLeadingPlus" StringId="HelpText">您无需在此处填写您的国家/地区代码。请使用上面的下拉菜单选择您的国家代码</LocalizedString>
           <LocalizedString ElementType="UXElement" StringId="button_continue">创建账户</LocalizedString>
           <LocalizedString ElementType="UxElement" StringId="ver_but_edit">更改电子邮件</LocalizedString>
@@ -826,6 +867,9 @@
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalDoesNotExist">抱歉，我们无法识别您的登录信息！请检查您是否输入正确，然后重试。</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidPassword">抱歉，我们无法识别您的登录信息！请检查您是否输入正确，然后重试。</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfOldPasswordUsed">抱歉，我们无法识别您的登录信息！请检查您是否输入正确，然后重试。</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfUserAccountDisabled">您的账户已停用。请联系您的组织。</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfUserAccountLocked">您尝试错误登录的次数过多。请稍后再试。</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="email" StringId="HelpText">请输入有效的电子邮件地址</LocalizedString>
           <LocalizedString ElementType="UxElement" StringId="button_signin">登录</LocalizedString>
           <LocalizedString ElementType="UxElement" StringId="heading">登录</LocalizedString>
           <LocalizedString ElementType="UxElement" StringId="invalid_generic">请输入有效的{0}</LocalizedString>

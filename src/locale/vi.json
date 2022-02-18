@@ -34,6 +34,9 @@
                 "UserMessageIfVerificationFailedRetryAllowed": "Xác minh không thành công, vui lòng thử lại"
             },
             "Predicate": {
+                "email": {
+                    "HelpText": "Vui lòng nhập địa chỉ email hợp lệ"
+                },
                 "internationalOrNationalPhoneNumber": {
                     "HelpText": "Định dạng số không hợp lệ. Vui lòng đảm bảo rằng số điện thoại không chứa bất kỳ ký tự đặc biệt nào như []{}()."
                 },
@@ -99,6 +102,9 @@
                 }
             },
             "Predicate": {
+                "email": {
+                    "HelpText": "Vui lòng nhập địa chỉ email hợp lệ"
+                },
                 "internationalOrNationalPhoneNumber": {
                     "HelpText": "Định dạng số không hợp lệ. Vui lòng đảm bảo rằng số điện thoại không chứa bất kỳ ký tự đặc biệt nào như []{}()."
                 },

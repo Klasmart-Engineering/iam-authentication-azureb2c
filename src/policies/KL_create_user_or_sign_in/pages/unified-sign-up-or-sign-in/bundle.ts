@@ -142,17 +142,7 @@ const isEmailLoginPage = (): boolean => {
     return document.querySelector(EMAIL_INPUT_SELECTOR) !== null
 }
 
-const setupBanner = () => {
-    document
-        .getElementById("banner__close-button")
-        ?.addEventListener("click", function (e) {
-            this.parentElement?.classList.toggle("banner--is-hidden")
-        })
-}
-
 const setup = () => {
-    setupBanner()
-
     if (isEmailLoginPage()) {
         setupLanguageSelect()
         repositionPhoneLoginLink()

@@ -180,9 +180,9 @@
                 "SignupWithPhone": "연락처"
             },
             "ErrorMessage": {
-                "UserMessageIfClaimsPrincipalDoesNotExist": "죄송합니다. 로그인 정보를 인식할 수 없습니다! 올바르게 입력했는지 확인하고 다시 시도하십시오.",
-                "UserMessageIfInvalidPassword": "죄송합니다. 로그인 정보를 인식할 수 없습니다! 올바르게 입력했는지 확인하고 다시 시도하십시오.",
-                "UserMessageIfOldPasswordUsed": "죄송합니다. 로그인 정보를 인식할 수 없습니다! 올바르게 입력했는지 확인하고 다시 시도하십시오.",
+                "UserMessageIfClaimsPrincipalDoesNotExist": "시스템 업그레이드로 인해 계정 비밀번호를 재설정해야 합니다. 이미 비밀번호 재설정이 끝났으나 이 메시지가 표시되는 경우 잘못된 암호를 입력한 것입니다. 다시 시도하거나 비밀번호를 재설정해야 하는 경우 '비밀번호 찾기' 링크를 클릭하세요.",
+                "UserMessageIfInvalidPassword": "시스템 업그레이드로 인해 계정 비밀번호를 재설정해야 합니다. 이미 비밀번호 재설정이 끝났으나 이 메시지가 표시되는 경우 잘못된 암호를 입력한 것입니다. 다시 시도하거나 비밀번호를 재설정해야 하는 경우 '비밀번호 찾기' 링크를 클릭하세요.",
+                "UserMessageIfOldPasswordUsed": "시스템 업그레이드로 인해 계정 비밀번호를 재설정해야 합니다. 이미 비밀번호 재설정이 끝났으나 이 메시지가 표시되는 경우 잘못된 암호를 입력한 것입니다. 다시 시도하거나 비밀번호를 재설정해야 하는 경우 '비밀번호 찾기' 링크를 클릭하세요.",
                 "UserMessageIfUserAccountDisabled": "계정이 비활성화되었습니다. 귀하의 조직에 문의해 주세요.",
                 "UserMessageIfUserAccountLocked": "잘못된 로그인 시도 횟수가 너무 많습니다. 잠시 후 다시 시도하십시오."
             },

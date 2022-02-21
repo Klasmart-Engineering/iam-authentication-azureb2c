@@ -180,9 +180,9 @@
                 "SignupWithPhone": "手机号"
             },
             "ErrorMessage": {
-                "UserMessageIfClaimsPrincipalDoesNotExist": "抱歉，我们无法识别您的登录信息！请检查您是否输入正确，然后重试。",
-                "UserMessageIfInvalidPassword": "抱歉，我们无法识别您的登录信息！请检查您是否输入正确，然后重试。",
-                "UserMessageIfOldPasswordUsed": "抱歉，我们无法识别您的登录信息！请检查您是否输入正确，然后重试。",
+                "UserMessageIfClaimsPrincipalDoesNotExist": "由于系统升级，您需要重置您的密码。如果您已完成重置但仍然收到此条信息，可能是您输入了错误的密码。 请重试或如需再次重置密码您可点击“忘记密码\"",
+                "UserMessageIfInvalidPassword": "由于系统升级，您需要重置您的密码。如果您已完成重置但仍然收到此条信息，可能是您输入了错误的密码。 请重试或如需再次重置密码您可点击“忘记密码\"",
+                "UserMessageIfOldPasswordUsed": "由于系统升级，您需要重置您的密码。如果您已完成重置但仍然收到此条信息，可能是您输入了错误的密码。 请重试或如需再次重置密码您可点击“忘记密码\"",
                 "UserMessageIfUserAccountDisabled": "您的账户已停用。请联系您的组织。",
                 "UserMessageIfUserAccountLocked": "您尝试错误登录的次数过多。请稍后再试。"
             },

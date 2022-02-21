@@ -139,3 +139,48 @@ pipelines:
             - step:
                   <<: *deploy
                   deployment: Alpha-Dev
+        deploy-staging:
+            - step: *deps
+            - step: *checks
+            - step:
+                  name: Setup environment
+                  script:
+                      - echo 'ENVIRONMENT="Staging"' >> .env
+                  artifacts:
+                      - .env
+            - parallel:
+                  - step: *build-assets
+                  - step: *build-policies
+            - step:
+                  <<: *deploy
+                  deployment: Staging
+        deploy-VN-Beta:
+            - step: *deps
+            - step: *checks
+            - step:
+                  name: Setup environment
+                  script:
+                      - echo 'ENVIRONMENT="VN-Beta"' >> .env
+                  artifacts:
+                      - .env
+            - parallel:
+                  - step: *build-assets
+                  - step: *build-policies
+            - step:
+                  <<: *deploy
+                  deployment: VN-Beta
+        deploy-ID-Beta:
+            - step: *deps
+            - step: *checks
+            - step:
+                  name: Setup environment
+                  script:
+                      - echo 'ENVIRONMENT="ID-Beta"' >> .env
+                  artifacts:
+                      - .env
+            - parallel:
+                  - step: *build-assets
+                  - step: *build-policies
+            - step:
+                  <<: *deploy
+                  deployment: ID-Beta

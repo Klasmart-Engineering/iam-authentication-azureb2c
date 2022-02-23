@@ -29,9 +29,12 @@
                 }
             },
             "ErrorMessage": {
+                "UserMessageIfChallengeExpired": "코드가 만료되었습니다",
+                "UserMessageIfClaimsPrincipalDoesNotExist": "지정된 자격 증명을 가진 사용자를 찾을 수 없습니다",
                 "UserMessageIfClaimsTransformationBooleanValueIsNotEqual": "계정이 비활성화되었습니다. 귀하의 조직에 문의해 주세요.",
                 "UserMessageIfVerificationFailedNoRetry": "잘못된 시도 횟수가 너무 많습니다. 나중에 다시 시도하십시오.",
-                "UserMessageIfVerificationFailedRetryAllowed": "확인에 실패했습니다. 다시 시도해 주세요."
+                "UserMessageIfVerificationFailedRetryAllowed": "확인에 실패했습니다. 다시 시도해 주세요.",
+                "UserMessageIfWrongCodeEntered": "코드가 올바르지 않습니다, 다시 시도하십시오"
             },
             "Predicate": {
                 "email": {
@@ -90,6 +93,7 @@
                 }
             },
             "ErrorMessage": {
+                "UserMessageIfChallengeExpired": "코드가 만료되었습니다",
                 "UserMessageIfClaimsPrincipalAlreadyExists": "이 이메일 주소 또는 번호를 가진 계정이 이미 존재합니다.",
                 "UserMessageIfMaxAllowedCodeRetryReached": "잘못된 시도 횟수가 너무 많습니다. 나중에 다시 시도하십시오.",
                 "UserMessageIfVerificationFailedNoRetry": "잘못된 시도 횟수가 너무 많습니다. 나중에 다시 시도하십시오.",
@@ -98,7 +102,7 @@
             },
             "LocalizedCollection": {
                 "hasAcceptedPrivacyPolicy": {
-                    "true": "나는 키즈룹의 {{Privacy policy}}에 동의합니다."
+                    "true": "나는 키즈룹의 {{개인 정보 보호 정책}}에 동의합니다"
                 }
             },
             "Predicate": {
@@ -177,7 +181,9 @@
             "ClaimsProvider": {
                 "SigninWithPhone": "전화 번호 사용",
                 "SignupWithEmail": "이메일",
-                "SignupWithPhone": "연락처"
+                "SignupWithEmail2": "이메일",
+                "SignupWithPhone": "연락처",
+                "SignupWithPhone2": "연락처"
             },
             "ErrorMessage": {
                 "UserMessageIfClaimsPrincipalDoesNotExist": "시스템 업그레이드로 인해 계정 비밀번호를 재설정해야 합니다. 이미 비밀번호 재설정이 끝났으나 이 메시지가 표시되는 경우 잘못된 암호를 입력한 것입니다. 다시 시도하거나 비밀번호를 재설정해야 하는 경우 '비밀번호 찾기' 링크를 클릭하세요.",

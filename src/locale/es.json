@@ -29,9 +29,12 @@
                 }
             },
             "ErrorMessage": {
+                "UserMessageIfChallengeExpired": "El código ha expirado",
+                "UserMessageIfClaimsPrincipalDoesNotExist": "No existe ningún usuario con las credenciales introducidas",
                 "UserMessageIfClaimsTransformationBooleanValueIsNotEqual": "Su cuenta está desactivada. Por favor, póngase en contacto con su organización.",
                 "UserMessageIfVerificationFailedNoRetry": "Ha realizado demasiados intentos fallidos. Por favor, vuelva más tarde.",
-                "UserMessageIfVerificationFailedRetryAllowed": "La verificación ha fallado, por favor inténtelo de nuevo"
+                "UserMessageIfVerificationFailedRetryAllowed": "La verificación ha fallado, por favor inténtelo de nuevo",
+                "UserMessageIfWrongCodeEntered": "El código es incorrecto. Por favor, inténtelo de nuevo"
             },
             "Predicate": {
                 "email": {
@@ -90,6 +93,7 @@
                 }
             },
             "ErrorMessage": {
+                "UserMessageIfChallengeExpired": "El código ha expirado",
                 "UserMessageIfClaimsPrincipalAlreadyExists": "Ya existe una cuenta con esta dirección de correo electrónico o número telefónico.",
                 "UserMessageIfMaxAllowedCodeRetryReached": "Ha realizado demasiados intentos fallidos. Por favor, vuelva más tarde.",
                 "UserMessageIfVerificationFailedNoRetry": "Ha realizado demasiados intentos fallidos. Por favor, vuelva más tarde.",
@@ -177,7 +181,9 @@
             "ClaimsProvider": {
                 "SigninWithPhone": "Use su número de teléfono",
                 "SignupWithEmail": "Correo electrónico",
-                "SignupWithPhone": "Teléfono"
+                "SignupWithEmail2": "Correo electrónico",
+                "SignupWithPhone": "Teléfono",
+                "SignupWithPhone2": "Teléfono"
             },
             "ErrorMessage": {
                 "UserMessageIfClaimsPrincipalDoesNotExist": "Debido a una actualización del sistema, deberá restablecer la contraseña de su cuenta. Si ya lo hizo y recibe este mensaje, entonces ha ingresado una contraseña no válida. Vuelva a intentarlo o haga clic en el enlace \"Olvidé mi contraseña\" si necesita restablecer su contraseña.",

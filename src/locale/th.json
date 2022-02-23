@@ -29,9 +29,12 @@
                 }
             },
             "ErrorMessage": {
+                "UserMessageIfChallengeExpired": "รหัสหมดอายุ",
+                "UserMessageIfClaimsPrincipalDoesNotExist": "ไม่พบผู้ใช้ที่มีข้อมูลประจำตัวที่ระบุ",
                 "UserMessageIfClaimsTransformationBooleanValueIsNotEqual": "มีบางอย่างผิดปกติเกิดขึ้นกับเรา!\n โปรดลองอีกครั้งหรือติดต่อผู้ดูแลระบบองค์กรของคุณ",
                 "UserMessageIfVerificationFailedNoRetry": "คุณพยายามเข้าสู่ระบบไม่ถูกต้องหลายครั้งเกินไป โปรดรอและลองอีกครั้งในภายหลัง",
-                "UserMessageIfVerificationFailedRetryAllowed": "การตรวจสอบ PDF ล้มเหลว โปรดลองอีกครั้ง"
+                "UserMessageIfVerificationFailedRetryAllowed": "การตรวจสอบ PDF ล้มเหลว โปรดลองอีกครั้ง",
+                "UserMessageIfWrongCodeEntered": "คุณพยายามเข้าสู่ระบบไม่ถูกต้องหลายครั้งเกินไป โปรดรอและลองอีกครั้งในภายหลัง"
             },
             "Predicate": {
                 "email": {
@@ -90,6 +93,7 @@
                 }
             },
             "ErrorMessage": {
+                "UserMessageIfChallengeExpired": "รหัสหมดอายุ",
                 "UserMessageIfClaimsPrincipalAlreadyExists": "มีบัญชีที่ใช้ที่อยู่อีเมลหรือหมายเลขนี้อยู่แล้ว",
                 "UserMessageIfMaxAllowedCodeRetryReached": "คุณพยายามเข้าสู่ระบบไม่ถูกต้องหลายครั้งเกินไป โปรดรอและลองอีกครั้งในภายหลัง",
                 "UserMessageIfVerificationFailedNoRetry": "คุณพยายามเข้าสู่ระบบไม่ถูกต้องหลายครั้งเกินไป โปรดรอและลองอีกครั้งในภายหลัง",
@@ -177,7 +181,9 @@
             "ClaimsProvider": {
                 "SigninWithPhone": "หมายเลขโทรศัพท์",
                 "SignupWithEmail": "อีเมล",
-                "SignupWithPhone": "หมายเลขโทรศัพท์"
+                "SignupWithEmail2": "อีเมล",
+                "SignupWithPhone": "หมายเลขโทรศัพท์",
+                "SignupWithPhone2": "หมายเลขโทรศัพท์"
             },
             "ErrorMessage": {
                 "UserMessageIfClaimsPrincipalDoesNotExist": "เนื่องจากการอัปเกรดระบบ คุณจะต้องรีเซ็ตรหัสผ่านบัญชีของคุณ หากคุณได้ทำสิ่งนี้ไปแล้วและได้รับข้อความนี้ แสดงว่าคุณป้อนรหัสผ่านที่ไม่ถูกต้อง โปรดลองอีกครั้งหรือคลิกลิงก์ 'ลืมรหัสผ่าน' หากคุณต้องการรีเซ็ตรหัสผ่าน",

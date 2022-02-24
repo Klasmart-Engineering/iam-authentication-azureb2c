@@ -1549,6 +1549,7 @@
             <Item Key="scope">openid profile email</Item>
             <Item Key="claimTypeOnWhichToEnable">IdentityProviders</Item>
             <Item Key="claimValueOnWhichToEnable">MCB</Item>
+            <Item Key="SingleLogoutEnabled">false</Item>
           </Metadata>
           <CryptographicKeys>
             <Key Id="client_secret" StorageReferenceId="B2C_1A_MCBAuth0IdpSecret" />

@@ -35,6 +35,8 @@ definitions:
                   - src/policies/custom_policies/**
         - step: &deploy
               name: Deploy B2C
+              caches:
+                  - node
               script:
                   - export $(cat .env | xargs)
                   - pipe: atlassian/azure-storage-deploy:1.0.2

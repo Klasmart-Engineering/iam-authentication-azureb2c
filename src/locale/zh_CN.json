@@ -29,9 +29,12 @@
                 }
             },
             "ErrorMessage": {
+                "UserMessageIfChallengeExpired": "代码已失效",
+                "UserMessageIfClaimsPrincipalDoesNotExist": "无法找到使用此特定账户信息的用户",
                 "UserMessageIfClaimsTransformationBooleanValueIsNotEqual": "您的账户已停用。请联系您的组织。",
                 "UserMessageIfVerificationFailedNoRetry": "错误地尝试过多，请稍后再试。",
-                "UserMessageIfVerificationFailedRetryAllowed": "验证失败，请重试"
+                "UserMessageIfVerificationFailedRetryAllowed": "验证失败，请重试",
+                "UserMessageIfWrongCodeEntered": "代码不正确。请再试一次。"
             },
             "Predicate": {
                 "email": {
@@ -90,6 +93,7 @@
                 }
             },
             "ErrorMessage": {
+                "UserMessageIfChallengeExpired": "代码已失效",
                 "UserMessageIfClaimsPrincipalAlreadyExists": "使用此邮箱或号码的账户已存在。",
                 "UserMessageIfMaxAllowedCodeRetryReached": "错误地尝试过多，请稍后再试。",
                 "UserMessageIfVerificationFailedNoRetry": "错误地尝试过多，请稍后再试。",
@@ -177,7 +181,9 @@
             "ClaimsProvider": {
                 "SigninWithPhone": "使用电话号码",
                 "SignupWithEmail": "邮箱",
-                "SignupWithPhone": "手机号"
+                "SignupWithEmail2": "邮箱",
+                "SignupWithPhone": "手机号",
+                "SignupWithPhone2": "手机号"
             },
             "ErrorMessage": {
                 "UserMessageIfClaimsPrincipalDoesNotExist": "由于系统升级，您需要重置您的密码。如果您已完成重置但仍然收到此条信息，可能是您输入了错误的密码。 请重试或如需再次重置密码您可点击“忘记密码\"",

@@ -29,9 +29,12 @@
                 }
             },
             "ErrorMessage": {
+                "UserMessageIfChallengeExpired": "Kode sudah kedaluwarsa",
+                "UserMessageIfClaimsPrincipalDoesNotExist": "Pengguna dengan kredensial ini tidak ditemukan",
                 "UserMessageIfClaimsTransformationBooleanValueIsNotEqual": "Akun sudah tidak aktif. Silakan hubungi organisasi Anda.",
                 "UserMessageIfVerificationFailedNoRetry": "Terlalu banyak percobaan yang gagal. Silakan coba lagi nanti.",
-                "UserMessageIfVerificationFailedRetryAllowed": "Verifikasi gagal, yuk coba lagi"
+                "UserMessageIfVerificationFailedRetryAllowed": "Verifikasi gagal, yuk coba lagi",
+                "UserMessageIfWrongCodeEntered": "Kode salah, yuk coba lagi"
             },
             "Predicate": {
                 "email": {
@@ -90,6 +93,7 @@
                 }
             },
             "ErrorMessage": {
+                "UserMessageIfChallengeExpired": "Kode sudah kedaluwarsa",
                 "UserMessageIfClaimsPrincipalAlreadyExists": "Akun dengan email atau nomor ini sudah ada.",
                 "UserMessageIfMaxAllowedCodeRetryReached": "Terlalu banyak percobaan yang gagal. Silakan coba lagi nanti.",
                 "UserMessageIfVerificationFailedNoRetry": "Terlalu banyak percobaan yang gagal. Silakan coba lagi nanti.",
@@ -98,7 +102,7 @@
             },
             "LocalizedCollection": {
                 "hasAcceptedPrivacyPolicy": {
-                    "true": "Saya setuju dengan {{Kebijakan privasi}} KidsLoop"
+                    "true": "Setuju dengan {{Kebijakan Privasi}} KidsLoop"
                 }
             },
             "Predicate": {
@@ -177,7 +181,9 @@
             "ClaimsProvider": {
                 "SigninWithPhone": "Pakai nomor hp",
                 "SignupWithEmail": "Email",
-                "SignupWithPhone": "Nomor hp"
+                "SignupWithEmail2": "Email",
+                "SignupWithPhone": "Nomor hp",
+                "SignupWithPhone2": "Nomor hp"
             },
             "ErrorMessage": {
                 "UserMessageIfClaimsPrincipalDoesNotExist": "Karena ada pembaruan sistem Anda harus melakukan reset kata sandi. Apabila Anda sudah melakukannya dan masih mendapat pesan ini, sepertinya Anda memasukkan kata sandi yang salah. Coba lagi atau klik 'Lupa kata sandi' untuk melakukan reset kata sandi.",

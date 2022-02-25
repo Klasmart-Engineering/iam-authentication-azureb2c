@@ -14,7 +14,7 @@
                 "emailControl": {
                     "but_send_code": "Gửi lại mã ",
                     "but_send_new_code": "Gửi lại mã mới",
-                    "but_verify_code": "Đặt lại mã xác minh",
+                    "but_verify_code": "Xác minh mã đặt lại",
                     "intro_msg": "Nhập địa chỉ email của bạn vào bên dưới để nhận lại mã.",
                     "success_send_code_msg": "Mã cài đặt lại đã được gửi đến email của bạn. Vui lòng sao chép nó vào hộp nhập bên dưới và xác minh lại mã.",
                     "success_verify_code_msg": "Địa chỉ email đã được xác minh. Bạn có thể tiếp tục."
@@ -22,16 +22,19 @@
                 "phoneVerificationControl": {
                     "but_send_code": "Gửi lại mã ",
                     "but_send_new_code": "Gửi lại mã mới",
-                    "but_verify_code": "Đặt lại mã xác minh",
+                    "but_verify_code": "Xác minh mã đặt lại",
                     "intro_msg": "Nhập số điện thoại của bạn vào ô bên dưới để nhận lại mã cài đặt.",
                     "success_send_code_msg": "Mã cài đặt lại đã được gửi đến điện thoại của bạn. Vui lòng sao chép nó để nhập vào ô bên dưới và xác minh mã lại cài đặt.",
                     "success_verify_code_msg": "Số điện thoại đã được xác minh. Bạn có thể tiếp tục ngay bây giờ."
                 }
             },
             "ErrorMessage": {
+                "UserMessageIfChallengeExpired": "Mã đã hết hạn",
+                "UserMessageIfClaimsPrincipalDoesNotExist": "Không thể tìm thấy người dùng có thông tin xác thực được chỉ định",
                 "UserMessageIfClaimsTransformationBooleanValueIsNotEqual": "Tài khoản của bạn đã bị vô hiệu hóa. Vui lòng liên hệ với tổ chức của bạn.",
                 "UserMessageIfVerificationFailedNoRetry": "Bạn đã thực hiện nhiều lần không chính xác. Vui lòng thử lại sau.",
-                "UserMessageIfVerificationFailedRetryAllowed": "Xác minh không thành công, vui lòng thử lại"
+                "UserMessageIfVerificationFailedRetryAllowed": "Xác minh không thành công, vui lòng thử lại",
+                "UserMessageIfWrongCodeEntered": "Mã không chính xác, vui lòng thử lại"
             },
             "Predicate": {
                 "email": {
@@ -90,6 +93,7 @@
                 }
             },
             "ErrorMessage": {
+                "UserMessageIfChallengeExpired": "Mã đã hết hạn",
                 "UserMessageIfClaimsPrincipalAlreadyExists": "Một tài khoản với địa chỉ email hoặc số điện thoại này đã tồn tại.",
                 "UserMessageIfMaxAllowedCodeRetryReached": "Bạn đã thực hiện nhiều lần không chính xác. Vui lòng thử lại sau.",
                 "UserMessageIfVerificationFailedNoRetry": "Bạn đã thực hiện nhiều lần không chính xác. Vui lòng thử lại sau.",
@@ -98,7 +102,7 @@
             },
             "LocalizedCollection": {
                 "hasAcceptedPrivacyPolicy": {
-                    "true": "Tôi đồng ý với {{Privacy policy}} của KidsLoop"
+                    "true": "Tôi đồng ý với {{chính sách Quyền riêng tư}} của KidsLoop"
                 }
             },
             "Predicate": {
@@ -177,7 +181,9 @@
             "ClaimsProvider": {
                 "SigninWithPhone": "Sử dụng số điện thoại",
                 "SignupWithEmail": "E-mail",
-                "SignupWithPhone": "Điện thoại"
+                "SignupWithEmail2": "E-mail",
+                "SignupWithPhone": "Điện thoại",
+                "SignupWithPhone2": "Điện thoại"
             },
             "ErrorMessage": {
                 "UserMessageIfClaimsPrincipalDoesNotExist": "Do nâng cấp hệ thống, bạn sẽ phải đặt lại mật khẩu tài khoản của mình. Nếu bạn đã làm điều này và vẫn nhận được thông báo này, thì bạn đã nhập mật khẩu không hợp lệ. Vui lòng thử lại hoặc nhấp vào liên kêt 'Quên mật khẩu' nếu bạn cần đặt lại mật khẩu của mình.",

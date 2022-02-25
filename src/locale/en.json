@@ -29,9 +29,12 @@
                 }
             },
             "ErrorMessage": {
+                "UserMessageIfChallengeExpired": "The code has expired",
+                "UserMessageIfClaimsPrincipalDoesNotExist": "A user with specified credentials could not be found",
                 "UserMessageIfClaimsTransformationBooleanValueIsNotEqual": "Your account is deactivated. Please contact your organization.",
                 "UserMessageIfVerificationFailedNoRetry": "You've made too many incorrect attempts. Please try again later.",
-                "UserMessageIfVerificationFailedRetryAllowed": "The verification has failed, please try again"
+                "UserMessageIfVerificationFailedRetryAllowed": "The verification has failed, please try again",
+                "UserMessageIfWrongCodeEntered": "The code is incorrect, please try again"
             },
             "Predicate": {
                 "email": {
@@ -90,6 +93,7 @@
                 }
             },
             "ErrorMessage": {
+                "UserMessageIfChallengeExpired": "The code has expired",
                 "UserMessageIfClaimsPrincipalAlreadyExists": "An account with this email address or number already exists.",
                 "UserMessageIfMaxAllowedCodeRetryReached": "You've made too many incorrect attempts. Please try again later.",
                 "UserMessageIfVerificationFailedNoRetry": "You've made too many incorrect attempts. Please try again later.",
@@ -98,7 +102,7 @@
             },
             "LocalizedCollection": {
                 "hasAcceptedPrivacyPolicy": {
-                    "true": "I agree to the KidsLoop {{Privacy policy}}"
+                    "true": "I agree to the KidsLoop {{Privacy Policy}}"
                 }
             },
             "Predicate": {
@@ -177,7 +181,9 @@
             "ClaimsProvider": {
                 "SigninWithPhone": "Use Phone number",
                 "SignupWithEmail": "Email",
-                "SignupWithPhone": "Phone"
+                "SignupWithEmail2": "Email",
+                "SignupWithPhone": "Phone",
+                "SignupWithPhone2": "Phone"
             },
             "ErrorMessage": {
                 "UserMessageIfClaimsPrincipalDoesNotExist": "Due to a system upgrade you will have to reset your account password. If you have already done this and are getting this message, then you have entered an invalid password. Please try again or click on the 'Forgot password' link if you need to reset your password.",

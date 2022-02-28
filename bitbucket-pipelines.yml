@@ -186,3 +186,18 @@ pipelines:
             - step:
                   <<: *deploy
                   deployment: ID-Beta
+        deploy-KR-Prod:
+            - step: *deps
+            - step: *checks
+            - step:
+                  name: Setup environment
+                  script:
+                      - echo 'ENVIRONMENT="KR-Prod"' >> .env
+                  artifacts:
+                      - .env
+            - parallel:
+                  - step: *build-assets
+                  - step: *build-policies
+            - step:
+                  <<: *deploy
+                  deployment: KR-Prod

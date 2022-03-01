@@ -21,6 +21,7 @@ const addPrivacyPolicyLink = () => {
 
     const anchor = document.createElement("a")
     anchor.setAttribute("href", PRIVACY_POLICY_URL)
+    anchor.setAttribute("data-testid", "privacy_policy-link")
     anchor.setAttribute("target", "_blank")
     anchor.setAttribute("rel", "noopener noreferrer")
 

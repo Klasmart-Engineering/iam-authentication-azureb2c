@@ -6,7 +6,28 @@ const glob = require("fast-glob")
 const webpack = require("webpack")
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin")
 
+const tsconfig = require("./tsconfig.json")
 const AppSettings = require("./src/policies/custom_policies/appsettings.json")
+
+/**
+ * Convert tsconfig.compilerOptions.paths to Webpack resolve.alias object
+ */
+const buildWebpackAliases = () => {
+    const { baseUrl, paths } = tsconfig.compilerOptions
+
+    return Object.fromEntries(
+        Object.entries(paths).map(([alias, paths]) => {
+            const webpackAlias = removeGlob(alias)
+            const relativePath = removeGlob(paths[0])
+            const absolutePath = path.resolve(".", baseUrl, relativePath)
+            return [webpackAlias, absolutePath]
+        })
+    )
+}
+
+const removeGlob = (path) => {
+    return path.replace(/(\/\*\*)*\/\*$/, "")
+}
 
 /**
  * Create separate entrypoint per `index.ts` file in `src` folder, and preserve the folder structure
@@ -58,6 +79,7 @@ module.exports = ({ environment }) => {
         },
         resolve: {
             extensions: [`.ts`, `.js`],
+            alias: buildWebpackAliases(),
         },
         module: {
             rules: [

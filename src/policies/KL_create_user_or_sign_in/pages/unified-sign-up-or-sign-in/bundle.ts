@@ -1,3 +1,5 @@
+import { setupPasswordToggles } from "@common/js/passwordToggle"
+
 const LANGUAGE_DROPDOWN_SELECTOR = "#language-select"
 const LANGUAGE_DROPDOWN_CONTAINER_SELECTOR = "#language-select__container"
 const LANGUAGE_PARAM = "ui_locales"
@@ -150,6 +152,7 @@ const setup = () => {
     } else {
         setupUseEmail()
     }
+    setupPasswordToggles()
 }
 
 if (

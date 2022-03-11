@@ -56,6 +56,9 @@ module.exports = ({ environment }) => {
             publicPath: PUBLIC_PATH,
             assetModuleFilename: "[name][ext]",
         },
+        resolve: {
+            extensions: [`.ts`, `.js`],
+        },
         module: {
             rules: [
                 {

@@ -112,7 +112,7 @@ const updateLocalizationXmlWithNewTranslations = async () => {
 
     const stringified = JSON.stringify(xmlToJsonObject)
     const xml = parser.toXml(stringified)
-    fs.writeFile(LOCALIZATION_XML_PATH, xml, (error: any) => {
+    fs.writeFile(LOCALIZATION_XML_PATH, xml, (error) => {
         if (error) {
             console.log(error)
         }

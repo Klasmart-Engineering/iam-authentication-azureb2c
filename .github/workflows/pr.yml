@@ -1,0 +1,27 @@
+name: PR
+
+on: pull_request
+
+jobs:
+    check:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v2
+
+            - uses: actions/setup-node@v2
+              with:
+                  node-version: 16
+                  cache: npm
+
+            - run: npm i
+
+            - name: Lint HTML/JS/CSS
+              run: npm run check
+
+            - name: Build policies
+              shell: pwsh
+              run: ./scripts/Build-CustomPolicies.ps1 -FilePath ./src/policies/custom_policies
+
+            - name: Build assets
+              run: npm run build -- --env=environment=SSO

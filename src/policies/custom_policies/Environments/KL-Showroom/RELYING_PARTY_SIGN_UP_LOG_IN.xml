@@ -1,0 +1,36 @@
+<TrustFrameworkPolicy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06" DeploymentMode="Development" UserJourneyRecorderEndpoint="urn:journeyrecorder:applicationinsights" PolicySchemaVersion="0.3.0.0" TenantId="klsgshowroom.onmicrosoft.com" PolicyId="B2C_1A_RELYING_PARTY_SIGN_UP_LOG_IN" PublicPolicyUri="http://klsgshowroom.onmicrosoft.com/B2C_1A_signup_signin">
+  <BasePolicy>
+    <TenantId>klsgshowroom.onmicrosoft.com</TenantId>
+    <PolicyId>B2C_1A__TrustFrameworkLocalization</PolicyId>
+  </BasePolicy>
+  <RelyingParty>
+    <!-- make the default user journey config enabled, to allow
+          federated only (SUSI-PhoneOrEmail-FederatedOnlyEntryPoint),
+          local only (SUSI-PhoneOrEmail-LocalAndKidsLoopOnlyEntryPoint),
+          or both (SUSI-PhoneOrEmail). -->
+    <DefaultUserJourney ReferenceId="SUSI-PhoneOrEmail-LocalAndKidsLoopOnlyEntryPoint" />
+    <UserJourneyBehaviors>
+      <SingleSignOn Scope="Tenant" />
+      <SessionExpiryType>Absolute</SessionExpiryType>
+      <!-- 5 days * 24 hours * 60 minutes * 60 seconds -->
+      <SessionExpiryInSeconds>432000</SessionExpiryInSeconds>
+      <JourneyInsights TelemetryEngine="ApplicationInsights" InstrumentationKey="7bacf10a-ea64-4a29-9e73-b7a7cc2c36a1" DeveloperMode="true" ClientEnabled="true" ServerEnabled="true" TelemetryVersion="1.0.0" />
+      <ScriptExecution>Allow</ScriptExecution>
+    </UserJourneyBehaviors>
+    <TechnicalProfile Id="PolicyProfile">
+      <DisplayName>PolicyProfile</DisplayName>
+      <Protocol Name="OpenIdConnect" />
+      <OutputClaims>
+        <OutputClaim ClaimTypeReferenceId="signInNames.userName" PartnerClaimType="user_name" />
+        <OutputClaim ClaimTypeReferenceId="signInNames.emailAddress" PartnerClaimType="email" />
+        <OutputClaim ClaimTypeReferenceId="signInNames.phoneNumber" PartnerClaimType="phone" />
+        <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub" />
+        <OutputClaim ClaimTypeReferenceId="email" />
+        <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="KidsLoopB2C" />
+        <OutputClaim ClaimTypeReferenceId="tenantId" AlwaysUseDefaultValue="true" DefaultValue="{Policy:TenantObjectId}" />
+        <OutputClaim ClaimTypeReferenceId="locale" DefaultValue="{Culture:RFC5646}" AlwaysUseDefaultValue="true" />
+      </OutputClaims>
+      <SubjectNamingInfo ClaimType="sub" />
+    </TechnicalProfile>
+  </RelyingParty>
+</TrustFrameworkPolicy>

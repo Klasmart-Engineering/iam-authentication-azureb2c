@@ -1,12 +1,12 @@
-<TrustFrameworkPolicy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06" PolicySchemaVersion="0.3.0.0" TenantId="{settings:Tenant}" PolicyId="B2C_1A__{settings:PolicyNamePrefix}TrustFrameworkLocalization" PublicPolicyUri="http://{settings:Tenant}/B2C_1A__{settings:PolicyNamePrefix}TrustFrameworkLocalization">
+<TrustFrameworkPolicy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06" PolicySchemaVersion="0.3.0.0" TenantId="klkrstage.onmicrosoft.com" PolicyId="B2C_1A__TrustFrameworkLocalization" PublicPolicyUri="http://klkrstage.onmicrosoft.com/B2C_1A__TrustFrameworkLocalization">
   <BasePolicy>
-    <TenantId>{settings:Tenant}</TenantId>
-    <PolicyId>B2C_1A__{settings:PolicyNamePrefix}TrustFrameworkTenantConfig</PolicyId>
+    <TenantId>klkrstage.onmicrosoft.com</TenantId>
+    <PolicyId>B2C_1A__TrustFrameworkTenantConfig</PolicyId>
   </BasePolicy>
   <BuildingBlocks>
     <ContentDefinitions>
       <ContentDefinition Id="api.error">
-        <LoadUri>https://{settings:AZURE_STORAGE_ACCOUNT}.blob.core.windows.net/{settings:AZURE_STORAGE_CONTAINER}/pages/unified-sign-up-or-sign-in/error/index.html</LoadUri>
+        <LoadUri>https://kleastasiatest.blob.core.windows.net/klkrstage/policies/KL_create_user_or_sign_in/pages/unified-sign-up-or-sign-in/{Culture:RFC5646}/index.html</LoadUri>
         <DataUri>urn:com:microsoft:aad:b2c:elements:contract:globalexception:1.2.1</DataUri>
       </ContentDefinition>
       <ContentDefinition Id="api.idpselections">
@@ -14,11 +14,11 @@
         <DataUri>urn:com:microsoft:aad:b2c:elements:contract:providerselection:1.2.1</DataUri>
       </ContentDefinition>
       <ContentDefinition Id="api.idpselections.signup">
-        <LoadUri>https://{settings:AZURE_STORAGE_ACCOUNT}.blob.core.windows.net/{settings:AZURE_STORAGE_CONTAINER}/pages/unified-sign-up-or-sign-in/{Culture:RFC5646}/index.html</LoadUri>
+        <LoadUri>https://kleastasiatest.blob.core.windows.net/klkrstage/policies/KL_create_user_or_sign_in/pages/unified-sign-up-or-sign-in/{Culture:RFC5646}/index.html</LoadUri>
         <DataUri>urn:com:microsoft:aad:b2c:elements:contract:providerselection:1.2.1</DataUri>
       </ContentDefinition>
       <ContentDefinition Id="api.signuporsignin">
-        <LoadUri>https://{settings:AZURE_STORAGE_ACCOUNT}.blob.core.windows.net/{settings:AZURE_STORAGE_CONTAINER}/pages/unified-sign-up-or-sign-in/{Culture:RFC5646}/index.html</LoadUri>
+        <LoadUri>https://kleastasiatest.blob.core.windows.net/klkrstage/policies/KL_create_user_or_sign_in/pages/unified-sign-up-or-sign-in/{Culture:RFC5646}/index.html</LoadUri>
         <DataUri>urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:2.1.5</DataUri>
         <Metadata>
           <Item Key="DisplayName">Log in</Item>
@@ -35,11 +35,11 @@
         </LocalizedResourcesReferences>
       </ContentDefinition>
       <ContentDefinition Id="api.phonefactor">
-        <LoadUri>https://{settings:AZURE_STORAGE_ACCOUNT}.blob.core.windows.net/{settings:AZURE_STORAGE_CONTAINER}/pages/unified-sign-up-or-sign-in/{Culture:RFC5646}/index.html</LoadUri>
+        <LoadUri>https://kleastasiatest.blob.core.windows.net/klkrstage/policies/KL_create_user_or_sign_in/pages/unified-sign-up-or-sign-in/{Culture:RFC5646}/index.html</LoadUri>
         <DataUri>urn:com:microsoft:aad:b2c:elements:contract:multifactor:1.2.5</DataUri>
       </ContentDefinition>
       <ContentDefinition Id="api.selfasserted">
-        <LoadUri>https://{settings:AZURE_STORAGE_ACCOUNT}.blob.core.windows.net/{settings:AZURE_STORAGE_CONTAINER}/pages/unified-sign-up-or-sign-in/{Culture:RFC5646}/index.html</LoadUri>
+        <LoadUri>https://kleastasiatest.blob.core.windows.net/klkrstage/policies/KL_create_user_or_sign_in/pages/unified-sign-up-or-sign-in/{Culture:RFC5646}/index.html</LoadUri>
         <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.8</DataUri>
         <LocalizedResourcesReferences MergeBehavior="Prepend">
           <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.selfasserted.en"></LocalizedResourcesReference>
@@ -52,11 +52,11 @@
         </LocalizedResourcesReferences>
       </ContentDefinition>
       <ContentDefinition Id="api.selfasserted.profileupdate">
-        <LoadUri>https://{settings:AZURE_STORAGE_ACCOUNT}.blob.core.windows.net/{settings:AZURE_STORAGE_CONTAINER}/pages/unified-sign-up-or-sign-in/{Culture:RFC5646}/index.html</LoadUri>
+        <LoadUri>https://kleastasiatest.blob.core.windows.net/klkrstage/policies/KL_create_user_or_sign_in/pages/unified-sign-up-or-sign-in/{Culture:RFC5646}/index.html</LoadUri>
         <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.8</DataUri>
       </ContentDefinition>
       <ContentDefinition Id="api.localaccountsignup">
-        <LoadUri>https://{settings:AZURE_STORAGE_ACCOUNT}.blob.core.windows.net/{settings:AZURE_STORAGE_CONTAINER}/pages/local-account-sign-up/{Culture:RFC5646}/index.html</LoadUri>
+        <LoadUri>https://kleastasiatest.blob.core.windows.net/klkrstage/policies/KL_create_user_or_sign_in/pages/local-account-sign-up/{Culture:RFC5646}/index.html</LoadUri>
         <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.6</DataUri>
         <LocalizedResourcesReferences MergeBehavior="Prepend">
           <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.localaccountsignup.en"></LocalizedResourcesReference>
@@ -69,7 +69,7 @@
         </LocalizedResourcesReferences>
       </ContentDefinition>
       <ContentDefinition Id="api.selfasserted.localaccountpasswordchange">
-        <LoadUri>https://{settings:AZURE_STORAGE_ACCOUNT}.blob.core.windows.net/{settings:AZURE_STORAGE_CONTAINER}/pages/change-password/{Culture:RFC5646}/index.html</LoadUri>
+        <LoadUri>https://kleastasiatest.blob.core.windows.net/klkrstage/policies/KL_create_user_or_sign_in/pages/change-password/{Culture:RFC5646}/index.html</LoadUri>
         <RecoveryUri>~/common/default_page_error.html</RecoveryUri>
         <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.8</DataUri>
         <LocalizedResourcesReferences MergeBehavior="Prepend">
@@ -83,7 +83,7 @@
         </LocalizedResourcesReferences>
       </ContentDefinition>
       <ContentDefinition Id="api.localaccountpasswordreset">
-        <LoadUri>https://{settings:AZURE_STORAGE_ACCOUNT}.blob.core.windows.net/{settings:AZURE_STORAGE_CONTAINER}/pages/forgot-password/{Culture:RFC5646}/index.html</LoadUri>
+        <LoadUri>https://kleastasiatest.blob.core.windows.net/klkrstage/policies/KL_create_user_or_sign_in/pages/forgot-password/{Culture:RFC5646}/index.html</LoadUri>
         <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.6</DataUri>
         <LocalizedResourcesReferences MergeBehavior="Prepend">
           <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.localaccountpasswordreset.en"></LocalizedResourcesReference>
@@ -96,11 +96,11 @@
         </LocalizedResourcesReferences>
       </ContentDefinition>
       <ContentDefinition Id="api.socialccountsignup">
-        <LoadUri>https://{settings:AZURE_STORAGE_ACCOUNT}.blob.core.windows.net/{settings:AZURE_STORAGE_CONTAINER}/pages/unified-sign-up-or-sign-in/{Culture:RFC5646}/index.html</LoadUri>
+        <LoadUri>https://kleastasiatest.blob.core.windows.net/klkrstage/policies/KL_create_user_or_sign_in/pages/unified-sign-up-or-sign-in/{Culture:RFC5646}/index.html</LoadUri>
         <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.8</DataUri>
       </ContentDefinition>
       <ContentDefinition Id="api.localaccountsignin">
-        <LoadUri>https://{settings:AZURE_STORAGE_ACCOUNT}.blob.core.windows.net/{settings:AZURE_STORAGE_CONTAINER}/pages/unified-sign-up-or-sign-in/{Culture:RFC5646}/index.html</LoadUri>
+        <LoadUri>https://kleastasiatest.blob.core.windows.net/klkrstage/policies/KL_create_user_or_sign_in/pages/unified-sign-up-or-sign-in/{Culture:RFC5646}/index.html</LoadUri>
         <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.8</DataUri>
       </ContentDefinition>
     </ContentDefinitions>
@@ -178,10 +178,21 @@
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedNoRetry">You've made too many incorrect attempts. Please try again later.</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedRetryAllowed">The code is incorrect. Please try again.</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfWrongCodeEntered">The code is incorrect, please try again</LocalizedString>
+
           <LocalizedString ElementType="Predicate" ElementId="email" StringId="HelpText">Please enter a valid email address</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="internationalOrNationalPhoneNumber" StringId="HelpText">Invalid number format. Please ensure that the phone number does not contain any special characters such as []{}().</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="noCorporateEmail" StringId="HelpText">It is not possible to create an account with a KidsLoop email address. Please sign-in instead.</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="noLeadingPlus" StringId="HelpText">You don't need to include your country code here. Instead, please use the dropdown above to select your country code</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="LengthRange" StringId="HelpText">[TEST]The password must be between 8 and 256 characters.</LocalizedString>
+          <LocalizedString ElementType="InputValidation" ElementId="CustomPassword" StringId="CharacterClasses">[TEST]The password must have at least 3 of the following:</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="Lowercase" StringId="HelpText">[TEST]a lowercase letter</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="Uppercase" StringId="HelpText">[TEST]an uppercase letter</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="Number" StringId="HelpText">[TEST]a digit</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="Symbol" StringId="HelpText">[TEST]a symbol</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="LongSequences" StringId="HelpText">[TEST]The password must not have long sequences of numbers or letters of 5 or more characters.</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="BadWords" StringId="HelpText">[TEST]The password contains blocked reserved keywords.</LocalizedString>
+
+
           <LocalizedString ElementType="UXElement" StringId="button_continue">Create account</LocalizedString>
           <LocalizedString ElementType="UxElement" StringId="ver_but_edit">Change e-mail</LocalizedString>
           <LocalizedString ElementType="UxElement" StringId="ver_but_resend">Send new code</LocalizedString>

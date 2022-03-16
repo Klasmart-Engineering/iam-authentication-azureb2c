@@ -10,7 +10,7 @@ env:
     B2C_STORAGE_ACCOUNT: kluksouthtest
     B2C_STORAGE_CONTAINER: kidsloopb2c
     B2C_CLIENT_SECRET: ${{secrets.B2C_DEPLOY_CLIENT_SECRET}}
-    B2C_STORAGE_SAS_TOKEN: ${{secrets.API_KEY}}
+    B2C_STORAGE_SAS_TOKEN: ${{secrets.B2C_STORAGE_ACCOUNT_SAS}}
 
 jobs:
     deploy-alpha:

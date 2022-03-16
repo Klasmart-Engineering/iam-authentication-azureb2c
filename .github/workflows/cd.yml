@@ -1,0 +1,31 @@
+name: cd
+on:
+    push:
+        branches:
+            - master
+            - github-pipeline
+jobs:
+    check:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+            - uses: actions/setup-node@v2
+              with:
+                  node-version: 16
+                  cache: npm
+            - name: cache node modules
+              uses: actions/cache@v2
+              env:
+                  cache-name: cache-node-modules
+              with:
+                  path: ~/.npm
+                  key: iam-b2c-${{ hashFiles('**/package-lock.json') }}
+            - name: Install dependencies
+              run: npm i
+            - name: Lint HTML/JS/CSS
+              run: npm run check
+            - name: Build policies
+              shell: pwsh
+              run: ./scripts/Build-CustomPolicies.ps1 -FilePath ./src/policies/custom_policies
+            - name: Build assets
+              run: npm run build -- --env=environment=SSO

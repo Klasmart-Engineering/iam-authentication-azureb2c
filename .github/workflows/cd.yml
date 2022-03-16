@@ -4,27 +4,39 @@ on:
         branches:
             - master
             - github-pipeline
+env:
+    B2C_CLIENT_ID: eb486991-1cd6-4c42-9279-3e6edd4d5970
+    B2C_TENANT_ID: 8dc632b7-4df1-4904-a155-7c4663e345bb
+    B2C_STORAGE_ACCOUNT: kluksouthtest
+    B2C_STORAGE_CONTAINER: kidsloopb2c
+    B2C_CLIENT_SECRET: ${{secrets.B2C_DEPLOY_CLIENT_SECRET}}
+    B2C_STORAGE_SAS_TOKEN: ${{secrets.API_KEY}}
+
 jobs:
-    check:
+    deploy-alpha:
         runs-on: ubuntu-latest
+        environment: SSO
         steps:
             - uses: actions/checkout@v2
             - uses: actions/setup-node@v2
               with:
                   node-version: 16
                   cache: npm
-            - name: cache node modules
-              uses: actions/cache@v2
-              id: cache-npm-deps
-              with:
-                  path: ~/node_modules
-                  key: iam-b2c-${{ hashFiles('**/package-lock.json') }}
+            # - uses: azure/login@v1
+            #       creds: ${{env.B2C_STORAGE_SAS_TOKEN}}
             - name: Install dependencies
               run: npm i
             - name: Lint HTML/JS/CSS
               run: npm run check
-            - name: Build policies
+            - name: Build B2C policies
               shell: pwsh
               run: ./scripts/Build-CustomPolicies.ps1 -FilePath ./src/policies/custom_policies
             - name: Build assets
-              run: npm run build -- --env=environment=Alpha-Dev
+              run: npm run build -- --env=environment=SSO-MH
+            - name: Upload assets to B2C storage
+              uses: azure/CLI@v1
+              with:
+                  inlineScript: |
+                      az storage blob upload-batch --account-name ${{env.B2C_STORAGE_ACCOUNT}} -c ${{env.B2C_STORAGE_CONTAINER}} --sas-token ${{env.B2C_STORAGE_SAS_TOKEN}} -s "dist/**" --recursive --overwrite=true
+            - name: Upload B2C policies
+              run: npx ieftool deploy -t ${{env.B2C_TENANT_ID}} -c ${{env.B2C_CLIENT_ID}} -s ${{env.B2C_CLIENT_SECRET}} -p src/policies/custom_policies/Environments/SSO-MH

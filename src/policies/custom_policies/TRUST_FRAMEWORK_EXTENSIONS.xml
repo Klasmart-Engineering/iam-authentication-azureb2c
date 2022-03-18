@@ -214,6 +214,8 @@
         <UserHelpText>Phone Number</UserHelpText>
         <UserInputType>DropdownSingleSelect</UserInputType>
         <Restriction>
+          <!-- in order to override this elsewhere, default value should come first. -->
+          <Enumeration Text="United Kingdom(+44)" Value="GB" SelectByDefault="true" />
           <Enumeration Text="Sweden(+46)" Value="SE" />
           <Enumeration Text="Norway(+47)" Value="NO" />
           <Enumeration Text="Albania(+355)" Value="AL" />
@@ -429,7 +431,6 @@
           <Enumeration Text="Uganda(+256)" Value="UG" />
           <Enumeration Text="Ukraine(+380)" Value="UA" />
           <Enumeration Text="United Arab Emirates(+971)" Value="UA" />
-          <Enumeration Text="United Kingdom(+44)" Value="GB" SelectByDefault="true" />
           <Enumeration Text="United States(+1)" Value="US" />
           <Enumeration Text="Virgin Islands, U.S.(+1340)" Value="VI" />
           <Enumeration Text="Uruguay(+598)" Value="UY" />

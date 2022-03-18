@@ -30,6 +30,12 @@
             <InputClaim ClaimTypeReferenceId="resource_id" PartnerClaimType="resource" DefaultValue="{settings:IdentityExperienceFrameworkAppId}" />
           </InputClaims>
         </TechnicalProfile>
+        <TechnicalProfile Id="SelfAsserted-LocalAccountSignin-PhoneNumber">
+          <InputClaims>
+            <!-- Set default countryCode on login with phone -->
+            <InputClaim ClaimTypeReferenceId="countryCode" DefaultValue="{settings:DefaultISO3166CountryCode}" />
+          </InputClaims>
+        </TechnicalProfile>
       </TechnicalProfiles>
     </ClaimsProvider>
     <ClaimsProvider>

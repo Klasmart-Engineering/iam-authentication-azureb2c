@@ -3,6 +3,15 @@
     <TenantId>{settings:Tenant}</TenantId>
     <PolicyId>B2C_1A__{settings:PolicyNamePrefix}TrustFrameworkExtensions</PolicyId>
   </BasePolicy>
+  <BuildingBlocks>
+    <DisplayControls>
+      <DisplayControl Id="phoneVerificationControl" UserInterfaceControlType="VerificationControl">
+        <InputClaims>
+          <InputClaim ClaimTypeReferenceId="countryCode" DefaultValue="{settings:DefaultISO3166CountryCode}" />
+        </InputClaims>
+      </DisplayControl>
+    </DisplayControls>
+  </BuildingBlocks>
   <ClaimsProviders>
     <ClaimsProvider>
       <DisplayName>Local Account SignIn</DisplayName>

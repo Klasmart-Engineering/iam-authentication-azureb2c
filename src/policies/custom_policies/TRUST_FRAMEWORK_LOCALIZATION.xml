@@ -922,13 +922,5 @@
         </LocalizedStrings>
       </LocalizedResources>
     </Localization>
-
-    <DisplayControls>
-      <DisplayControl Id="phoneVerificationControl" UserInterfaceControlType="VerificationControl">
-        <InputClaims>
-          <InputClaim ClaimTypeReferenceId="countryCode" DefaultValue="{settings:DefaultISO3166CountryCode}" />
-        </InputClaims>
-      </DisplayControl>
-    </DisplayControls>
   </BuildingBlocks>
 </TrustFrameworkPolicy>

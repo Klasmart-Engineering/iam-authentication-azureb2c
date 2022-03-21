@@ -70,6 +70,55 @@ p {
     width: 100%;
 }
 
+#password,
+#newPassword,
+#reenterPassword {
+    /* Remove right border as this will be covered by the password-toggle */
+    border-radius: 8px 0 0 8px;
+    border-right: none;
+
+    /* Make password input border appear above password-toggle  */
+    z-index: 1;
+}
+
+.password__container {
+    align-content: center;
+    display: flex;
+}
+
+.password-toggle {
+    border-color: #b8b8b8;
+    border-left: none;
+    border-radius: 0 8px 8px 0;
+    border-style: solid;
+    border-width: 1px;
+
+    /* Match height of password input */
+    height: 20px;
+
+    /* Make #password slightly overlap toggle, so that there are no gaps in the border */
+    margin-left: -1px;
+    padding: 24px;
+    width: 23px;
+}
+
+.password-toggle__visible {
+    background: url("../../../../assets/eye-with-slash.svg") no-repeat center;
+}
+
+.password-toggle__hidden {
+    background: url("../../../../assets/eye.svg") no-repeat center;
+}
+
+#newPassword,
+#reenterPassword {
+    /* For some reason these two inputs on create accounthave the `textInput` class, even though all
+    other password inputs don't.
+    Because of this, we need to unset the margin-bottom, as the password__container has this set
+    already */
+    margin-bottom: 0;
+}
+
 #countryCode {
     background: transparent;
 }
@@ -296,6 +345,8 @@ p {
     }
 }
 
+/* Throbber CSS end */
+
 .buttons button[aria-disabled="true"] {
     opacity: 30%;
 }
@@ -303,5 +354,3 @@ p {
 .buttons button:not([aria-disabled="true"]) {
     opacity: 100%;
 }
-
-/* Throbber CSS end */

@@ -49,7 +49,7 @@
 }
 
 #email,
-#password {
+.password__container {
     margin-bottom: 30px;
 }
 

@@ -1,3 +1,5 @@
+import { setupPasswordToggles } from "@common/js/passwordToggle"
+
 const LANGUAGE_DROPDOWN_SELECTOR = "#language-select"
 const LANGUAGE_DROPDOWN_CONTAINER_SELECTOR = "#language-select__container"
 const LANGUAGE_PARAM = "ui_locales"
@@ -12,7 +14,7 @@ const NATIONAL_NUMBER_INPUT_SELECTOR = "#nationalNumber"
 const SIGN_IN_NAME_SELECTOR = "#signInName"
 const REDIRECT_TO_SSO_BUTTON_SELECTOR = "#SiginInWithKidsLoopCredentials"
 const PASSWORD_LABEL_SELECTOR = ".password-label"
-const PASSWORD_INPUT_SELECTOR = "#password"
+const PASSWORD_INPUT_SELECTOR = ".password__container"
 const SIGN_IN_BUTTON_SELECTOR = "#next"
 const CREATE_ACCOUNT_LINKS_SELECTOR = ".claims-provider-list-text-links"
 const THROBBER_CONTAINER_SELECTOR = "#throbber"
@@ -150,6 +152,7 @@ const setup = () => {
     } else {
         setupUseEmail()
     }
+    setupPasswordToggles()
 }
 
 if (

@@ -1,4 +1,5 @@
 import DOMPurify from "dompurify"
+import { setupPasswordToggles } from "@common/js/passwordToggle"
 
 const PRIVACY_POLICY_ID = "hasAcceptedPrivacyPolicy_true"
 const PRIVACY_POLICY_URL = `https://${process.env.B2CStorage}.blob.core.windows.net/${process.env.B2CStorageContainer}/external/privacy-policy/index.html`
@@ -44,11 +45,16 @@ const addPrivacyPolicyLink = () => {
     label.innerHTML = cleanHTML
 }
 
+const setup = () => {
+    addPrivacyPolicyLink()
+    setupPasswordToggles()
+}
+
 if (
     document.readyState === "complete" ||
     document.readyState === "interactive"
 ) {
-    addPrivacyPolicyLink()
+    setup()
 } else {
-    document.addEventListener("DOMContentLoaded", addPrivacyPolicyLink, false)
+    document.addEventListener("DOMContentLoaded", setup, false)
 }

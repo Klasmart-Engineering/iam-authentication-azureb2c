@@ -6,7 +6,11 @@
         "strict": true,
         "sourceMap": true,
         "esModuleInterop": true,
-        "allowSyntheticDefaultImports": true
+        "allowSyntheticDefaultImports": true,
+        "baseUrl": ".",
+        "paths": {
+            "@common/*": ["src/policies/KL_create_user_or_sign_in/common/*"]
+        }
     },
     "include": ["src", "scripts"]
 }

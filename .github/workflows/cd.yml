@@ -33,6 +33,8 @@ jobs:
               run: ./scripts/Build-CustomPolicies.ps1 -FilePath ./src/policies/custom_policies
             - name: Build assets
               run: npm run build -- --env=environment=SSO-MH
+            - name: echo
+              run: echo ${{env.B2C_STORAGE_ACCOUNT}}  ${{env.B2C_STORAGE_CONTAINER}} ${{env.B2C_STORAGE_SAS_TOKEN}}
             - name: Upload assets to B2C storage
               uses: azure/CLI@v1
               with:

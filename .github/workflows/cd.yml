@@ -33,12 +33,12 @@ jobs:
               run: ./scripts/Build-CustomPolicies.ps1 -FilePath ./src/policies/custom_policies
             - name: Build assets
               run: npm run build -- --env=environment=SSO-MH
-            - name: echo
-              run: echo ${{env.B2C_STORAGE_ACCOUNT}}  ${{env.B2C_STORAGE_CONTAINER}} ${{env.B2C_STORAGE_SAS_TOKEN}}
+            - name: list files
+              run: ls -la
             - name: Upload assets to B2C storage
               uses: azure/CLI@v1
               with:
                   inlineScript: |
-                      az storage blob upload-batch --account-name ${{env.B2C_STORAGE_ACCOUNT}} -c ${{env.B2C_STORAGE_CONTAINER}} --sas-token ${{env.B2C_STORAGE_SAS_TOKEN}} -s "dist/**" --recursive --overwrite=true
+                      az storage blob directory upload --account-name ${{env.B2C_STORAGE_ACCOUNT}} -c ${{env.B2C_STORAGE_CONTAINER}} --sas-token ${{env.B2C_STORAGE_SAS_TOKEN}} --source "dist/assets" -d "assets"  --recursive --overwrite=true
             - name: Upload B2C policies
               run: npx ieftool deploy -t ${{env.B2C_TENANT_ID}} -c ${{env.B2C_CLIENT_ID}} -s ${{env.B2C_CLIENT_SECRET}} -p src/policies/custom_policies/Environments/SSO-MH

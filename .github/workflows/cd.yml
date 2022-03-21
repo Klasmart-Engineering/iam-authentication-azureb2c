@@ -37,6 +37,6 @@ jobs:
               uses: azure/CLI@v1
               with:
                   inlineScript: |
-                      az storage blob upload-batch --account-name ${{env.B2C_STORAGE_ACCOUNT}} -d ${{env.B2C_STORAGE_CONTAINER}} --sas-token ${{env.B2C_STORAGE_SAS_TOKEN}} --source "dist" --overwrite=true
+                      az storage blob upload-batch --account-name ${{env.B2C_STORAGE_ACCOUNT}} -d ${{env.B2C_STORAGE_CONTAINER}} --sas-token ${{env.B2C_STORAGE_SAS_TOKEN}} --source 'dist' --overwrite=true
             - name: Upload B2C policies
               run: npx ieftool deploy -t ${{env.B2C_TENANT_ID}} -c ${{env.B2C_CLIENT_ID}} -s ${{env.B2C_CLIENT_SECRET}} -p src/policies/custom_policies/Environments/SSO-MH

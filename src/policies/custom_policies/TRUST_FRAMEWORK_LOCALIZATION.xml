@@ -577,15 +577,15 @@
       <LocalizedResources Id="api.localaccountpasswordreset.th">
         <LocalizedStrings>
           <LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">อีเมล</LocalizedString>
-          <LocalizedString ElementType="ClaimType" ElementId="email" StringId="PatternHelpText">คุณไม่ได้ป้อนอีเมลที่ถูกต้อง</LocalizedString>
-          <LocalizedString ElementType="ClaimType" ElementId="verificationCode" StringId="DisplayName">ยืนยันรหัสรีเซ็ต</LocalizedString>
-          <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="but_send_code">ยืนยันรหัสรีเซ็ต</LocalizedString>
+          <LocalizedString ElementType="ClaimType" ElementId="email" StringId="PatternHelpText">กรุณาใส่อีเมลที่ถูกต้อง</LocalizedString>
+          <LocalizedString ElementType="ClaimType" ElementId="verificationCode" StringId="DisplayName">รีเซ็ตรหัส</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="but_send_code">ส่งรหัสรีเซ็ต</LocalizedString>
           <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="but_send_new_code">ส่งรหัสรีเซ็ตใหม่</LocalizedString>
           <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="but_verify_code">ยืนยันรหัสรีเซ็ต</LocalizedString>
-          <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="intro_msg">ป้อนหมายเลขโทรศัพท์ของคุณด้านล่างเพื่อรับรหัสรีเซ็ต</LocalizedString>
-          <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="success_send_code_msg">รหัสรีเซ็ตถูกส่งไปยังโทรศัพท์ของคุณแล้ว โปรดคัดลอกลงในช่องป้อนข้อมูลด้านล่างและยืนยันรหัสรีเซ็ต</LocalizedString>
-          <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="success_verify_code_msg">ยืนยันหมายเลขโทรศัพท์แล้ว คุณสามารถดำเนินการต่อได้เลย</LocalizedString>
-          <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl" StringId="but_send_code">ยืนยันรหัสรีเซ็ต</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="intro_msg">ป้อนที่อยู่อีเมลของคุณด้านล่างเพื่อรับรหัสรีเซ็ต</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="success_send_code_msg">รหัสรีเซ็ตถูกส่งไปยังอีเมลของคุณแล้ว โปรดคัดลอกลงในช่องป้อนข้อมูลด้านล่างและยืนยันรหัสรีเซ็ต</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="success_verify_code_msg">ยืนยันที่อยู่อีเมลแล้ว คุณสามารถดำเนินการต่อได้เลย</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl" StringId="but_send_code">ส่งรหัสรีเซ็ต</LocalizedString>
           <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl" StringId="but_send_new_code">ส่งรหัสรีเซ็ตใหม่</LocalizedString>
           <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl" StringId="but_verify_code">ยืนยันรหัสรีเซ็ต</LocalizedString>
           <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl" StringId="intro_msg">ป้อนหมายเลขโทรศัพท์ของคุณด้านล่างเพื่อรับรหัสรีเซ็ต</LocalizedString>
@@ -593,12 +593,11 @@
           <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl" StringId="success_verify_code_msg">ยืนยันหมายเลขโทรศัพท์แล้ว คุณสามารถดำเนินการต่อได้เลย</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfChallengeExpired">รหัสหมดอายุ</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalDoesNotExist">ไม่พบผู้ใช้ที่มีข้อมูลประจำตัวที่ระบุ</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsTransformationBooleanValueIsNotEqual">มีบางอย่างผิดปกติเกิดขึ้นกับเรา!
- โปรดลองอีกครั้งหรือติดต่อผู้ดูแลระบบองค์กรของคุณ</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedNoRetry">คุณพยายามเข้าสู่ระบบไม่ถูกต้องหลายครั้งเกินไป โปรดรอและลองอีกครั้งในภายหลัง</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedRetryAllowed">การตรวจสอบ PDF ล้มเหลว โปรดลองอีกครั้ง</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfWrongCodeEntered">คุณพยายามเข้าสู่ระบบไม่ถูกต้องหลายครั้งเกินไป โปรดรอและลองอีกครั้งในภายหลัง</LocalizedString>
-          <LocalizedString ElementType="Predicate" ElementId="email" StringId="HelpText">คุณไม่ได้ป้อนอีเมลที่ถูกต้อง</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsTransformationBooleanValueIsNotEqual">บัญชีของคุณถูกปิดการใช้งาน โปรดลองอีกครั้งหรือติดต่อผู้ดูแลระบบองค์กรของคุณ</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedNoRetry">คุณพยายามผิดหลายครั้งเกินไป โปรดลองอีกครั้งในภายหลัง.</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedRetryAllowed">การตรวจสอบล้มเหลว โปรดลองอีกครั้ง</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfWrongCodeEntered">รหัสไม่ถูกต้อง กรุณาลองใหม่อีกครั้ง</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="email" StringId="HelpText">กรุณาใส่อีเมลที่ถูกต้อง</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="internationalOrNationalPhoneNumber" StringId="HelpText">รูปแบบตัวเลขไม่ถูกต้อง โปรดตรวจสอบให้แน่ใจว่าหมายเลขโทรศัพท์ไม่มีสัญลักษณ์พิเศษ เช่น []{}()</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="noCorporateEmail" StringId="HelpText">ไม่สามารถรีเซ็ตรหัสผ่านสำหรับบัญชีที่มีที่อยู่อีเมล KidsLoop โปรดลงชื่อเข้าใช้แทน</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="noLeadingPlus" StringId="HelpText">คุณไม่จำเป็นต้องใส่รหัสประเทศของคุณที่นี่ โปรดใช้เมนูแบบเลื่อนลงด้านบนเพื่อเลือกรหัสประเทศของคุณแทน</LocalizedString>
@@ -613,47 +612,47 @@
         <LocalizedStrings>
           <LocalizedString ElementType="ClaimType" ElementId="countryCode" StringId="DisplayName">ประเทศ</LocalizedString>
           <LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">อีเมล</LocalizedString>
-          <LocalizedString ElementType="ClaimType" ElementId="email" StringId="PatternHelpText">คุณไม่ได้ป้อนอีเมลที่ถูกต้อง</LocalizedString>
+          <LocalizedString ElementType="ClaimType" ElementId="email" StringId="PatternHelpText">กรุณาใส่อีเมลที่ถูกต้อง</LocalizedString>
           <LocalizedString ElementType="ClaimType" ElementId="hasAcceptedPrivacyPolicy" StringId="DisplayName">นโยบายความเป็นส่วนตัว</LocalizedString>
-          <LocalizedString ElementType="ClaimType" ElementId="hasAcceptedPrivacyPolicy" StringId="UserHelpText">ฉันยอมรับ KidsLoop {{นโยบายความเป็นส่วนตัว}}</LocalizedString>
+          <LocalizedString ElementType="ClaimType" ElementId="hasAcceptedPrivacyPolicy" StringId="UserHelpText">โปรดยอมรับนโยบายความเป็นส่วนตัวของ KidsLoop เพื่อสร้างบัญชี</LocalizedString>
           <LocalizedString ElementType="ClaimType" ElementId="nationalNumber" StringId="DisplayName">หมายเลขโทรศัพท์</LocalizedString>
-          <LocalizedString ElementType="ClaimType" ElementId="newPassword" StringId="DisplayName">รีเซ็ตรหัสผ่าน</LocalizedString>
+          <LocalizedString ElementType="ClaimType" ElementId="newPassword" StringId="DisplayName">ตั้งรหัสผ่าน</LocalizedString>
           <LocalizedString ElementType="ClaimType" ElementId="newPassword" StringId="PatternHelpText">อักขระ 8-16 ตัว มี 3 ใน 4 ตัวต่อไปนี้: อักขระตัวพิมพ์เล็ก อักขระตัวพิมพ์ใหญ่ ตัวเลข (0-9) และสัญลักษณ์ต่อไปนี้อย่างน้อยหนึ่งตัว: @ # $ % ^ &amp; * - _ + = [ ] { } | \ : ' , ? / ` ~ " ( ) ; .</LocalizedString>
-          <LocalizedString ElementType="ClaimType" ElementId="reenterPassword" StringId="DisplayName">รีเซ็ตรหัสผ่าน</LocalizedString>
-          <LocalizedString ElementType="ClaimType" ElementId="verificationCode" StringId="DisplayName">ยืนยันรหัสรีเซ็ต</LocalizedString>
-          <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="but_change_claims">ใส่อีเมล์</LocalizedString>
-          <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="but_send_code">ยืนยันรหัสรีเซ็ต</LocalizedString>
-          <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="but_send_new_code">ส่งรหัสรีเซ็ตใหม่</LocalizedString>
-          <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="but_verify_code">ยืนยันรหัสรีเซ็ต</LocalizedString>
-          <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl" StringId="but_change_claims">หมายเลขโทรศัพท์</LocalizedString>
-          <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl" StringId="but_send_code">ยืนยันรหัสรีเซ็ต</LocalizedString>
-          <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl" StringId="but_send_new_code">ส่งรหัสรีเซ็ตใหม่</LocalizedString>
-          <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl" StringId="but_verify_code">ยืนยันรหัสรีเซ็ต</LocalizedString>
+          <LocalizedString ElementType="ClaimType" ElementId="reenterPassword" StringId="DisplayName">ยืนยันรหัสผ่าน</LocalizedString>
+          <LocalizedString ElementType="ClaimType" ElementId="verificationCode" StringId="DisplayName">รหัสยืนยัน</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="but_change_claims">เปลี่ยนอีเมล์</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="but_send_code">ส่งรหัสยืนยัน</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="but_send_new_code">ส่งรหัสใหม่</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="but_verify_code">ยืนยันรหัสผ่าน</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl" StringId="but_change_claims">เปลี่ยนหมายเลขโทรศัพท์</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl" StringId="but_send_code">ส่งรหัสยืนยัน</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl" StringId="but_send_new_code">ส่งรหัสใหม่</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl" StringId="but_verify_code">ยืนยันรหัสผ่าน</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfChallengeExpired">รหัสหมดอายุ</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalAlreadyExists">มีบัญชีที่ใช้ที่อยู่อีเมลหรือหมายเลขนี้อยู่แล้ว</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfMaxAllowedCodeRetryReached">คุณพยายามเข้าสู่ระบบไม่ถูกต้องหลายครั้งเกินไป โปรดรอและลองอีกครั้งในภายหลัง</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedNoRetry">คุณพยายามเข้าสู่ระบบไม่ถูกต้องหลายครั้งเกินไป โปรดรอและลองอีกครั้งในภายหลัง</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedRetryAllowed">คุณพยายามเข้าสู่ระบบไม่ถูกต้องหลายครั้งเกินไป โปรดรอและลองอีกครั้งในภายหลัง</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfWrongCodeEntered">คุณพยายามเข้าสู่ระบบไม่ถูกต้องหลายครั้งเกินไป โปรดรอและลองอีกครั้งในภายหลัง</LocalizedString>
-          <LocalizedString ElementType="Predicate" ElementId="email" StringId="HelpText">คุณไม่ได้ป้อนอีเมลที่ถูกต้อง</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalAlreadyExists">มีบัญชีที่ใช้อีเมลหรือหมายเลขนี้อยู่แล้ว</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfMaxAllowedCodeRetryReached">คุณพยายามผิดหลายครั้งเกินไป โปรดลองอีกครั้งในภายหลัง.</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedNoRetry">คุณพยายามผิดหลายครั้งเกินไป โปรดลองอีกครั้งในภายหลัง.</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedRetryAllowed">รหัสไม่ถูกต้อง กรุณาลองใหม่อีกครั้ง</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfWrongCodeEntered">รหัสไม่ถูกต้อง กรุณาลองใหม่อีกครั้ง</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="email" StringId="HelpText">กรุณาใส่อีเมลที่ถูกต้อง</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="internationalOrNationalPhoneNumber" StringId="HelpText">รูปแบบตัวเลขไม่ถูกต้อง โปรดตรวจสอบให้แน่ใจว่าหมายเลขโทรศัพท์ไม่มีสัญลักษณ์พิเศษ เช่น []{}()</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="noCorporateEmail" StringId="HelpText">ไม่สามารถสร้างบัญชีด้วยที่อยู่อีเมล KidsLoop โปรดลงชื่อเข้าใช้แทน</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="noLeadingPlus" StringId="HelpText">คุณไม่จำเป็นต้องใส่รหัสประเทศของคุณที่นี่ โปรดใช้เมนูแบบเลื่อนลงด้านบนเพื่อเลือกรหัสประเทศของคุณแทน</LocalizedString>
           <LocalizedString ElementType="UXElement" StringId="button_continue">สร้างบัญชี</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="ver_but_edit">ใส่อีเมล์</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="ver_but_resend">ส่งรหัสรีเซ็ตใหม่</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="ver_but_send">ยืนยันรหัสรีเซ็ต</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="ver_but_verify">ยืนยันรหัสรีเซ็ต</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="ver_fail_no_retry">คุณพยายามเข้าสู่ระบบไม่ถูกต้องหลายครั้งเกินไป โปรดรอและลองอีกครั้งในภายหลัง</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="ver_but_edit">เปลี่ยนอีเมล</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="ver_but_resend">ส่งรหัสใหม่</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="ver_but_send">ส่งรหัสยืนยัน</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="ver_but_verify">ยืนยันรหัสผ่าน</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="ver_fail_no_retry">คุณพยายามผิดหลายครั้งเกินไป โปรดลองอีกครั้งในภายหลัง.</LocalizedString>
         </LocalizedStrings>
       </LocalizedResources>
       <LocalizedResources Id="api.selfasserted.localaccountpasswordchange.th">
         <LocalizedStrings>
-          <LocalizedString ElementType="ClaimType" ElementId="newPassword" StringId="DisplayName">รีเซ็ตรหัสผ่าน</LocalizedString>
+          <LocalizedString ElementType="ClaimType" ElementId="newPassword" StringId="DisplayName">รหัสผ่านใหม่</LocalizedString>
           <LocalizedString ElementType="ClaimType" ElementId="newPassword" StringId="PatternHelpText">อักขระ 8-16 ตัว มี 3 ใน 4 ตัวต่อไปนี้: อักขระตัวพิมพ์เล็ก อักขระตัวพิมพ์ใหญ่ ตัวเลข (0-9) และสัญลักษณ์ต่อไปนี้อย่างน้อยหนึ่งตัว: @ # $ % ^ &amp; * - _ + = [ ] { } | \ : ' , ? / ` ~ " ( ) ; .</LocalizedString>
-          <LocalizedString ElementType="ClaimType" ElementId="reenterPassword" StringId="DisplayName">รีเซ็ตรหัสผ่าน</LocalizedString>
+          <LocalizedString ElementType="ClaimType" ElementId="reenterPassword" StringId="DisplayName">ยืนยันรหัสผ่านใหม่</LocalizedString>
           <LocalizedString ElementType="UXElement" StringId="button_continue">รีเซ็ตรหัสผ่าน</LocalizedString>
-          <LocalizedString ElementType="UXElement" StringId="initial_intro">มารีเซ็ตรหัสผ่านของคุณกันเถอะ</LocalizedString>
+          <LocalizedString ElementType="UXElement" StringId="initial_intro">เกือบเสร็จแล้ว! ป้อนรหัสผ่านใหม่ของคุณด้านล่าง</LocalizedString>
         </LocalizedStrings>
       </LocalizedResources>
       <LocalizedResources Id="api.selfasserted.th">
@@ -662,33 +661,32 @@
           <LocalizedString ElementType="ClaimType" ElementId="nationalNumber" StringId="DisplayName">หมายเลขโทรศัพท์</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="internationalOrNationalPhoneNumber" StringId="HelpText">รูปแบบตัวเลขไม่ถูกต้อง โปรดตรวจสอบให้แน่ใจว่าหมายเลขโทรศัพท์ไม่มีสัญลักษณ์พิเศษ เช่น []{}()</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="noLeadingPlus" StringId="HelpText">คุณไม่จำเป็นต้องใส่รหัสประเทศของคุณที่นี่ โปรดใช้เมนูแบบเลื่อนลงด้านบนเพื่อเลือกรหัสประเทศของคุณแทน</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="required_field">ว่างเปล่าไม่ได้</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="required_field">ไม่สามารถเว้นว่างได้</LocalizedString>
         </LocalizedStrings>
       </LocalizedResources>
       <LocalizedResources Id="api.signuporsignin.th">
         <LocalizedStrings>
-          <LocalizedString ElementType="ClaimType" ElementId="password" StringId="DisplayName">รีเซ็ตรหัสผ่าน</LocalizedString>
+          <LocalizedString ElementType="ClaimType" ElementId="password" StringId="DisplayName">รหัสผ่าน</LocalizedString>
           <LocalizedString ElementType="ClaimType" ElementId="signInName" StringId="DisplayName">อีเมล</LocalizedString>
           <LocalizedString ElementType="ClaimType" ElementId="signInNamePhoneNumber" StringId="DisplayName">หมายเลขโทรศัพท์</LocalizedString>
-          <LocalizedString ElementType="ClaimsProvider" StringId="SigninWithPhone">หมายเลขโทรศัพท์</LocalizedString>
+          <LocalizedString ElementType="ClaimsProvider" StringId="SigninWithPhone">ใช้หมายเลขโทรศัพท์</LocalizedString>
           <LocalizedString ElementType="ClaimsProvider" StringId="SignupWithEmail">อีเมล</LocalizedString>
           <LocalizedString ElementType="ClaimsProvider" StringId="SignupWithEmail2">อีเมล</LocalizedString>
-          <LocalizedString ElementType="ClaimsProvider" StringId="SignupWithPhone">หมายเลขโทรศัพท์</LocalizedString>
-          <LocalizedString ElementType="ClaimsProvider" StringId="SignupWithPhone2">หมายเลขโทรศัพท์</LocalizedString>
+          <LocalizedString ElementType="ClaimsProvider" StringId="SignupWithPhone">โทรศัพท์</LocalizedString>
+          <LocalizedString ElementType="ClaimsProvider" StringId="SignupWithPhone2">โทรศัพท์</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalDoesNotExist">เนื่องจากการอัปเกรดระบบ คุณจะต้องรีเซ็ตรหัสผ่านบัญชีของคุณ หากคุณได้ทำสิ่งนี้ไปแล้วและได้รับข้อความนี้ แสดงว่าคุณป้อนรหัสผ่านที่ไม่ถูกต้อง โปรดลองอีกครั้งหรือคลิกลิงก์ 'ลืมรหัสผ่าน' หากคุณต้องการรีเซ็ตรหัสผ่าน</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidPassword">เนื่องจากการอัปเกรดระบบ คุณจะต้องรีเซ็ตรหัสผ่านบัญชีของคุณ หากคุณได้ทำสิ่งนี้ไปแล้วและได้รับข้อความนี้ แสดงว่าคุณป้อนรหัสผ่านที่ไม่ถูกต้อง โปรดลองอีกครั้งหรือคลิกลิงก์ 'ลืมรหัสผ่าน' หากคุณต้องการรีเซ็ตรหัสผ่าน</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfOldPasswordUsed">เนื่องจากการอัปเกรดระบบ คุณจะต้องรีเซ็ตรหัสผ่านบัญชีของคุณ หากคุณได้ทำสิ่งนี้ไปแล้วและได้รับข้อความนี้ แสดงว่าคุณป้อนรหัสผ่านที่ไม่ถูกต้อง โปรดลองอีกครั้งหรือคลิกลิงก์ 'ลืมรหัสผ่าน' หากคุณต้องการรีเซ็ตรหัสผ่าน</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfUserAccountDisabled">มีบางอย่างผิดปกติเกิดขึ้นกับเรา!
- โปรดลองอีกครั้งหรือติดต่อผู้ดูแลระบบองค์กรของคุณ</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfUserAccountDisabled">บัญชีของคุณถูกปิดการใช้งาน โปรดลองอีกครั้งหรือติดต่อผู้ดูแลระบบองค์กรของคุณ</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfUserAccountLocked">คุณพยายามเข้าสู่ระบบไม่ถูกต้องหลายครั้งเกินไป โปรดรอและลองอีกครั้งในภายหลัง</LocalizedString>
-          <LocalizedString ElementType="Predicate" ElementId="email" StringId="HelpText">คุณไม่ได้ป้อนอีเมลที่ถูกต้อง</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="email" StringId="HelpText">กรุณากรอกอีเมลให้ถูกต้อง</LocalizedString>
           <LocalizedString ElementType="UxElement" StringId="button_signin">เข้าสู่ระบบ</LocalizedString>
           <LocalizedString ElementType="UxElement" StringId="heading">เข้าสู่ระบบ</LocalizedString>
           <LocalizedString ElementType="UxElement" StringId="invalid_generic">คุณไม่ได้ป้อนอีเมลที่ถูกต้อง{0}</LocalizedString>
           <LocalizedString ElementType="UxElement" StringId="local_intro_generic">เข้าสู่ระบบ{0}</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="requiredField_generic">ว่างเปล่าไม่ได้</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="requiredField_password">ว่างเปล่าไม่ได้</LocalizedString>
-          <LocalizedString ElementType="UxElement" StringId="social_intro">เข้าสู่ระบบ{0}</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="requiredField_generic">ไม่สามารถเว้นว่างได้</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="requiredField_password">ไม่สามารถเว้นว่างได้</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="social_intro">เข้าสู่ระบบด้วยบัญชีโซเชียลของคุณ</LocalizedString>
         </LocalizedStrings>
       </LocalizedResources>
       <LocalizedResources Id="api.localaccountpasswordreset.vi">

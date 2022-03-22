@@ -4,23 +4,23 @@
             "ClaimType": {
                 "email": {
                     "DisplayName": "อีเมล",
-                    "PatternHelpText": "คุณไม่ได้ป้อนอีเมลที่ถูกต้อง"
+                    "PatternHelpText": "กรุณาใส่อีเมลที่ถูกต้อง"
                 },
                 "verificationCode": {
-                    "DisplayName": "ยืนยันรหัสรีเซ็ต"
+                    "DisplayName": "รีเซ็ตรหัส"
                 }
             },
             "DisplayControl": {
                 "emailControl": {
-                    "but_send_code": "ยืนยันรหัสรีเซ็ต",
+                    "but_send_code": "ส่งรหัสรีเซ็ต",
                     "but_send_new_code": "ส่งรหัสรีเซ็ตใหม่",
                     "but_verify_code": "ยืนยันรหัสรีเซ็ต",
-                    "intro_msg": "ป้อนหมายเลขโทรศัพท์ของคุณด้านล่างเพื่อรับรหัสรีเซ็ต",
-                    "success_send_code_msg": "รหัสรีเซ็ตถูกส่งไปยังโทรศัพท์ของคุณแล้ว โปรดคัดลอกลงในช่องป้อนข้อมูลด้านล่างและยืนยันรหัสรีเซ็ต",
-                    "success_verify_code_msg": "ยืนยันหมายเลขโทรศัพท์แล้ว คุณสามารถดำเนินการต่อได้เลย"
+                    "intro_msg": "ป้อนที่อยู่อีเมลของคุณด้านล่างเพื่อรับรหัสรีเซ็ต",
+                    "success_send_code_msg": "รหัสรีเซ็ตถูกส่งไปยังอีเมลของคุณแล้ว โปรดคัดลอกลงในช่องป้อนข้อมูลด้านล่างและยืนยันรหัสรีเซ็ต",
+                    "success_verify_code_msg": "ยืนยันที่อยู่อีเมลแล้ว คุณสามารถดำเนินการต่อได้เลย"
                 },
                 "phoneVerificationControl": {
-                    "but_send_code": "ยืนยันรหัสรีเซ็ต",
+                    "but_send_code": "ส่งรหัสรีเซ็ต",
                     "but_send_new_code": "ส่งรหัสรีเซ็ตใหม่",
                     "but_verify_code": "ยืนยันรหัสรีเซ็ต",
                     "intro_msg": "ป้อนหมายเลขโทรศัพท์ของคุณด้านล่างเพื่อรับรหัสรีเซ็ต",
@@ -31,14 +31,14 @@
             "ErrorMessage": {
                 "UserMessageIfChallengeExpired": "รหัสหมดอายุ",
                 "UserMessageIfClaimsPrincipalDoesNotExist": "ไม่พบผู้ใช้ที่มีข้อมูลประจำตัวที่ระบุ",
-                "UserMessageIfClaimsTransformationBooleanValueIsNotEqual": "มีบางอย่างผิดปกติเกิดขึ้นกับเรา!\n โปรดลองอีกครั้งหรือติดต่อผู้ดูแลระบบองค์กรของคุณ",
-                "UserMessageIfVerificationFailedNoRetry": "คุณพยายามเข้าสู่ระบบไม่ถูกต้องหลายครั้งเกินไป โปรดรอและลองอีกครั้งในภายหลัง",
-                "UserMessageIfVerificationFailedRetryAllowed": "การตรวจสอบ PDF ล้มเหลว โปรดลองอีกครั้ง",
-                "UserMessageIfWrongCodeEntered": "คุณพยายามเข้าสู่ระบบไม่ถูกต้องหลายครั้งเกินไป โปรดรอและลองอีกครั้งในภายหลัง"
+                "UserMessageIfClaimsTransformationBooleanValueIsNotEqual": "บัญชีของคุณถูกปิดการใช้งาน โปรดลองอีกครั้งหรือติดต่อผู้ดูแลระบบองค์กรของคุณ",
+                "UserMessageIfVerificationFailedNoRetry": "คุณพยายามผิดหลายครั้งเกินไป โปรดลองอีกครั้งในภายหลัง.",
+                "UserMessageIfVerificationFailedRetryAllowed": "การตรวจสอบล้มเหลว โปรดลองอีกครั้ง",
+                "UserMessageIfWrongCodeEntered": "รหัสไม่ถูกต้อง กรุณาลองใหม่อีกครั้ง"
             },
             "Predicate": {
                 "email": {
-                    "HelpText": "คุณไม่ได้ป้อนอีเมลที่ถูกต้อง"
+                    "HelpText": "กรุณาใส่อีเมลที่ถูกต้อง"
                 },
                 "internationalOrNationalPhoneNumber": {
                     "HelpText": "รูปแบบตัวเลขไม่ถูกต้อง โปรดตรวจสอบให้แน่ใจว่าหมายเลขโทรศัพท์ไม่มีสัญลักษณ์พิเศษ เช่น []{}()"
@@ -58,47 +58,47 @@
                 },
                 "email": {
                     "DisplayName": "อีเมล",
-                    "PatternHelpText": "คุณไม่ได้ป้อนอีเมลที่ถูกต้อง"
+                    "PatternHelpText": "กรุณาใส่อีเมลที่ถูกต้อง"
                 },
                 "hasAcceptedPrivacyPolicy": {
                     "DisplayName": "นโยบายความเป็นส่วนตัว",
-                    "UserHelpText": "ฉันยอมรับ KidsLoop {{นโยบายความเป็นส่วนตัว}}"
+                    "UserHelpText": "โปรดยอมรับนโยบายความเป็นส่วนตัวของ KidsLoop เพื่อสร้างบัญชี"
                 },
                 "nationalNumber": {
                     "DisplayName": "หมายเลขโทรศัพท์"
                 },
                 "newPassword": {
-                    "DisplayName": "รีเซ็ตรหัสผ่าน",
+                    "DisplayName": "ตั้งรหัสผ่าน",
                     "PatternHelpText": "อักขระ 8-16 ตัว มี 3 ใน 4 ตัวต่อไปนี้: อักขระตัวพิมพ์เล็ก อักขระตัวพิมพ์ใหญ่ ตัวเลข (0-9) และสัญลักษณ์ต่อไปนี้อย่างน้อยหนึ่งตัว: @ # $ % ^ &amp; * - _ + = [ ] { } | \\ : ' , ? / ` ~ \" ( ) ; ."
                 },
                 "reenterPassword": {
-                    "DisplayName": "รีเซ็ตรหัสผ่าน"
+                    "DisplayName": "ยืนยันรหัสผ่าน"
                 },
                 "verificationCode": {
-                    "DisplayName": "ยืนยันรหัสรีเซ็ต"
+                    "DisplayName": "รหัสยืนยัน"
                 }
             },
             "DisplayControl": {
                 "emailControl": {
-                    "but_change_claims": "ใส่อีเมล์",
-                    "but_send_code": "ยืนยันรหัสรีเซ็ต",
-                    "but_send_new_code": "ส่งรหัสรีเซ็ตใหม่",
-                    "but_verify_code": "ยืนยันรหัสรีเซ็ต"
+                    "but_change_claims": "เปลี่ยนอีเมล์",
+                    "but_send_code": "ส่งรหัสยืนยัน",
+                    "but_send_new_code": "ส่งรหัสใหม่",
+                    "but_verify_code": "ยืนยันรหัสผ่าน"
                 },
                 "phoneVerificationControl": {
-                    "but_change_claims": "หมายเลขโทรศัพท์",
-                    "but_send_code": "ยืนยันรหัสรีเซ็ต",
-                    "but_send_new_code": "ส่งรหัสรีเซ็ตใหม่",
-                    "but_verify_code": "ยืนยันรหัสรีเซ็ต"
+                    "but_change_claims": "เปลี่ยนหมายเลขโทรศัพท์",
+                    "but_send_code": "ส่งรหัสยืนยัน",
+                    "but_send_new_code": "ส่งรหัสใหม่",
+                    "but_verify_code": "ยืนยันรหัสผ่าน"
                 }
             },
             "ErrorMessage": {
                 "UserMessageIfChallengeExpired": "รหัสหมดอายุ",
-                "UserMessageIfClaimsPrincipalAlreadyExists": "มีบัญชีที่ใช้ที่อยู่อีเมลหรือหมายเลขนี้อยู่แล้ว",
-                "UserMessageIfMaxAllowedCodeRetryReached": "คุณพยายามเข้าสู่ระบบไม่ถูกต้องหลายครั้งเกินไป โปรดรอและลองอีกครั้งในภายหลัง",
-                "UserMessageIfVerificationFailedNoRetry": "คุณพยายามเข้าสู่ระบบไม่ถูกต้องหลายครั้งเกินไป โปรดรอและลองอีกครั้งในภายหลัง",
-                "UserMessageIfVerificationFailedRetryAllowed": "คุณพยายามเข้าสู่ระบบไม่ถูกต้องหลายครั้งเกินไป โปรดรอและลองอีกครั้งในภายหลัง",
-                "UserMessageIfWrongCodeEntered": "คุณพยายามเข้าสู่ระบบไม่ถูกต้องหลายครั้งเกินไป โปรดรอและลองอีกครั้งในภายหลัง"
+                "UserMessageIfClaimsPrincipalAlreadyExists": "มีบัญชีที่ใช้อีเมลหรือหมายเลขนี้อยู่แล้ว",
+                "UserMessageIfMaxAllowedCodeRetryReached": "คุณพยายามผิดหลายครั้งเกินไป โปรดลองอีกครั้งในภายหลัง.",
+                "UserMessageIfVerificationFailedNoRetry": "คุณพยายามผิดหลายครั้งเกินไป โปรดลองอีกครั้งในภายหลัง.",
+                "UserMessageIfVerificationFailedRetryAllowed": "รหัสไม่ถูกต้อง กรุณาลองใหม่อีกครั้ง",
+                "UserMessageIfWrongCodeEntered": "รหัสไม่ถูกต้อง กรุณาลองใหม่อีกครั้ง"
             },
             "LocalizedCollection": {
                 "hasAcceptedPrivacyPolicy": {
@@ -107,7 +107,7 @@
             },
             "Predicate": {
                 "email": {
-                    "HelpText": "คุณไม่ได้ป้อนอีเมลที่ถูกต้อง"
+                    "HelpText": "กรุณาใส่อีเมลที่ถูกต้อง"
                 },
                 "internationalOrNationalPhoneNumber": {
                     "HelpText": "รูปแบบตัวเลขไม่ถูกต้อง โปรดตรวจสอบให้แน่ใจว่าหมายเลขโทรศัพท์ไม่มีสัญลักษณ์พิเศษ เช่น []{}()"
@@ -123,26 +123,26 @@
                 "button_continue": "สร้างบัญชี"
             },
             "UxElement": {
-                "ver_but_edit": "ใส่อีเมล์",
-                "ver_but_resend": "ส่งรหัสรีเซ็ตใหม่",
-                "ver_but_send": "ยืนยันรหัสรีเซ็ต",
-                "ver_but_verify": "ยืนยันรหัสรีเซ็ต",
-                "ver_fail_no_retry": "คุณพยายามเข้าสู่ระบบไม่ถูกต้องหลายครั้งเกินไป โปรดรอและลองอีกครั้งในภายหลัง"
+                "ver_but_edit": "เปลี่ยนอีเมล",
+                "ver_but_resend": "ส่งรหัสใหม่",
+                "ver_but_send": "ส่งรหัสยืนยัน",
+                "ver_but_verify": "ยืนยันรหัสผ่าน",
+                "ver_fail_no_retry": "คุณพยายามผิดหลายครั้งเกินไป โปรดลองอีกครั้งในภายหลัง."
             }
         },
         "selfasserted.localaccountpasswordchange": {
             "ClaimType": {
                 "newPassword": {
-                    "DisplayName": "รีเซ็ตรหัสผ่าน",
+                    "DisplayName": "รหัสผ่านใหม่",
                     "PatternHelpText": "อักขระ 8-16 ตัว มี 3 ใน 4 ตัวต่อไปนี้: อักขระตัวพิมพ์เล็ก อักขระตัวพิมพ์ใหญ่ ตัวเลข (0-9) และสัญลักษณ์ต่อไปนี้อย่างน้อยหนึ่งตัว: @ # $ % ^ &amp; * - _ + = [ ] { } | \\ : ' , ? / ` ~ \" ( ) ; ."
                 },
                 "reenterPassword": {
-                    "DisplayName": "รีเซ็ตรหัสผ่าน"
+                    "DisplayName": "ยืนยันรหัสผ่านใหม่"
                 }
             },
             "UXElement": {
                 "button_continue": "รีเซ็ตรหัสผ่าน",
-                "initial_intro": "มารีเซ็ตรหัสผ่านของคุณกันเถอะ"
+                "initial_intro": "เกือบเสร็จแล้ว! ป้อนรหัสผ่านใหม่ของคุณด้านล่าง"
             }
         },
         "selfasserted": {
@@ -163,13 +163,13 @@
                 }
             },
             "UxElement": {
-                "required_field": "ว่างเปล่าไม่ได้"
+                "required_field": "ไม่สามารถเว้นว่างได้"
             }
         },
         "signuporsignin": {
             "ClaimType": {
                 "password": {
-                    "DisplayName": "รีเซ็ตรหัสผ่าน"
+                    "DisplayName": "รหัสผ่าน"
                 },
                 "signInName": {
                     "DisplayName": "อีเมล"
@@ -179,22 +179,22 @@
                 }
             },
             "ClaimsProvider": {
-                "SigninWithPhone": "หมายเลขโทรศัพท์",
+                "SigninWithPhone": "ใช้หมายเลขโทรศัพท์",
                 "SignupWithEmail": "อีเมล",
                 "SignupWithEmail2": "อีเมล",
-                "SignupWithPhone": "หมายเลขโทรศัพท์",
-                "SignupWithPhone2": "หมายเลขโทรศัพท์"
+                "SignupWithPhone": "โทรศัพท์",
+                "SignupWithPhone2": "โทรศัพท์"
             },
             "ErrorMessage": {
                 "UserMessageIfClaimsPrincipalDoesNotExist": "เนื่องจากการอัปเกรดระบบ คุณจะต้องรีเซ็ตรหัสผ่านบัญชีของคุณ หากคุณได้ทำสิ่งนี้ไปแล้วและได้รับข้อความนี้ แสดงว่าคุณป้อนรหัสผ่านที่ไม่ถูกต้อง โปรดลองอีกครั้งหรือคลิกลิงก์ 'ลืมรหัสผ่าน' หากคุณต้องการรีเซ็ตรหัสผ่าน",
                 "UserMessageIfInvalidPassword": "เนื่องจากการอัปเกรดระบบ คุณจะต้องรีเซ็ตรหัสผ่านบัญชีของคุณ หากคุณได้ทำสิ่งนี้ไปแล้วและได้รับข้อความนี้ แสดงว่าคุณป้อนรหัสผ่านที่ไม่ถูกต้อง โปรดลองอีกครั้งหรือคลิกลิงก์ 'ลืมรหัสผ่าน' หากคุณต้องการรีเซ็ตรหัสผ่าน",
                 "UserMessageIfOldPasswordUsed": "เนื่องจากการอัปเกรดระบบ คุณจะต้องรีเซ็ตรหัสผ่านบัญชีของคุณ หากคุณได้ทำสิ่งนี้ไปแล้วและได้รับข้อความนี้ แสดงว่าคุณป้อนรหัสผ่านที่ไม่ถูกต้อง โปรดลองอีกครั้งหรือคลิกลิงก์ 'ลืมรหัสผ่าน' หากคุณต้องการรีเซ็ตรหัสผ่าน",
-                "UserMessageIfUserAccountDisabled": "มีบางอย่างผิดปกติเกิดขึ้นกับเรา!\n โปรดลองอีกครั้งหรือติดต่อผู้ดูแลระบบองค์กรของคุณ",
+                "UserMessageIfUserAccountDisabled": "บัญชีของคุณถูกปิดการใช้งาน โปรดลองอีกครั้งหรือติดต่อผู้ดูแลระบบองค์กรของคุณ",
                 "UserMessageIfUserAccountLocked": "คุณพยายามเข้าสู่ระบบไม่ถูกต้องหลายครั้งเกินไป โปรดรอและลองอีกครั้งในภายหลัง"
             },
             "Predicate": {
                 "email": {
-                    "HelpText": "คุณไม่ได้ป้อนอีเมลที่ถูกต้อง"
+                    "HelpText": "กรุณากรอกอีเมลให้ถูกต้อง"
                 }
             },
             "UxElement": {
@@ -202,9 +202,9 @@
                 "heading": "เข้าสู่ระบบ",
                 "invalid_generic": "คุณไม่ได้ป้อนอีเมลที่ถูกต้อง{0}",
                 "local_intro_generic": "เข้าสู่ระบบ{0}",
-                "requiredField_generic": "ว่างเปล่าไม่ได้",
-                "requiredField_password": "ว่างเปล่าไม่ได้",
-                "social_intro": "เข้าสู่ระบบ{0}"
+                "requiredField_generic": "ไม่สามารถเว้นว่างได้",
+                "requiredField_password": "ไม่สามารถเว้นว่างได้",
+                "social_intro": "เข้าสู่ระบบด้วยบัญชีโซเชียลของคุณ"
             }
         }
     }

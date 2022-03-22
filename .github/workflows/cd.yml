@@ -11,7 +11,6 @@ env:
     B2C_STORAGE_CONTAINER: kidsloopb2c
     B2C_CLIENT_SECRET: ${{secrets.B2C_DEPLOY_CLIENT_SECRET}}
     B2C_STORAGE_SAS_TOKEN: ${{secrets.B2C_STORAGE_ACCOUNT_SAS}}
-    B2C_ENVIRONMENT: SSO-MH
 
 jobs:
     deploy-alpha:
@@ -41,7 +40,7 @@ jobs:
               uses: azure-ad-b2c/deploy-trustframework-policy@v3
               with:
                   folder: "src/policies/custom_policies/Environments/SSO-MH"
-                  files: "RELYING_PARTY_SIGN_UP_LOG_IN.xml,TRUST_FRAMEWORK_BASE.xml,TRUST_FRAMEWORK_EXTENSIONS.xml,TRUST_FRAMEWORK_LOCALIZATION.xml,TRUST_FRAMEWORK_TENANT_CONFIG.xml"
+                  files: "TRUST_FRAMEWORK_BASE.xml,TRUST_FRAMEWORK_LOCALIZATION.xml,TRUST_FRAMEWORK_EXTENSIONS.xml,TRUST_FRAMEWORK_TENANT_CONFIG.xml,RELYING_PARTY_SIGN_UP_LOG_IN.xml"
                   tenant: ${{env.B2C_TENANT_ID}}
                   clientId: ${{env.B2C_CLIENT_ID}}
                   clientSecret: ${{env.B2C_CLIENT_SECRET}}

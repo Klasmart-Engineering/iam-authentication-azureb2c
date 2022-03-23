@@ -21,24 +21,31 @@ jobs:
         environment: SSO
         steps:
             - uses: actions/checkout@v2
+
             - uses: actions/setup-node@v2
               with:
                   node-version: 16
                   cache: npm
+
             - name: Install dependencies
               run: npm i
+
             - name: Lint HTML/JS/CSS
               run: npm run check
+
             - name: Build B2C policies
               shell: pwsh
               run: ./scripts/Build-CustomPolicies.ps1 -FilePath ./src/policies/custom_policies
+
             - name: Build assets
               run: npm run build -- --env=environment=SSO-MH
+
             - name: Upload assets to B2C storage
               uses: azure/CLI@v1
               with:
                   azcliversion: 2.33.1
                   inlineScript: az storage blob upload-batch --account-name '${{env.B2C_STORAGE_ACCOUNT}}' -d '${{env.B2C_STORAGE_CONTAINER}}' --sas-token '${{env.B2C_STORAGE_SAS_TOKEN}}' --source 'dist'
+
             - name: Upload B2C policies
               uses: azure-ad-b2c/deploy-trustframework-policy@v3
               with:

@@ -55,7 +55,7 @@ function buildEntrypoints() {
 }
 
 module.exports = ({ environment }) => {
-    const { B2CStorage, B2CStorageContainer } =
+    const { AZURE_STORAGE_ACCOUNT, AZURE_STORAGE_CONTAINER } =
         (
             AppSettings["Environments"].find(
                 ({ Name }) => Name === environment
@@ -64,8 +64,8 @@ module.exports = ({ environment }) => {
     const DEFAULT_PUBLIC_PATH =
         "https://klukb2cstorage.blob.core.windows.net/b2ccosmosdb/"
     const PUBLIC_PATH =
-        B2CStorage && B2CStorageContainer
-            ? `https://${B2CStorage}.blob.core.windows.net/${B2CStorageContainer}/`
+        AZURE_STORAGE_ACCOUNT && AZURE_STORAGE_CONTAINER
+            ? `https://${AZURE_STORAGE_ACCOUNT}.blob.core.windows.net/${AZURE_STORAGE_CONTAINER}/`
             : DEFAULT_PUBLIC_PATH
     return {
         mode: "production",
@@ -171,9 +171,10 @@ module.exports = ({ environment }) => {
                                 )
 
                                 if (
-                                    !environment?.PolicySettings?.B2CStorage ||
                                     !environment?.PolicySettings
-                                        ?.B2CStorageContainer
+                                        ?.AZURE_STORAGE_ACCOUNT ||
+                                    !environment?.PolicySettings
+                                        ?.AZURE_STORAGE_CONTAINER
                                 ) {
                                     throw new Error(
                                         "Storage and container properties do not exists on the choosen environment."
@@ -193,9 +194,12 @@ module.exports = ({ environment }) => {
                 },
             },
             new webpack.DefinePlugin({
-                "process.env.B2CStorage": JSON.stringify(B2CStorage),
-                "process.env.B2CStorageContainer":
-                    JSON.stringify(B2CStorageContainer),
+                "process.env.AZURE_STORAGE_ACCOUNT": JSON.stringify(
+                    AZURE_STORAGE_ACCOUNT
+                ),
+                "process.env.AZURE_STORAGE_CONTAINER": JSON.stringify(
+                    AZURE_STORAGE_CONTAINER
+                ),
             }),
         ],
     }

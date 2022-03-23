@@ -8,17 +8,12 @@ on:
     workflow_dispatch:
 
 env:
-    B2C_CLIENT_ID: eb486991-1cd6-4c42-9279-3e6edd4d5970
-    B2C_TENANT_ID: 8dc632b7-4df1-4904-a155-7c4663e345bb
-    B2C_STORAGE_ACCOUNT: kluksouthtest
-    B2C_STORAGE_CONTAINER: kidsloopb2c
-    B2C_CLIENT_SECRET: ${{secrets.B2C_DEPLOY_CLIENT_SECRET}}
-    B2C_STORAGE_SAS_TOKEN: ${{secrets.B2C_STORAGE_ACCOUNT_SAS}}
+    ENVIRONMENT_NAME: Alpha-Dev
 
 jobs:
     deploy-alpha:
         runs-on: ubuntu-latest
-        environment: SSO
+        environment: ${{ env.ENVIRONMENT_NAME }}
         steps:
             - uses: actions/checkout@v2
 
@@ -38,19 +33,28 @@ jobs:
               run: ./scripts/Build-CustomPolicies.ps1 -FilePath ./src/policies/custom_policies
 
             - name: Build assets
-              run: npm run build -- --env=environment=SSO-MH
+              run: npm run build -- --env=environment=${{ env.ENVIRONMENT_NAME }}
+
+            - name: Read appsettings.json into environment
+              run: |
+                  ./scripts/convert-policy-settings-json-to-env-format.sh ${{ env.ENVIRONMENT_NAME }} >> $GITHUB_ENV
+
+            - name: Check environment
+              run: |
+                  echo ${{ env.AZURE_STORAGE_ACCOUNT }}
+                  echo ${{ env.AZURE_STORAGE_CONTAINER }}
 
             - name: Upload assets to B2C storage
               uses: azure/CLI@v1
               with:
                   azcliversion: 2.33.1
-                  inlineScript: az storage blob upload-batch --account-name '${{env.B2C_STORAGE_ACCOUNT}}' -d '${{env.B2C_STORAGE_CONTAINER}}' --sas-token '${{env.B2C_STORAGE_SAS_TOKEN}}' --source 'dist'
+                  inlineScript: az storage blob upload-batch --account-name '${{ env.AZURE_STORAGE_ACCOUNT }}' -d '${{ env.AZURE_STORAGE_CONTAINER }}' --sas-token '${{ secrets.B2C_STORAGE_ACCOUNT_SAS }}' --source 'dist'
 
             - name: Upload B2C policies
               uses: azure-ad-b2c/deploy-trustframework-policy@v3
               with:
-                  folder: "src/policies/custom_policies/Environments/SSO-MH"
+                  folder: "src/policies/custom_policies/Environments/${{ env.ENVIRONMENT_NAME }}"
                   files: "TRUST_FRAMEWORK_BASE.xml,TRUST_FRAMEWORK_LOCALIZATION.xml,TRUST_FRAMEWORK_EXTENSIONS.xml,TRUST_FRAMEWORK_TENANT_CONFIG.xml,RELYING_PARTY_SIGN_UP_LOG_IN.xml"
-                  tenant: ${{env.B2C_TENANT_ID}}
-                  clientId: ${{env.B2C_CLIENT_ID}}
-                  clientSecret: ${{env.B2C_CLIENT_SECRET}}
+                  tenant: ${{ env.TENANT_ID }}
+                  clientId: ${{ env.DEPLOYMENT_APP_CLIENT_ID }}
+                  clientSecret: ${{  secrets.B2C_DEPLOY_CLIENT_SECRET }}

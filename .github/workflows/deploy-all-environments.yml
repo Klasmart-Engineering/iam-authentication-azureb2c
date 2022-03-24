@@ -17,7 +17,7 @@ jobs:
             - name: Generate matrix
               id: generate-matrix
               run: |
-                  ENVIRONMENTS=$(./scripts/fetch-github-environments.sh ${{ secrets.GITHUB_TOKEN}})
+                  ENVIRONMENTS='${{ toJSON($(./scripts/fetch-github-environments.sh ${{ secrets.GITHUB_TOKEN}})) }}'
 
                   echo "${ENVIRONMENTS}"
 

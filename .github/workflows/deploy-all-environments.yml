@@ -1,0 +1,40 @@
+name: Deploy all environments
+
+on:
+    push:
+        branches:
+            - github-pipeline
+
+    workflow_dispatch:
+
+jobs:
+    generate-matrix:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v2
+
+            - name: Generate matrix
+              id: generate-matrix
+              run: |
+                  ENVIRONMENTS=$(./scripts/fetch-github-environments.sh ${{ secrets.GITHUB_TOKEN}})
+
+                  echo "${ENVIRONMENTS}"
+
+                  echo "::set-output name=environments::${ENVIRONMENTS}"
+
+        outputs:
+            environments: ${{ steps.generate-matrix.outputs.environments }}
+
+    deploy:
+        runs-on: ubuntu-latest
+
+        needs: generate-matrix
+
+        strategy:
+            fail-fast: false
+            matrix:
+                environment: ${{ fromJson(needs.generate-matrix.outputs.environments) }}
+
+        steps:
+            - run: echo ${{ matrix.environment }}

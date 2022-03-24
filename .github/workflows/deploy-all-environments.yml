@@ -1,10 +1,6 @@
 name: Deploy all environments
 
 on:
-    push:
-        branches:
-            - github-pipeline
-
     workflow_dispatch:
 
 jobs:

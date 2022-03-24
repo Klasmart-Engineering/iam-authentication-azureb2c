@@ -11,18 +11,12 @@ export const setupPasswordToggles = () => {
 }
 
 const setupPasswordToggle = (passwordInput: HTMLInputElement) => {
-    wrapPasswordInput(passwordInput)
+    setupPasswordInputWrapper(passwordInput)
     insertPasswordToggle(passwordInput)
 }
 
-const wrapPasswordInput = (passwordInput: HTMLInputElement) => {
-    const wrapper = document.createElement("div")
-    wrapper.classList.add(WRAPPER_CLASS)
-    ;(passwordInput.parentElement as HTMLElement).replaceChild(
-        wrapper,
-        passwordInput
-    )
-    wrapper.appendChild(passwordInput)
+const setupPasswordInputWrapper = (passwordInput: HTMLInputElement) => {
+    passwordInput.parentElement?.classList.add(WRAPPER_CLASS)
 }
 
 const insertPasswordToggle = (passwordInput: HTMLInputElement) => {

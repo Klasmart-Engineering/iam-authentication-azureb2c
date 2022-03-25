@@ -73,42 +73,22 @@ p {
 /* More specific selectors required to override other styles */
 input.password--with_toggle,
 #password.password--with_toggle {
-    /* Remove right border as this will be covered by the password-toggle */
-    border-radius: 8px 0 0 8px;
-    border-right: none;
-
-    /* For some reason the password inputs on create account have the `textInput` class, even though all
-    other password inputs don't.
-    Because of this, we need to unset the margin-bottom, as the password__container has this set
-    already */
-    margin-bottom: 0;
-
-    /* z-index is ignored unless we change this from the default of `static` */
-    position: relative;
-
-    /* Make room for password-toggle on row */
-    width: calc(100% - 48px);
-
-    /* Make password input border appear above password-toggle  */
-    z-index: 1;
+    /* Make space for password-toggle */
+    padding-right: 50px;
 }
 
-.password__container {
-    /* Enables position: absolute for password-toggle child */
-    position: relative;
+.password-toggle::before {
+    /* Force password-toggle to have height (empty buttons have 0 height) */
+    content: "\00a0";
 }
 
 .password-toggle {
-    border-color: #b8b8b8;
-    border-left: none;
-    border-radius: 0 8px 8px 0;
-    border-style: solid;
-    border-width: 1px;
+    /* Same height as password input */
+    line-height: 16px;
 
-    /* Make #password slightly overlap toggle, so that there are no gaps in the border */
-    margin-left: -1px;
-    padding: 24px;
-    position: absolute;
+    /* Overlay password toggle inside password input */
+    margin-left: -50px;
+    padding: 14px 22.5px;
 }
 
 .password-toggle__visible {

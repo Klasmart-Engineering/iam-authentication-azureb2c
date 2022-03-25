@@ -1,5 +1,6 @@
 import DOMPurify from "dompurify"
 import { setupPasswordToggles } from "@common/js/passwordToggle"
+import { setupRedirectOnCancel } from "@common/js/redirectOnCancel"
 
 const PRIVACY_POLICY_ID = "hasAcceptedPrivacyPolicy_true"
 const PRIVACY_POLICY_URL = `https://${process.env.B2CStorage}.blob.core.windows.net/${process.env.B2CStorageContainer}/external/privacy-policy/index.html`
@@ -48,6 +49,7 @@ const addPrivacyPolicyLink = () => {
 const setup = () => {
     addPrivacyPolicyLink()
     setupPasswordToggles()
+    setupRedirectOnCancel()
 }
 
 if (

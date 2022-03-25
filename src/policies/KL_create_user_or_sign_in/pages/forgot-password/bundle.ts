@@ -1,8 +1,6 @@
-import { setupPasswordToggles } from "@common/js/passwordToggle"
 import { setupRedirectOnCancel } from "@common/js/redirectOnCancel"
 
 const setup = () => {
-    setupPasswordToggles()
     setupRedirectOnCancel()
 }
 

@@ -4,8 +4,7 @@ export const setupRedirectOnCancel = () => {
     document
         .getElementById(BUTTON_CANCEL_ID)
         ?.addEventListener("click", (event: MouseEvent) => {
-            event.preventDefault()
-            event.stopPropagation()
+            event.stopImmediatePropagation()
 
             window.history.back()
         })

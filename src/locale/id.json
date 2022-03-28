@@ -83,13 +83,15 @@
                     "but_change_claims": "Ubah email",
                     "but_send_code": "Kirim kode verifikasi",
                     "but_send_new_code": "Kirim kode baru",
-                    "but_verify_code": "Verifikasi kode"
+                    "but_verify_code": "Verifikasi kode",
+                    "success_verify_code_msg": "Alamat email terverifikasi. Silakan melanjutkan."
                 },
                 "phoneVerificationControl": {
                     "but_change_claims": "Ubah nomor hp",
                     "but_send_code": "Kirim kode verifikasi",
                     "but_send_new_code": "Kirim kode baru",
-                    "but_verify_code": "Verifikasi kode"
+                    "but_verify_code": "Verifikasi kode",
+                    "success_verify_code_msg": "Nomor hp terverifikasi. Silakan melanjutkan."
                 }
             },
             "ErrorMessage": {

@@ -70,36 +70,25 @@ p {
     width: 100%;
 }
 
-#password,
-#newPassword,
-#reenterPassword {
-    /* Remove right border as this will be covered by the password-toggle */
-    border-radius: 8px 0 0 8px;
-    border-right: none;
-
-    /* Make password input border appear above password-toggle  */
-    z-index: 1;
+/* More specific selectors required to override other styles */
+input.password--with_toggle,
+#password.password--with_toggle {
+    /* Make space for password-toggle */
+    padding-right: 50px;
 }
 
-.password__container {
-    align-content: center;
-    display: flex;
+.password-toggle::before {
+    /* Force password-toggle to have height (empty buttons have 0 height) */
+    content: "\00a0";
 }
 
 .password-toggle {
-    border-color: #b8b8b8;
-    border-left: none;
-    border-radius: 0 8px 8px 0;
-    border-style: solid;
-    border-width: 1px;
+    /* Same height as password input */
+    line-height: 16px;
 
-    /* Match height of password input */
-    height: 20px;
-
-    /* Make #password slightly overlap toggle, so that there are no gaps in the border */
-    margin-left: -1px;
-    padding: 24px;
-    width: 23px;
+    /* Overlay password toggle inside password input */
+    margin-left: -50px;
+    padding: 14px 22.5px;
 }
 
 .password-toggle__visible {
@@ -108,15 +97,6 @@ p {
 
 .password-toggle__hidden {
     background: url("../../../../assets/eye.svg") no-repeat center;
-}
-
-#newPassword,
-#reenterPassword {
-    /* For some reason these two inputs on create accounthave the `textInput` class, even though all
-    other password inputs don't.
-    Because of this, we need to unset the margin-bottom, as the password__container has this set
-    already */
-    margin-bottom: 0;
 }
 
 #countryCode {

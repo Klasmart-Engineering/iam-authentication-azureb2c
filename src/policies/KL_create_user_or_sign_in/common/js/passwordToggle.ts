@@ -11,22 +11,18 @@ export const setupPasswordToggles = () => {
 }
 
 const setupPasswordToggle = (passwordInput: HTMLInputElement) => {
-    wrapPasswordInput(passwordInput)
+    setupPasswordInputWrapper(passwordInput)
     insertPasswordToggle(passwordInput)
 }
 
-const wrapPasswordInput = (passwordInput: HTMLInputElement) => {
-    const wrapper = document.createElement("div")
-    wrapper.classList.add(WRAPPER_CLASS)
-    ;(passwordInput.parentElement as HTMLElement).replaceChild(
-        wrapper,
-        passwordInput
-    )
-    wrapper.appendChild(passwordInput)
+const setupPasswordInputWrapper = (passwordInput: HTMLInputElement) => {
+    passwordInput.parentElement?.classList.add(WRAPPER_CLASS)
 }
 
 const insertPasswordToggle = (passwordInput: HTMLInputElement) => {
     const toggle = document.createElement("button")
+    // Avoid form submission onClick
+    toggle.setAttribute("type", "button")
     toggle.classList.add(BASE_CLASS, HIDDEN_CLASS)
     toggle.setAttribute("data-testid", "password-toggle")
 
@@ -36,6 +32,7 @@ const insertPasswordToggle = (passwordInput: HTMLInputElement) => {
     const togglePasswordVisibility = (event: Event) => {
         // Don't trigger HTML5 pattern validation (`oninvalid` event)
         event.preventDefault()
+        event.stopImmediatePropagation()
 
         if (passwordInput.type === "password") {
             passwordInput.type = "text"

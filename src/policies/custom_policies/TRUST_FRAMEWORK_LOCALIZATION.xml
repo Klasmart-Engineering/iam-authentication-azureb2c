@@ -6,7 +6,7 @@
   <BuildingBlocks>
     <ContentDefinitions>
       <ContentDefinition Id="api.error">
-        <LoadUri>https://{settings:B2CStorage}.blob.core.windows.net/{settings:B2CStorageContainer}/policies/KL_create_user_or_sign_in/pages/unified-sign-up-or-sign-in/{Culture:RFC5646}/index.html</LoadUri>
+        <LoadUri>https://{settings:AZURE_STORAGE_ACCOUNT}.blob.core.windows.net/{settings:AZURE_STORAGE_CONTAINER}/policies/KL_create_user_or_sign_in/pages/unified-sign-up-or-sign-in/{Culture:RFC5646}/index.html</LoadUri>
         <DataUri>urn:com:microsoft:aad:b2c:elements:contract:globalexception:1.2.1</DataUri>
       </ContentDefinition>
       <ContentDefinition Id="api.idpselections">
@@ -14,11 +14,11 @@
         <DataUri>urn:com:microsoft:aad:b2c:elements:contract:providerselection:1.2.1</DataUri>
       </ContentDefinition>
       <ContentDefinition Id="api.idpselections.signup">
-        <LoadUri>https://{settings:B2CStorage}.blob.core.windows.net/{settings:B2CStorageContainer}/policies/KL_create_user_or_sign_in/pages/unified-sign-up-or-sign-in/{Culture:RFC5646}/index.html</LoadUri>
+        <LoadUri>https://{settings:AZURE_STORAGE_ACCOUNT}.blob.core.windows.net/{settings:AZURE_STORAGE_CONTAINER}/policies/KL_create_user_or_sign_in/pages/unified-sign-up-or-sign-in/{Culture:RFC5646}/index.html</LoadUri>
         <DataUri>urn:com:microsoft:aad:b2c:elements:contract:providerselection:1.2.1</DataUri>
       </ContentDefinition>
       <ContentDefinition Id="api.signuporsignin">
-        <LoadUri>https://{settings:B2CStorage}.blob.core.windows.net/{settings:B2CStorageContainer}/policies/KL_create_user_or_sign_in/pages/unified-sign-up-or-sign-in/{Culture:RFC5646}/index.html</LoadUri>
+        <LoadUri>https://{settings:AZURE_STORAGE_ACCOUNT}.blob.core.windows.net/{settings:AZURE_STORAGE_CONTAINER}/policies/KL_create_user_or_sign_in/pages/unified-sign-up-or-sign-in/{Culture:RFC5646}/index.html</LoadUri>
         <DataUri>urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:2.1.5</DataUri>
         <Metadata>
           <Item Key="DisplayName">Log in</Item>
@@ -35,11 +35,11 @@
         </LocalizedResourcesReferences>
       </ContentDefinition>
       <ContentDefinition Id="api.phonefactor">
-        <LoadUri>https://{settings:B2CStorage}.blob.core.windows.net/{settings:B2CStorageContainer}/policies/KL_create_user_or_sign_in/pages/unified-sign-up-or-sign-in/{Culture:RFC5646}/index.html</LoadUri>
+        <LoadUri>https://{settings:AZURE_STORAGE_ACCOUNT}.blob.core.windows.net/{settings:AZURE_STORAGE_CONTAINER}/policies/KL_create_user_or_sign_in/pages/unified-sign-up-or-sign-in/{Culture:RFC5646}/index.html</LoadUri>
         <DataUri>urn:com:microsoft:aad:b2c:elements:contract:multifactor:1.2.5</DataUri>
       </ContentDefinition>
       <ContentDefinition Id="api.selfasserted">
-        <LoadUri>https://{settings:B2CStorage}.blob.core.windows.net/{settings:B2CStorageContainer}/policies/KL_create_user_or_sign_in/pages/unified-sign-up-or-sign-in/{Culture:RFC5646}/index.html</LoadUri>
+        <LoadUri>https://{settings:AZURE_STORAGE_ACCOUNT}.blob.core.windows.net/{settings:AZURE_STORAGE_CONTAINER}/policies/KL_create_user_or_sign_in/pages/unified-sign-up-or-sign-in/{Culture:RFC5646}/index.html</LoadUri>
         <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.8</DataUri>
         <LocalizedResourcesReferences MergeBehavior="Prepend">
           <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.selfasserted.en"></LocalizedResourcesReference>
@@ -52,11 +52,11 @@
         </LocalizedResourcesReferences>
       </ContentDefinition>
       <ContentDefinition Id="api.selfasserted.profileupdate">
-        <LoadUri>https://{settings:B2CStorage}.blob.core.windows.net/{settings:B2CStorageContainer}/policies/KL_create_user_or_sign_in/pages/unified-sign-up-or-sign-in/{Culture:RFC5646}/index.html</LoadUri>
+        <LoadUri>https://{settings:AZURE_STORAGE_ACCOUNT}.blob.core.windows.net/{settings:AZURE_STORAGE_CONTAINER}/policies/KL_create_user_or_sign_in/pages/unified-sign-up-or-sign-in/{Culture:RFC5646}/index.html</LoadUri>
         <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.8</DataUri>
       </ContentDefinition>
       <ContentDefinition Id="api.localaccountsignup">
-        <LoadUri>https://{settings:B2CStorage}.blob.core.windows.net/{settings:B2CStorageContainer}/policies/KL_create_user_or_sign_in/pages/local-account-sign-up/{Culture:RFC5646}/index.html</LoadUri>
+        <LoadUri>https://{settings:AZURE_STORAGE_ACCOUNT}.blob.core.windows.net/{settings:AZURE_STORAGE_CONTAINER}/policies/KL_create_user_or_sign_in/pages/local-account-sign-up/{Culture:RFC5646}/index.html</LoadUri>
         <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.6</DataUri>
         <LocalizedResourcesReferences MergeBehavior="Prepend">
           <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.localaccountsignup.en"></LocalizedResourcesReference>
@@ -69,7 +69,7 @@
         </LocalizedResourcesReferences>
       </ContentDefinition>
       <ContentDefinition Id="api.selfasserted.localaccountpasswordchange">
-        <LoadUri>https://{settings:B2CStorage}.blob.core.windows.net/{settings:B2CStorageContainer}/policies/KL_create_user_or_sign_in/pages/change-password/{Culture:RFC5646}/index.html</LoadUri>
+        <LoadUri>https://{settings:AZURE_STORAGE_ACCOUNT}.blob.core.windows.net/{settings:AZURE_STORAGE_CONTAINER}/policies/KL_create_user_or_sign_in/pages/change-password/{Culture:RFC5646}/index.html</LoadUri>
         <RecoveryUri>~/common/default_page_error.html</RecoveryUri>
         <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.8</DataUri>
         <LocalizedResourcesReferences MergeBehavior="Prepend">
@@ -83,7 +83,7 @@
         </LocalizedResourcesReferences>
       </ContentDefinition>
       <ContentDefinition Id="api.localaccountpasswordreset">
-        <LoadUri>https://{settings:B2CStorage}.blob.core.windows.net/{settings:B2CStorageContainer}/policies/KL_create_user_or_sign_in/pages/forgot-password/{Culture:RFC5646}/index.html</LoadUri>
+        <LoadUri>https://{settings:AZURE_STORAGE_ACCOUNT}.blob.core.windows.net/{settings:AZURE_STORAGE_CONTAINER}/policies/KL_create_user_or_sign_in/pages/forgot-password/{Culture:RFC5646}/index.html</LoadUri>
         <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.6</DataUri>
         <LocalizedResourcesReferences MergeBehavior="Prepend">
           <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.localaccountpasswordreset.en"></LocalizedResourcesReference>
@@ -96,11 +96,11 @@
         </LocalizedResourcesReferences>
       </ContentDefinition>
       <ContentDefinition Id="api.socialccountsignup">
-        <LoadUri>https://{settings:B2CStorage}.blob.core.windows.net/{settings:B2CStorageContainer}/policies/KL_create_user_or_sign_in/pages/unified-sign-up-or-sign-in/{Culture:RFC5646}/index.html</LoadUri>
+        <LoadUri>https://{settings:AZURE_STORAGE_ACCOUNT}.blob.core.windows.net/{settings:AZURE_STORAGE_CONTAINER}/policies/KL_create_user_or_sign_in/pages/unified-sign-up-or-sign-in/{Culture:RFC5646}/index.html</LoadUri>
         <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.8</DataUri>
       </ContentDefinition>
       <ContentDefinition Id="api.localaccountsignin">
-        <LoadUri>https://{settings:B2CStorage}.blob.core.windows.net/{settings:B2CStorageContainer}/policies/KL_create_user_or_sign_in/pages/unified-sign-up-or-sign-in/{Culture:RFC5646}/index.html</LoadUri>
+        <LoadUri>https://{settings:AZURE_STORAGE_ACCOUNT}.blob.core.windows.net/{settings:AZURE_STORAGE_CONTAINER}/policies/KL_create_user_or_sign_in/pages/unified-sign-up-or-sign-in/{Culture:RFC5646}/index.html</LoadUri>
         <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.8</DataUri>
       </ContentDefinition>
     </ContentDefinitions>

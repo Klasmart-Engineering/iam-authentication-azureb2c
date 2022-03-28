@@ -1,0 +1,66 @@
+name: cd
+
+on:
+    push:
+        branches:
+            - master
+
+    workflow_dispatch:
+        inputs:
+            environment:
+                description: "Environment to deploy to"
+                type: environment
+                default: Alpha-Dev
+                required: true
+
+jobs:
+    deploy-alpha:
+        runs-on: ubuntu-latest
+        environment:
+            name: ${{ github.event.name == 'workflow_dispatch' && github.event.inputs.environment || 'Alpha-Dev' }}
+        env:
+            ENVIRONMENT_NAME: ${{ github.event.name == 'workflow_dispatch' && github.event.inputs.environment || 'Alpha-Dev' }}
+        steps:
+            - uses: actions/checkout@v2
+
+            - uses: actions/setup-node@v2
+              with:
+                  node-version: 16
+                  cache: npm
+
+            - name: Install dependencies
+              run: npm i
+
+            - name: Lint HTML/JS/CSS
+              run: npm run check
+
+            - name: Build B2C policies
+              shell: pwsh
+              run: ./scripts/Build-CustomPolicies.ps1 -FilePath ./src/policies/custom_policies
+
+            - name: Build assets
+              run: npm run build -- --env=environment=${{ env.ENVIRONMENT_NAME }}
+
+            - name: Read appsettings.json into environment
+              run: |
+                  ./scripts/convert-policy-settings-json-to-env-format.sh ${{ env.ENVIRONMENT_NAME }} >> $GITHUB_ENV
+
+            - name: Check environment
+              run: |
+                  echo ${{ env.AZURE_STORAGE_ACCOUNT }}
+                  echo ${{ env.AZURE_STORAGE_CONTAINER }}
+
+            - name: Upload assets to B2C storage
+              uses: azure/CLI@v1
+              with:
+                  azcliversion: 2.33.1
+                  inlineScript: az storage blob upload-batch --account-name '${{ env.AZURE_STORAGE_ACCOUNT }}' -d '${{ env.AZURE_STORAGE_CONTAINER }}' --sas-token '${{ secrets.B2C_STORAGE_ACCOUNT_SAS }}' --source 'dist'
+
+            - name: Upload B2C policies
+              uses: azure-ad-b2c/deploy-trustframework-policy@v3
+              with:
+                  folder: "src/policies/custom_policies/Environments/${{ env.ENVIRONMENT_NAME }}"
+                  files: "TRUST_FRAMEWORK_BASE.xml,TRUST_FRAMEWORK_LOCALIZATION.xml,TRUST_FRAMEWORK_EXTENSIONS.xml,TRUST_FRAMEWORK_TENANT_CONFIG.xml,RELYING_PARTY_SIGN_UP_LOG_IN.xml"
+                  tenant: ${{ env.TENANT_ID }}
+                  clientId: ${{ env.DEPLOYMENT_APP_CLIENT_ID }}
+                  clientSecret: ${{  secrets.B2C_DEPLOY_CLIENT_SECRET }}

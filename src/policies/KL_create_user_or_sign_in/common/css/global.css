@@ -73,8 +73,8 @@ p {
 /* More specific selectors required to override other styles */
 input.password--with_toggle,
 #password.password--with_toggle {
-    /* Make space for password-toggle */
-    padding-right: 50px;
+    /* Make space for password-toggle width + extra to avoid Safari forcing it onto a newline */
+    padding-right: 54px;
 }
 
 .password-toggle::before {
@@ -87,7 +87,9 @@ input.password--with_toggle,
     line-height: 16px;
 
     /* Overlay password toggle inside password input */
-    margin-left: -50px;
+
+    /* NB: slightly more than width of element as otherwise Safari forces it onto a newline */
+    margin-left: -54px;
     padding: 14px 22.5px;
 }
 

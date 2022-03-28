@@ -173,6 +173,12 @@ input.password--with_toggle,
     display: none !important; /* Set to display: inline in the markup itself :'( */
 }
 
+.verificationSuccessText {
+    color: #666;
+    font-size: 20px;
+    line-height: 28px;
+}
+
 .dropdown_single {
     margin-bottom: 12px;
 }

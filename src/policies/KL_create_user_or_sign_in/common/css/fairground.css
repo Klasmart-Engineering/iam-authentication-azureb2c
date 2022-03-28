@@ -97,12 +97,6 @@ button {
     justify-content: center;
 }
 
-.verificationSuccessText {
-    color: #666;
-    font-size: 2rem;
-    line-height: 2.8rem;
-}
-
 #attributeList label {
     display: none;
 }

@@ -1,4 +1,5 @@
 import { setupPasswordToggles } from "@common/js/passwordToggle"
+import { setupRedirectOnCancel } from "@common/js/redirectOnCancel"
 
 const LANGUAGE_DROPDOWN_SELECTOR = "#language-select"
 const LANGUAGE_DROPDOWN_CONTAINER_SELECTOR = "#language-select__container"
@@ -153,6 +154,7 @@ const setup = () => {
         setupUseEmail()
     }
     setupPasswordToggles()
+    setupRedirectOnCancel()
 }
 
 if (

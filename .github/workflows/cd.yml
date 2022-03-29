@@ -14,12 +14,12 @@ on:
                 required: true
 
 jobs:
-    deploy-alpha:
+    deploy:
         runs-on: ubuntu-latest
         environment:
-            name: ${{ github.event.name == 'workflow_dispatch' && github.event.inputs.environment || 'Alpha-Dev' }}
+            name: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.environment || 'Alpha-Dev' }}
         env:
-            ENVIRONMENT_NAME: ${{ github.event.name == 'workflow_dispatch' && github.event.inputs.environment || 'Alpha-Dev' }}
+            ENVIRONMENT_NAME: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.environment || 'Alpha-Dev' }}
         steps:
             - uses: actions/checkout@v2
 

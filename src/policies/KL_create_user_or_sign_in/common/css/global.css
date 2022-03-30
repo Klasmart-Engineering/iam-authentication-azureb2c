@@ -336,3 +336,7 @@ input.password--with_toggle,
 .buttons button:not([aria-disabled="true"]) {
     opacity: 100%;
 }
+
+.verifying-modal {
+    display: none;
+}

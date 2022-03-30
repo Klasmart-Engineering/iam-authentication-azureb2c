@@ -121,3 +121,18 @@
         url("../../../../fonts/source-sans-pro-v18-vietnamese_latin-700.svg#SourceSansPro")
         format("svg");
 }
+
+/* source-sans-pro-900 - vietnamese_latin */
+@font-face {
+    font-family: "Source Sans Pro";
+    font-style: normal;
+    font-weight: 900;
+    src: url("../../../../fonts/source-sans-pro-v19-vietnamese_latin-900.eot");
+    src:
+        local(""),
+        url("../../../../fonts/source-sans-pro-v19-vietnamese_latin-900.eot?#iefix") format("embedded-opentype"),
+        url("../../../../fonts/source-sans-pro-v19-vietnamese_latin-900.woff2") format("woff2"),
+        url("../../../../fonts/source-sans-pro-v19-vietnamese_latin-900.woff") format("woff"),
+        url("../../../../fonts/source-sans-pro-v19-vietnamese_latin-900.ttf") format("truetype"),
+        url("../../../../fonts/source-sans-pro-v19-vietnamese_latin-900.svg#SourceSansPro") format("svg");
+}

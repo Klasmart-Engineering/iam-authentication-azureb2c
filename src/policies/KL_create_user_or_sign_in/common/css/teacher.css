@@ -35,8 +35,10 @@
 }
 
 .main-heading {
+    color: #666;
     font-family: "Source Sans Pro", sans-serif;
     font-size: 21px;
+    font-weight: 900;
 }
 
 .main-content-wrapper {

@@ -17,7 +17,7 @@
 .header {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 15px;
+    margin-bottom: 40px;
 }
 
 .textInput {
@@ -42,10 +42,6 @@
 .main-content-wrapper {
     margin: auto;
     width: 60%;
-}
-
-.header-image {
-    width: 100%;
 }
 
 #email,

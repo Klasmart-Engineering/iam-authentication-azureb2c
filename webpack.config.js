@@ -91,7 +91,7 @@ module.exports = ({ environment }) => {
                     },
                 },
                 {
-                    test: /\.(woff(2)?|ttf|eot|svg)$/,
+                    test: /\.(woff(2)?|ttf|eot|svg|png)$/,
                     use: {
                         // Ideally we would use `type: "asset/resource" here, but it doesn't work with `extract-loader`
                         loader: "file-loader",

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+        />
+        <link
+            href="../../../css/fonts.css"
+            rel="stylesheet"
+            data-preload="true"
+        />
+        <link
+            href="../../../css/global.css"
+            rel="stylesheet"
+            data-preload="true"
+        />
+        <link
+            href="../../../css/teacher.css"
+            rel="stylesheet"
+            data-preload="true"
+        />
+        <title>키즈룹 | 계정 만들기</title>
+    </head>
+
+    <body>
+        <div class="wrapper">
+            <div class="main-content">
+                <div class="header">
+                    <img
+                        class="logo"
+                        src="../../../assets/logo.svg"
+                        alt="키즈룹 로고"
+                    />
+                    <div class="header__placeholder"></div>
+                </div>
+                <div class="main-content-wrapper">
+                    <h1 class="main-heading">계정 만들기</h1>
+                    <div id="api"></div>
+                    <div class="signin-link">
+                        계정이 이미 있으신가요?
+                        <a
+                            id="signin"
+                            data-testid="signin-link"
+                            class="text-link"
+                            href="javascript:history.back()"
+                            >로그인</a
+                        >
+                    </div>
+                </div>
+            </div>
+            <div class="space-filler">
+                <img
+                    class="space-filler-image"
+                    src="../../../assets/kids.png"
+                    alt="아동 학습"
+                />
+            </div>
+        </div>
+        <script src="https://klukb2cstorage.blob.core.windows.net/b2ccosmosdb/pages/local-account-sign-up/bundle.js"></script>
+    </body>
+</html>

@@ -7,7 +7,7 @@ const webpack = require("webpack")
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin")
 
 const tsconfig = require("./tsconfig.json")
-const AppSettings = require("./src/policies/custom_policies/appsettings.json")
+const AppSettings = require("./src/policies/appsettings.json")
 
 /**
  * Convert tsconfig.compilerOptions.paths to Webpack resolve.alias object

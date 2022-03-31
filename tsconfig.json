@@ -9,7 +9,7 @@
         "allowSyntheticDefaultImports": true,
         "baseUrl": ".",
         "paths": {
-            "@common/*": ["src/policies/KL_create_user_or_sign_in/common/*"]
+            "@js/*": ["src/js/*"]
         }
     },
     "include": ["src", "scripts"]

@@ -196,8 +196,7 @@ input.password--with_toggle,
     font-size: 18px;
     font-weight: 400;
     line-height: 30px;
-    margin-right: 3%;
-    padding: 12px;
+    padding: 12px 12px 12px 5px;
 }
 
 .language-select:hover {

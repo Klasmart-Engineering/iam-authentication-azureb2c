@@ -83,13 +83,15 @@
                     "but_change_claims": "เปลี่ยนอีเมล์",
                     "but_send_code": "ส่งรหัสยืนยัน",
                     "but_send_new_code": "ส่งรหัสใหม่",
-                    "but_verify_code": "ยืนยันรหัสผ่าน"
+                    "but_verify_code": "ยืนยันรหัสผ่าน",
+                    "success_verify_code_msg": "ยืนยันที่อยู่อีเมลแล้ว คุณสามารถดำเนินการต่อได้เลย"
                 },
                 "phoneVerificationControl": {
                     "but_change_claims": "เปลี่ยนหมายเลขโทรศัพท์",
                     "but_send_code": "ส่งรหัสยืนยัน",
                     "but_send_new_code": "ส่งรหัสใหม่",
-                    "but_verify_code": "ยืนยันรหัสผ่าน"
+                    "but_verify_code": "ยืนยันรหัสผ่าน",
+                    "success_verify_code_msg": "ยืนยันหมายเลขโทรศัพท์แล้ว คุณสามารถดำเนินการต่อได้เลย"
                 }
             },
             "ErrorMessage": {

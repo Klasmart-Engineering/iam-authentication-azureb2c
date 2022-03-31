@@ -83,13 +83,15 @@
                     "but_change_claims": "Cambiar correo electrónico",
                     "but_send_code": "Enviar código de verificación",
                     "but_send_new_code": "Enviar un nuevo código",
-                    "but_verify_code": "Verificar código"
+                    "but_verify_code": "Verificar código",
+                    "success_verify_code_msg": "Correo electrónico verificado. Puede continuar."
                 },
                 "phoneVerificationControl": {
                     "but_change_claims": "Cambiar número de teléfono",
                     "but_send_code": "Enviar código de verificación",
                     "but_send_new_code": "Enviar un nuevo código",
-                    "but_verify_code": "Verificar código"
+                    "but_verify_code": "Verificar código",
+                    "success_verify_code_msg": "Número de teléfono verificado. Ahora puede continuar."
                 }
             },
             "ErrorMessage": {

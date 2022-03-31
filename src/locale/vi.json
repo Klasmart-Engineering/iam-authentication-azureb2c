@@ -83,13 +83,15 @@
                     "but_change_claims": "Thay đổi e-mail",
                     "but_send_code": "Gửi mã xác minh",
                     "but_send_new_code": "Gửi mã mới",
-                    "but_verify_code": "Xác minh mã"
+                    "but_verify_code": "Xác minh mã",
+                    "success_verify_code_msg": "Địa chỉ email đã được xác minh. Bạn có thể tiếp tục."
                 },
                 "phoneVerificationControl": {
                     "but_change_claims": "Thay đổi số điện thoại",
                     "but_send_code": "Gửi mã xác minh",
                     "but_send_new_code": "Gửi mã mới",
-                    "but_verify_code": "Xác minh mã"
+                    "but_verify_code": "Xác minh mã",
+                    "success_verify_code_msg": "Số điện thoại đã được xác minh. Bạn có thể tiếp tục ngay bây giờ."
                 }
             },
             "ErrorMessage": {

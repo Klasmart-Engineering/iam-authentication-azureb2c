@@ -83,13 +83,15 @@
                     "but_change_claims": "이메일 변경",
                     "but_send_code": "인증 코드 보내기",
                     "but_send_new_code": "새 코드 보내기",
-                    "but_verify_code": "코드 확인"
+                    "but_verify_code": "코드 확인",
+                    "success_verify_code_msg": "이메일 주소가 확인되었습니다. 지금 계속할 수 있습니다."
                 },
                 "phoneVerificationControl": {
                     "but_change_claims": "전화 번호 변경",
                     "but_send_code": "인증 코드 보내기",
                     "but_send_new_code": "새 코드 보내기",
-                    "but_verify_code": "코드 확인"
+                    "but_verify_code": "코드 확인",
+                    "success_verify_code_msg": "전화번호가 확인되었습니다. 지금 계속할 수 있습니다."
                 }
             },
             "ErrorMessage": {

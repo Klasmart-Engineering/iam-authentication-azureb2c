@@ -83,13 +83,17 @@
                     "but_change_claims": "Change email",
                     "but_send_code": "Send verification code",
                     "but_send_new_code": "Send new code",
-                    "but_verify_code": "Verify code"
+                    "but_verify_code": "Verify code",
+                    "success_send_code_msg": "A verification code has been sent to your email. Please copy it into the input box below and verify the code.",
+                    "success_verify_code_msg": "Email address verified. You can continue now."
                 },
                 "phoneVerificationControl": {
                     "but_change_claims": "Change phone number",
                     "but_send_code": "Send verification code",
                     "but_send_new_code": "Send new code",
-                    "but_verify_code": "Verify code"
+                    "but_verify_code": "Verify code",
+                    "success_send_code_msg": "A verification code has been sent to your phone. Please copy it into the input box below and verify the code.",
+                    "success_verify_code_msg": "Phone number verified. You can continue now."
                 }
             },
             "ErrorMessage": {

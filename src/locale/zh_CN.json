@@ -83,13 +83,15 @@
                     "but_change_claims": "更改邮件地址",
                     "but_send_code": "发送验证码",
                     "but_send_new_code": "发送新代码",
-                    "but_verify_code": "验证码"
+                    "but_verify_code": "验证码",
+                    "success_verify_code_msg": "邮箱已验证。您现在可以继续。"
                 },
                 "phoneVerificationControl": {
                     "but_change_claims": "更改电话号码",
                     "but_send_code": "发送验证码",
                     "but_send_new_code": "发送新代码",
-                    "but_verify_code": "验证码"
+                    "but_verify_code": "验证码",
+                    "success_verify_code_msg": "电话号码已验证。您现在可以继续。"
                 }
             },
             "ErrorMessage": {

@@ -6,7 +6,7 @@ import util from "util"
 
 const exec = util.promisify(execSync)
 
-const PAGES_FOLDER = "./src/policies/KL_create_user_or_sign_in/pages"
+const PAGES_FOLDER = "./src/pages"
 
 // In Lokalise you can change the country code on the download page
 // However, that setting doesn't persist

@@ -54,7 +54,7 @@ jobs:
 
             - name: Build B2C policies
               shell: pwsh
-              run: ./scripts/Build-CustomPolicies.ps1 -FilePath ./src/policies/custom_policies
+              run: ./scripts/Build-CustomPolicies.ps1 -FilePath ./src/policies
 
             - name: Build assets
               run: npm run build -- --env=environment=${{ env.ENVIRONMENT_NAME }}
@@ -77,7 +77,7 @@ jobs:
             - name: Upload B2C policies
               uses: azure-ad-b2c/deploy-trustframework-policy@v3
               with:
-                  folder: "src/policies/custom_policies/Environments/${{ env.ENVIRONMENT_NAME }}"
+                  folder: "src/policies/Environments/${{ env.ENVIRONMENT_NAME }}"
                   files: "TRUST_FRAMEWORK_BASE.xml,TRUST_FRAMEWORK_LOCALIZATION.xml,TRUST_FRAMEWORK_EXTENSIONS.xml,TRUST_FRAMEWORK_TENANT_CONFIG.xml,RELYING_PARTY_SIGN_UP_LOG_IN.xml"
                   tenant: ${{ env.TENANT_ID }}
                   clientId: ${{ env.DEPLOYMENT_APP_CLIENT_ID }}

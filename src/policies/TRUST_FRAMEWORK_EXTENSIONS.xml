@@ -518,65 +518,79 @@
           <Parameter Id="RegularExpression">^[^\\+]+$</Parameter>
         </Parameters>
       </Predicate>
-      <PredicateValidation Id="CustomPassword">
-        <PredicateGroups>
-          <Predicate Id="LengthRange">
-            <UserHelpText>The password must be between 8 and 256 characters.</UserHelpText>
-            <Parameters>
-              <Parameter Id="Minimum">8</Parameter>
-              <Parameter Id="Maximum">256</Parameter>
-            </Parameters>
-          </Predicate>
-          <Predicate Id="Lowercase" Method="IncludesCharacters">
-            <UserHelpText>a lowercase letter</UserHelpText>
-            <Parameters>
-              <Parameter Id="CharacterSet">a-z</Parameter>
-            </Parameters>
-          </Predicate>
-          <Predicate Id="Uppercase" Method="IncludesCharacters">
-            <UserHelpText>an uppercase letter</UserHelpText>
-            <Parameters>
-              <Parameter Id="CharacterSet">A-Z</Parameter>
-            </Parameters>
-          </Predicate>
-          <Predicate Id="Number" Method="IncludesCharacters">
-            <UserHelpText>a digit</UserHelpText>
-            <Parameters>
-              <Parameter Id="CharacterSet">0-9</Parameter>
-            </Parameters>
-          </Predicate>
-          <Predicate Id="Symbol" Method="IncludesCharacters">
-            <UserHelpText>a symbol</UserHelpText>
-            <Parameters>
-              <Parameter Id="CharacterSet">@#$%^&amp;*\-_+=[]{}|\\:',.?/`~"();!</Parameter>
-            </Parameters>
-          </Predicate>
-          <PredicateGroup Id="CharacterClasses">
-            <UserHelpText>The password must have at least 3 of the following:</UserHelpText>
-            <PredicateReferences MatchAtLeast="3">
-              <PredicateReference Id="Lowercase" />
-              <PredicateReference Id="Uppercase" />
-              <PredicateReference Id="Number" />
-              <PredicateReference Id="Symbol" />
-            </PredicateReferences>
-          </PredicateGroup>
-          <Predicate Id="LongSequences" Method="MatchesRegex">
-            <UserHelpText>The password must not have long sequences of numbebers or latters of 5 or more characters.</UserHelpText>
-            <Parameters>
-              <Parameter Id="RegularExpression">^(0123|1234|2345|3456|4567|5678|6789|3210|4321|5432|6543|7654|8765|9876|0000|1111|2222|3333|4444|5555|6666|7777|8888|9999)$</Parameter>
-            </Parameters>
-          </Predicate>
-          <Predicate Id="BadWords" Method="MatchesRegex">
-            <UserHelpText>The password contains blocked reserved keywords.</UserHelpText>
-            <Parameters>
-              <Parameter Id="RegularExpression">(?!.*((Password)|(password)|(KidsLoop)|(kidsloop)|(Kidsloop)|(Badanamu)|(badanamu)))</Parameter>
-            </Parameters>
-          </Predicate>
-        </PredicateGroups>
-      </PredicateValidation>
-
+      <Predicate Id="LengthRange" Method="IsLengthRange">
+        <UserHelpText>The password must be between 8 and 256 characters.</UserHelpText>
+        <Parameters>
+          <Parameter Id="Minimum">8</Parameter>
+          <Parameter Id="Maximum">256</Parameter>
+        </Parameters>
+      </Predicate>
+      <Predicate Id="Lowercase" Method="IncludesCharacters">
+        <UserHelpText>a lowercase letter</UserHelpText>
+        <Parameters>
+          <Parameter Id="CharacterSet">a-z</Parameter>
+        </Parameters>
+      </Predicate>
+      <Predicate Id="Uppercase" Method="IncludesCharacters">
+        <UserHelpText>an uppercase letter</UserHelpText>
+        <Parameters>
+          <Parameter Id="CharacterSet">A-Z</Parameter>
+        </Parameters>
+      </Predicate>
+      <Predicate Id="Number" Method="IncludesCharacters">
+        <UserHelpText>a digit</UserHelpText>
+        <Parameters>
+          <Parameter Id="CharacterSet">0-9</Parameter>
+        </Parameters>
+      </Predicate>
+      <Predicate Id="Symbol" Method="IncludesCharacters">
+        <UserHelpText>a symbol</UserHelpText>
+        <Parameters>
+          <Parameter Id="CharacterSet">@#$%^&amp;*\-_+=[]{}|\\:',.?/`~"();!</Parameter>
+        </Parameters>
+      </Predicate>
+      <Predicate Id="LongSequences" Method="MatchesRegex">
+        <UserHelpText>The password must not have long sequences of numbers or letters of 5 or more characters.</UserHelpText>
+        <Parameters>
+          <Parameter Id="RegularExpression">^(0123|1234|2345|3456|4567|5678|6789|3210|4321|5432|6543|7654|8765|9876|0000|1111|2222|3333|4444|5555|6666|7777|8888|9999)$</Parameter>
+        </Parameters>
+      </Predicate>
+      <Predicate Id="BadWords" Method="MatchesRegex">
+        <UserHelpText>The password contains blocked reserved keywords.</UserHelpText>
+        <Parameters>
+          <Parameter Id="RegularExpression">(?!.*((Password)|(password)|(KidsLoop)|(kidsloop)|(Kidsloop)|(Badanamu)|(badanamu)))</Parameter>
+        </Parameters>
+      </Predicate>
     </Predicates>
     <PredicateValidations>
+      <PredicateValidation Id="CustomPassword">
+          <PredicateGroups>
+            <PredicateGroup Id="LengthGroup">
+              <PredicateReferences MatchAtLeast="1">
+                <PredicateReference Id="LengthRange" />
+              </PredicateReferences>
+            </PredicateGroup>
+            <PredicateGroup Id="CharacterClasses">
+              <UserHelpText>The password must have at least 3 of the following:</UserHelpText>
+              <PredicateReferences MatchAtLeast="3">
+                <PredicateReference Id="Lowercase" />
+                <PredicateReference Id="Uppercase" />
+                <PredicateReference Id="Number" />
+                <PredicateReference Id="Symbol" />
+              </PredicateReferences>
+            </PredicateGroup>
+            <PredicateGroup Id="RegexLongSequences">
+              <PredicateReferences>
+                <PredicateReference Id="LongSequences" />
+              </PredicateReferences>
+            </PredicateGroup>
+            <PredicateGroup Id="RegexBadWords">
+              <PredicateReferences>
+                <PredicateReference Id="BadWords" />
+              </PredicateReferences>
+            </PredicateGroup>
+          </PredicateGroups>
+      </PredicateValidation>
       <PredicateValidation Id="email">
         <PredicateGroups>
           <PredicateGroup Id="email">

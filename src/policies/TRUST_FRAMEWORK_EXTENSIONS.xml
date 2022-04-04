@@ -458,21 +458,6 @@
         <PredicateValidationReference Id="CustomPassword" />
       </ClaimType>
     </ClaimsSchema>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <Predicates>
       <Predicate Id="email" Method="MatchesRegex">
         <UserHelpText>Please enter a valid email address</UserHelpText>

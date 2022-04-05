@@ -5,7 +5,3 @@
     min-height: 100vh;
     width: 50vw;
 }
-
-.space-filler-image-error {
-    transform: scaleX(-1);
-}

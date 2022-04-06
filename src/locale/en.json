@@ -48,31 +48,7 @@
                 },
                 "noLeadingPlus": {
                     "HelpText": "You don't need to include your country code here. Instead, please use the dropdown above to select your country code"
-                },
-                "LengthRange": {
-                    "HelpText": "The password must be between 8 and 256 characters."
-                },
-                "Lowercase": {
-                    "HelpText": "a lowercase letter"
-                },
-                "Uppercase": {
-                    "HelpText": "an uppercase letter"
-                },
-                "Number": {
-                    "HelpText": "a digit"
-                },
-                "Symbol": {
-                    "HelpText": "a symbol"
-                },
-                "LongSequences": {
-                    "HelpText": "The password must not have long sequences of numbers or letters of 5 or more characters."
-                },
-                "BadWords": {
-                    "HelpText": "The password contains blocked reserved keywords."
                 }
-            },
-            "InputValidation": {
-                "CustomPassword": "The password must have at least 3 of the following:"
             }
         },
         "localaccountsignup": {
@@ -145,31 +121,7 @@
                 },
                 "noLeadingPlus": {
                     "HelpText": "You don't need to include your country code here. Instead, please use the dropdown above to select your country code"
-                },
-                "LengthRange": {
-                    "HelpText": "The password must be between 8 and 256 characters."
-                },
-                "Lowercase": {
-                    "HelpText": "a lowercase letter"
-                },
-                "Uppercase": {
-                    "HelpText": "an uppercase letter"
-                },
-                "Number": {
-                    "HelpText": "a digit"
-                },
-                "Symbol": {
-                    "HelpText": "a symbol"
-                },
-                "LongSequences": {
-                    "HelpText": "The password must not have long sequences of numbers or letters of 5 or more characters."
-                },
-                "BadWords": {
-                    "HelpText": "The password contains blocked reserved keywords."
                 }
-            },
-            "InputValidation": {
-                "CustomPassword": "The password must have at least 3 of the following:"
             },
             "UXElement": {
                 "button_continue": "Create account"
@@ -192,27 +144,7 @@
                     "DisplayName": "Confirm new password"
                 }
             },
-            "UXElement": {
-                "button_continue": "Reset Password",
-                "initial_intro": "Almost there! Enter your new password below."
-            }
-        },
-        "selfasserted": {
-            "ClaimType": {
-                "countryCode": {
-                    "DisplayName": "Country"
-                },
-                "nationalNumber": {
-                    "DisplayName": "Phone Number"
-                }
-            },
             "Predicate": {
-                "internationalOrNationalPhoneNumber": {
-                    "HelpText": "Invalid number format. Please ensure that the phone number does not contain any special characters such as []{}()."
-                },
-                "noLeadingPlus": {
-                    "HelpText": "You don't need to include your country code here. Instead, please use the dropdown above to select your country code"
-                },
                 "LengthRange": {
                     "HelpText": "The password must be between 8 and 256 characters."
                 },
@@ -237,6 +169,28 @@
             },
             "InputValidation": {
                 "CustomPassword": "The password must have at least 3 of the following:"
+            },
+            "UXElement": {
+                "button_continue": "Reset Password",
+                "initial_intro": "Almost there! Enter your new password below."
+            }
+        },
+        "selfasserted": {
+            "ClaimType": {
+                "countryCode": {
+                    "DisplayName": "Country"
+                },
+                "nationalNumber": {
+                    "DisplayName": "Phone Number"
+                }
+            },
+            "Predicate": {
+                "internationalOrNationalPhoneNumber": {
+                    "HelpText": "Invalid number format. Please ensure that the phone number does not contain any special characters such as []{}()."
+                },
+                "noLeadingPlus": {
+                    "HelpText": "You don't need to include your country code here. Instead, please use the dropdown above to select your country code"
+                }
             },
             "UxElement": {
                 "required_field": "Cannot be empty"

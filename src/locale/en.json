@@ -48,7 +48,31 @@
                 },
                 "noLeadingPlus": {
                     "HelpText": "You don't need to include your country code here. Instead, please use the dropdown above to select your country code"
+                },
+                "LengthRange": {
+                    "HelpText": "The password must be between 8 and 256 characters."
+                },
+                "Lowercase": {
+                    "HelpText": "a lowercase letter"
+                },
+                "Uppercase": {
+                    "HelpText": "an uppercase letter"
+                },
+                "Number": {
+                    "HelpText": "a digit"
+                },
+                "Symbol": {
+                    "HelpText": "a symbol"
+                },
+                "LongSequences": {
+                    "HelpText": "The password must not have long sequences of numbers or letters of 5 or more characters."
+                },
+                "BadWords": {
+                    "HelpText": "The password contains blocked reserved keywords."
                 }
+            },
+            "InputValidation": {
+                "CustomPassword": "The password must have at least 3 of the following:"
             }
         },
         "localaccountsignup": {
@@ -121,7 +145,31 @@
                 },
                 "noLeadingPlus": {
                     "HelpText": "You don't need to include your country code here. Instead, please use the dropdown above to select your country code"
+                },
+                "LengthRange": {
+                    "HelpText": "The password must be between 8 and 256 characters."
+                },
+                "Lowercase": {
+                    "HelpText": "a lowercase letter"
+                },
+                "Uppercase": {
+                    "HelpText": "an uppercase letter"
+                },
+                "Number": {
+                    "HelpText": "a digit"
+                },
+                "Symbol": {
+                    "HelpText": "a symbol"
+                },
+                "LongSequences": {
+                    "HelpText": "The password must not have long sequences of numbers or letters of 5 or more characters."
+                },
+                "BadWords": {
+                    "HelpText": "The password contains blocked reserved keywords."
                 }
+            },
+            "InputValidation": {
+                "CustomPassword": "The password must have at least 3 of the following:"
             },
             "UXElement": {
                 "button_continue": "Create account"
@@ -164,7 +212,31 @@
                 },
                 "noLeadingPlus": {
                     "HelpText": "You don't need to include your country code here. Instead, please use the dropdown above to select your country code"
+                },
+                "LengthRange": {
+                    "HelpText": "The password must be between 8 and 256 characters."
+                },
+                "Lowercase": {
+                    "HelpText": "a lowercase letter"
+                },
+                "Uppercase": {
+                    "HelpText": "an uppercase letter"
+                },
+                "Number": {
+                    "HelpText": "a digit"
+                },
+                "Symbol": {
+                    "HelpText": "a symbol"
+                },
+                "LongSequences": {
+                    "HelpText": "The password must not have long sequences of numbers or letters of 5 or more characters."
+                },
+                "BadWords": {
+                    "HelpText": "The password contains blocked reserved keywords."
                 }
+            },
+            "InputValidation": {
+                "CustomPassword": "The password must have at least 3 of the following:"
             },
             "UxElement": {
                 "required_field": "Cannot be empty"

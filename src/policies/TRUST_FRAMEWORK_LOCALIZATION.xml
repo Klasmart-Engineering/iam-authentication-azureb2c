@@ -6,7 +6,7 @@
   <BuildingBlocks>
     <ContentDefinitions>
       <ContentDefinition Id="api.error">
-        <LoadUri>https://{settings:AZURE_STORAGE_ACCOUNT}.blob.core.windows.net/{settings:AZURE_STORAGE_CONTAINER}/pages/unified-sign-up-or-sign-in/{Culture:RFC5646}/index.html</LoadUri>
+        <LoadUri>https://{settings:AZURE_STORAGE_ACCOUNT}.blob.core.windows.net/{settings:AZURE_STORAGE_CONTAINER}/pages/error/index.html</LoadUri>
         <DataUri>urn:com:microsoft:aad:b2c:elements:contract:globalexception:1.2.1</DataUri>
       </ContentDefinition>
       <ContentDefinition Id="api.idpselections">

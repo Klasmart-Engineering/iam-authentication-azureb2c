@@ -1,0 +1,7 @@
+.space-filler-error {
+    align-items: flex-end;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    width: 50vw;
+}

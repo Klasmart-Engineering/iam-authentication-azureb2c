@@ -182,6 +182,14 @@
           <LocalizedString ElementType="Predicate" ElementId="internationalOrNationalPhoneNumber" StringId="HelpText">Invalid number format. Please ensure that the phone number does not contain any special characters such as []{}().</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="noCorporateEmail" StringId="HelpText">It is not possible to create an account with a KidsLoop email address. Please sign-in instead.</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="noLeadingPlus" StringId="HelpText">You don't need to include your country code here. Instead, please use the dropdown above to select your country code</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="LengthRange" StringId="HelpText">The password must be between 8 and 256 characters.</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="Lowercase" StringId="HelpText">a lowercase letter</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="Uppercase" StringId="HelpText">an uppercase letter</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="Number" StringId="HelpText">a digit</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="Symbol" StringId="HelpText">a symbol</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="LongSequences" StringId="HelpText">The password must not have long sequences of numbers or letters of 5 or more characters.</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="BadWords" StringId="HelpText">The password contains blocked reserved keywords.</LocalizedString>
+          <LocalizedString ElementType="InputValidation" StringId="CustomPassword">The password must have at least 3 of the following:</LocalizedString>
           <LocalizedString ElementType="UXElement" StringId="button_continue">Create account</LocalizedString>
           <LocalizedString ElementType="UxElement" StringId="ver_but_edit">Change e-mail</LocalizedString>
           <LocalizedString ElementType="UxElement" StringId="ver_but_resend">Send new code</LocalizedString>
@@ -195,6 +203,14 @@
           <LocalizedString ElementType="ClaimType" ElementId="newPassword" StringId="DisplayName">New password</LocalizedString>
           <LocalizedString ElementType="ClaimType" ElementId="newPassword" StringId="PatternHelpText">8-16 characters, containing 3 out of 4 of the following: Lowercase characters, uppercase characters, digits (0-9), and one or more of the following symbols: @ # $ % ^ &amp; * - _ + = [ ] { } | \ : ' , ? / ` ~ " ( ) ; .</LocalizedString>
           <LocalizedString ElementType="ClaimType" ElementId="reenterPassword" StringId="DisplayName">Confirm new password</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="LengthRange" StringId="HelpText">The password must be between 8 and 256 characters.</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="Lowercase" StringId="HelpText">a lowercase letter</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="Uppercase" StringId="HelpText">an uppercase letter</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="Number" StringId="HelpText">a digit</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="Symbol" StringId="HelpText">a symbol</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="LongSequences" StringId="HelpText">The password must not have long sequences of numbers or letters of 5 or more characters.</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="BadWords" StringId="HelpText">The password contains blocked reserved keywords.</LocalizedString>
+          <LocalizedString ElementType="InputValidation" StringId="CustomPassword">The password must have at least 3 of the following:</LocalizedString>
           <LocalizedString ElementType="UXElement" StringId="button_continue">Reset Password</LocalizedString>
           <LocalizedString ElementType="UXElement" StringId="initial_intro">Almost there! Enter your new password below.</LocalizedString>
         </LocalizedStrings>

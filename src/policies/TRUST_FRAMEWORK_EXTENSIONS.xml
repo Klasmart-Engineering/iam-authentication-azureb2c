@@ -550,15 +550,15 @@
         </Parameters>
       </Predicate>
       <Predicate Id="LongSequences" Method="MatchesRegex">
-        <UserHelpText>The password must not have long sequences of numbers or letters of 5 or more characters.</UserHelpText>
+        <UserHelpText>The password must not have long sequences of numbers or letters of 3 or more charactersx.</UserHelpText>
         <Parameters>
-          <Parameter Id="RegularExpression">^(0123|1234|2345|3456|4567|5678|6789|3210|4321|5432|6543|7654|8765|9876|0000|1111|2222|3333|4444|5555|6666|7777|8888|9999)$</Parameter>
+          <Parameter Id="RegularExpression">(abc|bcd|cde|def|efg|fgh|ghi|hij|ijk|jkl|klm|lmn|mno|nop|opq|pqr|qrs|rst|stu|tuv|uvw|vwx|wxy|xyz|012|123|234|345|456|567|678|789)+</Parameter>
         </Parameters>
       </Predicate>
       <Predicate Id="BadWords" Method="MatchesRegex">
         <UserHelpText>The password contains blocked reserved keywords.</UserHelpText>
         <Parameters>
-          <Parameter Id="RegularExpression">(?!.*((Password)|(password)|(KidsLoop)|(kidsloop)|(Kidsloop)|(Badanamu)|(badanamu)))</Parameter>
+          <Parameter Id="RegularExpression">^((?!(Password|password|Kidsloop|KidsLoop|kidsloop|Badanamu|badanamu)).)*$</Parameter>
         </Parameters>
       </Predicate>
     </Predicates>
@@ -579,12 +579,12 @@
                 <PredicateReference Id="Symbol" />
               </PredicateReferences>
             </PredicateGroup>
-            <PredicateGroup Id="RegexLongSequences">
+            <!-- <PredicateGroup Id="LongSequences">
               <PredicateReferences>
                 <PredicateReference Id="LongSequences" />
               </PredicateReferences>
-            </PredicateGroup>
-            <PredicateGroup Id="RegexBadWords">
+            </PredicateGroup> -->
+            <PredicateGroup Id="BadWords">
               <PredicateReferences>
                 <PredicateReference Id="BadWords" />
               </PredicateReferences>
@@ -1440,7 +1440,7 @@
             <PersistedClaim ClaimTypeReferenceId="signInNames.phoneNumber" />
             <PersistedClaim ClaimTypeReferenceId="newPassword" PartnerClaimType="password" />
             <PersistedClaim ClaimTypeReferenceId="displayName" DefaultValue="unknown" />
-            <PersistedClaim ClaimTypeReferenceId="passwordPolicies" DefaultValue="DisablePasswordExpiration" />
+            <PersistedClaim ClaimTypeReferenceId="passwordPolicies" DefaultValue="DisablePasswordExpiration, DisableStrongPassword"/>
           </PersistedClaims>
           <OutputClaims>
             <OutputClaim ClaimTypeReferenceId="objectId" />
@@ -1469,7 +1469,7 @@
             <PersistedClaim ClaimTypeReferenceId="email" PartnerClaimType="signInNames.emailAddress" />
             <PersistedClaim ClaimTypeReferenceId="newPassword" PartnerClaimType="password" />
             <PersistedClaim ClaimTypeReferenceId="displayName" DefaultValue="unknown" />
-            <PersistedClaim ClaimTypeReferenceId="passwordPolicies" DefaultValue="DisablePasswordExpiration" />
+            <PersistedClaim ClaimTypeReferenceId="passwordPolicies" DefaultValue="DisablePasswordExpiration, DisableStrongPassword"/>
             <PersistedClaim ClaimTypeReferenceId="Verified.strongAuthenticationPhoneNumber" PartnerClaimType="strongAuthenticationPhoneNumber" />
             <!-- Optional claims. -->
           </PersistedClaims>

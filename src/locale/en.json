@@ -138,7 +138,7 @@
                     "HelpText": "a symbol"
                 },
                 "LongSequences": {
-                    "HelpText": "The password must not have long sequences of numbers or letters of 5 or more characters."
+                    "HelpText": "The password must not have long sequences of numbers or letters of 3 or more characters."
                 },
                 "BadWords": {
                     "HelpText": "The password contains blocked reserved keywords."
@@ -185,7 +185,7 @@
                     "HelpText": "a symbol"
                 },
                 "LongSequences": {
-                    "HelpText": "The password must not have long sequences of numbers or letters of 5 or more characters."
+                    "HelpText": "The password must not have long sequences of numbers or letters of 3 or more characters."
                 },
                 "BadWords": {
                     "HelpText": "The password contains blocked reserved keywords."

@@ -12,8 +12,9 @@
     <UserJourneyBehaviors>
       <SingleSignOn Scope="Tenant" />
       <SessionExpiryType>Rolling</SessionExpiryType>
-      <!-- 5 days * 24 hours * 60 minutes * 60 seconds -->
-      <SessionExpiryInSeconds>432000</SessionExpiryInSeconds>
+      <!-- Maximum session lifetime -->
+      <!-- 1 day * 24 hours * 60 minutes * 60 seconds -->
+      <SessionExpiryInSeconds>86400</SessionExpiryInSeconds>
       <JourneyInsights TelemetryEngine="ApplicationInsights" InstrumentationKey="{settings:AppInsightsInstrumentationKey}" DeveloperMode="{settings:AppInsightsDeveloperMode}" ClientEnabled="true" ServerEnabled="true" TelemetryVersion="1.0.0" />
       <ScriptExecution>Allow</ScriptExecution>
     </UserJourneyBehaviors>

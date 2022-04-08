@@ -11,7 +11,7 @@
     <DefaultUserJourney ReferenceId="{settings:Sign_Up_Log_In:DefaultUserJourney}" />
     <UserJourneyBehaviors>
       <SingleSignOn Scope="Tenant" />
-      <SessionExpiryType>Absolute</SessionExpiryType>
+      <SessionExpiryType>Rolling</SessionExpiryType>
       <!-- 5 days * 24 hours * 60 minutes * 60 seconds -->
       <SessionExpiryInSeconds>432000</SessionExpiryInSeconds>
       <JourneyInsights TelemetryEngine="ApplicationInsights" InstrumentationKey="{settings:AppInsightsInstrumentationKey}" DeveloperMode="{settings:AppInsightsDeveloperMode}" ClientEnabled="true" ServerEnabled="true" TelemetryVersion="1.0.0" />

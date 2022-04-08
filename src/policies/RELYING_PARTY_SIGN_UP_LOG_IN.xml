@@ -10,7 +10,7 @@
           or both (SUSI-PhoneOrEmail). -->
     <DefaultUserJourney ReferenceId="{settings:Sign_Up_Log_In:DefaultUserJourney}" />
     <UserJourneyBehaviors>
-      <SingleSignOn Scope="Tenant" />
+      <SingleSignOn Scope="Tenant" KeepAliveInDays="30" />
       <SessionExpiryType>Rolling</SessionExpiryType>
       <!-- Maximum session lifetime -->
       <!-- 1 day * 24 hours * 60 minutes * 60 seconds -->

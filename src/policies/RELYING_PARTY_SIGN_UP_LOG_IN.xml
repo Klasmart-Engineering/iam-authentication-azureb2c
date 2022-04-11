@@ -20,6 +20,9 @@
     <TechnicalProfile Id="PolicyProfile">
       <DisplayName>PolicyProfile</DisplayName>
       <Protocol Name="OpenIdConnect" />
+      <InputClaims>
+        <InputClaim ClaimTypeReferenceId="passwordPolicies" DefaultValue="DisablePasswordExpiration, DisableStrongPassword"/>
+      </InputClaims>
       <OutputClaims>
         <OutputClaim ClaimTypeReferenceId="signInNames.userName" PartnerClaimType="user_name" />
         <OutputClaim ClaimTypeReferenceId="signInNames.emailAddress" PartnerClaimType="email" />

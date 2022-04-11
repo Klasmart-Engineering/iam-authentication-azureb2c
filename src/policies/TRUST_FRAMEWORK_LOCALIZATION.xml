@@ -187,7 +187,7 @@
           <LocalizedString ElementType="Predicate" ElementId="Uppercase" StringId="HelpText">an uppercase letter</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="Number" StringId="HelpText">a digit</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="Symbol" StringId="HelpText">a symbol</LocalizedString>
-          <LocalizedString ElementType="Predicate" ElementId="LongSequences" StringId="HelpText">The password must not have long sequences of numbers or letters of 5 or more characters.</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="LongSequences" StringId="HelpText">The password must not have long sequences of numbers or letters of 3 or more characters.</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="BadWords" StringId="HelpText">The password contains blocked reserved keywords.</LocalizedString>
           <LocalizedString ElementType="InputValidation" StringId="CustomPassword">The password must have at least 3 of the following:</LocalizedString>
           <LocalizedString ElementType="UXElement" StringId="button_continue">Create account</LocalizedString>
@@ -208,7 +208,7 @@
           <LocalizedString ElementType="Predicate" ElementId="Uppercase" StringId="HelpText">an uppercase letter</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="Number" StringId="HelpText">a digit</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="Symbol" StringId="HelpText">a symbol</LocalizedString>
-          <LocalizedString ElementType="Predicate" ElementId="LongSequences" StringId="HelpText">The password must not have long sequences of numbers or letters of 5 or more characters.</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="LongSequences" StringId="HelpText">The password must not have long sequences of numbers or letters of 3 or more characters.</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="BadWords" StringId="HelpText">The password contains blocked reserved keywords.</LocalizedString>
           <LocalizedString ElementType="InputValidation" StringId="CustomPassword">The password must have at least 3 of the following:</LocalizedString>
           <LocalizedString ElementType="UXElement" StringId="button_continue">Reset Password</LocalizedString>

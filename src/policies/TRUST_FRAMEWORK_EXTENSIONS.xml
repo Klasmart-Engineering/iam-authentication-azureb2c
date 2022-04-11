@@ -579,11 +579,11 @@
                 <PredicateReference Id="Symbol" />
               </PredicateReferences>
             </PredicateGroup>
-            <!-- <PredicateGroup Id="LongSequences">
+            <PredicateGroup Id="LongSequences">
               <PredicateReferences>
                 <PredicateReference Id="LongSequences" />
               </PredicateReferences>
-            </PredicateGroup> -->
+            </PredicateGroup>
             <PredicateGroup Id="BadWords">
               <PredicateReferences>
                 <PredicateReference Id="BadWords" />

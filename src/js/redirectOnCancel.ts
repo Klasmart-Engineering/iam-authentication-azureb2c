@@ -8,7 +8,7 @@ export const setupRedirectOnCancel = () => {
         console.warn(`#cancel button not found`)
         return
     }
-    
+
     const copyElement = cancelButtonElement.cloneNode(true)
 
     copyElement.addEventListener("click", () => {

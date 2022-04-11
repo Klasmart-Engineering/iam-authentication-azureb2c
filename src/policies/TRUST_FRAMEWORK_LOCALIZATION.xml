@@ -178,18 +178,18 @@
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedNoRetry">You've made too many incorrect attempts. Please try again later.</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedRetryAllowed">The code is incorrect. Please try again.</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfWrongCodeEntered">The code is incorrect, please try again</LocalizedString>
+          <LocalizedString ElementType="InputValidation" StringId="CustomPassword">The password must have at least 3 of the following:</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="BadWords" StringId="HelpText">The password contains blocked reserved keywords.</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="LengthRange" StringId="HelpText">The password must be between 8 and 256 characters.</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="LongSequences" StringId="HelpText">The password must not have long sequences of numbers or letters of 3 or more characters.</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="Lowercase" StringId="HelpText">a lowercase letter</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="Number" StringId="HelpText">a digit</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="Symbol" StringId="HelpText">a symbol</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="Uppercase" StringId="HelpText">an uppercase letter</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="email" StringId="HelpText">Please enter a valid email address</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="internationalOrNationalPhoneNumber" StringId="HelpText">Invalid number format. Please ensure that the phone number does not contain any special characters such as []{}().</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="noCorporateEmail" StringId="HelpText">It is not possible to create an account with a KidsLoop email address. Please sign-in instead.</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="noLeadingPlus" StringId="HelpText">You don't need to include your country code here. Instead, please use the dropdown above to select your country code</LocalizedString>
-          <LocalizedString ElementType="Predicate" ElementId="LengthRange" StringId="HelpText">The password must be between 8 and 256 characters.</LocalizedString>
-          <LocalizedString ElementType="Predicate" ElementId="Lowercase" StringId="HelpText">a lowercase letter</LocalizedString>
-          <LocalizedString ElementType="Predicate" ElementId="Uppercase" StringId="HelpText">an uppercase letter</LocalizedString>
-          <LocalizedString ElementType="Predicate" ElementId="Number" StringId="HelpText">a digit</LocalizedString>
-          <LocalizedString ElementType="Predicate" ElementId="Symbol" StringId="HelpText">a symbol</LocalizedString>
-          <LocalizedString ElementType="Predicate" ElementId="LongSequences" StringId="HelpText">The password must not have long sequences of numbers or letters of 3 or more characters.</LocalizedString>
-          <LocalizedString ElementType="Predicate" ElementId="BadWords" StringId="HelpText">The password contains blocked reserved keywords.</LocalizedString>
-          <LocalizedString ElementType="InputValidation" StringId="CustomPassword">The password must have at least 3 of the following:</LocalizedString>
           <LocalizedString ElementType="UXElement" StringId="button_continue">Create account</LocalizedString>
           <LocalizedString ElementType="UxElement" StringId="ver_but_edit">Change e-mail</LocalizedString>
           <LocalizedString ElementType="UxElement" StringId="ver_but_resend">Send new code</LocalizedString>
@@ -203,14 +203,14 @@
           <LocalizedString ElementType="ClaimType" ElementId="newPassword" StringId="DisplayName">New password</LocalizedString>
           <LocalizedString ElementType="ClaimType" ElementId="newPassword" StringId="PatternHelpText">8-16 characters, containing 3 out of 4 of the following: Lowercase characters, uppercase characters, digits (0-9), and one or more of the following symbols: @ # $ % ^ &amp; * - _ + = [ ] { } | \ : ' , ? / ` ~ " ( ) ; .</LocalizedString>
           <LocalizedString ElementType="ClaimType" ElementId="reenterPassword" StringId="DisplayName">Confirm new password</LocalizedString>
+          <LocalizedString ElementType="InputValidation" StringId="CustomPassword">The password must have at least 3 of the following:</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="BadWords" StringId="HelpText">The password contains blocked reserved keywords.</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="LengthRange" StringId="HelpText">The password must be between 8 and 256 characters.</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="LongSequences" StringId="HelpText">The password must not have long sequences of numbers or letters of 3 or more characters.</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="Lowercase" StringId="HelpText">a lowercase letter</LocalizedString>
-          <LocalizedString ElementType="Predicate" ElementId="Uppercase" StringId="HelpText">an uppercase letter</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="Number" StringId="HelpText">a digit</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="Symbol" StringId="HelpText">a symbol</LocalizedString>
-          <LocalizedString ElementType="Predicate" ElementId="LongSequences" StringId="HelpText">The password must not have long sequences of numbers or letters of 3 or more characters.</LocalizedString>
-          <LocalizedString ElementType="Predicate" ElementId="BadWords" StringId="HelpText">The password contains blocked reserved keywords.</LocalizedString>
-          <LocalizedString ElementType="InputValidation" StringId="CustomPassword">The password must have at least 3 of the following:</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="Uppercase" StringId="HelpText">an uppercase letter</LocalizedString>
           <LocalizedString ElementType="UXElement" StringId="button_continue">Reset Password</LocalizedString>
           <LocalizedString ElementType="UXElement" StringId="initial_intro">Almost there! Enter your new password below.</LocalizedString>
         </LocalizedStrings>
@@ -416,11 +416,13 @@
           <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="but_send_code">Kirim kode verifikasi</LocalizedString>
           <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="but_send_new_code">Kirim kode baru</LocalizedString>
           <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="but_verify_code">Verifikasi kode</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="success_send_code_msg">Kode verifikasi sudah dikirimkan ke email Anda. Salin kode ke kolom isian di bawah untuk melakukan verifikasi.</LocalizedString>
           <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="success_verify_code_msg">Alamat email terverifikasi. Silakan melanjutkan.</LocalizedString>
           <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl" StringId="but_change_claims">Ubah nomor hp</LocalizedString>
           <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl" StringId="but_send_code">Kirim kode verifikasi</LocalizedString>
           <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl" StringId="but_send_new_code">Kirim kode baru</LocalizedString>
           <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl" StringId="but_verify_code">Verifikasi kode</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl" StringId="success_send_code_msg">Kode verifikasi sudah dikirimkan ke hp Anda. Salin kode ke kolom isian di bawah untuk melakukan verifikasi.</LocalizedString>
           <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl" StringId="success_verify_code_msg">Nomor hp terverifikasi. Silakan melanjutkan.</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfChallengeExpired">Kode sudah kedaluwarsa</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalAlreadyExists">Akun dengan email atau nomor ini sudah ada.</LocalizedString>

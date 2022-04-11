@@ -104,12 +104,36 @@
                 "UserMessageIfVerificationFailedRetryAllowed": "The code is incorrect. Please try again.",
                 "UserMessageIfWrongCodeEntered": "The code is incorrect, please try again"
             },
+            "InputValidation": {
+                "CustomPassword": "The password must have at least 3 of the following:"
+            },
             "LocalizedCollection": {
                 "hasAcceptedPrivacyPolicy": {
                     "true": "I agree to the KidsLoop {{Privacy Policy}}"
                 }
             },
             "Predicate": {
+                "BadWords": {
+                    "HelpText": "The password contains blocked reserved keywords."
+                },
+                "LengthRange": {
+                    "HelpText": "The password must be between 8 and 256 characters."
+                },
+                "LongSequences": {
+                    "HelpText": "The password must not have long sequences of numbers or letters of 3 or more characters."
+                },
+                "Lowercase": {
+                    "HelpText": "a lowercase letter"
+                },
+                "Number": {
+                    "HelpText": "a digit"
+                },
+                "Symbol": {
+                    "HelpText": "a symbol"
+                },
+                "Uppercase": {
+                    "HelpText": "an uppercase letter"
+                },
                 "email": {
                     "HelpText": "Please enter a valid email address"
                 },
@@ -121,31 +145,7 @@
                 },
                 "noLeadingPlus": {
                     "HelpText": "You don't need to include your country code here. Instead, please use the dropdown above to select your country code"
-                },
-                "LengthRange": {
-                    "HelpText": "The password must be between 8 and 256 characters."
-                },
-                "Lowercase": {
-                    "HelpText": "a lowercase letter"
-                },
-                "Uppercase": {
-                    "HelpText": "an uppercase letter"
-                },
-                "Number": {
-                    "HelpText": "a digit"
-                },
-                "Symbol": {
-                    "HelpText": "a symbol"
-                },
-                "LongSequences": {
-                    "HelpText": "The password must not have long sequences of numbers or letters of 3 or more characters."
-                },
-                "BadWords": {
-                    "HelpText": "The password contains blocked reserved keywords."
                 }
-            },
-            "InputValidation": {
-                "CustomPassword": "The password must have at least 3 of the following:"
             },
             "UXElement": {
                 "button_continue": "Create account"
@@ -168,15 +168,21 @@
                     "DisplayName": "Confirm new password"
                 }
             },
+            "InputValidation": {
+                "CustomPassword": "The password must have at least 3 of the following:"
+            },
             "Predicate": {
+                "BadWords": {
+                    "HelpText": "The password contains blocked reserved keywords."
+                },
                 "LengthRange": {
                     "HelpText": "The password must be between 8 and 256 characters."
                 },
+                "LongSequences": {
+                    "HelpText": "The password must not have long sequences of numbers or letters of 3 or more characters."
+                },
                 "Lowercase": {
                     "HelpText": "a lowercase letter"
-                },
-                "Uppercase": {
-                    "HelpText": "an uppercase letter"
                 },
                 "Number": {
                     "HelpText": "a digit"
@@ -184,15 +190,9 @@
                 "Symbol": {
                     "HelpText": "a symbol"
                 },
-                "LongSequences": {
-                    "HelpText": "The password must not have long sequences of numbers or letters of 3 or more characters."
-                },
-                "BadWords": {
-                    "HelpText": "The password contains blocked reserved keywords."
+                "Uppercase": {
+                    "HelpText": "an uppercase letter"
                 }
-            },
-            "InputValidation": {
-                "CustomPassword": "The password must have at least 3 of the following:"
             },
             "UXElement": {
                 "button_continue": "Reset Password",

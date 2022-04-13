@@ -232,6 +232,10 @@ Any changes to the HTML pages should be done on the `en` version of the template
 
 e.g. for `unified-sign-up-or-sign-in`, modify `unified-sign-up-or-sign-in/en/index.html`
 
+NB: The exception to this is the [error](src/pages/error/index.html) page, which only has a single HTML file in English.
+Unlike the other page contracts, the exception page doesn't support the `{Culture:RFC5646}` parameter in the `<LoadUri>` e.g. `<LoadUri>https://{settings:AZURE_STORAGE_ACCOUNT}.blob.core.windows.net/{settings:AZURE_STORAGE_CONTAINER}/pages/unified-sign-up-or-sign-in/{Culture:RFC5646}/index.html</LoadUri>` for "signuporsignin".
+See the purple note box in [this](https://docs.microsoft.com/en-us/azure/active-directory-b2c/customize-ui-with-html?pivots=b2c-custom-policy#multi-template-approach) documentation for more details.
+
 Once your changes are complete, perform the following steps:
 
 ##### Repo -> Lokalise

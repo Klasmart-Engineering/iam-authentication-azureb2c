@@ -190,9 +190,9 @@
                 "SignupWithPhone2": "Nomor hp"
             },
             "ErrorMessage": {
-                "UserMessageIfClaimsPrincipalDoesNotExist": "Karena ada pembaruan sistem Anda harus melakukan reset kata sandi. Apabila Anda sudah melakukannya dan masih mendapat pesan ini, sepertinya Anda memasukkan kata sandi yang salah. Coba lagi atau klik 'Lupa kata sandi' untuk melakukan reset kata sandi.",
-                "UserMessageIfInvalidPassword": "Karena ada pembaruan sistem Anda harus melakukan reset kata sandi. Apabila Anda sudah melakukannya dan masih mendapat pesan ini, sepertinya Anda memasukkan kata sandi yang salah. Coba lagi atau klik 'Lupa kata sandi' untuk melakukan reset kata sandi.",
-                "UserMessageIfOldPasswordUsed": "Karena ada pembaruan sistem Anda harus melakukan reset kata sandi. Apabila Anda sudah melakukannya dan masih mendapat pesan ini, sepertinya Anda memasukkan kata sandi yang salah. Coba lagi atau klik 'Lupa kata sandi' untuk melakukan reset kata sandi.",
+                "UserMessageIfClaimsPrincipalDoesNotExist": "Maaf, kami tidak mengenali informasi Anda! Pastikan Anda memasukkannya dengan benar lalu coba lagi.",
+                "UserMessageIfInvalidPassword": "Maaf, kami tidak mengenali informasi Anda! Pastikan Anda memasukkannya dengan benar lalu coba lagi.",
+                "UserMessageIfOldPasswordUsed": "Maaf, kami tidak mengenali informasi Anda! Pastikan Anda memasukkannya dengan benar lalu coba lagi.",
                 "UserMessageIfUserAccountDisabled": "Akun sudah tidak aktif. Silakan hubungi organisasi Anda.",
                 "UserMessageIfUserAccountLocked": "Terlalu sering gagal masuk. Silakan tunggu dan coba lagi nanti."
             },

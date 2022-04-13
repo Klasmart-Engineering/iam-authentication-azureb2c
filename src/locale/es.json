@@ -91,6 +91,7 @@
                     "but_send_code": "Enviar código de verificación",
                     "but_send_new_code": "Enviar un nuevo código",
                     "but_verify_code": "Verificar código",
+                    "success_send_code_msg": "Se ha enviado un código de verificación a su teléfono. Por favor, cópielo en la casilla que aparece a continuación y verifique el código.",
                     "success_verify_code_msg": "Número de teléfono verificado. Ahora puede continuar."
                 }
             },
@@ -108,6 +109,27 @@
                 }
             },
             "Predicate": {
+                "BadWords": {
+                    "HelpText": "La contraseña contiene palabras clave reservadas que no pueden ser usadas."
+                },
+                "LengthRange": {
+                    "HelpText": "La contraseña debe tener entre 8 y 256 caracteres."
+                },
+                "LongSequences": {
+                    "HelpText": "La contraseña no debe tener números o letras de 3 o más caracteres consecutivos."
+                },
+                "Lowercase": {
+                    "HelpText": "una letra minúscula"
+                },
+                "Number": {
+                    "HelpText": "un dígito"
+                },
+                "Symbol": {
+                    "HelpText": "un símbolo"
+                },
+                "Uppercase": {
+                    "HelpText": "una letra mayúscula"
+                },
                 "email": {
                     "HelpText": "Por favor ingrese un correo electrónico válido"
                 },
@@ -140,6 +162,32 @@
                 },
                 "reenterPassword": {
                     "DisplayName": "Confirme la nueva contraseña"
+                }
+            },
+            "InputValidation": {
+                "CustomPassword": "La contraseña debe tener al menos 3 de las siguientes características:"
+            },
+            "Predicate": {
+                "BadWords": {
+                    "HelpText": "La contraseña contiene palabras clave reservadas que no pueden ser usadas."
+                },
+                "LengthRange": {
+                    "HelpText": "La contraseña debe tener entre 8 y 256 caracteres."
+                },
+                "LongSequences": {
+                    "HelpText": "La contraseña no debe tener números o letras de 3 o más caracteres consecutivos."
+                },
+                "Lowercase": {
+                    "HelpText": "una letra minúscula"
+                },
+                "Number": {
+                    "HelpText": "un dígito"
+                },
+                "Symbol": {
+                    "HelpText": "un símbolo"
+                },
+                "Uppercase": {
+                    "HelpText": "una letra mayúscula"
                 }
             },
             "UXElement": {
@@ -188,9 +236,9 @@
                 "SignupWithPhone2": "Teléfono"
             },
             "ErrorMessage": {
-                "UserMessageIfClaimsPrincipalDoesNotExist": "Debido a una actualización del sistema, deberá restablecer la contraseña de su cuenta. Si ya lo hizo y recibe este mensaje, entonces ha ingresado una contraseña no válida. Vuelva a intentarlo o haga clic en el enlace \"Olvidé mi contraseña\" si necesita restablecer su contraseña.",
-                "UserMessageIfInvalidPassword": "Debido a una actualización del sistema, deberá restablecer la contraseña de su cuenta. Si ya lo hizo y recibe este mensaje, entonces ha ingresado una contraseña no válida. Vuelva a intentarlo o haga clic en el enlace \"Olvidé mi contraseña\" si necesita restablecer su contraseña.",
-                "UserMessageIfOldPasswordUsed": "Debido a una actualización del sistema, deberá restablecer la contraseña de su cuenta. Si ya lo hizo y recibe este mensaje, entonces ha ingresado una contraseña no válida. Vuelva a intentarlo o haga clic en el enlace \"Olvidé mi contraseña\" si necesita restablecer su contraseña.",
+                "UserMessageIfClaimsPrincipalDoesNotExist": "Lo sentimos, no reconocemos sus datos de acceso. Por favor, compruebe que hayan sido introducidos correctamente e inténtelo de nuevo.",
+                "UserMessageIfInvalidPassword": "Lo sentimos, no reconocemos sus datos de acceso. Por favor, compruebe que hayan sido introducidos correctamente e inténtelo de nuevo.",
+                "UserMessageIfOldPasswordUsed": "Lo sentimos, no reconocemos sus datos de acceso. Por favor, compruebe que hayan sido introducidos correctamente e inténtelo de nuevo.",
                 "UserMessageIfUserAccountDisabled": "Su cuenta está desactivada. Por favor, póngase en contacto con su organización.",
                 "UserMessageIfUserAccountLocked": "Ha intentado iniciar sesión incorrectamente demasiadas veces. Por favor espere y vuelva a intentarlo más tarde."
             },

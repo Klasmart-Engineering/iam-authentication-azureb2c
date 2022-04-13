@@ -240,9 +240,9 @@
                 "SignupWithPhone2": "Phone"
             },
             "ErrorMessage": {
-                "UserMessageIfClaimsPrincipalDoesNotExist": "Due to a system upgrade you will have to reset your account password. If you have already done this and are getting this message, then you have entered an invalid password. Please try again or click on the 'Forgot password' link if you need to reset your password.",
-                "UserMessageIfInvalidPassword": "Due to a system upgrade you will have to reset your account password. If you have already done this and are getting this message, then you have entered an invalid password. Please try again or click on the 'Forgot password' link if you need to reset your password.",
-                "UserMessageIfOldPasswordUsed": "Due to a system upgrade you will have to reset your account password. If you have already done this and are getting this message, then you have entered an invalid password. Please try again or click on the 'Forgot password' link if you need to reset your password.",
+                "UserMessageIfClaimsPrincipalDoesNotExist": "Sorry, we don’t recognize your login details! Please check that you’ve entered them correctly and try again.",
+                "UserMessageIfInvalidPassword": "Sorry, we don’t recognize your login details! Please check that you’ve entered them correctly and try again.",
+                "UserMessageIfOldPasswordUsed": "Sorry, we don’t recognize your login details! Please check that you’ve entered them correctly and try again.",
                 "UserMessageIfUserAccountDisabled": "Your account is deactivated. Please contact your organization.",
                 "UserMessageIfUserAccountLocked": "You have tried to login incorrectly too many times. Please wait and try again later."
             },

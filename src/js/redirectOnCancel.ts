@@ -1,12 +1,20 @@
 const BUTTON_CANCEL_ID = "cancel"
 
 export const setupRedirectOnCancel = () => {
-    document
-        .getElementById(BUTTON_CANCEL_ID)
-        ?.addEventListener("click", (event: MouseEvent) => {
-            event.preventDefault()
-            event.stopImmediatePropagation()
+    const cancelButtonElement = document.getElementById(BUTTON_CANCEL_ID)
+    const parentElement = cancelButtonElement?.parentElement
 
-            window.history.back()
-        })
+    if (!cancelButtonElement) {
+        console.warn(`#cancel button not found`)
+        return
+    }
+
+    const copyElement = cancelButtonElement.cloneNode(true)
+
+    copyElement.addEventListener("click", () => {
+        history.back()
+    })
+
+    parentElement?.removeChild(cancelButtonElement)
+    parentElement?.appendChild(copyElement)
 }

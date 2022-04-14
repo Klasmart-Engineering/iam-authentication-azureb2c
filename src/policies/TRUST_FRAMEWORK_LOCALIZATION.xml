@@ -234,9 +234,9 @@
           <LocalizedString ElementType="ClaimsProvider" StringId="SignupWithEmail2">Email</LocalizedString>
           <LocalizedString ElementType="ClaimsProvider" StringId="SignupWithPhone">Phone</LocalizedString>
           <LocalizedString ElementType="ClaimsProvider" StringId="SignupWithPhone2">Phone</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalDoesNotExist">Due to a system upgrade you will have to reset your account password. If you have already done this and are getting this message, then you have entered an invalid password. Please try again or click on the 'Forgot password' link if you need to reset your password.</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidPassword">Due to a system upgrade you will have to reset your account password. If you have already done this and are getting this message, then you have entered an invalid password. Please try again or click on the 'Forgot password' link if you need to reset your password.</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfOldPasswordUsed">Due to a system upgrade you will have to reset your account password. If you have already done this and are getting this message, then you have entered an invalid password. Please try again or click on the 'Forgot password' link if you need to reset your password.</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalDoesNotExist">Sorry, we don’t recognize your login details! Please check that you’ve entered them correctly and try again.</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidPassword">Sorry, we don’t recognize your login details! Please check that you’ve entered them correctly and try again.</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfOldPasswordUsed">Sorry, we don’t recognize your login details! Please check that you’ve entered them correctly and try again.</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfUserAccountDisabled">Your account is deactivated. Please contact your organization.</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfUserAccountLocked">You have tried to login incorrectly too many times. Please wait and try again later.</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="email" StringId="HelpText">Please enter a valid email address</LocalizedString>
@@ -304,6 +304,7 @@
           <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl" StringId="but_send_code">Enviar código de verificación</LocalizedString>
           <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl" StringId="but_send_new_code">Enviar un nuevo código</LocalizedString>
           <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl" StringId="but_verify_code">Verificar código</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl" StringId="success_send_code_msg">Se ha enviado un código de verificación a su teléfono. Por favor, cópielo en la casilla que aparece a continuación y verifique el código.</LocalizedString>
           <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl" StringId="success_verify_code_msg">Número de teléfono verificado. Ahora puede continuar.</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfChallengeExpired">El código ha expirado</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalAlreadyExists">Ya existe una cuenta con esta dirección de correo electrónico o número telefónico.</LocalizedString>
@@ -311,6 +312,13 @@
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedNoRetry">Ha realizado demasiados intentos fallidos. Por favor, vuelva más tarde.</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedRetryAllowed">El código es incorrecto. Por favor, inténtelo de nuevo</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfWrongCodeEntered">El código es incorrecto. Por favor, inténtelo de nuevo</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="BadWords" StringId="HelpText">La contraseña contiene palabras clave reservadas que no pueden ser usadas.</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="LengthRange" StringId="HelpText">La contraseña debe tener entre 8 y 256 caracteres.</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="LongSequences" StringId="HelpText">La contraseña no debe tener números o letras de 3 o más caracteres consecutivos.</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="Lowercase" StringId="HelpText">una letra minúscula</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="Number" StringId="HelpText">un dígito</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="Symbol" StringId="HelpText">un símbolo</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="Uppercase" StringId="HelpText">una letra mayúscula</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="email" StringId="HelpText">Por favor ingrese un correo electrónico válido</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="internationalOrNationalPhoneNumber" StringId="HelpText">Formato de número no válido. Asegúrese de que el número de teléfono no contenga caracteres especiales como []{}().</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="noCorporateEmail" StringId="HelpText">No es posible crear una cuenta con una dirección de correo electrónico de KidsLoop. Por favor, inicie sesión en su lugar.</LocalizedString>
@@ -328,6 +336,14 @@
           <LocalizedString ElementType="ClaimType" ElementId="newPassword" StringId="DisplayName">Contraseña nueva</LocalizedString>
           <LocalizedString ElementType="ClaimType" ElementId="newPassword" StringId="PatternHelpText">8-16 caracteres, que contenga 3 de 4 de los siguientes: Letras en minúsculas, letras en mayúsculas, dígitos (0-9) y uno o más de los siguientes símbolos: @ # $ % ^ &amp; * - _ + = [ ] { } | \ : ' , ? / ` ~ " ( ) ; .</LocalizedString>
           <LocalizedString ElementType="ClaimType" ElementId="reenterPassword" StringId="DisplayName">Confirme la nueva contraseña</LocalizedString>
+          <LocalizedString ElementType="InputValidation" StringId="CustomPassword">La contraseña debe tener al menos 3 de las siguientes características:</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="BadWords" StringId="HelpText">La contraseña contiene palabras clave reservadas que no pueden ser usadas.</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="LengthRange" StringId="HelpText">La contraseña debe tener entre 8 y 256 caracteres.</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="LongSequences" StringId="HelpText">La contraseña no debe tener números o letras de 3 o más caracteres consecutivos.</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="Lowercase" StringId="HelpText">una letra minúscula</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="Number" StringId="HelpText">un dígito</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="Symbol" StringId="HelpText">un símbolo</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="Uppercase" StringId="HelpText">una letra mayúscula</LocalizedString>
           <LocalizedString ElementType="UXElement" StringId="button_continue">Restablecer la contraseña</LocalizedString>
           <LocalizedString ElementType="UXElement" StringId="initial_intro">¡Ya casi estamos listos! Introduzca su nueva contraseña a continuación.</LocalizedString>
         </LocalizedStrings>
@@ -351,9 +367,9 @@
           <LocalizedString ElementType="ClaimsProvider" StringId="SignupWithEmail2">Correo electrónico</LocalizedString>
           <LocalizedString ElementType="ClaimsProvider" StringId="SignupWithPhone">Teléfono</LocalizedString>
           <LocalizedString ElementType="ClaimsProvider" StringId="SignupWithPhone2">Teléfono</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalDoesNotExist">Debido a una actualización del sistema, deberá restablecer la contraseña de su cuenta. Si ya lo hizo y recibe este mensaje, entonces ha ingresado una contraseña no válida. Vuelva a intentarlo o haga clic en el enlace "Olvidé mi contraseña" si necesita restablecer su contraseña.</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidPassword">Debido a una actualización del sistema, deberá restablecer la contraseña de su cuenta. Si ya lo hizo y recibe este mensaje, entonces ha ingresado una contraseña no válida. Vuelva a intentarlo o haga clic en el enlace "Olvidé mi contraseña" si necesita restablecer su contraseña.</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfOldPasswordUsed">Debido a una actualización del sistema, deberá restablecer la contraseña de su cuenta. Si ya lo hizo y recibe este mensaje, entonces ha ingresado una contraseña no válida. Vuelva a intentarlo o haga clic en el enlace "Olvidé mi contraseña" si necesita restablecer su contraseña.</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalDoesNotExist">Lo sentimos, no reconocemos sus datos de acceso. Por favor, compruebe que hayan sido introducidos correctamente e inténtelo de nuevo.</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidPassword">Lo sentimos, no reconocemos sus datos de acceso. Por favor, compruebe que hayan sido introducidos correctamente e inténtelo de nuevo.</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfOldPasswordUsed">Lo sentimos, no reconocemos sus datos de acceso. Por favor, compruebe que hayan sido introducidos correctamente e inténtelo de nuevo.</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfUserAccountDisabled">Su cuenta está desactivada. Por favor, póngase en contacto con su organización.</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfUserAccountLocked">Ha intentado iniciar sesión incorrectamente demasiadas veces. Por favor espere y vuelva a intentarlo más tarde.</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="email" StringId="HelpText">Por favor ingrese un correo electrónico válido</LocalizedString>
@@ -470,9 +486,9 @@
           <LocalizedString ElementType="ClaimsProvider" StringId="SignupWithEmail2">Email</LocalizedString>
           <LocalizedString ElementType="ClaimsProvider" StringId="SignupWithPhone">Nomor hp</LocalizedString>
           <LocalizedString ElementType="ClaimsProvider" StringId="SignupWithPhone2">Nomor hp</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalDoesNotExist">Karena ada pembaruan sistem Anda harus melakukan reset kata sandi. Apabila Anda sudah melakukannya dan masih mendapat pesan ini, sepertinya Anda memasukkan kata sandi yang salah. Coba lagi atau klik 'Lupa kata sandi' untuk melakukan reset kata sandi.</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidPassword">Karena ada pembaruan sistem Anda harus melakukan reset kata sandi. Apabila Anda sudah melakukannya dan masih mendapat pesan ini, sepertinya Anda memasukkan kata sandi yang salah. Coba lagi atau klik 'Lupa kata sandi' untuk melakukan reset kata sandi.</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfOldPasswordUsed">Karena ada pembaruan sistem Anda harus melakukan reset kata sandi. Apabila Anda sudah melakukannya dan masih mendapat pesan ini, sepertinya Anda memasukkan kata sandi yang salah. Coba lagi atau klik 'Lupa kata sandi' untuk melakukan reset kata sandi.</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalDoesNotExist">Maaf, kami tidak mengenali informasi Anda! Pastikan Anda memasukkannya dengan benar lalu coba lagi.</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidPassword">Maaf, kami tidak mengenali informasi Anda! Pastikan Anda memasukkannya dengan benar lalu coba lagi.</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfOldPasswordUsed">Maaf, kami tidak mengenali informasi Anda! Pastikan Anda memasukkannya dengan benar lalu coba lagi.</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfUserAccountDisabled">Akun sudah tidak aktif. Silakan hubungi organisasi Anda.</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfUserAccountLocked">Terlalu sering gagal masuk. Silakan tunggu dan coba lagi nanti.</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="email" StringId="HelpText">Masukkan email yang valid</LocalizedString>
@@ -587,9 +603,9 @@
           <LocalizedString ElementType="ClaimsProvider" StringId="SignupWithEmail2">이메일</LocalizedString>
           <LocalizedString ElementType="ClaimsProvider" StringId="SignupWithPhone">연락처</LocalizedString>
           <LocalizedString ElementType="ClaimsProvider" StringId="SignupWithPhone2">연락처</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalDoesNotExist">시스템 업그레이드로 인해 계정 비밀번호를 재설정해야 합니다. 이미 비밀번호 재설정이 끝났으나 이 메시지가 표시되는 경우 잘못된 암호를 입력한 것입니다. 다시 시도하거나 비밀번호를 재설정해야 하는 경우 '비밀번호 찾기' 링크를 클릭하세요.</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidPassword">시스템 업그레이드로 인해 계정 비밀번호를 재설정해야 합니다. 이미 비밀번호 재설정이 끝났으나 이 메시지가 표시되는 경우 잘못된 암호를 입력한 것입니다. 다시 시도하거나 비밀번호를 재설정해야 하는 경우 '비밀번호 찾기' 링크를 클릭하세요.</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfOldPasswordUsed">시스템 업그레이드로 인해 계정 비밀번호를 재설정해야 합니다. 이미 비밀번호 재설정이 끝났으나 이 메시지가 표시되는 경우 잘못된 암호를 입력한 것입니다. 다시 시도하거나 비밀번호를 재설정해야 하는 경우 '비밀번호 찾기' 링크를 클릭하세요.</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalDoesNotExist">죄송합니다. 로그인 정보를 인식할 수 없습니다! 올바르게 입력했는지 확인하고 다시 시도하십시오.</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidPassword">죄송합니다. 로그인 정보를 인식할 수 없습니다! 올바르게 입력했는지 확인하고 다시 시도하십시오.</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfOldPasswordUsed">죄송합니다. 로그인 정보를 인식할 수 없습니다! 올바르게 입력했는지 확인하고 다시 시도하십시오.</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfUserAccountDisabled">계정이 비활성화되었습니다. 귀하의 조직에 문의해 주세요.</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfUserAccountLocked">잘못된 로그인 시도 횟수가 너무 많습니다. 잠시 후 다시 시도하십시오.</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="email" StringId="HelpText">이메일 주소를 올바르게 입력하세요.</LocalizedString>
@@ -704,9 +720,9 @@
           <LocalizedString ElementType="ClaimsProvider" StringId="SignupWithEmail2">อีเมล</LocalizedString>
           <LocalizedString ElementType="ClaimsProvider" StringId="SignupWithPhone">โทรศัพท์</LocalizedString>
           <LocalizedString ElementType="ClaimsProvider" StringId="SignupWithPhone2">โทรศัพท์</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalDoesNotExist">เนื่องจากการอัปเกรดระบบ คุณจะต้องรีเซ็ตรหัสผ่านบัญชีของคุณ หากคุณได้ทำสิ่งนี้ไปแล้วและได้รับข้อความนี้ แสดงว่าคุณป้อนรหัสผ่านที่ไม่ถูกต้อง โปรดลองอีกครั้งหรือคลิกลิงก์ 'ลืมรหัสผ่าน' หากคุณต้องการรีเซ็ตรหัสผ่าน</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidPassword">เนื่องจากการอัปเกรดระบบ คุณจะต้องรีเซ็ตรหัสผ่านบัญชีของคุณ หากคุณได้ทำสิ่งนี้ไปแล้วและได้รับข้อความนี้ แสดงว่าคุณป้อนรหัสผ่านที่ไม่ถูกต้อง โปรดลองอีกครั้งหรือคลิกลิงก์ 'ลืมรหัสผ่าน' หากคุณต้องการรีเซ็ตรหัสผ่าน</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfOldPasswordUsed">เนื่องจากการอัปเกรดระบบ คุณจะต้องรีเซ็ตรหัสผ่านบัญชีของคุณ หากคุณได้ทำสิ่งนี้ไปแล้วและได้รับข้อความนี้ แสดงว่าคุณป้อนรหัสผ่านที่ไม่ถูกต้อง โปรดลองอีกครั้งหรือคลิกลิงก์ 'ลืมรหัสผ่าน' หากคุณต้องการรีเซ็ตรหัสผ่าน</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalDoesNotExist">ขออภัย เราไม่รู้จักรายละเอียดการเข้าสู่ระบบของคุณ! โปรดตรวจสอบว่าคุณป้อนถูกต้องแล้วลองอีกครั้ง</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidPassword">ขออภัย เราไม่รู้จักรายละเอียดการเข้าสู่ระบบของคุณ! โปรดตรวจสอบว่าคุณป้อนถูกต้องแล้วลองอีกครั้ง</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfOldPasswordUsed">ขออภัย เราไม่รู้จักรายละเอียดการเข้าสู่ระบบของคุณ! โปรดตรวจสอบว่าคุณป้อนถูกต้องแล้วลองอีกครั้ง</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfUserAccountDisabled">บัญชีของคุณถูกปิดการใช้งาน โปรดลองอีกครั้งหรือติดต่อผู้ดูแลระบบองค์กรของคุณ</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfUserAccountLocked">คุณพยายามเข้าสู่ระบบไม่ถูกต้องหลายครั้งเกินไป โปรดรอและลองอีกครั้งในภายหลัง</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="email" StringId="HelpText">กรุณากรอกอีเมลให้ถูกต้อง</LocalizedString>
@@ -821,9 +837,9 @@
           <LocalizedString ElementType="ClaimsProvider" StringId="SignupWithEmail2">E-mail</LocalizedString>
           <LocalizedString ElementType="ClaimsProvider" StringId="SignupWithPhone">Điện thoại</LocalizedString>
           <LocalizedString ElementType="ClaimsProvider" StringId="SignupWithPhone2">Điện thoại</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalDoesNotExist">Do nâng cấp hệ thống, bạn sẽ phải đặt lại mật khẩu tài khoản của mình. Nếu bạn đã làm điều này và vẫn nhận được thông báo này, thì bạn đã nhập mật khẩu không hợp lệ. Vui lòng thử lại hoặc nhấp vào liên kêt 'Quên mật khẩu' nếu bạn cần đặt lại mật khẩu của mình.</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidPassword">Do nâng cấp hệ thống, bạn sẽ phải đặt lại mật khẩu tài khoản của mình. Nếu bạn đã làm điều này và vẫn nhận được thông báo này, thì bạn đã nhập mật khẩu không hợp lệ. Vui lòng thử lại hoặc nhấp vào liên kêt 'Quên mật khẩu' nếu bạn cần đặt lại mật khẩu của mình.</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfOldPasswordUsed">Do nâng cấp hệ thống, bạn sẽ phải đặt lại mật khẩu tài khoản của mình. Nếu bạn đã làm điều này và vẫn nhận được thông báo này, thì bạn đã nhập mật khẩu không hợp lệ. Vui lòng thử lại hoặc nhấp vào liên kêt 'Quên mật khẩu' nếu bạn cần đặt lại mật khẩu của mình.</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalDoesNotExist">Xin lỗi, chúng tôi không nhận ra thông tin đăng nhập của bạn! Vui lòng kiểm tra xem bạn đã nhập chính xác chưa và thử lại.</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidPassword">Xin lỗi, chúng tôi không nhận ra thông tin đăng nhập của bạn! Vui lòng kiểm tra xem bạn đã nhập chính xác chưa và thử lại.</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfOldPasswordUsed">Xin lỗi, chúng tôi không nhận ra thông tin đăng nhập của bạn! Vui lòng kiểm tra xem bạn đã nhập chính xác chưa và thử lại.</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfUserAccountDisabled">Tài khoản của bạn đã bị bất hoạt. Vui lòng liên hệ tổ chức của bạn để được giúp đỡ.</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfUserAccountLocked">Bạn đã đăng nhập không chính xác quá nhiều lần. Vui lòng đợi và đăng nhập lại sau.</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="email" StringId="HelpText">Vui lòng nhập địa chỉ email hợp lệ</LocalizedString>
@@ -938,9 +954,9 @@
           <LocalizedString ElementType="ClaimsProvider" StringId="SignupWithEmail2">邮箱</LocalizedString>
           <LocalizedString ElementType="ClaimsProvider" StringId="SignupWithPhone">手机号</LocalizedString>
           <LocalizedString ElementType="ClaimsProvider" StringId="SignupWithPhone2">手机号</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalDoesNotExist">由于系统升级，您需要重置您的密码。如果您已完成重置但仍然收到此条信息，可能是您输入了错误的密码。 请重试或如需再次重置密码您可点击“忘记密码"</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidPassword">由于系统升级，您需要重置您的密码。如果您已完成重置但仍然收到此条信息，可能是您输入了错误的密码。 请重试或如需再次重置密码您可点击“忘记密码"</LocalizedString>
-          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfOldPasswordUsed">由于系统升级，您需要重置您的密码。如果您已完成重置但仍然收到此条信息，可能是您输入了错误的密码。 请重试或如需再次重置密码您可点击“忘记密码"</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalDoesNotExist">抱歉，我们无法识别您的登录信息！请检查您是否输入正确，然后重试。</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidPassword">抱歉，我们无法识别您的登录信息！请检查您是否输入正确，然后重试。</LocalizedString>
+          <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfOldPasswordUsed">抱歉，我们无法识别您的登录信息！请检查您是否输入正确，然后重试。</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfUserAccountDisabled">您的账户已停用。请联系您的组织。</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfUserAccountLocked">您尝试错误登录的次数过多。请稍后再试。</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="email" StringId="HelpText">请输入有效的电子邮件地址</LocalizedString>

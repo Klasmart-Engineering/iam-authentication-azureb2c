@@ -188,9 +188,9 @@
                 "SignupWithPhone2": "Điện thoại"
             },
             "ErrorMessage": {
-                "UserMessageIfClaimsPrincipalDoesNotExist": "Do nâng cấp hệ thống, bạn sẽ phải đặt lại mật khẩu tài khoản của mình. Nếu bạn đã làm điều này và vẫn nhận được thông báo này, thì bạn đã nhập mật khẩu không hợp lệ. Vui lòng thử lại hoặc nhấp vào liên kêt 'Quên mật khẩu' nếu bạn cần đặt lại mật khẩu của mình.",
-                "UserMessageIfInvalidPassword": "Do nâng cấp hệ thống, bạn sẽ phải đặt lại mật khẩu tài khoản của mình. Nếu bạn đã làm điều này và vẫn nhận được thông báo này, thì bạn đã nhập mật khẩu không hợp lệ. Vui lòng thử lại hoặc nhấp vào liên kêt 'Quên mật khẩu' nếu bạn cần đặt lại mật khẩu của mình.",
-                "UserMessageIfOldPasswordUsed": "Do nâng cấp hệ thống, bạn sẽ phải đặt lại mật khẩu tài khoản của mình. Nếu bạn đã làm điều này và vẫn nhận được thông báo này, thì bạn đã nhập mật khẩu không hợp lệ. Vui lòng thử lại hoặc nhấp vào liên kêt 'Quên mật khẩu' nếu bạn cần đặt lại mật khẩu của mình.",
+                "UserMessageIfClaimsPrincipalDoesNotExist": "Xin lỗi, chúng tôi không nhận ra thông tin đăng nhập của bạn! Vui lòng kiểm tra xem bạn đã nhập chính xác chưa và thử lại.",
+                "UserMessageIfInvalidPassword": "Xin lỗi, chúng tôi không nhận ra thông tin đăng nhập của bạn! Vui lòng kiểm tra xem bạn đã nhập chính xác chưa và thử lại.",
+                "UserMessageIfOldPasswordUsed": "Xin lỗi, chúng tôi không nhận ra thông tin đăng nhập của bạn! Vui lòng kiểm tra xem bạn đã nhập chính xác chưa và thử lại.",
                 "UserMessageIfUserAccountDisabled": "Tài khoản của bạn đã bị bất hoạt. Vui lòng liên hệ tổ chức của bạn để được giúp đỡ.",
                 "UserMessageIfUserAccountLocked": "Bạn đã đăng nhập không chính xác quá nhiều lần. Vui lòng đợi và đăng nhập lại sau."
             },

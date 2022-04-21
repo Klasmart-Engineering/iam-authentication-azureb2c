@@ -7,6 +7,8 @@ const LANGUAGE_PARAM = "ui_locales"
 
 const LOGIN_WITH_PHONE_SELECTOR = "#SigninWithPhone"
 const EMAIL_INPUT_SELECTOR = "#signInName"
+const PASSWORD_INPUT_SELECTOR = "#password"
+const FORGOT_PASSWORD_SELECTOR = "#forgotPassword"
 
 const LOGIN_WITH_EMAIL_SELECTOR = "#SigninWithEmail"
 const PHONE_NUMBER_INPUT_SELECTOR = "#signInNamePhoneNumber"
@@ -15,7 +17,7 @@ const NATIONAL_NUMBER_INPUT_SELECTOR = "#nationalNumber"
 const SIGN_IN_NAME_SELECTOR = "#signInName"
 const REDIRECT_TO_SSO_BUTTON_SELECTOR = "#SiginInWithKidsLoopCredentials"
 const PASSWORD_LABEL_SELECTOR = ".password-label"
-const PASSWORD_INPUT_SELECTOR = ".password__container"
+const PASSWORD_CONTAINER_INPUT_SELECTOR = ".password__container"
 const SIGN_IN_BUTTON_SELECTOR = "#next"
 const CREATE_ACCOUNT_LINKS_SELECTOR = ".claims-provider-list-text-links"
 const THROBBER_CONTAINER_SELECTOR = "#throbber"
@@ -77,6 +79,17 @@ const repositionPhoneLoginLink = () => {
     phoneLoginLink.style.display = "block"
 }
 
+const repositionForgotPasswordLink = () => {
+    const forgotPasswordLink = checkedQuerySelector<HTMLAnchorElement>(
+        FORGOT_PASSWORD_SELECTOR
+    )
+
+    const passwordInput = checkedQuerySelector(PASSWORD_INPUT_SELECTOR)
+
+    passwordInput.parentElement?.appendChild(forgotPasswordLink)
+    forgotPasswordLink.style.display = "block"
+}
+
 const isKidsloopEmail = (email: string): boolean => {
     const signInNameParts = email.split("@")
 
@@ -97,7 +110,9 @@ const redirectToKidsloopSSO = () => {
         REDIRECT_TO_SSO_BUTTON_SELECTOR
     )
     const passwordLabel = checkedQuerySelector(PASSWORD_LABEL_SELECTOR)
-    const passwordInput = checkedQuerySelector(PASSWORD_INPUT_SELECTOR)
+    const passwordInput = checkedQuerySelector(
+        PASSWORD_CONTAINER_INPUT_SELECTOR
+    )
     const signInButton = checkedQuerySelector(SIGN_IN_BUTTON_SELECTOR)
     const createAccountLink = checkedQuerySelector(
         CREATE_ACCOUNT_LINKS_SELECTOR
@@ -149,6 +164,7 @@ const setup = () => {
     if (isEmailLoginPage()) {
         setupLanguageSelect()
         repositionPhoneLoginLink()
+        repositionForgotPasswordLink()
         setupKidsloopSSORedirect()
     } else {
         setupUseEmail()

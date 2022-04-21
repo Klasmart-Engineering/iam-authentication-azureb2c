@@ -1,7 +1,8 @@
 /* stylelint-disable selector-class-pattern, selector-id-pattern -- most classes/IDs are dictated by Azure B2C */
 
 #SigninWithPhone,
-#SigninWithEmail {
+#SigninWithEmail,
+#forgotPassword {
     /* We want this to be hidden on initial load, then inline styled with display: block (using JS)
     after we move the link to the right place */
     color: #2765c1;
@@ -13,7 +14,12 @@
     text-decoration: none;
 }
 
-#signInName {
+#forgotPassword {
+    margin-bottom: 32px;
+}
+
+#signInName,
+#password {
     /* Space before `Use Phone number/email */
     margin-bottom: 0.5rem;
 }

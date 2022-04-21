@@ -44,11 +44,6 @@
     max-width: 500px;
 }
 
-#email,
-#password {
-    margin-bottom: 30px;
-}
-
 #forgotPassword {
     color: #2765c1;
     font-size: 12px;

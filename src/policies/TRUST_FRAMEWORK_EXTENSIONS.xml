@@ -839,6 +839,7 @@
             <Item Key="UserMessageIfClaimsTransformationStringsAreNotEqual">The last names you provided are not the same</Item>
             <Item Key="AllowGenerationOfClaimsWithNullValues">true</Item>
             <Item Key="setting.forgotPasswordLinkOverride">ForgotPasswordExchange</Item>
+            <Item Key="setting.forgotPasswordLinkLocation">AfterInput</Item>
           </Metadata>
           <IncludeInSso>false</IncludeInSso>
           <InputClaims>
@@ -891,6 +892,7 @@
             <Item Key="ClaimsProviderSelectionDisplayType">TextLink</Item>
             <Item Key="AllowGenerationOfClaimsWithNullValues">true</Item>
             <Item Key="setting.forgotPasswordLinkOverride">ForgotPasswordExchangePhone</Item>
+            <Item Key="setting.forgotPasswordLinkLocation">AfterInput</Item>
           </Metadata>
           <IncludeInSso>false</IncludeInSso>
           <InputClaims>

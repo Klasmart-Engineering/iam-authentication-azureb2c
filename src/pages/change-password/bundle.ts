@@ -1,9 +1,11 @@
 import { setupPasswordToggles } from "@js/passwordToggle"
 import { setupRedirectOnCancel } from "@js/redirectOnCancel"
+import { removeInputPlaceholders } from "@js/removeInputPlaceholders"
 
 const setup = () => {
     setupPasswordToggles()
     setupRedirectOnCancel()
+    removeInputPlaceholders()
 }
 
 if (

@@ -1,5 +1,6 @@
 import { setupPasswordToggles } from "@js/passwordToggle"
 import { setupRedirectOnCancel } from "@js/redirectOnCancel"
+import { removeInputPlaceholders } from "@js/removeInputPlaceholders"
 
 const LANGUAGE_DROPDOWN_SELECTOR = "#language-select"
 const LANGUAGE_DROPDOWN_CONTAINER_SELECTOR = "#language-select__container"
@@ -160,18 +161,45 @@ const isEmailLoginPage = (): boolean => {
     return document.querySelector(EMAIL_INPUT_SELECTOR) !== null
 }
 
+const isPhoneLoginPage = (): boolean => {
+    return document.querySelector(LOGIN_WITH_EMAIL_SELECTOR) !== null
+}
+
+const isPhoneLoginWithPasswordPage = (): boolean => {
+    return (
+        document.querySelector(PHONE_NUMBER_INPUT_SELECTOR) !== null &&
+        document.querySelector(PASSWORD_INPUT_SELECTOR) !== null
+    )
+}
+
+const showForgotPassword = () => {
+    const forgotPasswordLink = checkedQuerySelector<HTMLAnchorElement>(
+        FORGOT_PASSWORD_SELECTOR
+    )
+
+    forgotPasswordLink.style.display = "block"
+}
+
 const setup = () => {
     if (isEmailLoginPage()) {
         setupLanguageSelect()
         repositionPhoneLoginLink()
         repositionForgotPasswordLink()
         setupKidsloopSSORedirect()
-    } else {
+    }
+
+    if (isPhoneLoginPage() && !isEmailLoginPage()) {
         setupUseEmail()
         repositionForgotPasswordLink()
     }
+
+    if (isPhoneLoginWithPasswordPage()) {
+        showForgotPassword()
+    }
+
     setupPasswordToggles()
     setupRedirectOnCancel()
+    removeInputPlaceholders()
 }
 
 if (

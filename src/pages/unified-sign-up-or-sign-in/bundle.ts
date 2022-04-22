@@ -162,8 +162,10 @@ const isEmailLoginPage = (): boolean => {
 }
 
 const isPhoneLoginWithPasswordPage = (): boolean => {
-    return document.querySelector(PHONE_NUMBER_INPUT_SELECTOR) !== null && 
+    return (
+        document.querySelector(PHONE_NUMBER_INPUT_SELECTOR) !== null &&
         document.querySelector(PASSWORD_INPUT_SELECTOR) !== null
+    )
 }
 
 const showForgotPassword = () => {

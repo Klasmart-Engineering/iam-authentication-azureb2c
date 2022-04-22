@@ -5,5 +5,5 @@ export const removeInputPlaceholders = () => {
 }
 
 const removeInputPlaceholder = (input: HTMLInputElement) => {
-    input.placeholder = ``;
+    input.placeholder = ``
 }

@@ -168,6 +168,7 @@ const setup = () => {
         setupKidsloopSSORedirect()
     } else {
         setupUseEmail()
+        repositionForgotPasswordLink()
     }
     setupPasswordToggles()
     setupRedirectOnCancel()

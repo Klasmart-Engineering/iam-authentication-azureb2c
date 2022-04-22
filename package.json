@@ -1,6 +1,6 @@
 {
     "name": "iam-authentication-azureb2c",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Azure B2C custom HTML, JS and Policies",
     "main": "index.js",
     "module": "commonjs",

@@ -1,7 +1,9 @@
 import { setupRedirectOnCancel } from "@js/redirectOnCancel"
+import { removeInputPlaceholders } from "@js/removeInputPlaceholders"
 
 const setup = () => {
     setupRedirectOnCancel()
+    removeInputPlaceholders()
 }
 
 if (

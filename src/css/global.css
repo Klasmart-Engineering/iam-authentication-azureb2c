@@ -345,3 +345,20 @@ input.password--with_toggle,
 .verifying-modal {
     display: none;
 }
+
+@media only screen and (max-width: 768px) {
+    .textInput,
+    .verifyInput,
+    #email,
+    #password,
+    #signInName,
+    #signInNamePhoneNumber,
+    #verificationCode,
+    #countryCode {
+        font-size: 18px;
+    }
+
+    .language-select {
+      font-size: 14px;
+    }
+}

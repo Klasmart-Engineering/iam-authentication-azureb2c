@@ -161,6 +161,10 @@ const isEmailLoginPage = (): boolean => {
     return document.querySelector(EMAIL_INPUT_SELECTOR) !== null
 }
 
+const hasUseEmailLinkOnPage = (): boolean => {
+    return document.querySelector(LOGIN_WITH_EMAIL_SELECTOR) !== null
+}
+
 const isPhoneLoginWithPasswordPage = (): boolean => {
     return (
         document.querySelector(PHONE_NUMBER_INPUT_SELECTOR) !== null &&
@@ -182,7 +186,9 @@ const setup = () => {
         repositionPhoneLoginLink()
         repositionForgotPasswordLink()
         setupKidsloopSSORedirect()
-    } else {
+    }
+
+    if (hasUseEmailLinkOnPage()) {
         setupUseEmail()
     }
 

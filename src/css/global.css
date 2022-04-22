@@ -165,14 +165,6 @@ input.password--with_toggle,
     margin-bottom: 14px;
 }
 
-#nationalNumber_label {
-    display: none;
-}
-
-.verificationInfoText {
-    display: none !important; /* Set to display: inline in the markup itself :'( */
-}
-
 .verificationSuccessText {
     color: #666;
     font-size: 20px;

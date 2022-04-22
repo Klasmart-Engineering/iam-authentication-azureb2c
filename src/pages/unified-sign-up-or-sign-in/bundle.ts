@@ -190,6 +190,7 @@ const setup = () => {
 
     if (isPhoneLoginPage() && !isEmailLoginPage()) {
         setupUseEmail()
+        repositionForgotPasswordLink()
     }
 
     if (isPhoneLoginWithPasswordPage()) {

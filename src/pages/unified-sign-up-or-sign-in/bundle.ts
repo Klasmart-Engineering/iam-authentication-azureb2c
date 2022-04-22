@@ -161,7 +161,7 @@ const isEmailLoginPage = (): boolean => {
     return document.querySelector(EMAIL_INPUT_SELECTOR) !== null
 }
 
-const hasUseEmailLinkOnPage = (): boolean => {
+const isPhoneLoginPage = (): boolean => {
     return document.querySelector(LOGIN_WITH_EMAIL_SELECTOR) !== null
 }
 
@@ -188,7 +188,7 @@ const setup = () => {
         setupKidsloopSSORedirect()
     }
 
-    if (hasUseEmailLinkOnPage()) {
+    if (isPhoneLoginPage() && !isEmailLoginPage()) {
         setupUseEmail()
     }
 

@@ -54,3 +54,16 @@
 .claims-provider-list-buttons {
     display: none;
 }
+
+#password {
+    margin-bottom: 12px;
+}
+
+.rememberMe {
+    margin-bottom: 48px;
+}
+
+.entry-item.password__container {
+    /* Override `.entry-item` margin, as we want the `.rememberMe` checkbox close to the password input */
+    margin-bottom: 0;
+}

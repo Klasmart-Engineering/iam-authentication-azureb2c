@@ -840,6 +840,7 @@
             <Item Key="AllowGenerationOfClaimsWithNullValues">true</Item>
             <Item Key="setting.forgotPasswordLinkOverride">ForgotPasswordExchange</Item>
             <Item Key="setting.forgotPasswordLinkLocation">AfterInput</Item>
+            <Item Key="setting.enableRememberMe">True</Item>
           </Metadata>
           <IncludeInSso>false</IncludeInSso>
           <InputClaims>
@@ -893,6 +894,7 @@
             <Item Key="AllowGenerationOfClaimsWithNullValues">true</Item>
             <Item Key="setting.forgotPasswordLinkOverride">ForgotPasswordExchangePhone</Item>
             <Item Key="setting.forgotPasswordLinkLocation">AfterInput</Item>
+            <Item Key="setting.enableRememberMe">True</Item>
           </Metadata>
           <IncludeInSso>false</IncludeInSso>
           <InputClaims>

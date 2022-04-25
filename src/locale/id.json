@@ -104,12 +104,36 @@
                 "UserMessageIfVerificationFailedRetryAllowed": "Kode salah. Yuk coba lagi.",
                 "UserMessageIfWrongCodeEntered": "Kode salah, yuk coba lagi"
             },
+            "InputValidation": {
+                "CustomPassword": "Kata sandi harus memiliki setidaknya 3 dari hal berikut:"
+            },
             "LocalizedCollection": {
                 "hasAcceptedPrivacyPolicy": {
                     "true": "Setuju dengan {{Kebijakan Privasi}} KidsLoop"
                 }
             },
             "Predicate": {
+                "BadWords": {
+                    "HelpText": "Kata sandi mengandung kata kunci yang diblokir."
+                },
+                "LengthRange": {
+                    "HelpText": "Kata sandi harus terdiri dari 8 sampai 256 karakter."
+                },
+                "LongSequences": {
+                    "HelpText": "Kata sandi tidak boleh memiliki urutan angka atau huruf lebih panjang dari 3 karakter atau lebih"
+                },
+                "Lowercase": {
+                    "HelpText": "huruf kecil"
+                },
+                "Number": {
+                    "HelpText": "digit"
+                },
+                "Symbol": {
+                    "HelpText": "simbol"
+                },
+                "Uppercase": {
+                    "HelpText": "huruf besar"
+                },
                 "email": {
                     "HelpText": "Masukkan email yang valid"
                 },
@@ -142,6 +166,32 @@
                 },
                 "reenterPassword": {
                     "DisplayName": "Konfirmasi kata sandi baru"
+                }
+            },
+            "InputValidation": {
+                "CustomPassword": "Kata sandi harus terdiri dari 3 hal berikut:"
+            },
+            "Predicate": {
+                "BadWords": {
+                    "HelpText": "Kata sandi mengandung kata kunci yang diblokir."
+                },
+                "LengthRange": {
+                    "HelpText": "Kata sandi harus terdiri dari 8 sampai 256 karakter."
+                },
+                "LongSequences": {
+                    "HelpText": "Kata sandi tidak boleh memiliki urutan angka atau huruf lebih panjang dari 3 karakter atau lebih"
+                },
+                "Lowercase": {
+                    "HelpText": "huruf kecil"
+                },
+                "Number": {
+                    "HelpText": "digit"
+                },
+                "Symbol": {
+                    "HelpText": "simbol"
+                },
+                "Uppercase": {
+                    "HelpText": "huruf besar"
                 }
             },
             "UXElement": {

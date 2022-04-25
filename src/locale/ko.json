@@ -84,6 +84,7 @@
                     "but_send_code": "인증 코드 보내기",
                     "but_send_new_code": "새 코드 보내기",
                     "but_verify_code": "코드 확인",
+                    "success_send_code_msg": "귀하의 이메일로 인증 코드가 전송되었습니다. 아래 입력란에 복사하여 코드를 확인하십시오.",
                     "success_verify_code_msg": "이메일 주소가 확인되었습니다. 지금 계속할 수 있습니다."
                 },
                 "phoneVerificationControl": {
@@ -91,6 +92,7 @@
                     "but_send_code": "인증 코드 보내기",
                     "but_send_new_code": "새 코드 보내기",
                     "but_verify_code": "코드 확인",
+                    "success_send_code_msg": "인증 코드가 휴대전화로 전송되었습니다. 아래 입력란에 복사하여 코드를 확인하십시오.",
                     "success_verify_code_msg": "전화번호가 확인되었습니다. 지금 계속할 수 있습니다."
                 }
             },
@@ -102,12 +104,36 @@
                 "UserMessageIfVerificationFailedRetryAllowed": "코드가 올바르지 않습니다. 다시 시도하십시오.",
                 "UserMessageIfWrongCodeEntered": "코드가 올바르지 않습니다, 다시 시도하십시오"
             },
+            "InputValidation": {
+                "CustomPassword": "비밀번호는 다음 중 3가지 이상을 포함해야 합니다."
+            },
             "LocalizedCollection": {
                 "hasAcceptedPrivacyPolicy": {
                     "true": "나는 키즈룹의 {{개인 정보 보호 정책}}에 동의합니다"
                 }
             },
             "Predicate": {
+                "BadWords": {
+                    "HelpText": "비밀번호에 차단된 키워드가 포함되어 있습니다."
+                },
+                "LengthRange": {
+                    "HelpText": "암호는 8자에서 256자 사이여야 합니다."
+                },
+                "LongSequences": {
+                    "HelpText": "비밀번호는 3자 이상의 연속되는 숫자 또는 문자를 포함해서는 안 됩니다."
+                },
+                "Lowercase": {
+                    "HelpText": "소문자"
+                },
+                "Number": {
+                    "HelpText": "숫자"
+                },
+                "Symbol": {
+                    "HelpText": "기호"
+                },
+                "Uppercase": {
+                    "HelpText": "대문자"
+                },
                 "email": {
                     "HelpText": "이메일 주소를 올바르게 입력하세요."
                 },
@@ -140,6 +166,32 @@
                 },
                 "reenterPassword": {
                     "DisplayName": "새 암호 확인"
+                }
+            },
+            "InputValidation": {
+                "CustomPassword": "비밀번호는 아래의 리스트 중 세가지를 포함하여야 합니다."
+            },
+            "Predicate": {
+                "BadWords": {
+                    "HelpText": "비밀번호에 차단된 키워드가 포함되어 있습니다."
+                },
+                "LengthRange": {
+                    "HelpText": "비밀번호는 8자에서 265자 이내여야 합니다."
+                },
+                "LongSequences": {
+                    "HelpText": "비밀번호는 연속되는 숫자와 글자를 포함해서는 안됩니다."
+                },
+                "Lowercase": {
+                    "HelpText": "알파벳 소문자"
+                },
+                "Number": {
+                    "HelpText": "숫자"
+                },
+                "Symbol": {
+                    "HelpText": "특수문자"
+                },
+                "Uppercase": {
+                    "HelpText": "알파벳 대문자"
                 }
             },
             "UXElement": {

@@ -108,6 +108,12 @@
                 }
             },
             "Predicate": {
+                "LengthRange": {
+                    "HelpText": "Mật khẩu phải có từ 8 đến 256 ký tự."
+                },
+                "Lowercase": {
+                    "HelpText": "một chữ cái viết thường"
+                },
                 "email": {
                     "HelpText": "Vui lòng nhập địa chỉ email hợp lệ"
                 },
@@ -140,6 +146,26 @@
                 },
                 "reenterPassword": {
                     "DisplayName": "Xác nhận mật khẩu mới"
+                }
+            },
+            "InputValidation": {
+                "CustomPassword": "Mật khẩu phải có ít nhất 3 điều sau:"
+            },
+            "Predicate": {
+                "BadWords": {
+                    "HelpText": "Mật khẩu chứa các từ khóa dành riêng bị chặn."
+                },
+                "LongSequences": {
+                    "HelpText": "Mật khẩu không được có dãy số hoặc chữ cái dài từ 3 ký tự trở lên."
+                },
+                "Number": {
+                    "HelpText": "một chữ số"
+                },
+                "Symbol": {
+                    "HelpText": "một biểu tượng"
+                },
+                "Uppercase": {
+                    "HelpText": "một ký tự hoa"
                 }
             },
             "UXElement": {

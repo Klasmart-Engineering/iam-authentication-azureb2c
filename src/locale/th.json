@@ -108,6 +108,12 @@
                 }
             },
             "Predicate": {
+                "LengthRange": {
+                    "HelpText": "รหัสผ่านต้องมีความยาวระหว่าง 8 ถึง 256 อักขระ"
+                },
+                "Lowercase": {
+                    "HelpText": "ตัวพิมพ์เล็ก"
+                },
                 "email": {
                     "HelpText": "กรุณาใส่อีเมลที่ถูกต้อง"
                 },
@@ -140,6 +146,26 @@
                 },
                 "reenterPassword": {
                     "DisplayName": "ยืนยันรหัสผ่านใหม่"
+                }
+            },
+            "InputValidation": {
+                "CustomPassword": "รหัสผ่านต้องมีอย่างน้อย 3 รายการต่อไปนี้:"
+            },
+            "Predicate": {
+                "BadWords": {
+                    "HelpText": "รหัสผ่านมีคีย์เวิร์ดสงวนที่ถูกบล็อกไว้"
+                },
+                "LongSequences": {
+                    "HelpText": "รหัสผ่านต้องไม่เรียงลำดับตัวเลขหรือตัวอักษรยาวตั้งแต่ 3 อักขระขึ้นไป"
+                },
+                "Number": {
+                    "HelpText": "ตัวเลข"
+                },
+                "Symbol": {
+                    "HelpText": "สัญลักษณ์"
+                },
+                "Uppercase": {
+                    "HelpText": "ตัวพิมพ์ใหญ่"
                 }
             },
             "UXElement": {

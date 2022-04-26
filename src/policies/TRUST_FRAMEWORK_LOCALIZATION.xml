@@ -446,6 +446,14 @@
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedNoRetry">Terlalu banyak percobaan yang gagal. Silakan coba lagi nanti.</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedRetryAllowed">Kode salah. Yuk coba lagi.</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfWrongCodeEntered">Kode salah, yuk coba lagi</LocalizedString>
+          <LocalizedString ElementType="InputValidation" StringId="CustomPassword">Kata sandi harus memiliki setidaknya 3 dari hal berikut:</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="BadWords" StringId="HelpText">Kata sandi mengandung kata kunci yang diblokir.</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="LengthRange" StringId="HelpText">Kata sandi harus terdiri dari 8 sampai 256 karakter.</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="LongSequences" StringId="HelpText">Kata sandi tidak boleh memiliki urutan angka atau huruf lebih panjang dari 3 karakter atau lebih</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="Lowercase" StringId="HelpText">huruf kecil</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="Number" StringId="HelpText">digit</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="Symbol" StringId="HelpText">simbol</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="Uppercase" StringId="HelpText">huruf besar</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="email" StringId="HelpText">Masukkan email yang valid</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="internationalOrNationalPhoneNumber" StringId="HelpText">Format nomor tidak valid. Pastikan nomor hp tidak mengandung karakter spesial seperti []{}().</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="noCorporateEmail" StringId="HelpText">Tidak bisa membuat akun menggunakan email KidsLoop. Coba masuk sebagai gantinya.</LocalizedString>
@@ -463,6 +471,14 @@
           <LocalizedString ElementType="ClaimType" ElementId="newPassword" StringId="DisplayName">Kata sandi baru</LocalizedString>
           <LocalizedString ElementType="ClaimType" ElementId="newPassword" StringId="PatternHelpText">8-16 karakter, terdiri dari 3 dari 4 hal berikut: Huruf kecil, huruf besar, angka (0-9), dan satu atau lebih simbol berikut: @ # $ % ^ &amp; * - _ + = [ ] {} | \ : ' , ? / `~ " ( ) ; .</LocalizedString>
           <LocalizedString ElementType="ClaimType" ElementId="reenterPassword" StringId="DisplayName">Konfirmasi kata sandi baru</LocalizedString>
+          <LocalizedString ElementType="InputValidation" StringId="CustomPassword">Kata sandi harus terdiri dari 3 hal berikut:</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="BadWords" StringId="HelpText">Kata sandi mengandung kata kunci yang diblokir.</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="LengthRange" StringId="HelpText">Kata sandi harus terdiri dari 8 sampai 256 karakter.</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="LongSequences" StringId="HelpText">Kata sandi tidak boleh memiliki urutan angka atau huruf lebih panjang dari 3 karakter atau lebih</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="Lowercase" StringId="HelpText">huruf kecil</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="Number" StringId="HelpText">digit</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="Symbol" StringId="HelpText">simbol</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="Uppercase" StringId="HelpText">huruf besar</LocalizedString>
           <LocalizedString ElementType="UXElement" StringId="button_continue">Reset Kata Sandi</LocalizedString>
           <LocalizedString ElementType="UXElement" StringId="initial_intro">Sedikit lagi! Masukkan kata sandi baru di bawah.</LocalizedString>
         </LocalizedStrings>
@@ -551,11 +567,13 @@
           <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="but_send_code">인증 코드 보내기</LocalizedString>
           <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="but_send_new_code">새 코드 보내기</LocalizedString>
           <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="but_verify_code">코드 확인</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="success_send_code_msg">귀하의 이메일로 인증 코드가 전송되었습니다. 아래 입력란에 복사하여 코드를 확인하십시오.</LocalizedString>
           <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="success_verify_code_msg">이메일 주소가 확인되었습니다. 지금 계속할 수 있습니다.</LocalizedString>
           <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl" StringId="but_change_claims">전화 번호 변경</LocalizedString>
           <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl" StringId="but_send_code">인증 코드 보내기</LocalizedString>
           <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl" StringId="but_send_new_code">새 코드 보내기</LocalizedString>
           <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl" StringId="but_verify_code">코드 확인</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl" StringId="success_send_code_msg">인증 코드가 휴대전화로 전송되었습니다. 아래 입력란에 복사하여 코드를 확인하십시오.</LocalizedString>
           <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl" StringId="success_verify_code_msg">전화번호가 확인되었습니다. 지금 계속할 수 있습니다.</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfChallengeExpired">코드가 만료되었습니다</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalAlreadyExists">이 이메일 주소 또는 번호를 가진 계정이 이미 존재합니다.</LocalizedString>
@@ -563,6 +581,14 @@
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedNoRetry">잘못된 시도 횟수가 너무 많습니다. 나중에 다시 시도하십시오.</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedRetryAllowed">코드가 올바르지 않습니다. 다시 시도하십시오.</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfWrongCodeEntered">코드가 올바르지 않습니다, 다시 시도하십시오</LocalizedString>
+          <LocalizedString ElementType="InputValidation" StringId="CustomPassword">비밀번호는 다음 중 3가지 이상을 포함해야 합니다.</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="BadWords" StringId="HelpText">비밀번호에 차단된 키워드가 포함되어 있습니다.</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="LengthRange" StringId="HelpText">암호는 8자에서 256자 사이여야 합니다.</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="LongSequences" StringId="HelpText">비밀번호는 3자 이상의 연속되는 숫자 또는 문자를 포함해서는 안 됩니다.</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="Lowercase" StringId="HelpText">소문자</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="Number" StringId="HelpText">숫자</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="Symbol" StringId="HelpText">기호</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="Uppercase" StringId="HelpText">대문자</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="email" StringId="HelpText">이메일 주소를 올바르게 입력하세요.</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="internationalOrNationalPhoneNumber" StringId="HelpText">잘못된 숫자 형식입니다. 전화 번호에 []{}()와 같은 특수 문자가 포함되어 있지 않은지 확인하십시오.</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="noCorporateEmail" StringId="HelpText">KidsLoop 이메일 주소로 계정을 생성할 수 없습니다. 대신 로그인하십시오.</LocalizedString>
@@ -580,6 +606,14 @@
           <LocalizedString ElementType="ClaimType" ElementId="newPassword" StringId="DisplayName">새 비밀번호</LocalizedString>
           <LocalizedString ElementType="ClaimType" ElementId="newPassword" StringId="PatternHelpText">다음 중 4개 중 3개를 포함하는 8-16자: 소문자 문자, 대문자 문자, 숫자(0-9), 그리고 다음 기호 중 하나 이상: @ # # % ^ &amp; * _ + = = = = = = { | } \ : ' , ? / ` ~ " ( ) ; .</LocalizedString>
           <LocalizedString ElementType="ClaimType" ElementId="reenterPassword" StringId="DisplayName">새 암호 확인</LocalizedString>
+          <LocalizedString ElementType="InputValidation" StringId="CustomPassword">비밀번호는 아래의 리스트 중 세가지를 포함하여야 합니다.</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="BadWords" StringId="HelpText">비밀번호에 차단된 키워드가 포함되어 있습니다.</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="LengthRange" StringId="HelpText">비밀번호는 8자에서 265자 이내여야 합니다.</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="LongSequences" StringId="HelpText">비밀번호는 연속되는 숫자와 글자를 포함해서는 안됩니다.</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="Lowercase" StringId="HelpText">알파벳 소문자</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="Number" StringId="HelpText">숫자</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="Symbol" StringId="HelpText">특수문자</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="Uppercase" StringId="HelpText">알파벳 대문자</LocalizedString>
           <LocalizedString ElementType="UXElement" StringId="button_continue">암호 재설정</LocalizedString>
           <LocalizedString ElementType="UXElement" StringId="initial_intro">거의 다 왔습니다! 아래에 새 비밀번호를 입력하세요.</LocalizedString>
         </LocalizedStrings>
@@ -680,6 +714,8 @@
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedNoRetry">คุณพยายามผิดหลายครั้งเกินไป โปรดลองอีกครั้งในภายหลัง.</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedRetryAllowed">รหัสไม่ถูกต้อง กรุณาลองใหม่อีกครั้ง</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfWrongCodeEntered">รหัสไม่ถูกต้อง กรุณาลองใหม่อีกครั้ง</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="LengthRange" StringId="HelpText">รหัสผ่านต้องมีความยาวระหว่าง 8 ถึง 256 อักขระ</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="Lowercase" StringId="HelpText">ตัวพิมพ์เล็ก</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="email" StringId="HelpText">กรุณาใส่อีเมลที่ถูกต้อง</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="internationalOrNationalPhoneNumber" StringId="HelpText">รูปแบบตัวเลขไม่ถูกต้อง โปรดตรวจสอบให้แน่ใจว่าหมายเลขโทรศัพท์ไม่มีสัญลักษณ์พิเศษ เช่น []{}()</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="noCorporateEmail" StringId="HelpText">ไม่สามารถสร้างบัญชีด้วยที่อยู่อีเมล KidsLoop โปรดลงชื่อเข้าใช้แทน</LocalizedString>
@@ -697,6 +733,12 @@
           <LocalizedString ElementType="ClaimType" ElementId="newPassword" StringId="DisplayName">รหัสผ่านใหม่</LocalizedString>
           <LocalizedString ElementType="ClaimType" ElementId="newPassword" StringId="PatternHelpText">อักขระ 8-16 ตัว มี 3 ใน 4 ตัวต่อไปนี้: อักขระตัวพิมพ์เล็ก อักขระตัวพิมพ์ใหญ่ ตัวเลข (0-9) และสัญลักษณ์ต่อไปนี้อย่างน้อยหนึ่งตัว: @ # $ % ^ &amp; * - _ + = [ ] { } | \ : ' , ? / ` ~ " ( ) ; .</LocalizedString>
           <LocalizedString ElementType="ClaimType" ElementId="reenterPassword" StringId="DisplayName">ยืนยันรหัสผ่านใหม่</LocalizedString>
+          <LocalizedString ElementType="InputValidation" StringId="CustomPassword">รหัสผ่านต้องมีอย่างน้อย 3 รายการต่อไปนี้:</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="BadWords" StringId="HelpText">รหัสผ่านมีคีย์เวิร์ดสงวนที่ถูกบล็อกไว้</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="LongSequences" StringId="HelpText">รหัสผ่านต้องไม่เรียงลำดับตัวเลขหรือตัวอักษรยาวตั้งแต่ 3 อักขระขึ้นไป</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="Number" StringId="HelpText">ตัวเลข</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="Symbol" StringId="HelpText">สัญลักษณ์</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="Uppercase" StringId="HelpText">ตัวพิมพ์ใหญ่</LocalizedString>
           <LocalizedString ElementType="UXElement" StringId="button_continue">รีเซ็ตรหัสผ่าน</LocalizedString>
           <LocalizedString ElementType="UXElement" StringId="initial_intro">เกือบเสร็จแล้ว! ป้อนรหัสผ่านใหม่ของคุณด้านล่าง</LocalizedString>
         </LocalizedStrings>
@@ -797,6 +839,8 @@
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedNoRetry">Bạn đã thực hiện nhiều lần không chính xác. Vui lòng thử lại sau.</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedRetryAllowed">Mã không chính xác. Vui lòng thử lại.</LocalizedString>
           <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfWrongCodeEntered">Mã không chính xác, vui lòng thử lại</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="LengthRange" StringId="HelpText">Mật khẩu phải có từ 8 đến 256 ký tự.</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="Lowercase" StringId="HelpText">một chữ cái viết thường</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="email" StringId="HelpText">Vui lòng nhập địa chỉ email hợp lệ</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="internationalOrNationalPhoneNumber" StringId="HelpText">Định dạng số không hợp lệ. Vui lòng đảm bảo rằng số điện thoại không chứa bất kỳ ký tự đặc biệt nào như []{}().</LocalizedString>
           <LocalizedString ElementType="Predicate" ElementId="noCorporateEmail" StringId="HelpText">Bạn không thể tạo tài khoản với một địa chỉ email của KidsLoop. Vui lòng đăng nhập.</LocalizedString>
@@ -814,6 +858,12 @@
           <LocalizedString ElementType="ClaimType" ElementId="newPassword" StringId="DisplayName">Mật khẩu mới</LocalizedString>
           <LocalizedString ElementType="ClaimType" ElementId="newPassword" StringId="PatternHelpText">8-16 ký tự, chứa 3 trong số 4 ký tự sau: ký tự chữ thường, chữ hoa, chữ số (0-9) và một hoặc nhiều ký hiệu sau: @ # $ % ^ &amp; * * - _ + = [ ] { } | \ : ' , ? / ` ~ " ( ) ; .</LocalizedString>
           <LocalizedString ElementType="ClaimType" ElementId="reenterPassword" StringId="DisplayName">Xác nhận mật khẩu mới</LocalizedString>
+          <LocalizedString ElementType="InputValidation" StringId="CustomPassword">Mật khẩu phải có ít nhất 3 điều sau:</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="BadWords" StringId="HelpText">Mật khẩu chứa các từ khóa dành riêng bị chặn.</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="LongSequences" StringId="HelpText">Mật khẩu không được có dãy số hoặc chữ cái dài từ 3 ký tự trở lên.</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="Number" StringId="HelpText">một chữ số</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="Symbol" StringId="HelpText">một biểu tượng</LocalizedString>
+          <LocalizedString ElementType="Predicate" ElementId="Uppercase" StringId="HelpText">một ký tự hoa</LocalizedString>
           <LocalizedString ElementType="UXElement" StringId="button_continue">Đặt lại mật khẩu</LocalizedString>
           <LocalizedString ElementType="UXElement" StringId="initial_intro">Sắp hoàn thành! Nhập mật khẩu mới của bạn ở dưới.</LocalizedString>
         </LocalizedStrings>

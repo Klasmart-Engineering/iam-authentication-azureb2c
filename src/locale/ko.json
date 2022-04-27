@@ -104,9 +104,6 @@
                 "UserMessageIfVerificationFailedRetryAllowed": "코드가 올바르지 않습니다. 다시 시도하십시오.",
                 "UserMessageIfWrongCodeEntered": "코드가 올바르지 않습니다, 다시 시도하십시오"
             },
-            "InputValidation": {
-                "CustomPassword": "비밀번호는 다음 중 3가지 이상을 포함해야 합니다."
-            },
             "LocalizedCollection": {
                 "hasAcceptedPrivacyPolicy": {
                     "true": "나는 키즈룹의 {{개인 정보 보호 정책}}에 동의합니다"
@@ -147,6 +144,11 @@
                     "HelpText": "여기에 국가 코드를 포함할 필요가 없습니다. 대신 위의 드롭다운을 사용하여 국가 코드를 선택하십시오."
                 }
             },
+            "PredicateValidation": {
+                "CustomPassword": {
+                    "CharacterClasses": "비밀번호는 다음 중 3가지 이상을 포함해야 합니다."
+                }
+            },
             "UXElement": {
                 "button_continue": "계정 만들기"
             },
@@ -167,9 +169,6 @@
                 "reenterPassword": {
                     "DisplayName": "새 암호 확인"
                 }
-            },
-            "InputValidation": {
-                "CustomPassword": "비밀번호는 아래의 리스트 중 세가지를 포함하여야 합니다."
             },
             "Predicate": {
                 "BadWords": {
@@ -192,6 +191,11 @@
                 },
                 "Uppercase": {
                     "HelpText": "알파벳 대문자"
+                }
+            },
+            "PredicateValidation": {
+                "CustomPassword": {
+                    "CharacterClasses": "비밀번호는 아래의 리스트 중 세가지를 포함하여야 합니다."
                 }
             },
             "UXElement": {

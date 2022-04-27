@@ -143,6 +143,11 @@
                     "HelpText": "No es necesario incluir el código del país aquí. En su lugar, utilice el menú desplegable para seleccionar el código del país."
                 }
             },
+            "PredicateValidation": {
+                "CustomPassword": {
+                    "CharacterClasses": "La contraseña debe tener al menos 3 de las siguientes características:"
+                }
+            },
             "UXElement": {
                 "button_continue": "Crear cuenta"
             },
@@ -163,9 +168,6 @@
                 "reenterPassword": {
                     "DisplayName": "Confirme la nueva contraseña"
                 }
-            },
-            "InputValidation": {
-                "CustomPassword": "La contraseña debe tener al menos 3 de las siguientes características:"
             },
             "Predicate": {
                 "BadWords": {
@@ -188,6 +190,11 @@
                 },
                 "Uppercase": {
                     "HelpText": "una letra mayúscula"
+                }
+            },
+            "PredicateValidation": {
+                "CustomPassword": {
+                    "CharacterClasses": "La contraseña debe tener al menos 3 de las siguientes características:"
                 }
             },
             "UXElement": {

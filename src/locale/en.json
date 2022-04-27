@@ -104,9 +104,6 @@
                 "UserMessageIfVerificationFailedRetryAllowed": "The code is incorrect. Please try again.",
                 "UserMessageIfWrongCodeEntered": "The code is incorrect, please try again"
             },
-            "InputValidation": {
-                "CustomPassword": "The password must have at least 3 of the following:"
-            },
             "LocalizedCollection": {
                 "hasAcceptedPrivacyPolicy": {
                     "true": "I agree to the KidsLoop {{Privacy Policy}}"
@@ -147,6 +144,11 @@
                     "HelpText": "You don't need to include your country code here. Instead, please use the dropdown above to select your country code"
                 }
             },
+            "PredicateValidation": {
+                "CustomPassword": {
+                    "CharacterClasses": "The password must have at least 3 of the following:"
+                }
+            },
             "UXElement": {
                 "button_continue": "Create account"
             },
@@ -167,9 +169,6 @@
                 "reenterPassword": {
                     "DisplayName": "Confirm new password"
                 }
-            },
-            "InputValidation": {
-                "CustomPassword": "The password must have at least 3 of the following:"
             },
             "Predicate": {
                 "BadWords": {
@@ -192,6 +191,11 @@
                 },
                 "Uppercase": {
                     "HelpText": "an uppercase letter"
+                }
+            },
+            "PredicateValidation": {
+                "CustomPassword": {
+                    "CharacterClasses": "The password must have at least 3 of the following:"
                 }
             },
             "UXElement": {

@@ -84,6 +84,7 @@
                     "but_send_code": "Gửi mã xác minh",
                     "but_send_new_code": "Gửi mã mới",
                     "but_verify_code": "Xác minh mã",
+                    "success_send_code_msg": "Một mã xác minh đã được gửi đến email của bạn. Vui lòng nhập mã xác minh vào ô bên dưới và chọn xác minh để xác minh email.",
                     "success_verify_code_msg": "Địa chỉ email đã được xác minh. Bạn có thể tiếp tục."
                 },
                 "phoneVerificationControl": {
@@ -91,6 +92,7 @@
                     "but_send_code": "Gửi mã xác minh",
                     "but_send_new_code": "Gửi mã mới",
                     "but_verify_code": "Xác minh mã",
+                    "success_send_code_msg": "Một mã xác minh đã được gửi đến số điện thoại của bạn. Vui lòng nhập mã xác minh vào ô bên dưới và chọn xác minh để xác minh số điện thoại.",
                     "success_verify_code_msg": "Số điện thoại đã được xác minh. Bạn có thể tiếp tục ngay bây giờ."
                 }
             },
@@ -108,11 +110,26 @@
                 }
             },
             "Predicate": {
+                "BadWords": {
+                    "HelpText": "Mật khẩu chứa các từ khóa dành riêng bị chặn."
+                },
                 "LengthRange": {
                     "HelpText": "Mật khẩu phải có từ 8 đến 256 ký tự."
                 },
+                "LongSequences": {
+                    "HelpText": "Mật khẩu không được chứa nhiều hơn 2 số hoặc chữ cái liên tiếp nhau ví dụ 123, abc,..."
+                },
                 "Lowercase": {
-                    "HelpText": "một chữ cái viết thường"
+                    "HelpText": "một ký tự in thường"
+                },
+                "Number": {
+                    "HelpText": "một chữ số"
+                },
+                "Symbol": {
+                    "HelpText": "một biểu tượng"
+                },
+                "Uppercase": {
+                    "HelpText": "một ký tự in hoa"
                 },
                 "email": {
                     "HelpText": "Vui lòng nhập địa chỉ email hợp lệ"
@@ -125,6 +142,11 @@
                 },
                 "noLeadingPlus": {
                     "HelpText": "Bạn không cần đưa mã quốc gia của mình vào đây. Thay vào đó, vui lòng sử dụng bảng chọn trên để chọn mã quốc gia của bạn"
+                }
+            },
+            "PredicateValidation": {
+                "CustomPassword": {
+                    "CharacterClasses": "Mật khẩu phải có ít nhất 3 điều sau:"
                 }
             },
             "UXElement": {
@@ -148,15 +170,18 @@
                     "DisplayName": "Xác nhận mật khẩu mới"
                 }
             },
-            "InputValidation": {
-                "CustomPassword": "Mật khẩu phải có ít nhất 3 điều sau:"
-            },
             "Predicate": {
                 "BadWords": {
                     "HelpText": "Mật khẩu chứa các từ khóa dành riêng bị chặn."
                 },
+                "LengthRange": {
+                    "HelpText": "Mật khẩu phải có độ dài từ 8 đến 256 ký tự"
+                },
                 "LongSequences": {
                     "HelpText": "Mật khẩu không được có dãy số hoặc chữ cái dài từ 3 ký tự trở lên."
+                },
+                "Lowercase": {
+                    "HelpText": "một ký tự in thường"
                 },
                 "Number": {
                     "HelpText": "một chữ số"
@@ -165,7 +190,12 @@
                     "HelpText": "một biểu tượng"
                 },
                 "Uppercase": {
-                    "HelpText": "một ký tự hoa"
+                    "HelpText": "một ký tựi in hoa"
+                }
+            },
+            "PredicateValidation": {
+                "CustomPassword": {
+                    "CharacterClasses": "Mật khẩu phải có ít nhất 3 điều sau:"
                 }
             },
             "UXElement": {

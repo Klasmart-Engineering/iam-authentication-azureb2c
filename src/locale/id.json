@@ -104,9 +104,6 @@
                 "UserMessageIfVerificationFailedRetryAllowed": "Kode salah. Yuk coba lagi.",
                 "UserMessageIfWrongCodeEntered": "Kode salah, yuk coba lagi"
             },
-            "InputValidation": {
-                "CustomPassword": "Kata sandi harus memiliki setidaknya 3 dari hal berikut:"
-            },
             "LocalizedCollection": {
                 "hasAcceptedPrivacyPolicy": {
                     "true": "Setuju dengan {{Kebijakan Privasi}} KidsLoop"
@@ -147,6 +144,11 @@
                     "HelpText": "Anda tidak perlu memasukkan kode negara di sini. Sebagai gantinya, gunakan pilihan di atas untuk memilih kode negara."
                 }
             },
+            "PredicateValidation": {
+                "CustomPassword": {
+                    "CharacterClasses": "Kata sandi harus memiliki setidaknya 3 dari hal berikut:"
+                }
+            },
             "UXElement": {
                 "button_continue": "Buat akun"
             },
@@ -167,9 +169,6 @@
                 "reenterPassword": {
                     "DisplayName": "Konfirmasi kata sandi baru"
                 }
-            },
-            "InputValidation": {
-                "CustomPassword": "Kata sandi harus terdiri dari 3 hal berikut:"
             },
             "Predicate": {
                 "BadWords": {
@@ -192,6 +191,11 @@
                 },
                 "Uppercase": {
                     "HelpText": "huruf besar"
+                }
+            },
+            "PredicateValidation": {
+                "CustomPassword": {
+                    "CharacterClasses": "Kata sandi harus terdiri dari 3 hal berikut:"
                 }
             },
             "UXElement": {

@@ -552,7 +552,7 @@
       <Predicate Id="LongSequences" Method="MatchesRegex">
         <UserHelpText>The password must not have long sequences of numbers or letters of 3 or more characters.</UserHelpText>
         <Parameters>
-          <Parameter Id="RegularExpression">^(?!.*?(abc|bcd|cde|def|efg|fgh|ghi|hij|ijk|jkl|klm|lmn|mno|nop|opq|pqr|qrs|rst|stu|tuv|uvw|vwx|wxy|xyz|012|123|234|345|456|567|678|789)).*$</Parameter>
+          <Parameter Id="RegularExpression">^(?!.*?(abc|bcd|cde|def|efg|fgh|ghi|hij|ijk|jkl|klm|lmn|mno|nop|opq|pqr|qrs|rst|stu|tuv|uvw|vwx|wxy|xyz|012|123|234|345|456|567|678|789|000|111|222|333|444|555|666|777|888|999)).*$</Parameter>
         </Parameters>
       </Predicate>
       <Predicate Id="BadWords" Method="MatchesRegex">

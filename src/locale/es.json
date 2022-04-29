@@ -84,6 +84,7 @@
                     "but_send_code": "Enviar código de verificación",
                     "but_send_new_code": "Enviar un nuevo código",
                     "but_verify_code": "Verificar código",
+                    "success_send_code_msg": "Se ha enviado un código de verificación a su correo electrónico. Por favor, cópielo en el campo que aparece a continuación y verifique el código.",
                     "success_verify_code_msg": "Correo electrónico verificado. Puede continuar."
                 },
                 "phoneVerificationControl": {

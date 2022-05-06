@@ -1,5 +1,4 @@
 import { setupPasswordToggles } from "@js/passwordToggle"
-import { setupRedirectOnCancel } from "@js/redirectOnCancel"
 import { removeInputPlaceholders } from "@js/removeInputPlaceholders"
 
 const LANGUAGE_DROPDOWN_SELECTOR = "#language-select"
@@ -198,7 +197,6 @@ const setup = () => {
     }
 
     setupPasswordToggles()
-    setupRedirectOnCancel()
     removeInputPlaceholders()
 }
 

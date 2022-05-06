@@ -1,6 +1,5 @@
 import DOMPurify from "dompurify"
 import { setupPasswordToggles } from "@js/passwordToggle"
-import { setupRedirectOnCancel } from "@js/redirectOnCancel"
 import { removeInputPlaceholders } from "@js/removeInputPlaceholders"
 
 const PRIVACY_POLICY_ID = "hasAcceptedPrivacyPolicy_true"
@@ -50,7 +49,6 @@ const addPrivacyPolicyLink = () => {
 const setup = () => {
     addPrivacyPolicyLink()
     setupPasswordToggles()
-    setupRedirectOnCancel()
     removeInputPlaceholders()
 }
 

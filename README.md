@@ -333,18 +333,33 @@ As `extract-loader` is a slightly older package, it doesn't work with (Asset Mod
 
 ## Contribute to custom policies
 
--   To ensure you dont override policies which are deployed on SSO or other environments, work on your localy copy, once happy then commit and merge
--   Download Azure AD B2c plugin for VsCode
+-   To ensure you don't override policies which are deployed on Alpha or other environments, work on your localy copy, once happy then commit and merge
+-   Download Azure AD B2C plugin for VsCode
 -   Open [appsettings.json](./src/policies/appsettings.json)
--   Under `Environments` add below snippet and replace `<Initials>` with yours
+-   Under `Environments` add below snippet and replace `${initials}` with yours. Also recommended is to have your own Azure blob storage container (so multiple developers can work on UI assets in parallel) by customising the `AZURE_STORAGE_ACCOUNT` and `AZURE_STORAGE_CONTAINER` variables.
 
-```
+```json
 {
-    "Name": "SSO-<Initials>",
-    "Production": false,
-    "Tenant": "kidsloopb2c.onmicrosoft.com",
-    "PolicySettings" : {
-        "PolicyNamePrefix": "<Initials>_"
+    "Name": "Dev-${initials}",
+    "Tenant": "klkralpha.onmicrosoft.com",
+    "PolicySettings": {
+        "IdentityExperienceFrameworkAppId": "a8e3742c-2fde-441c-a25e-494cf89f5911",
+        "ProxyIdentityExperienceFrameworkAppId": "3c1b6cdf-549e-414e-91dc-8b6af417a1ae",
+        "B2CExtensionsAppAppId": "eebaa3ca-4d70-4a95-a34a-f85776d5b6af",
+        "B2CExtensionsAppObjectId": "b98a7a75-741f-45ef-a082-4d7b00a35a9f",
+        "PolicyNamePrefix": "${initials}_",
+        "AZURE_STORAGE_ACCOUNT": "kleastasiatest",
+        "AZURE_STORAGE_CONTAINER": "Dev-${initials}",
+        "AppInsightsInstrumentationKey": "7bacf10a-ea64-4a29-9e73-b7a7cc2c36a1",
+        "AppInsightsDeveloperMode": "true",
+        "AppInsightsDisableTelemetry": "false",
+        "EnabledFederatedIdps": "{OAUTH-KV:idps}",
+        "Sign_Up_Log_In:DefaultUserJourney": "SUSI-PhoneOrEmail",
+        "DeploymentMode": "Development",
+        "MCBClientId": "2l7lTCSjru1rkDR",
+        "MCBMetadataUrl": "https://sso.myclassboard.com/.well-known/openid-configuration",
+        "MCBValidTokenIssuerPrefixes": "https://sso.myclassboard.com/",
+        "DefaultISO3166CountryCode": ""
     }
 }
 ```
@@ -353,19 +368,19 @@ As `extract-loader` is a slightly older package, it doesn't work with (Asset Mod
 -   `cmd + shift + P` and enter `B2C Policy Build` to build the policy
 -   Upload your changed policy:
     -   Automated approach
-        -   `cmd + shift + P` and enter `B2C Upload all policies`, or `B2C Upload current policy` after opening the relevant (built) policy file e.g. `src/policies/Environments/SSO-INITIALS/TRUST_FRAMEWORK_LOCALIZATION.xml`
+        -   `cmd + shift + P` and enter `B2C Upload all policies`, or `B2C Upload current policy` after opening the relevant (built) policy file e.g. `src/policies/Environments/Dev-${initials}/TRUST_FRAMEWORK_LOCALIZATION.xml`
         -   Press the "Login" button on the popup message in the bottom corner of your screen
         -   Paste the contents of your clipboard into the browser window and press the "Next" button
         -   Authenticate if required with your Kidsloop account credentials
     -   Manual approach
-        -   In `src/policies/Environments/SSO-<Initials>` you'll find a copy of the policies from `src/policies`
+        -   In `src/policies/Environments/Dev-${initials}` you'll find a copy of the policies from `src/policies`
         -   If first time uploading, ensure to upload them in the order of inheritance i.e. Base policy -> extensions -> tenant_config -> localization -> relying_party. Otherwise, simply upload the policy files you've changed
 -   Navigate to the `Identity Experience Framework` section on the Azure AD portal
--   Select the `B2C_1A_<INITIALS>_RELYING_PARTY_SIGN_UP_LOG_IN` policy, then press the "Run now" button
+-   Select the `B2C_1A_${initials}_RELYING_PARTY_SIGN_UP_LOG_IN` policy, then press the "Run now" button
     -   If you need to check the JWT payload, then select the `jwt-ms-test` application and `https://jwt.ms` reply url, which will show you the JWT contents on completion of the user flow
 -   Once you have verified your changes, merge your changes in policies in `src/policies`
 -   Create a PR
--   Once the PR is merged then it is auto deployed to SSO using the bitbucket pipeline (TBA)
+-   Once the PR is merged then it is auto deployed to the Alpha-Dev tenant using the Github workflow.
 
 ## TODO
 

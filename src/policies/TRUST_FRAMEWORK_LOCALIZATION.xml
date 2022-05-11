@@ -299,6 +299,7 @@
           <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="but_send_code">Enviar código de verificación</LocalizedString>
           <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="but_send_new_code">Enviar un nuevo código</LocalizedString>
           <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="but_verify_code">Verificar código</LocalizedString>
+          <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="success_send_code_msg">Se ha enviado un código de verificación a su correo electrónico. Por favor, cópielo en el campo que aparece a continuación y verifique el código.</LocalizedString>
           <LocalizedString ElementType="DisplayControl" ElementId="emailControl" StringId="success_verify_code_msg">Correo electrónico verificado. Puede continuar.</LocalizedString>
           <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl" StringId="but_change_claims">Cambiar número de teléfono</LocalizedString>
           <LocalizedString ElementType="DisplayControl" ElementId="phoneVerificationControl" StringId="but_send_code">Enviar código de verificación</LocalizedString>

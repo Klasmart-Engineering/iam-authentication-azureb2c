@@ -59,7 +59,7 @@
         "fast-glob": "3.2.7",
         "file-loader": "6.2.0",
         "html-loader": "3.0.1",
-        "ieftool": "1.0.7",
+        "ieftool": "1.0.9",
         "prettier": "2.4.1",
         "stylelint": "14.0.1",
         "stylelint-config-standard": "23.0.0",

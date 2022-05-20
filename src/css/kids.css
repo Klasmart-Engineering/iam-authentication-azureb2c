@@ -137,8 +137,60 @@
     }
 }
 
+.textpopupInput {
+    border-color: #b8b8b8;
+    border-radius: 8px;
+    border-style: solid;
+    border-width: 1px;
+    padding: 8px 12px;
+    width: 100%;
+}
+.popupHeading{
+    color: #666;
+    font-size: 16px;
+    font-weight: 700;
+    padding-top: 16px;
+    padding-bottom: 24px;
+}
+.popupButton {
+    border-radius: 6px;
+    color: #fff;
+    cursor: pointer;
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+    padding: 8px;
+}
+.popupGrid {
+    display:grid;
+    grid-template-columns: 1fr 2fr;
+    margin-bottom: 10px;
+}
+#contact-mobile {
+    display: none;
+}
+#contactDialog {
+    border-radius: 20px;
+    border-color: grey;
+    width: fit-content;
+}
+
 @media only screen and (max-width: 1000px) {
     .main-heading {
         font-size: 24px;
     }
+    #contact-desktop {
+        display: block;
+    }
 }
+@media only screen and (max-width: 600px) {
+    #contact-desktop {
+        display: none;
+    }
+    #contact-mobile {
+        width: 30;
+        height: 30;
+        display: block;
+    }
+  }

@@ -40,7 +40,12 @@
                         class="logo"
                         src="../../../assets/logo.svg"
                         alt="KidsLoop logo"
-                    /><!-- Made visible after initial locale is set (to avoid seeing it flicker) -->
+                    />
+                    <a href="tel:9999999"><img id="contact-mobile"
+                        src="../../../assets/contact-mobile.png"
+                        alt="Call us"
+                    /></a>
+                    <!-- Made visible after initial locale is set (to avoid seeing it flicker) -->
                     <div
                         id="language-select__container"
                         class="header__language-select"
@@ -67,10 +72,13 @@
                     </div>
                 </div>
                 <div class="main-content-wrapper">
-                    <img src="../../../assets/login.svg" alt="Kids talking" />
+                    <!--<img src="../../../assets/login.svg" alt="Kids talking" />-->
                     <h1 class="main-heading">Login</h1>
                     <div id="api"></div>
-
+                    <div> <img
+                    class="space-filler-image"
+                    src="../../../assets/contact.png" style="cursor: pointer;position: fixed;bottom:0;right: 50%;" id="contact-desktop"
+                    alt="Kids learning" style="bottom: 0;right:50%"/></div>
                     <div id="throbber" class="hidden centered">
                         <div class="lds-roller">
                             <div></div>
@@ -85,6 +93,43 @@
                     </div>
                 </div>
             </div>
+            <!-- Modal dialog for contact us feature -->
+            <dialog id="contactDialog">
+                <form method="dialog" id="contactForm">
+                    <div class="entry">
+                        <div class="popupHeading">Let us know how we can help you and we will reach out to you shortly</div>
+                        <div class="popupGrid">
+                            <label>Name :</label>
+                            <input type="text" name="" class="textpopupInput" autofocus required>
+                        </div>
+                        <div class="popupGrid">
+                            <label>School Name :</label>
+                            <input type="text" name="schoolname" class="textpopupInput">
+                        </div>
+                        <div class="entry-item">
+                            <label>How can I help you :</label>
+                            <textarea name="helpcontent" autofocus class="textpopupInput"></textarea>
+                        </div>
+                        <div class="popupGrid">
+                            <label>Mobile Number :</label>
+                            <input type="text" name="mobilenumber" class="textpopupInput">
+                        </div>
+                        <div class="popupGrid">
+                            <label>Whatsapp Number :</label>
+                            <input type="text" name="whatsappno" class="textpopupInput" >
+                        </div>
+                        <div class="popupGrid">
+                            <label>Email Id :</label>
+                            <input type="text" name="emailId" class="textpopupInput" >
+                        </div>
+                        <div style="text-align: right">
+                            <button class="popupButton" id="submit" value="default">Submit</button>
+                            <button id="button" value="cancel" class="popupButton cancel">Cancel</button>
+                        </div>
+                    </div>
+                </form>
+            </dialog>
+
             <div class="space-filler">
                 <img
                     class="space-filler-image"
@@ -101,6 +146,26 @@
             href="javascript:history.back()"
             >Use email</a
         >
-        <script src="https://klukb2cstorage.blob.core.windows.net/b2ccosmosdb/pages/unified-sign-up-or-sign-in/bundle.js"></script>
+          
+        <script
+            src="https://klukb2cstorage.blob.core.windows.net/b2ccosmosdb/pages/unified-sign-up-or-sign-in/bundle.js"></script>
+        <script>
+            const contactDesktopIcon = document.getElementById('contact-desktop');
+            const contactDialog = document.getElementById('contactDialog');
+            const sendBtn = contactDialog.querySelector('#submit');
+            contactDesktopIcon?.addEventListener('click', function onOpen() {
+                if (typeof contactDialog.showModal === "function") {
+                    contactDialog.showModal();
+                } else {
+                    outputBox.value = "Sorry, the <dialog> API is not supported by this browser.";
+                }
+            })
+            const cancelButton = document.querySelector('.cancel');
+            cancelButton.addEventListener('click', () => {
+                contactDialog.close();
+            });
+            sendBtn.addEventListener('click', () => {
+            });
+        </script>
     </body>
 </html>

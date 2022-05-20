@@ -1642,8 +1642,10 @@
           <OutputClaims>
             <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="sub" />
             <OutputClaim ClaimTypeReferenceId="tenantId" PartnerClaimType="tid" />
-            <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="given_name" />
-            <OutputClaim ClaimTypeReferenceId="surName" PartnerClaimType="family_name" />
+            <!-- ATH-783: Removed given name and sur name mappings -->
+            <OutputClaim ClaimTypeReferenceId="givenName" />
+            <OutputClaim ClaimTypeReferenceId="surName" />
+            <!-- ATH-783: Removed given name and sur name mappings -->
             <OutputClaim ClaimTypeReferenceId="signInNames.userName" PartnerClaimType="username" />
             <!-- IAM-904: Copy MCB username into displayName -->
             <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="username" />

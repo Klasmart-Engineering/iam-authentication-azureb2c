@@ -552,7 +552,7 @@
       <Predicate Id="LongSequences" Method="MatchesRegex">
         <UserHelpText>The password must not have long sequences of numbers or letters of 3 or more characters.</UserHelpText>
         <Parameters>
-          <Parameter Id="RegularExpression">^(?!.*?(abc|bcd|cde|def|efg|fgh|ghi|hij|ijk|jkl|klm|lmn|mno|nop|opq|pqr|qrs|rst|stu|tuv|uvw|vwx|wxy|xyz|012|123|234|345|456|567|678|789|000|111|222|333|444|555|666|777|888|999)).*$</Parameter>
+          <Parameter Id="RegularExpression">^(?!.*?(012|123|234|345|456|567|678|789|000|111|222|333|444|555|666|777|888|999|[Aa][Bb][Cc]|[Bb][Cc][Dd]|[Cc][Dd][Ee]|[Dd][Ee][Ff]|[Ee][Ff][Gg]|[Ff][Gg][Hh]|[Gg][Hh][Ii]|[Hh][Ii][Jj]|[Ii][Jj][Kk]|[Jj][Kk][Ll]|[Kk][Ll][Mm]|[Ll][Mm][Nn]|[Mm][Nn][Oo]|[Nn][Oo][Pp]|[Oo][Pp][Qq]|[Pp][Qq][Rr]|[Qq][Rr][Ss]|[Rr][Ss][Tt]|[Ss][Tt][Uu]|[Tt][Uu][Vv]|[Uu][Vv][Ww]|[Vv][Ww][Xx]|[Ww][Xx][Yy]|[Xx][Yy][Zz]|[Aa][Aa][Aa]|[Bb][Bb][Bb]|[Cc][Cc][Cc]|[Dd][Dd][Dd]|[Ee][Ee][Ee]|[Ff][Ff][Ff]|[Gg][Gg][Gg]|[Hh][Hh][Hh]|[Ii][Ii][Ii]|[Jj][Jj][Jj]|[Kk][Kk][Kk]|[Ll][Ll][Ll]|[Mm][Mm][Mm]|[Nn][Nn][Nn]|[Oo][Oo][Oo]|[Pp][Pp][Pp]|[Qq][Qq][Qq]|[Rr][Rr][Rr]|[Ss][Ss][Ss]|[Tt][Tt][Tt]|[Uu][Uu][Uu]|[Vv][Vv][Vv]|[Ww][Ww][Ww]|[Xx][Xx][Xx]|[Yy][Yy][Yy]|[Zz][Zz][Zz])).*$</Parameter>
         </Parameters>
       </Predicate>
       <Predicate Id="BadWords" Method="MatchesRegex">

@@ -558,7 +558,7 @@
       <Predicate Id="BadWords" Method="MatchesRegex">
         <UserHelpText>The password contains blocked reserved keywords.</UserHelpText>
         <Parameters>
-          <Parameter Id="RegularExpression">^((?!([Pp]assword|[Kk]ids[Ll]oop|[Bb]adanamu)).)*$</Parameter>
+          <Parameter Id="RegularExpression">^((?!([Pp][Aa][Ss][Ss][Ww][Oo][Rr][Dd]|[Kk][Ii][Dd][Ss][Ll][Oo][Oo][Pp]|[Bb][Aa][Dd][Aa][Nn][Aa][Mm][Uu])).)*$</Parameter>
         </Parameters>
       </Predicate>
     </Predicates>

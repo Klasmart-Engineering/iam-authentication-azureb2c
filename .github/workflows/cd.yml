@@ -57,11 +57,4 @@ jobs:
                   inlineScript: az storage blob upload-batch --account-name '${{ env.AZURE_STORAGE_ACCOUNT }}' -d '${{ env.AZURE_STORAGE_CONTAINER }}' --sas-token '${{ secrets.B2C_STORAGE_ACCOUNT_SAS }}' --source 'dist'
 
             - name: Upload B2C policies
-              uses: azure-ad-b2c/deploy-trustframework-policy@v5.3
-              with:
-                  folder: "src/policies/Environments/${{ env.ENVIRONMENT_NAME }}"
-                  files: "TRUST_FRAMEWORK_BASE.xml,TRUST_FRAMEWORK_EXTENSIONS.xml,TRUST_FRAMEWORK_TENANT_CONFIG.xml,TRUST_FRAMEWORK_LOCALIZATION.xml,RELYING_PARTY_SIGN_UP_LOG_IN.xml"
-                  tenant: ${{ env.TENANT_ID }}
-                  clientId: ${{ env.DEPLOYMENT_APP_CLIENT_ID }}
-                  clientSecret: ${{  secrets.B2C_DEPLOY_CLIENT_SECRET }}
-                  verbose: true
+              run: npx ieftool deploy -t '${{ env.TENANT_ID }}' -c '${{ env.DEPLOYMENT_APP_CLIENT_ID }}' -s '${{ secrets.B2C_DEPLOY_CLIENT_SECRET }}' -p 'src/policies/Environments/${{ env.ENVIRONMENT_NAME }}'

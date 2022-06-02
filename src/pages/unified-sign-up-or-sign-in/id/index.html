@@ -1,107 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-        />
-        <link
-            href="../../../css/fonts.css"
-            rel="stylesheet"
-            data-preload="true"
-        />
-        <link
-            href="../../../css/global.css"
-            rel="stylesheet"
-            data-preload="true"
-            type="text/css"
-        />
-        <link
-            href="../../../css/kids.css"
-            rel="stylesheet"
-            data-preload="true"
-            type="text/css"
-        />
-        <link
-            href="../index.css"
-            rel="stylesheet"
-            data-preload="true"
-            type="text/css"
-        />
-        <title>KidsLoop | Masuk</title>
-    </head>
 
-    <body>
-        <div class="wrapper">
-            <div class="main-content">
-                <div class="header">
-                    <img
-                        class="logo"
-                        src="../../../assets/logo.svg"
-                        alt="Logo KidsLoop"
-                    /><!-- Made visible after initial locale is set (to avoid seeing it flicker) -->
-                    <div
-                        id="language-select__container"
-                        class="header__language-select"
-                        style="display: none"
-                    >
-                        <select
-                            id="language-select"
-                            class="language-select"
-                            title="Ubah Bahasa"
-                        >
-                            <option value="en">English</option>
-                            <option value="es">Español</option>
-                            <option value="ko">한국어</option>
-                            <option value="zh-Hans">汉语 (简体)</option>
-                            <option value="vi">Tiếng Việt</option>
-                            <option value="id">Bahasa Indonesia</option>
-                            <option value="th">ภาษาไทย</option>
-                        </select>
-                        <img
-                            src="../../../assets/language-select-icon.svg"
-                            alt="Ikon pilihan bahasa"
-                            class="language-select__icon"
-                        />
-                    </div>
-                </div>
-                <div class="main-content-wrapper">
-                    <img src="../../../assets/login.svg" alt="Kids talking" id="loginSvg" />
-                    <h1 class="main-heading">Masuk</h1>
-                    <div id="api"></div>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link href="../../../css/fonts.css" rel="stylesheet" data-preload="true" />
+    <link href="../../../css/global.css" rel="stylesheet" data-preload="true" type="text/css" />
+    <link href="../../../css/kids.css" rel="stylesheet" data-preload="true" type="text/css" />
+    <link href="../index.css" rel="stylesheet" data-preload="true" type="text/css" />
+    <title>KidsLoop | Masuk</title>
+</head>
 
-                    <div id="throbber" class="hidden centered">
-                        <div class="lds-roller">
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                        </div>
-                    </div>
+<body>
+    <div class="wrapper">
+        <div class="main-content">
+            <div class="header">
+                <img class="logo" src="../../../assets/logo.svg" alt="Logo KidsLoop" />
+                <!-- Made visible after initial locale is set (to avoid seeing it flicker) -->
+                <div id="language-select__container" class="header__language-select" style="display: none">
+                    <select id="language-select" class="language-select" title="Ubah Bahasa">
+                        <option value="en">English</option>
+                        <option value="es">Español</option>
+                        <option value="ko">한국어</option>
+                        <option value="zh-Hans">汉语 (简体)</option>
+                        <option value="vi">Tiếng Việt</option>
+                        <option value="id">Bahasa Indonesia</option>
+                        <option value="th">ภาษาไทย</option>
+                    </select>
+                    <img src="../../../assets/language-select-icon.svg" alt="Ikon pilihan bahasa"
+                        class="language-select__icon" />
                 </div>
             </div>
-            <div class="space-filler">
-                <img
-                    class="space-filler-image"
-                    src="../../../assets/login-side.svg"
-                    alt="Pelajaran anak"
-                />
+            <div class="main-content-wrapper">
+                <img src="../../../assets/login.svg" alt="Kids talking" id="loginSvg" />
+                <h1 class="main-heading">Masuk</h1>
+                <div id="api"></div>
+
+                <div id="throbber" class="hidden centered">
+                    <div class="lds-roller">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
             </div>
         </div>
-        <a
-            id="SigninWithEmail"
-            data-testid="signin_with_email-link"
-            class="text-link"
-            style="display: none"
-            href="javascript:history.back()"
-        >
-            Pakai email
-        </a>
-        <script src="https://klukb2cstorage.blob.core.windows.net/b2ccosmosdb/pages/unified-sign-up-or-sign-in/bundle.js"></script>
-    </body>
+        <div class="space-filler">
+            <img class="space-filler-image" src="../../../assets/login-side.svg" alt="Pelajaran anak" />
+        </div>
+    </div>
+    <a id="SigninWithEmail" data-testid="signin_with_email-link" class="text-link" style="display: none"
+        href="javascript:history.back()">
+        Pakai email
+    </a>
+    <script
+        src="https://klukb2cstorage.blob.core.windows.net/b2ccosmosdb/pages/unified-sign-up-or-sign-in/bundle.js"></script>
+</body>
+
 </html>

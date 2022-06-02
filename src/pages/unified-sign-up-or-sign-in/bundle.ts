@@ -180,14 +180,22 @@ const showForgotPassword = () => {
     forgotPasswordLink.style.display = "block"
 }
 
-const hideOrShowLoginSvg = () =>{
+const hideOrShowLoginSvg = () => {
     const loginSvgImage = checkedQuerySelector<HTMLImageElement>(
         LOGIN_SVG_IMAGE_SELECTOR
     )
-    if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
-        loginSvgImage.style.display="block";
-    }else{
-        loginSvgImage.style.display="none";
+    if (isMobile || window.innerHeight > 768) {
+        loginSvgImage.style.display = "block";
+    } else {
+        loginSvgImage.style.display = "none";
+    }
+}
+
+const isMobile = () => {
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        return true;
+    } else {
+        return false;
     }
 }
 

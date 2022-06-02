@@ -185,17 +185,21 @@ const hideOrShowLoginSvg = () => {
         LOGIN_SVG_IMAGE_SELECTOR
     )
     if (isMobile || window.innerHeight > 768) {
-        loginSvgImage.style.display = "block";
+        loginSvgImage.style.display = "block"
     } else {
-        loginSvgImage.style.display = "none";
+        loginSvgImage.style.display = "none"
     }
 }
 
 const isMobile = () => {
-    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-        return true;
+    if (
+        /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+            navigator.userAgent
+        )
+    ) {
+        return true
     } else {
-        return false;
+        return false
     }
 }
 

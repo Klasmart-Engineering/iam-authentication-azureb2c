@@ -184,10 +184,14 @@ const hideOrShowLoginSvg = () => {
     const loginSvgImage = checkedQuerySelector<HTMLImageElement>(
         LOGIN_SVG_IMAGE_SELECTOR
     )
-    if (isMobile || window.innerHeight > 768) {
-        loginSvgImage.style.display = "block"
+    if (!isMobile) {
+        if (window.innerHeight < 768) {
+            loginSvgImage.style.display = "none"
+        } else {
+            loginSvgImage.style.display = "block"
+        }
     } else {
-        loginSvgImage.style.display = "none"
+        loginSvgImage.style.display = "block"
     }
 }
 

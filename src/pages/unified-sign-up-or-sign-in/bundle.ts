@@ -21,6 +21,7 @@ const PASSWORD_CONTAINER_INPUT_SELECTOR = ".password__container"
 const SIGN_IN_BUTTON_SELECTOR = "#next"
 const CREATE_ACCOUNT_LINKS_SELECTOR = ".claims-provider-list-text-links"
 const THROBBER_CONTAINER_SELECTOR = "#throbber"
+const LOGIN_SVG_IMAGE_SELECTOR = "#loginSvg"
 
 const checkedQuerySelector = <T extends HTMLElement>(selector: string): T => {
     const el = document.querySelector<T>(selector)
@@ -179,12 +180,24 @@ const showForgotPassword = () => {
     forgotPasswordLink.style.display = "block"
 }
 
+const hideOrShowLoginSvg = () =>{
+    const loginSvgImage = checkedQuerySelector<HTMLImageElement>(
+        LOGIN_SVG_IMAGE_SELECTOR
+    )
+    if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
+        loginSvgImage.style.display="block";
+    }else{
+        loginSvgImage.style.display="none";
+    }
+}
+
 const setup = () => {
     if (isEmailLoginPage()) {
         setupLanguageSelect()
         repositionPhoneLoginLink()
         repositionForgotPasswordLink()
         setupKidsloopSSORedirect()
+        hideOrShowLoginSvg()
     }
 
     if (isPhoneLoginPage() && !isEmailLoginPage()) {

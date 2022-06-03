@@ -67,3 +67,26 @@
     /* Override `.entry-item` margin, as we want the `.rememberMe` checkbox close to the password input */
     margin-bottom: 0;
 }
+
+@media only screen and (min-width: 481px) and (max-width: 1366px) {
+
+    /* styles for browsers greater than 481px; and smaller than 1366px */
+    #login-svg {
+        display: none;
+    }
+    .claims-provider-list-text-links {
+        margin-top: 1rem;
+    }
+
+    .rememberMe {
+        margin-bottom: 1rem;
+    }
+
+    .header {
+        margin-bottom: 1rem;
+    }
+
+    .entry-item {
+        margin-bottom: 1rem
+    }
+}

@@ -69,7 +69,6 @@
 }
 
 @media only screen and (min-width: 481px) and (max-width: 1366px) {
-
     /* styles for browsers greater than 481px; and smaller than 1366px */
     #login-svg {
         display: none;

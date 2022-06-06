@@ -65,7 +65,7 @@
 
 .entry-item.password__container {
     /* Override `.entry-item` margin, as we want the `.rememberMe` checkbox close to the password input */
-    margin-bottom: 0;
+    margin-bottom: unset;
 }
 
 @media only screen and (min-width: 481px) and (max-width: 1366px) {

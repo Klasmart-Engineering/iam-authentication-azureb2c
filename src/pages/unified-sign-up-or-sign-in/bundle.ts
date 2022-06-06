@@ -22,12 +22,14 @@ const SIGN_IN_BUTTON_SELECTOR = "#next"
 const CREATE_ACCOUNT_LINKS_SELECTOR = ".claims-provider-list-text-links"
 const THROBBER_CONTAINER_SELECTOR = "#throbber"
 
-const HELP_DESK_CONTAINER_SELECTOR = '#help-container'
-const HELP_DESK_VIDEOS = '#help-videos'
-const HELP_DESK_SUPPORT_TICKET = '#support-ticket'
+const HELP_DESK_CONTAINER_SELECTOR = "#help-container"
+const HELP_DESK_VIDEOS = "#help-videos"
+const HELP_DESK_SUPPORT_TICKET = "#support-ticket"
 
-const INDIA_HELP_DESK_VIDEOS_LINK = ''
-const INDIA_HELP_DESK_SUPPORT_LINK = ''
+const INDIA_HELP_DESK_VIDEOS_LINK =
+    "https://demo.kidsloop.net/chrysalisthinkroomblp/"
+const INDIA_HELP_DESK_SUPPORT_LINK =
+    "https://forms.office.com/Pages/ShareFormPage.aspx?id=59sABVgthU2ZoSTf2pvEFuNr71Th7QFBo6SoarvaJ-ZUOUVCUlM1NENLTlJFRTZBOThRRTNSQjg2My4u&sharetoken=VE23unUVKmNJIyPhfMHT"
 
 const checkedQuerySelector = <T extends HTMLElement>(selector: string): T => {
     const el = document.querySelector<T>(selector)
@@ -187,14 +189,23 @@ const showForgotPassword = () => {
 }
 
 const showOrHideHelpDesk = () => {
-    const hostname = new URL(location.href).hostname;
-    if (hostname === 'login.kidsloop.in') {
-        const helpDeskContainer = checkedQuerySelector<HTMLDivElement>(HELP_DESK_CONTAINER_SELECTOR);
-        helpDeskContainer.style.display = "flex";
-        const helpDeskVideos = checkedQuerySelector<HTMLDivElement>(HELP_DESK_VIDEOS);
-        const helpDeskSupportTicket = checkedQuerySelector<HTMLDivElement>(HELP_DESK_SUPPORT_TICKET)
-        helpDeskVideos?.addEventListener('click', () => window.open(INDIA_HELP_DESK_VIDEOS_LINK, "_blank", "noopener"))
-        helpDeskSupportTicket?.addEventListener('click', () => window.open(INDIA_HELP_DESK_SUPPORT_LINK, "_blank", "noopener"));
+    const hostname = new URL(location.href).hostname
+    if (hostname === "login.kidsloop.in") {
+        const helpDeskContainer = checkedQuerySelector<HTMLDivElement>(
+            HELP_DESK_CONTAINER_SELECTOR
+        )
+        helpDeskContainer.style.display = "flex"
+        const helpDeskVideos =
+            checkedQuerySelector<HTMLDivElement>(HELP_DESK_VIDEOS)
+        const helpDeskSupportTicket = checkedQuerySelector<HTMLDivElement>(
+            HELP_DESK_SUPPORT_TICKET
+        )
+        helpDeskVideos?.addEventListener("click", () =>
+            window.open(INDIA_HELP_DESK_VIDEOS_LINK, "_blank", "noopener")
+        )
+        helpDeskSupportTicket?.addEventListener("click", () =>
+            window.open(INDIA_HELP_DESK_SUPPORT_LINK, "_blank", "noopener")
+        )
     }
 }
 
@@ -204,7 +215,7 @@ const setup = () => {
         repositionPhoneLoginLink()
         repositionForgotPasswordLink()
         setupKidsloopSSORedirect()
-        showOrHideHelpDesk();
+        showOrHideHelpDesk()
     }
 
     if (isPhoneLoginPage() && !isEmailLoginPage()) {

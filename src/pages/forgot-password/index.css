@@ -20,6 +20,12 @@
     color: #666;
 }
 
+#continue {
+    position:absolute;
+    visibility: hidden;
+}
+
+
 .attrEntry ul {
     /* Space between inputs. We can't use padding/margin on li because B2C inserts `display: inline` */
     display: flex;
@@ -31,6 +37,7 @@
     font-size: 1.6rem;
     font-weight: 600;
     line-height: 2.4rem;
+    visibility: hidden;
 }
 
 #countryCode {

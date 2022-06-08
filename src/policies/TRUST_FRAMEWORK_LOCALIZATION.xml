@@ -247,6 +247,8 @@
           <LocalizedString ElementType="UxElement" StringId="requiredField_generic">Cannot be empty</LocalizedString>
           <LocalizedString ElementType="UxElement" StringId="requiredField_password">Cannot be empty</LocalizedString>
           <LocalizedString ElementType="UxElement" StringId="social_intro">Log in with your social account</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="createaccount_intro">Create Account</LocalizedString>
+          <LocalizedString ElementType="UxElement" StringId="createaccount_two_links">with {0} or {1}</LocalizedString>
         </LocalizedStrings>
       </LocalizedResources>
       <LocalizedResources Id="api.localaccountpasswordreset.es">

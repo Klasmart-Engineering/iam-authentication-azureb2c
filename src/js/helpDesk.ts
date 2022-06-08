@@ -17,7 +17,7 @@ const checkedQuerySelector = <T extends HTMLElement>(selector: string): T => {
 
 export const showOrHideHelpDesk = () => {
     console.log(ENABLE_HEPLDESK);
-    if (ENABLE_HEPLDESK === 'true') {
+    if (ENABLE_HEPLDESK) {
         const helpDeskContainer = checkedQuerySelector<HTMLDivElement>(
             HELP_DESK_CONTAINER_SELECTOR
         )

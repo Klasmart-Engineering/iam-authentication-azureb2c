@@ -1,13 +1,11 @@
 import { setupRedirectOnCancel } from "@js/redirectOnCancel"
 import { removeInputPlaceholders } from "@js/removeInputPlaceholders"
-import { setupPasswordToggles } from "@js/passwordToggle"
-
 
 const removeContinueButton = () => {
 
     const element:any = document.getElementById("continue")
 
-    var observer = new MutationObserver(function(mutations) {
+    const observer = new MutationObserver(function(mutations) {
         mutations.forEach(function(mutation) {
           if (mutation.type === "attributes") {
             element?.click() 
@@ -26,7 +24,6 @@ const setup = () => {
     setupRedirectOnCancel()
     removeInputPlaceholders()
     removeContinueButton()
-    setupPasswordToggles()
 }
 
 if (

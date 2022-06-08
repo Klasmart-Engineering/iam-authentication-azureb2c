@@ -1,6 +1,5 @@
 import { setupPasswordToggles } from "@js/passwordToggle"
 import { removeInputPlaceholders } from "@js/removeInputPlaceholders"
-import { showOrHideHelpDesk } from "@js/helpDesk"
 
 const LANGUAGE_DROPDOWN_SELECTOR = "#language-select"
 const LANGUAGE_DROPDOWN_CONTAINER_SELECTOR = "#language-select__container"

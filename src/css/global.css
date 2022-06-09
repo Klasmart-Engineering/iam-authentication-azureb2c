@@ -382,3 +382,8 @@ input.password--with_toggle,
         height: 1.1em;
     }
 }
+@media only screen and (max-width: 600px) {
+    .help-buttons{
+        right: unset;
+    }
+  }

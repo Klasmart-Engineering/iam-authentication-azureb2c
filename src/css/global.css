@@ -161,7 +161,8 @@ input.password--with_toggle,
 #email_ver_input_label,
 #phone_ver_input_label,
 #email_label {
-    display: block !important; /* Set to display: inline in the markup itself :'( */
+    display: block !important;
+    /* Set to display: inline in the markup itself :'( */
     margin-bottom: 14px;
 }
 
@@ -346,16 +347,16 @@ input.password--with_toggle,
 
 .help-buttons {
     position: fixed;
-    bottom:3%;
+    bottom: 3%;
     right: 53%;
     text-align: center;
     display: none;
 }
 
 .help-button {
-    background-color: #669bd2; 
-    border-radius: 1rem; 
-    padding: 0.5rem 1rem; 
+    background-color: #669bd2;
+    border-radius: 1rem;
+    padding: 0.5rem 1rem;
     cursor: pointer;
     font-weight: 600;
     color: white;
@@ -363,6 +364,7 @@ input.password--with_toggle,
 }
 
 @media only screen and (max-width: 1000px) {
+
     .textInput,
     .verifyInput,
     #email,
@@ -382,12 +384,13 @@ input.password--with_toggle,
         height: 1.1em;
     }
 }
+
 @media only screen and (max-width: 600px) {
-    .help-buttons{
+    .help-buttons {
         right: unset;
     }
-    .signin-link{
+
+    .signin-link {
         margin-bottom: 3rem;
     }
-
-  }
+}

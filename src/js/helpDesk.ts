@@ -14,7 +14,7 @@ const checkedQuerySelector = <T extends HTMLElement>(selector: string): T => {
 }
 
 export const showOrHideHelpDesk = () => {
-    if (HELP_DESK_VIDEOS_LINK || HELP_DESK_SUPPORT_LINK) {
+    if (HELP_DESK_VIDEOS_LINK && HELP_DESK_SUPPORT_LINK) {
         const helpDeskContainer = checkedQuerySelector<HTMLDivElement>(
             HELP_DESK_CONTAINER_SELECTOR
         )

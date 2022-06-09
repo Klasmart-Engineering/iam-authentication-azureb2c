@@ -386,4 +386,8 @@ input.password--with_toggle,
     .help-buttons{
         right: unset;
     }
+    .signin-link{
+        margin-bottom: 3rem;
+    }
+
   }

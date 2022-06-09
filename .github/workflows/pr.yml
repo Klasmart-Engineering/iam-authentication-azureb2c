@@ -24,4 +24,4 @@ jobs:
               run: ./scripts/Build-CustomPolicies.ps1 -FilePath ./src/policies
 
             - name: Build assets
-              run: npm run build -- --env=environment=SSO
+              run: npm run build -- --env=environment=Alpha-Dev

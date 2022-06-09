@@ -162,6 +162,7 @@ input.password--with_toggle,
 #phone_ver_input_label,
 #email_label {
     display: block !important;
+    
     /* Set to display: inline in the markup itself :'( */
     margin-bottom: 14px;
 }
@@ -346,21 +347,21 @@ input.password--with_toggle,
 }
 
 .help-buttons {
-    position: fixed;
     bottom: 3%;
+    display: none;
+    position: fixed;
     right: 53%;
     text-align: center;
-    display: none;
 }
 
 .help-button {
     background-color: #669bd2;
     border-radius: 1rem;
-    padding: 0.5rem 1rem;
+    color: white;
     cursor: pointer;
     font-weight: 600;
-    color: white;
     margin: 0.5rem;
+    padding: 0.5rem 1rem;
 }
 
 @media only screen and (max-width: 1000px) {

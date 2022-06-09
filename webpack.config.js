@@ -55,7 +55,12 @@ function buildEntrypoints() {
 }
 
 module.exports = ({ environment }) => {
-    const { AZURE_STORAGE_ACCOUNT, AZURE_STORAGE_CONTAINER, ENABLE_HELPDESK, INDIA_HELP_DESK_SUPPORT_LINK, INDIA_HELP_DESK_VIDEOS_LINK } =
+    const {
+        AZURE_STORAGE_ACCOUNT,
+        AZURE_STORAGE_CONTAINER,
+        HELP_DESK_SUPPORT_LINK,
+        HELP_DESK_VIDEOS_LINK,
+    } =
         (
             AppSettings["Environments"].find(
                 ({ Name }) => Name === environment
@@ -200,14 +205,11 @@ module.exports = ({ environment }) => {
                 "process.env.AZURE_STORAGE_CONTAINER": JSON.stringify(
                     AZURE_STORAGE_CONTAINER
                 ),
-                "process.env.ENABLE_HEPLDESK": JSON.stringify(
-                    ENABLE_HELPDESK
+                "process.env.HELP_DESK_VIDEOS_LINK": JSON.stringify(
+                    HELP_DESK_VIDEOS_LINK
                 ),
-                "process.env.INDIA_HELP_DESK_VIDEOS_LINK": JSON.stringify(
-                    INDIA_HELP_DESK_VIDEOS_LINK
-                ),
-                "process.env.INDIA_HELP_DESK_SUPPORT_LINK": JSON.stringify(
-                    INDIA_HELP_DESK_SUPPORT_LINK
+                "process.env.HELP_DESK_SUPPORT_LINK": JSON.stringify(
+                    HELP_DESK_SUPPORT_LINK
                 ),
             }),
         ],

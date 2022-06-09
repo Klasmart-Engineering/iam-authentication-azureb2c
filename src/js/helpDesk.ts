@@ -2,10 +2,8 @@ const HELP_DESK_CONTAINER_SELECTOR = "#help-container"
 const HELP_DESK_VIDEOS = "#help-videos"
 const HELP_DESK_SUPPORT_TICKET = "#support-ticket"
 
-const INDIA_HELP_DESK_VIDEOS_LINK = process.env.INDIA_HELP_DESK_VIDEOS_LINK
-const INDIA_HELP_DESK_SUPPORT_LINK = process.env.INDIA_HELP_DESK_SUPPORT_LINK
-
-const ENABLE_HEPLDESK = process.env.ENABLE_HEPLDESK
+const HELP_DESK_VIDEOS_LINK = process.env.HELP_DESK_VIDEOS_LINK
+const HELP_DESK_SUPPORT_LINK = process.env.HELP_DESK_SUPPORT_LINK
 
 const checkedQuerySelector = <T extends HTMLElement>(selector: string): T => {
     const el = document.querySelector<T>(selector)
@@ -16,8 +14,7 @@ const checkedQuerySelector = <T extends HTMLElement>(selector: string): T => {
 }
 
 export const showOrHideHelpDesk = () => {
-    console.log(ENABLE_HEPLDESK);
-    if (ENABLE_HEPLDESK) {
+    if (HELP_DESK_VIDEOS_LINK || HELP_DESK_SUPPORT_LINK) {
         const helpDeskContainer = checkedQuerySelector<HTMLDivElement>(
             HELP_DESK_CONTAINER_SELECTOR
         )
@@ -28,10 +25,10 @@ export const showOrHideHelpDesk = () => {
             HELP_DESK_SUPPORT_TICKET
         )
         helpDeskVideos?.addEventListener("click", () =>
-            window.open(INDIA_HELP_DESK_VIDEOS_LINK, "_blank", "noopener")
+            window.open(HELP_DESK_VIDEOS_LINK, "_blank", "noopener")
         )
         helpDeskSupportTicket?.addEventListener("click", () =>
-            window.open(INDIA_HELP_DESK_SUPPORT_LINK, "_blank", "noopener")
+            window.open(HELP_DESK_SUPPORT_LINK, "_blank", "noopener")
         )
     }
 }

@@ -21,10 +21,9 @@
 }
 
 #continue {
-    position:absolute;
+    position: absolute;
     visibility: hidden;
 }
-
 
 .attrEntry ul {
     /* Space between inputs. We can't use padding/margin on li because B2C inserts `display: inline` */

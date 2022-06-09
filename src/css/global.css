@@ -161,9 +161,7 @@ input.password--with_toggle,
 #email_ver_input_label,
 #phone_ver_input_label,
 #email_label {
-    display: block !important;
-    
-    /* Set to display: inline in the markup itself :'( */
+    display: block !important; /* Set to display: inline in the markup itself :'( */
     margin-bottom: 14px;
 }
 
@@ -365,7 +363,6 @@ input.password--with_toggle,
 }
 
 @media only screen and (max-width: 1000px) {
-
     .textInput,
     .verifyInput,
     #email,

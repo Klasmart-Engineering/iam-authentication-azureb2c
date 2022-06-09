@@ -8,8 +8,6 @@ const PRIVACY_POLICY_URL = `https://${process.env.AZURE_STORAGE_ACCOUNT}.blob.co
 const DEFAULT_PRIVACY_POLICY_TEXT = "I agree to the KidsLoop {{Privacy policy}}"
 const PLACEHOLDER_REGEX = /{{(.+)}}/
 
-console.log(PRIVACY_POLICY_URL);
-
 // Adapted from https://docs.microsoft.com/en-us/azure/active-directory-b2c/javascript-and-page-layout?pivots=b2c-custom-policy#add-terms-of-use
 const addPrivacyPolicyLink = () => {
     const label = document.querySelector(

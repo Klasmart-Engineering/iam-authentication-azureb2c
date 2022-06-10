@@ -1,3 +1,4 @@
+import { showOrHideHelpDesk } from "@js/helpDesk"
 import { setupPasswordToggles } from "@js/passwordToggle"
 import { removeInputPlaceholders } from "@js/removeInputPlaceholders"
 
@@ -185,6 +186,7 @@ const setup = () => {
         repositionPhoneLoginLink()
         repositionForgotPasswordLink()
         setupKidsloopSSORedirect()
+        showOrHideHelpDesk()
     }
 
     if (isPhoneLoginPage() && !isEmailLoginPage()) {

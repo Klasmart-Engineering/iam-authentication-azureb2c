@@ -1,6 +1,7 @@
 import DOMPurify from "dompurify"
 import { setupPasswordToggles } from "@js/passwordToggle"
 import { removeInputPlaceholders } from "@js/removeInputPlaceholders"
+import { showOrHideHelpDesk } from "@js/helpDesk"
 
 const PRIVACY_POLICY_ID = "hasAcceptedPrivacyPolicy_true"
 const PRIVACY_POLICY_URL = `https://${process.env.AZURE_STORAGE_ACCOUNT}.blob.core.windows.net/${process.env.AZURE_STORAGE_CONTAINER}/external/privacy-policy/index.html`
@@ -50,6 +51,7 @@ const setup = () => {
     addPrivacyPolicyLink()
     setupPasswordToggles()
     removeInputPlaceholders()
+    showOrHideHelpDesk()
 }
 
 if (

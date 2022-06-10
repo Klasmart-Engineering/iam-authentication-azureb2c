@@ -344,6 +344,24 @@ input.password--with_toggle,
     display: none;
 }
 
+.help-buttons {
+    bottom: 3%;
+    display: none;
+    position: fixed;
+    right: 53%;
+    text-align: center;
+}
+
+.help-button {
+    background-color: #669bd2;
+    border-radius: 1rem;
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+    margin: 0.5rem;
+    padding: 0.5rem 1rem;
+}
+
 @media only screen and (max-width: 1000px) {
     .textInput,
     .verifyInput,
@@ -362,5 +380,22 @@ input.password--with_toggle,
 
     .language-select__icon {
         height: 1.1em;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .help-buttons {
+        justify-content: space-around;
+        left: 0;
+        right: 0;
+        width: 100%;
+    }
+
+    .help-button {
+        flex: 1;
+    }
+
+    .signin-link {
+        margin-bottom: 3rem;
     }
 }

@@ -363,6 +363,7 @@ input.password--with_toggle,
 }
 
 @media only screen and (max-width: 1000px) {
+
     .textInput,
     .verifyInput,
     #email,
@@ -385,7 +386,14 @@ input.password--with_toggle,
 
 @media only screen and (max-width: 600px) {
     .help-buttons {
-        right: unset;
+        justify-content: space-around;
+        left: 0;
+        right: 0;
+        width: 100%;
+    }
+
+    .help-button {
+        flex: 1;
     }
 
     .signin-link {

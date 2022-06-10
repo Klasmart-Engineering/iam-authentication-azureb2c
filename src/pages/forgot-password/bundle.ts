@@ -8,6 +8,7 @@ const removeContinueButton = () => {
     var observer = new MutationObserver(function (mutations) {
         mutations.forEach(function (mutation) {
             if (mutation.type === "attributes") {
+                element?.click()
                 console.log("attributes changed")
             }
         })
